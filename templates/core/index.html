@@ -1,0 +1,16 @@
+<html>
+    <head>
+	<title>Voice Bank</title>
+    </head>
+    <body>
+	<form id="upload_clip" enctype="multipart/form-data" method="post">{% csrf_token %}
+	    <fieldset>
+		<legend>Upload Voice Clip</legend>
+		{{ form.as_ul }}
+	    </fieldset>
+	    <fieldset>
+		<button type="submit">Upload</button>
+	    </fieldset>
+	</form>
+    </body>
+</html>
