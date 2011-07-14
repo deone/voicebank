@@ -1,0 +1,10 @@
+<form method="post">{% csrf_token %}
+    <fieldset>
+	<legend>Login</legend>
+	{{ form.as_ul }}
+    </fieldset>
+    <fieldset>
+	<button type="submit">Login</button>
+    </fieldset>
+    <a href="{% url join %}">Join</a>
+</form>
