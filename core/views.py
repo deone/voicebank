@@ -1,8 +1,10 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 from core.forms import VoiceClipForm
 
+@login_required
 def upload(request, template='core/index.html', form=VoiceClipForm):
     """ """
 

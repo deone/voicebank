@@ -3,19 +3,17 @@ import os
 from django.conf.urls.defaults import *
 from django.conf import settings
 
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^voicebank/', include('voicebank.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
-    (r'^$', include('core.urls')),
+    url(r'^', include('accounts.urls')),
+    (r'^upload/', include('core.urls')),
+    (r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:

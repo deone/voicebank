@@ -3,6 +3,7 @@
 	<title>Voice Bank</title>
     </head>
     <body>
+	<p>Welcome {{ user }}</p>
 	<form id="upload_clip" enctype="multipart/form-data" method="post">{% csrf_token %}
 	    <fieldset>
 		<legend>Upload Voice Clip</legend>
@@ -12,5 +13,6 @@
 		<button type="submit">Upload</button>
 	    </fieldset>
 	</form>
+    <a href="{% url logout %}">Logout</a>
     </body>
 </html>
