@@ -1,0 +1,10 @@
+<form id="join" method="post">{% csrf_token %}
+    <fieldset>
+	<legend>Join Voicebank</legend>
+	{{ form.as_ul }}
+    </fieldset>
+    <fieldset>
+	<button type="submit">Join</button>
+    </fieldset>
+</form>
+<a href="{% url login %}">Login</a>

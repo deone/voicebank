@@ -3,8 +3,17 @@
 	<title>Voice Bank</title>
     </head>
     <body>
-	<p>Welcome {{ user }}</p>
-	<form id="upload_clip" enctype="multipart/form-data" method="post">{% csrf_token %}
+    <p>Welcome {{ user }}</p>
+	<form id="upload" enctype="multipart/form-data" method="post">{% csrf_token %}
+	    <div class=feedback>
+		{% if messages %}
+		    {% for message in messages %}
+		    <p{% if message.tags %} class="{{ message.tags }}"
+		    {%endif %}>{{ message }}</p>
+		    {% endfor %}
+		{% endif %}
+		{{ form.non_field_errors }}
+		</div>
 	    <fieldset>
 		<legend>Upload Voice Clip</legend>
 		{{ form.as_ul }}
@@ -13,6 +22,6 @@
 		<button type="submit">Upload</button>
 	    </fieldset>
 	</form>
-    <a href="{% url logout %}">Logout</a>
+	<a href="{% url logout %}">Logout</a>
     </body>
 </html>
