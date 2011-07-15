@@ -2,8 +2,9 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     url(r'^join/$', 'accounts.views.join', name='join'),
-    url(r'^$', 'django.contrib.auth.views.login', name='login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
+    url(r'^$', 'django.contrib.auth.views.login', {'template_name':
+	'accounts/login.html'}, 'login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'accounts/logged_out.html'}, 'logout'),
     (r'^password_change/$', 'django.contrib.auth.views.password_change'),
     (r'^password_change/done/$', 'django.contrib.auth.views.password_change_done'),
     (r'^password_reset/$', 'django.contrib.auth.views.password_reset'),

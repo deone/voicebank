@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 
 from accounts.forms import UserJoinForm
 
-def join(request, template='registration/index.html', form=UserJoinForm):
+def join(request, template='accounts/index.html', form=UserJoinForm):
     if request.method == "POST":
 	form = form(request.POST)
 	if form.is_valid():
