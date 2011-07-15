@@ -8,7 +8,7 @@ def join(request, template='accounts/index.html', form=UserJoinForm):
     if request.method == "POST":
 	form = form(request.POST)
 	if form.is_valid():
-	    form.save()
+	    form.save(request)
 
 	    # Authenticate and log user in.
 	    username = request.POST['username']
