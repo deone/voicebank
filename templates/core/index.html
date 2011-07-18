@@ -6,17 +6,20 @@
     <p>Welcome {{ user }}</p>
 	<form id="upload" enctype="multipart/form-data" method="post">{% csrf_token %}
 	    <div class=feedback>
-		{% if messages %}
-		    {% for message in messages %}
-		    <p{% if message.tags %} class="{{ message.tags }}"
-		    {%endif %}>{{ message }}</p>
-		    {% endfor %}
-		{% endif %}
-		{{ form.non_field_errors }}
-		</div>
+	    {% if messages %}
+	    {% for message in messages %}
+	    <p{% if message.tags %} class="{{ message.tags }}"
+		{%endif %}>{{ message }}</p>
+		{% endfor %}
+	    {% endif %}
+	    {{ form.non_field_errors }}
+	    </div>
 	    <fieldset>
 		<legend>Upload Voice Clip</legend>
-		{{ form.as_ul }}
+		{{ form.user.errors }}
+		{{ form.user.as_hidden }}
+		{{ form.voice_clip.errors }}
+		{{ form.voice_clip }}
 	    </fieldset>
 	    <fieldset>
 		<button type="submit">Upload</button>
