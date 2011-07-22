@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Voice Bank</title>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reset.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/text.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/grid.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/nav.css" media="screen"/>
+	{% block app_body_css %}{% endblock %}
+    </head>
+    <body>
+	<div class="container_16">
+	    <div class="grid_16">
+		<h1 id="branding">
+		    <!--Nigerian Voice Bank-->
+		    Fluid 960.gs
+		</h1>
+	    </div>
+	    <div class="clear"></div>
+	    {% block app_body_header %}{% endblock %}
+	    <div class="clear"></div>
+	    {% block app_body %}{% endblock %}
+	    <div class="clear"></div>
+	    <div class="grid_16" id="site_info">
+		<div class="box">
+		    <p>&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>
+		</div>
+	    </div>
+	    <div class="clear"></div>
+	</div>
+    </body>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+    {% block app_body_js %}{% endblock %}
+</html>

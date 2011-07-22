@@ -1,10 +1,60 @@
-<form id="join" method="post">{% csrf_token %}
-    <fieldset>
-	<legend>Join Voicebank</legend>
-	{{ form.as_ul }}
-    </fieldset>
-    <fieldset>
-	<button type="submit">Join</button>
-    </fieldset>
-</form>
-<a href="{% url login %}">Login</a>
+{% extends "base.html" %}
+
+{% block app_body_header %}
+    <div class="grid_8">&nbsp;</div>
+    <div class="grid_8">
+	<form id="login" method="post" action="{% url login %}">{% csrf_token %}
+	    <fieldset>
+		<span>
+		    <label>{{ login_form.username.label }}:</label>
+		    {{ login_form.username }}
+		</span>
+		<span>
+		    <label>{{ login_form.password.label }}:</label>
+		    {{ login_form.password }}
+		</span>
+		<input class="login button" type="submit" value="Sign In"/>
+	    </fieldset>
+	</form>
+    </div>
+{% endblock %}
+
+{% block app_body %}
+    <div class="grid_4">
+	&nbsp;
+    </div>
+    <div class="grid_7">
+	&nbsp;
+    </div>
+    <div class="grid_5">
+	<div class="block">
+	    <form id="join" method="post" action="{% url join %}">{% csrf_token %}
+		<fieldset class="login">
+		    <legend>Join Nigerian Voice Bank</legend>
+		    <p>
+			{{ join_form.first_name.errors }}
+			<label>{{ join_form.first_name.label }}:</label>
+			{{ join_form.first_name }}
+		    </p>
+		    <p>
+			{{ join_form.last_name.errors }}
+			<label>{{ join_form.last_name.label }}:</label>
+			{{ join_form.last_name }}
+		    </p>
+		    <p>
+			{{ join_form.username.errors }}
+			<label>{{ join_form.username.label }}:</label>
+			{{ join_form.username }}
+		    </p>
+		    <p>
+			{{ join_form.password.errors }}
+			<label>{{ join_form.password.label }}:</label>
+			{{ join_form.password }}
+		    </p>
+		<input class="button" value="Join" type="submit"/>
+		    <p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>
+		</fieldset>
+	    </form>
+	</div>
+    </div>
+{% endblock %}
