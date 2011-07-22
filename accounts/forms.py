@@ -1,14 +1,18 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class UserJoinForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    email_address = forms.CharField(max_length=30)
+class UserJoinForm(forms.ModelForm):
+    username = forms.EmailField(label='Email')
+    password = forms.CharField(widget=forms.PasswordInput)
 
-    def save(self, request):
-	user = super(UserJoinForm, self).save(commit=True)
-	user.first_name = request.POST['first_name']
-	user.last_name = request.POST['last_name']
-	user.email = request.POST['email_address']
-	user.save()
+    class Meta:
+	model = User
+	fields = ('first_name', 'last_name', 'username')
+
+    def save(self, commit=True):
+        user = super(UserJoinForm, self).save(commit=False)
+	user.email = self.cleaned_data["username"]
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
