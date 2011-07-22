@@ -36,5 +36,5 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
     else:
 	form = form()
 
-    return render_to_response(template, {'form': form},
+    return render_to_response(template, {'join_form': form},
 	    context_instance=RequestContext(request))
