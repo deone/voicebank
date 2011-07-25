@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-	<title>Voice Bank</title>
-	<link href="{{ MEDIA_URL }}css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-	<p>Welcome {{ user }}</p>
-	<form id="upload" enctype="multipart/form-data" method="post">{% csrf_token %}
+{% extends "base.html" %}
+
+{% block app_body_css %}
+    <link href="{{ MEDIA_URL }}css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block app_body %}
+    <div class="grid_4">&nbsp;</div>
+    <div class="grid_8">
+	<form id="upload" enctype="multipart/form-data" method="post" action="{% url upload_voice_clip %}">{% csrf_token %}
 	    <div class=feedback>
 	    {% if messages %}
 	    {% for message in messages %}
@@ -25,8 +26,6 @@
 		{{ form.name }}
 		{{ form.voice_clip.errors }}
 		{{ form.voice_clip }}
-	    </fieldset>
-	    <fieldset>
 		<button type="submit">Upload</button>
 	    </fieldset>
 	</form>
@@ -67,9 +66,10 @@
 	{% else %}
 	    <p>You have not uploaded any voice clips</p>
 	{% endif %}
-	<a href="{% url logout %}">Logout</a>
-    </body>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.js"></script>
+    </div>
+{% endblock %}
+
+{% block app_body_js %}
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.jplayer.min.js"></script>
     {% if clips %}
 	{% for item in clips %}
@@ -93,4 +93,4 @@
 	    </script>
 	{% endfor %}
     {% endif %}
-</html>
+{% endblock %}

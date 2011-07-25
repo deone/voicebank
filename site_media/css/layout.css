@@ -1,3 +1,7 @@
+#header	{
+    margin: 2em 0 0.5em;
+}
+
 /*
 -----------------------------------------------
 Grey Box Method - Layout CSS
@@ -7,7 +11,7 @@ body {
 	background: #eee;
 	border-top: 5px solid #000;
 	color: #333;
-	font-size: 11px;
+	font-size: 12px;
 	padding: 0 0 40px;
 }
 
@@ -16,7 +20,6 @@ body {
 ----------------------------------------------- */
 a {
 	color: #000;
-	font-weight:bold;
 	text-decoration: none;
 }
 a:hover {
@@ -28,7 +31,7 @@ a:hover {
 ----------------------------------------------- */
 .container_12,
 .container_16 {
-	background:#fff;
+	/*background:#fff;*/
 }
 
 

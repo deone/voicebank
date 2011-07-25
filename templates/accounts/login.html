@@ -1,28 +1,25 @@
 {% extends "base.html" %}
 
 {% block app_body %}
-    <div class="grid_4">
-	&nbsp;
-    </div>
-    <div class="grid_7">
+    <div class="grid_11">
 	&nbsp;
     </div>
     <div class="grid_5">
-	    <div class="block" id="login-forms">
-		<form method="post">{% csrf_token %}
-		    <fieldset class="login">
-			<legend>Login</legend>
-			<p>
-			    <label>{{ form.username.label }}:</label>
-			    {{ form.username }}
-			</p>
-			<p>
-			    <label>{{ form.password.label }}:</label>
-			    {{ form.password }}
-			</p>
-			<input class="login button" value="Sign In" type="submit"/> or <a href="{% url join %}">Join Voicebank</a>
-		    </fieldset>
-		</form>
-	    </div>
+	<div class="block" id="login-forms">
+	    <form method="post">{% csrf_token %}
+		<fieldset class="login">
+		    <legend>Login</legend>
+		    <p>
+			<label>{{ form.username.label }}:</label>
+			{{ form.username }}
+		    </p>
+		    <p>
+			<label>{{ form.password.label }}:</label>
+			{{ form.password }}
+		    </p>
+		    <input class="login button" value="Sign In" type="submit"/> or <a href="{% url join %}">Join Voicebank</a>
+		</fieldset>
+	    </form>
+	</div>
     </div> 
 {% endblock %}
