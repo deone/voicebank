@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from accounts.forms import UserJoinForm
 
@@ -38,3 +38,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 
     return render_to_response(template, {'join_form': form},
 	    context_instance=RequestContext(request))
+
+def logout(request):
+    request.session.flush()
+    return redirect('accounts.views.index')
