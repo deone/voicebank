@@ -1,22 +1,31 @@
-#header ul.nav	{
-    margin-top: 7px;
+#header-nav {
+    float: right;
+    margin-top: 27px;
 }
-#header ul li span  {
+#header-nav li {
+    border-right: solid 1px #ccc;
+}
+#header-nav li:last-child   {
+    border: none;
+}
+#header-nav li span {
     text-transform: capitalize;
     padding: 0 1em;
 }
-#header ul li	{
-    border-right: solid 1px #ccc;
+#mast ul.nav	{
+    text-transform: uppercase;
+    width: 40%;
+    float: left;
+    margin-top: 5px;
 }
-#header ul li:last-child    {
-    border: none;
+#mast ul.nav li a   {
+    color: #fff;
 }
 ul.nav,
 ul.nav * { margin:0;padding:0;}
 ul.nav {
     position:relative;
     max-width:100%;
-    float: right;
 }
 ul.nav li {
     float:left;
@@ -29,12 +38,20 @@ ul.nav li a {
     cursor:pointer;
     text-decoration:none;
     display:block;
-    float:left;
     padding: 0em 1em;
 }
 ul.nav li a:hover   {
     text-decoration: underline;
 }
+/*#menu	{
+    font-size: 11px;
+}
+#menu ul.nav	{
+    line-height: 3em;
+}
+#menu ul.nav li a {
+    color: #fff;
+}*/
 
 /*
 -----------------------------------------------

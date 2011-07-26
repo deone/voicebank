@@ -1,24 +1,5 @@
 {% extends "accounts/base.html" %}
 
-{% block app_body_header %}
-    <div class="grid_8">&nbsp;</div>
-    <div class="grid_8">
-	<form id="login" method="post" action="{% url login %}">{% csrf_token %}
-	    <fieldset>
-		<span>
-		    <label>{{ login_form.username.label }}:</label>
-		    {{ login_form.username }}
-		</span>
-		<span>
-		<label>{{ login_form.password.label }}:</label>
-		    {{ login_form.password }}
-		</span>
-		<input class="login button" type="submit" value="Sign In"/>
-	    </fieldset>
-	</form>
-    </div>
-{% endblock %}
-
 {% block app_body %}
     <div class="grid_11">
 	&nbsp;

@@ -1,5 +1,21 @@
-#header	{
-    margin: 2em 0 0.5em;
+form input[type=text], form input[type=password]    {
+    border: solid 1px #ddd;
+}
+#logo	{
+    margin: 20px 0 10px;
+}
+#mast	{
+    background: #1f1f1f;
+    margin-bottom: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: #fff;
+}
+#mast form  {
+    float: right;
+    margin-right: 10px;
 }
 
 /*
