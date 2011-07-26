@@ -32,7 +32,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 		else:
 		    pass
 	    
-	    return redirect('core.views.upload')
+	    return redirect('core.views.welcome')
     else:
 	form = form()
 

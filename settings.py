@@ -96,6 +96,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-LOGIN_REDIRECT_URL = '/upload/'
+LOGIN_REDIRECT_URL = '/home/welcome'
 
 LOGIN_URL = '/'

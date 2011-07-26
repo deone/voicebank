@@ -9,6 +9,26 @@ from core.forms import VoiceClipForm
 from core.models import VoiceClip
 
 @login_required
+def index(request, template='core/index.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))
+
+@login_required
+def dashboard(request, template='core/dashboard.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))
+
+@login_required
+def profile(request, template='core/profile.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))
+
+@login_required
+def voiceclips(request, template='core/voiceclips.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))
+
+@login_required
+def following(request, template='core/following.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))
+
+@login_required
 def upload(request, template='core/index.html', form=VoiceClipForm):
 
     if request.method == "POST":
