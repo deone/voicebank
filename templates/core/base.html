@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block app_body %}
+    <div id="app-body" class="grid_16">
+	<ul class="nav">
+	    <li><a href="{% url welcome %}">Getting Started</a></li>
+	    <li><a href="{% url dashboard %}">Dashboard</a></li>
+	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
+	    <li><a href="{% url profile %}">Profile</a></li>
+	</ul>
+    <div class="box">&nbsp;</div>
+    </div>
+    <!--<div class="clear"></div>
+    <div class="grid_5" style="background: #ff0">
+	<div class="box">
+	    dfhdfl
+	</div>
+    </div>
+    <div class="grid_5" style="background: #ff0">
+	<div class="box">
+	    dfhdfl
+	</div>
+    </div>
+    <div class="grid_6" style="background: #ff0">
+	<div class="box">
+	    dfhdfl
+	</div>
+    </div>-->
+{% endblock %}

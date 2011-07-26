@@ -32,21 +32,17 @@
 	    <div class="clear"></div>
 	    <div id="mast" class="grid_16">
 		<ul class="nav">
-		    <li><a href="#">Account Settings</a></li>
-		    <li><a href="#">Help</a></li>
+		    <li><a href="#">My Home</a></li>
 		    <li><a href="#">Take a Tour</a></li>
-		    <div class="clear"></div>
 		</ul>
-		{% if not user.is_authenticated %}
 		<form method="post" action="#">{% csrf_token %}
 		    <label>Find:</label>
 			<input type="text" id="search" value="voice clips" name="search"/>
 		    </span>
 		    <input type="submit" value="Search"/>
 		</form>
-		{% endif %}
 	    </div>
-	<div class="clear"></div>
+	    <div class="clear"></div>
 	    {% block app_body %}{% endblock %}
 	    <div class="clear"></div>
 	    <div class="grid_16" id="site_info">
