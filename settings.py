@@ -99,3 +99,5 @@ INSTALLED_APPS = (
 LOGIN_REDIRECT_URL = '/home/welcome'
 
 LOGIN_URL = '/'
+
+AUTH_PROFILE_MODULE = 'accounts.Profile'
