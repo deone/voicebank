@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 
 from accounts.forms import UserJoinForm
 
@@ -25,10 +25,10 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    username = request.POST['username']
 	    password = request.POST['password']
 
-	    user = authenticate(username=username, password=password)
+	    user = auth.authenticate(username=username, password=password)
 	    if user is not None:
 		if user.is_active:
-		    login(request, user)
+		    auth.login(request, user)
 		else:
 		    pass
 	    
@@ -40,5 +40,5 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    context_instance=RequestContext(request))
 
 def logout(request):
-    request.session.flush()
+    auth.logout(request)
     return redirect('accounts.views.index')
