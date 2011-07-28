@@ -13,6 +13,8 @@ class UserJoinForm(forms.ModelForm):
         user = super(UserJoinForm, self).save(commit=False)
 	user.email = self.cleaned_data["username"]
         user.set_password(self.cleaned_data["password"])
+	
         if commit:
             user.save()
+
         return user
