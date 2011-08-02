@@ -27,7 +27,7 @@ def profile(request, template='accounts/profile.html', form=UserProfileForm):
 	    'user': request.user.id, 
 	    'first_name': request.user.first_name,
 	    'last_name': request.user.last_name,
-	    'birthday': request.user.get_profile().date_of_birth,
+	    'birthday': request.user.get_profile().birthday,
 	    })
 
     return render_to_response(template, {
@@ -41,14 +41,16 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    form.save()
 
 	    # Authenticate and log user in.
-	    username = request.POST['username']
+	    email = request.POST['email']
 	    password = request.POST['password']
 
-	    user = auth.authenticate(username=username, password=password)
+	    user = auth.authenticate(username=email, password=password)
+
 	    if user is not None:
 		if user.is_active:
 		    auth.login(request, user)
 		else:
+		    # Do something if we ever need to.
 		    pass
 	    
 	    return redirect('core.views.index')

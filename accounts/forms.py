@@ -7,9 +7,9 @@ import random
 import string
 
 class UserJoinForm(forms.Form):
-    username = forms.EmailField(label='Email')
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
+    email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
     gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select)
     birthday = forms.DateField(('%d/%m/%Y',),
@@ -18,15 +18,18 @@ class UserJoinForm(forms.Form):
 	    )
 
     def save(self):
-	username = self.cleaned_data['username']
+	username = self.cleaned_data['email']
+	email = self.cleaned_data['email']
 	password = self.cleaned_data['password']
 	first_name = self.cleaned_data['first_name']
 	last_name = self.cleaned_data['last_name']
 	gender = self.cleaned_data['gender']
 	birthday = self.cleaned_data['birthday']
 
-	user = User.objects.create(username=username, password=password,
-		first_name=first_name, last_name=last_name, email=username)
+	user = User.objects.create_user(username, email, password)
+	user.first_name = first_name
+	user.last_name = last_name
+	user.save()
 
 	email_id = user.email.split('@')[0]
 	rand_alphanum = "".join(random.sample('%s%s' % (string.lowercase,
