@@ -1,5 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.forms.util import ErrorList
+from django.utils.html import conditional_escape
+from django.utils.safestring import mark_safe
+from django.utils.encoding import force_unicode
 
 from accounts.models import Profile, GENDER_CHOICES
 
@@ -48,5 +52,21 @@ class UserProfileForm(forms.Form):
     photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
-    birthday = forms.DateField()
+    birthday = forms.DateField(('%d/%m/%Y',),
+		widget=forms.DateInput(format='%d/%m/%Y'),
+		help_text='Enter your birthday in DD/MM/YYYY format')
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+
+    def save(self):
+	pass
+
+
+class SpanErrorList(ErrorList):
+    def __unicode__(self):
+	return self.as_spans()
+
+    def as_spans(self):
+	if not self:
+	    return u''
+	return mark_safe(u'%s' % ''.join([u"<span class='help'>%s</span>" %
+	    conditional_escape(force_unicode(e)) for e in self]))
