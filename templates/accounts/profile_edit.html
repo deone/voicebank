@@ -3,32 +3,33 @@
 {% block app_body_content %}
     <div class="grid_9">&nbsp;</div>
     <div class="grid_7">
-	<form method="post" enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
+    <form method="post" enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
 	    <fieldset>
 		<legend>Edit Profile</legend>
 		{{ form.user.as_hidden }}
 		<p>
-		    <span class="help">{{ form.photo.errors }}</span>
+		    {{ form.photo.errors }}
 		    <label>{{ form.photo.label }}:</label>
 		    {{ form.photo }}
 		</p>
 		<p>
-		    <span class="help">{{ form.first_name.errors }}</span>
+		    {{ form.first_name.errors }}
 		    <label>{{ form.first_name.label }}:</label>
 		    {{ form.first_name }}
 		</p>
 		<p>
-		    <span class="help">{{ form.last_name.errors }}</span>
+		    {{ form.last_name.errors }}
 		    <label>{{ form.last_name.label }}:</label>
 		    {{ form.last_name }}
 		</p>
 		<p>
-		    <span class="help">{{ form.birthday.errors }}</span>
+		    {{ form.birthday.errors }}
 		    <label>{{ form.birthday.label }}:</label>
 		    {{ form.birthday }}
+		    <span class="help">{{ form.birthday.help_text }}</span>
 		</p>
 		<p>
-		    <span class="help">{{ form.about.errors }}</span>
+		    {{ form.about.errors }}
 		    <label>{{ form.about.label }}:</label>
 		    {{ form.about }}
 		</p>
