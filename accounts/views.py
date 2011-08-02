@@ -17,9 +17,14 @@ def index(request, template='accounts/index.html', forms=[UserJoinForm, Authenti
 	}, context_instance=RequestContext(request))
 
 @login_required
-def profile(request, template='accounts/profile.html', form=UserProfileForm):
+def profile(request, slug, template='accounts/profile.html'):
+    return render_to_response(template, {
+	}, context_instance=RequestContext(request))
+
+@login_required
+def profile_edit(request, template='accounts/profile_edit.html', form=UserProfileForm):
     if request.method == "POST":
-	form = form(request.POST)
+	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
     else:

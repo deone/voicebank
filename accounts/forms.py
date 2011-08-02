@@ -45,8 +45,8 @@ class UserJoinForm(forms.Form):
 
 class UserProfileForm(forms.Form):
     user = forms.CharField(max_length=5)
-    photo = forms.ImageField()
+    photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     birthday = forms.DateField()
-    about = forms.CharField(max_length=255, widget=forms.Textarea)
+    about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
