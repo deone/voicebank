@@ -374,14 +374,14 @@ fieldset p label {
 	line-height:2em;
 	margin-right:3%;
 	text-align:right;
-	width:32%;
+	width:28%;
 	font-weight: bold;
 }
-fieldset p input, fieldset p select	{
+fieldset p input, fieldset p select, fieldset p textarea    {
 	width:60%;
 }
 fieldset input.button, fieldset span.help	{
-	margin-left:35%;
+	margin-left:31%;
 	margin-bottom: 10px;
 }
 fieldset span.help	{

@@ -8,34 +8,34 @@
     <div class="block">
 	<form id="join" method="post" action="{% url join %}">{% csrf_token %}
 	    <fieldset>
-	    <legend>Join Nigerian Voice Bank</legend>
+		<legend>Join Nigerian Voice Bank</legend>
 		<p>
-		    {{ join_form.first_name.errors }}
+		    <span class="help">{{ join_form.first_name.errors }}</span>
 		    <label>{{ join_form.first_name.label }}:</label>
 		    {{ join_form.first_name }}
 		</p>
 		<p>
-		    {{ join_form.last_name.errors }}
+		    <span class="help">{{ join_form.last_name.errors }}</span>
 		    <label>{{ join_form.last_name.label }}:</label>
 		    {{ join_form.last_name }}
 		</p>
 		<p>
-		    {{ join_form.email.errors }}
+		    <span class="help">{{ join_form.email.errors }}</span>
 		    <label>{{ join_form.email.label }}:</label>
 		    {{ join_form.email }}
 		</p>
 		<p>
-		    {{ join_form.password.errors }}
+		    <span class="help">{{ join_form.password.errors }}</span>
 		    <label>{{ join_form.password.label }}:</label>
 		    {{ join_form.password }}
 		</p>
 		<p>
-		    {{ join_form.gender.errors }}
+		    <span class="help">{{ join_form.gender.errors }}</span>
 		    <label>{{ join_form.gender.label }}:</label>
 		    {{ join_form.gender }}
 		</p>
 		<p>
-		    {{ join_form.birthday.errors }}
+		    <span class="help">{{ join_form.birthday.errors }}</span>
 		    <label>{{ join_form.birthday.label }}:</label>
 		    {{ join_form.birthday }}
 		    <span class="help">{{ join_form.birthday.help_text }}</span>

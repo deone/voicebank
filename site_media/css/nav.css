@@ -19,8 +19,8 @@
 #mast ul.nav li a   {
     color: #fff;
 }
-#app-body ul.nav    {
-    background: #ff0;
+#core_nav ul.nav    {
+    background: #fff;
     padding: 5px 0;
     -webkit-border-top-right-radius: 5px;
     -moz-border-top-right-radius: 5px;
@@ -28,16 +28,7 @@
     -webkit-border-top-left-radius: 5px;
     -moz-border-top-left-radius: 5px;
     border-top-left-radius: 5px;
-    margin-bottom: 1px;
-}
-#app-body .box	{
-    background: #fff;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-bottom-right-radius: 5px;
-    border-top-bottom-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
 }
 ul.nav,
 ul.nav * { margin:0;padding:0;}

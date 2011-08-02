@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+
+{% block app_body_content %}
+    <div class="grid_9">&nbsp;</div>
+    <div class="grid_7">
+	<form method="post" enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
+	    <fieldset>
+		<legend>Edit Profile</legend>
+		{{ form.user.as_hidden }}
+		<p>
+		    <span class="help">{{ form.photo.errors }}</span>
+		    <label>{{ form.photo.label }}:</label>
+		    {{ form.photo }}
+		</p>
+		<p>
+		    <span class="help">{{ form.first_name.errors }}</span>
+		    <label>{{ form.first_name.label }}:</label>
+		    {{ form.first_name }}
+		</p>
+		<p>
+		    <span class="help">{{ form.last_name.errors }}</span>
+		    <label>{{ form.last_name.label }}:</label>
+		    {{ form.last_name }}
+		</p>
+		<p>
+		    <span class="help">{{ form.birthday.errors }}</span>
+		    <label>{{ form.birthday.label }}:</label>
+		    {{ form.birthday }}
+		</p>
+		<p>
+		    <span class="help">{{ form.about.errors }}</span>
+		    <label>{{ form.about.label }}:</label>
+		    {{ form.about }}
+		</p>
+		<input class="login button" value="Save" type="submit"/>
+	    </fieldset>
+	</form>
+    </div>
+{% endblock %}

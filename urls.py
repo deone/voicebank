@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^', include('accounts.urls')),
     (r'^home/', include('core.urls')),
     (r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<slug>[-A-za-z0-9_]+)$', 'accounts.views.profile',
+	name='user_profile'),
 )
 
 if settings.DEBUG:

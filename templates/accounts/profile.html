@@ -1,32 +1,3 @@
 {% extends "core/base.html" %}
 
-{% block app_body_content %}
-    <form>
-	<fieldset>
-	    <legend>Edit Profile</legend>
-	    {#{{ form.as_ul }}#}
-	    {{ form.user.as_hidden }}
-	    <p>
-		{{ form.photo.label }}
-		{{ form.photo }}
-	    </p>
-	    <p>
-		{{ form.first_name.label }}
-		{{ form.first_name }}
-	    </p>
-	    <p>
-		{{ form.last_name.label }}
-		{{ form.last_name }}
-	    </p>
-	    <p>
-		{{ form.birthday.label }}
-		{{ form.birthday }}
-	    </p>
-	    <p>
-		{{ form.about.label }}
-		{{ form.about }}
-	    </p>
-	    <input class="login button" value="Save" type="submit"/>
-	</fieldset>
-    </form>
-{% endblock %}
+{% block app_body_content %}{% endblock %}
