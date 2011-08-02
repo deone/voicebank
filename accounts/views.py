@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 
-from accounts.forms import UserJoinForm
+from accounts.forms import UserJoinForm, UserProfileForm
 
 def index(request, template='accounts/index.html', forms=[UserJoinForm, AuthenticationForm]):
 
@@ -13,6 +14,24 @@ def index(request, template='accounts/index.html', forms=[UserJoinForm, Authenti
     return render_to_response(template, {
 	    'login_form': login_form,
 	    'join_form': join_form
+	}, context_instance=RequestContext(request))
+
+@login_required
+def profile(request, template='accounts/profile.html', form=UserProfileForm):
+    if request.method == "POST":
+	form = form(request.POST)
+	if form.is_valid():
+	    form.save()
+    else:
+	form = form(initial={
+	    'user': request.user.id, 
+	    'first_name': request.user.first_name,
+	    'last_name': request.user.last_name,
+	    'birthday': request.user.get_profile().date_of_birth,
+	    })
+
+    return render_to_response(template, {
+	    'form': form
 	}, context_instance=RequestContext(request))
 
 def join(request, template='accounts/join.html', form=UserJoinForm):

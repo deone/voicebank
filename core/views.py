@@ -17,10 +17,6 @@ def dashboard(request, template='core/dashboard.html'):
     return render_to_response(template, {}, context_instance=RequestContext(request))
 
 @login_required
-def profile(request, template='core/profile.html'):
-    return render_to_response(template, {}, context_instance=RequestContext(request))
-
-@login_required
 def voiceclips(request, template='core/voiceclips.html'):
     return render_to_response(template, {}, context_instance=RequestContext(request))
 
@@ -38,7 +34,7 @@ def upload(request, template='core/index.html', form=VoiceClipForm):
 	    messages.success(request, "Audio clip uploaded")
 	    return redirect('core.views.upload')
     else:
-	form = form(auto_id='%s', initial={'user': request.user.id})
+	form = form(initial={'user': request.user.id})
 
     try:
 	voice_clips = get_list_or_404(VoiceClip, user=request.user)
