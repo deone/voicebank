@@ -323,6 +323,32 @@ td.currency {
 
 /* forms
 ----------------------------------------------- */
+/*fieldset p label {
+	width:98%;
+}
+fieldset p input {
+	width:98%;
+}
+fieldset p select {
+	width:99%;
+}
+fieldset.login p {
+	margin-bottom:1em;
+	margin-top:0pt;
+}
+fieldset.login p label {
+	float:left;
+	line-height:2em;
+	margin-right:3%;
+	text-align:right;
+	width:32%;
+}
+fieldset.login p input, fieldset.login p select	{
+	width:60%;
+}
+fieldset.login input.button {
+	margin-left:35%;
+}*/
 form {
 	overflow:hidden;
 }
@@ -339,31 +365,28 @@ legend {
 	background:#fff;
 	border:1px solid #bbb;
 }
-fieldset.login p {
+fieldset p {
 	margin-bottom:1em;
 	margin-top:0pt;
 }
 fieldset p label {
-	width:98%;
-}
-fieldset p input {
-	width:98%;
-}
-fieldset p select {
-	width:99%;
-}
-fieldset.login p label {
 	float:left;
 	line-height:2em;
 	margin-right:3%;
 	text-align:right;
 	width:32%;
+	font-weight: bold;
 }
-fieldset.login p input {
+fieldset p input, fieldset p select	{
 	width:60%;
 }
-fieldset.login input.button {
+fieldset input.button, fieldset span.help	{
 	margin-left:35%;
+	margin-bottom: 10px;
+}
+fieldset span.help	{
+    display: block;
+    font-size: 11px;
 }
 form p.notice {
 	font-weight:bold;
