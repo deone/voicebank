@@ -10,14 +10,16 @@
 		<fieldset class="login">
 		    <legend>Login</legend>
 		    <p>
-			<label>{{ form.username.label }}:</label>
+			{{ form.username.errors }}
+			<label>Email:</label>
 			{{ form.username }}
 		    </p>
 		    <p>
+			{{ form.password.errors }}
 			<label>{{ form.password.label }}:</label>
 			{{ form.password }}
 		    </p>
-		    <input class="login button" value="Sign In" type="submit"/> or <a href="{% url join %}">Join Voicebank</a>
+		<input class="login button" value="Sign In" type="submit"/> or <a href="{% url join %}">Join Voicebank</a>
 		</fieldset>
 	    </form>
 	</div>

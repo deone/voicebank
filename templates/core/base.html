@@ -7,9 +7,13 @@
 	    <li><a href="{% url dashboard %}">Dashboard</a></li>
 	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
 	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
-	    <li><a href="{% url profile %}">Profile</a></li>
+	    <li><a href="{% url profile_edit %}">Profile</a></li>
 	</ul>
-    <div class="box">&nbsp;</div>
+	<div class="box">
+	    {% block app_body_content %}
+		&nbsp;
+	    {% endblock %}
+	</div>
     </div>
     <!--<div class="clear"></div>
     <div class="grid_5" style="background: #ff0">

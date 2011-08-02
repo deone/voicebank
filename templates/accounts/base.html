@@ -29,6 +29,18 @@
 			<label>{{ join_form.password.label }}:</label>
 			{{ join_form.password }}
 		    </p>
+		    <p>
+			{{ join_form.gender.errors }}
+			<label>{{ join_form.gender.label }}:</label>
+			{{ join_form.gender }}
+			{{ join_form.gender.help_text }}
+		    </p>
+		    <p>
+			{{ join_form.birthday.errors }}
+			<label>{{ join_form.birthday.label }}:</label>
+			{{ join_form.birthday }}
+			{{ join_form.birthday.help_text }}
+		    </p>
 		    <input class="button" value="Join" type="submit"/>
 		    <p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>
 		</fieldset>
