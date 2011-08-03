@@ -53,9 +53,6 @@ class UserProfileForm(forms.Form):
     photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
-    birthday = forms.DateField(('%d/%m/%Y',),
-		widget=forms.DateInput(format='%d/%m/%Y'),
-		help_text='Enter your birthday in DD/MM/YYYY format')
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
 
     def save(self):
@@ -66,7 +63,6 @@ class UserProfileForm(forms.Form):
 	profile = user.get_profile()
 	profile.about = self.cleaned_data['about']
 	profile.photo = self.cleaned_data['photo']
-	profile.birthday = self.cleaned_data['birthday']
 
 	user.save()
 	profile.save()
