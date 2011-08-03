@@ -8,5 +8,16 @@
 	</ul>
     </div>
     <div class="clear"></div>
-    {% block profile_display %}{% endblock %}
+    {% block profile_display %}
+	<div class="grid_16">
+	    <div class="box">
+		<h2>{{ user.get_full_name }}</h2>
+		<img src="{{ MEDIA_URL }}{{ user.get_profile.photo }}"/>
+		<h3>About</h3>
+		<p>{{ user.get_profile.about }}</p>
+		<h3>Voicebank URL</h3>
+		<p><a href="{{ user.profile.get_absolute_url }}">{{ user.profile.get_absolute_url }}</a></p>
+	    </div>
+	</div>
+    {% endblock %}
 {% endblock %}

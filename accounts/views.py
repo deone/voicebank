@@ -27,6 +27,9 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	form = form(request.POST, request.FILES, error_class=SpanErrorList)
 	if form.is_valid():
 	    form.save()
+
+	return redirect(request.user.profile.get_absolute_url())
+
     else:
 	form = form(initial={
 	    'user': request.user.id, 

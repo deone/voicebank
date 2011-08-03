@@ -4,6 +4,7 @@ from django.forms.util import ErrorList
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
+from django.shortcuts import get_object_or_404
 
 from accounts.models import Profile, GENDER_CHOICES
 
@@ -58,7 +59,17 @@ class UserProfileForm(forms.Form):
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
 
     def save(self):
-	pass
+	user = get_object_or_404(User, pk=self.cleaned_data['user'])
+	user.first_name = self.cleaned_data['first_name']
+	user.last_name = self.cleaned_data['last_name']
+
+	profile = user.get_profile()
+	profile.about = self.cleaned_data['about']
+	profile.photo = self.cleaned_data['photo']
+	profile.birthday = self.cleaned_data['birthday']
+
+	user.save()
+	profile.save()
 
 
 class SpanErrorList(ErrorList):

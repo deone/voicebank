@@ -3,38 +3,40 @@
 {% block profile_display %}
     <div class="grid_9">&nbsp;</div>
     <div class="grid_7">
-	<form method="post" enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
-	    <fieldset>
-		<legend>Edit Profile</legend>
-		{{ form.user.as_hidden }}
-		<p>
-		    {{ form.photo.errors }}
-		    <label>{{ form.photo.label }}:</label>
-		    {{ form.photo }}
-		</p>
-		<p>
-		    {{ form.first_name.errors }}
-		    <label>{{ form.first_name.label }}:</label>
-		    {{ form.first_name }}
-		</p>
-		<p>
-		    {{ form.last_name.errors }}
-		    <label>{{ form.last_name.label }}:</label>
-		    {{ form.last_name }}
-		</p>
-		<p>
-		    {{ form.birthday.errors }}
-		    <label>{{ form.birthday.label }}:</label>
-		    {{ form.birthday }}
-		    <span class="help">{{ form.birthday.help_text }}</span>
-		</p>
-		<p>
-		    {{ form.about.errors }}
-		    <label>{{ form.about.label }}:</label>
-		    {{ form.about }}
-		</p>
-		<input class="login button" value="Save" type="submit"/>
-	    </fieldset>
-	</form>
+	<div class="box">
+	    <form method="post" enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
+		<fieldset>
+		    <legend>Edit Profile</legend>
+		    {{ form.user.as_hidden }}
+		    <p>
+			{{ form.photo.errors }}
+			<label>{{ form.photo.label }}:</label>
+			{{ form.photo }}
+		    </p>
+		    <p>
+			{{ form.first_name.errors }}
+			<label>{{ form.first_name.label }}:</label>
+			{{ form.first_name }}
+		    </p>
+		    <p>
+			{{ form.last_name.errors }}
+			<label>{{ form.last_name.label }}:</label>
+			{{ form.last_name }}
+		    </p>
+		    <p>
+			{{ form.birthday.errors }}
+			<label>{{ form.birthday.label }}:</label>
+			{{ form.birthday }}
+			<span class="help">{{ form.birthday.help_text }}</span>
+		    </p>
+		    <p>
+			{{ form.about.errors }}
+			<label>{{ form.about.label }}:</label>
+			{{ form.about }}
+		    </p>
+		    <input class="login button" value="Save" type="submit"/>
+		</fieldset>
+	    </form>
+	</div>	
     </div>
 {% endblock %}
