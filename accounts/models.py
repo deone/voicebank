@@ -10,6 +10,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     slug = models.SlugField(unique=True, editable=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    location = models.CharField(max_length=30)
     about = models.CharField(max_length=255)
     birthday = models.DateField()
     photo = models.ImageField(upload_to="profile_pics")
@@ -20,3 +21,12 @@ class Profile(models.Model):
     @models.permalink
     def get_absolute_url(self):
 	return ('user_profile', [self.slug])
+
+
+class Interest(models.Model):
+    interest = models.CharField(max_length=30)
+
+
+class MediaInterest(models.Model):
+    profile = models.ForeignKey(Profile)
+    interest = models.ForeignKey(Interest)

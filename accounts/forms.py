@@ -53,7 +53,9 @@ class UserProfileForm(forms.Form):
     photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
+    location = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+    media_interests = forms.CharField(max_length=30)
 
     def save(self):
 	user = get_object_or_404(User, pk=self.cleaned_data['user'])

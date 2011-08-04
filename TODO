@@ -2,3 +2,10 @@ Unit-test:
 - Profile model, accounts forms and views.
 - Core app.
 
+Users should specify profession(s)/interest(s) in profile.
+Update date_added timestamp after user uploads voice clip.
+Use AdminDateWidget for date entry in Join form.
+Segment home page.
+
+Use Yahoo! webplayer for voice clips.
+Users should specify language during voice clip upload.
