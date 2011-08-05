@@ -1,19 +1,13 @@
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 
 from accounts.forms import UserJoinForm, UserProfileForm, SpanErrorList
 
-def index(request, template='accounts/index.html', forms=[UserJoinForm, AuthenticationForm]):
-
-    join_form = forms[0]()
-    login_form = forms[1]()
+def index(request, template='accounts/index.html'):
 
     return render_to_response(template, {
-	    'login_form': login_form,
-	    'join_form': join_form
 	}, context_instance=RequestContext(request))
 
 @login_required
