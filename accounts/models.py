@@ -24,7 +24,10 @@ class Profile(models.Model):
 
 
 class Interest(models.Model):
-    interest = models.CharField(max_length=30)
+    interest = models.CharField(max_length=50)
+
+    def __unicode__(self):
+	return self.interest
 
 
 class MediaInterest(models.Model):
