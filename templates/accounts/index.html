@@ -1,32 +1,39 @@
 {% extends "accounts/base.html" %}
 
 {% block app_body %}
-<div class="grid_13">
-    <div class="box" style="background: #ff0; height: 350px;">
+    <div class="thirteen columns half-bottom">
+	<div class="half-bottom" style="background: #ff0; height: 160px;">&nbsp;</div>
+	<div class="four columns pane alpha">
+	    <div class="wrap">
+		<h4 class="remove-bottom">Top Ten Voices</h4>
+		<hr/>
+		<ul>
+		    <li><a href="#">Yodel</a></li>
+		    <li><a href="#">Yodel</a></li>
+		    <li><a href="#">Yodel</a></li>
+		</ul>
+	    </div>
+	</div>
+	<div class="five columns pane">
+	    <div class="wrap">
+		<h4 class="remove-bottom">Most Recent Additions</h4>
+		<hr/>
+		<ul>
+		    <li><a href="#">Yodel</a></li>
+		    <li><a href="#">Yodel</a></li>
+		    <li><a href="#">Yodel</a></li>
+		</ul>
+	    </div>
+	</div>
+	<div class="four columns pane omega">
+	    <div class="wrap">
+		<h4 class="remove-bottom">Success Stories</h4>
+		<hr/>
+		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future. Design is about life — past, present and future — and the learning process that happens between birth and death. It is about community and shared knowledge and experience. It is the passion to build on what we've learned to create something better.</p>
+	    </div>
+	</div>
+    </div>
+    <div class="three columns" style="background: #eee; height: 524px">
 	&nbsp;
     </div>
-    <div class="box">
-	<h2>Top Ten Voices</h2>
-	<div class="block">
-	    <a href="{{ MEDIA_URL }}clips/example3.mp3">Yodel</a>
-	</div>
-    </div>
-    <div class="box">
-	<h2>Most Recent Additions</h2>
-	<div class="block">
-	    <p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future. Design is about life — past, present and future — and the learning process that happens between birth and death. It is about community and shared knowledge and experience. It is the passion to build on what we've learned to create something better.</p>
-	</div>
-    </div>
-</div>
-<div class="grid_3">
-    <div class="box" style="background: #ff0; height: 515px">
-	&nbsp;
-    </div>
-    <div class="box">
-	<h2>Success Stories</h2>
-	<div class="block">
-	<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
-	</div>
-    </div>
-</div>
 {% endblock %}

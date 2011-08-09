@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta charset=utf-8" />
 	<title>Voice Bank</title>
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/reset.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/text.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/grid.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/nav.css" media="screen"/>
-	{% block app_body_css %}{% endblock %}
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css"/>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/skeleton.css"/>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css"/>
     </head>
     <body>
-	<div class="container_16">
-	<div class="grid_6 suffix_4">
-		<a href="{% url home %}"><img id="logo" src="{{ MEDIA_URL }}img/default.png"/></a>
-	    </div>
-	    <div class="grid_6">
-		<ul id="header-nav" class="nav">
+	<div class="container">
+	    <h1 class="five columns"><a href="{% url home %}">Voice Bank</a></h1>
+	    <ul class="five columns nav offset-by-six remove-bottom">
 		{% if user.is_authenticated %}
 		    <li><span>{{ user.get_full_name }}</span></a></li>
 		    <li><a href="#">Account Settings</a></li>
@@ -28,34 +25,11 @@
 		    <li><a href="#">Take a Tour</a></li>
 		    <li><a href="#">Help</a></li>
 		{% endif %}
-		</ul>
-	    </div>
-	    <div class="clear"></div>
-	    <div id="mast" class="grid_16">
-		<ul class="nav suffix_10">
-		    <li><a href="#">My Home</a></li>
-		    <li><a href="#">Take a Tour</a></li>
-		</ul>
-		<form method="post" action="#">{% csrf_token %}
-		    <label>Find:</label>
-			<input type="text" id="search" value="voice clips" name="search"/>
-		    </span>
-		    <input type="submit" value="Search"/>
-		</form>
-	    </div>
-	    <div class="clear"></div>
+	    </ul>
+	    <hr class="half-bottom"/>
 	    {% block app_body %}{% endblock %}
-	    <div class="clear"></div>
-	    <div class="grid_16" id="site_info">
-		<div class="box">
-		    <p>&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>
-		</div>
-	    </div>
-	    <div class="clear"></div>
+	    <hr class="half-bottom"/>
+	    <p class="sixteen columns">&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>
 	</div>
-	<script type="text/javascript" src="http://webplayer.yahooapis.com/player-beta.js"></script>
     </body>
-    <!--<script type="text/javascript" src="{{ MEDIA_URL
-	}}js/jquery.js"></script>-->
-    {#{% block app_body_js %}{% endblock %}#}
 </html>
