@@ -13,20 +13,24 @@
     <body>
 	<div class="container">
 	    <header>
-		<h1 class="five columns"><a href="{% url home %}">Voice Bank</a></h1>
-		<ul class="seven columns nav remove-bottom">
-		{% if user.is_authenticated %}
-		    <li><a href="{% url logout %}">Logout</a></li>
-		    <li><a href="#">Help</a></li>
-		    <li><a href="#">Account Settings</a></li>
-		    <li><a href="{% url welcome %}">{{ user.get_full_name }}</a></li>
-		{% else %}
-		    <li><a href="#">Help</a></li>
-		    <li><a href="#">Take a Tour</a></li>
-		    <li><a href="{% url login %}">Log In</a></li>
-		    <li><a href="{% url join %}">Join</a></li>
-		{% endif %}
-		</ul>
+		<div class="nine columns">
+		    <h1><a href="{% url home %}">Voice Bank</a></h1>
+		</div>
+		<div class="seven columns">
+		    <ul class="nav remove-bottom">
+		    {% if user.is_authenticated %}
+			<li><a href="{% url logout %}">Logout</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a href="#">Account Settings</a></li>
+			<li><a href="{% url welcome %}">{{ user.get_full_name }}</a></li>
+		    {% else %}
+			<li><a href="#">Help</a></li>
+			<li><a href="#">Take a Tour</a></li>
+			<li><a href="{% url login %}">Log In</a></li>
+			<li><a href="{% url join %}">Join</a></li>
+		    {% endif %}
+		    </ul>
+		</div>
 		<hr class="half-bottom"/>
 	    </header>
 	    {% block app_body %}{% endblock %}

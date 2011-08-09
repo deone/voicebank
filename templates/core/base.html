@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block app_body %}
-    <ul class="sixteen columns nav half-bottom">
-	<li><a href="{% url welcome %}">Getting Started</a></li>
-	<li><a href="{% url dashboard %}">Dashboard</a></li>
-	<li><a href="{% url voiceclips %}">Voice Clips</a></li>
-	<li><a href="{% url following %}">I&lsquo;m Following</a></li>
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-    </ul>
+    <div class="sixteen columns">
+	<ul class="nav half-bottom">
+	    <li><a href="{% url welcome %}">Getting Started</a></li>
+	    <li><a href="{% url dashboard %}">Dashboard</a></li>
+	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
+	    <li><a href="{% url profile_edit %}">Profile</a></li>
+	</ul>
+    </div>
     {% block app_body_content %}{% endblock %}
 {% endblock %}
