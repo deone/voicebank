@@ -17,7 +17,8 @@
 /* #Site Styles
 ================================================== */
 h1		{ margin-top: 10px; }
-ul.nav		{ margin-top: 36px; }
+header ul.nav	{ margin-top: 36px; float: right }
+header ul.nav li    { float: right }
 ul.nav li	{ display: inline; text-align: center; }
 ul.nav li a	{ padding: 3px 10px; }
 .pane		{ background: #eee; }
