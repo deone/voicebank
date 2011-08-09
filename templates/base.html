@@ -12,24 +12,25 @@
     </head>
     <body>
 	<div class="container">
-	    <h1 class="five columns"><a href="{% url home %}">Voice Bank</a></h1>
+	    <header>
+		<h1 class="five columns"><a href="{% url home %}">Voice Bank</a></h1>
 		{% if user.is_authenticated %}
-		<ul class="six columns nav offset-by-five remove-bottom" style="background: #ff0">
+		<ul class="six columns nav offset-by-five remove-bottom">
 		    <li><span>{{ user.get_full_name }}</span></a></li>
 		    <li><a href="#">Account Settings</a></li>
 		    <li><a href="#">Help</a></li>
 		    <li><a href="{% url logout %}">Logout</a></li>
 		</ul>
 		{% else %}
-		<ul class="five columns nav offset-by-six remove-bottom" style="background: #ff0">
+		<ul class="five columns nav offset-by-six remove-bottom">
 		    <li><a href="{% url join %}">Join</a></li>
 		    <li><a href="{% url login %}">Log In</a></li>
 		    <li><a href="#">Take a Tour</a></li>
 		    <li><a href="#">Help</a></li>
 		</ul>
 		{% endif %}
-	    </ul>
-	    <hr class="half-bottom"/>
+		<hr class="half-bottom"/>
+	    </header>
 	    {% block app_body %}{% endblock %}
 	    <hr class="half-bottom"/>
 	    <p class="sixteen columns">&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>

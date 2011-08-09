@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 
 {% block app_body %}
-    <div class="five columns">
-	<form class="half-bottom" method="post" action="{% url login %}" style="background: #eee;">{% csrf_token %}
-	    <fieldset>
-		<legend><h4>Login</h4></legend>
-		<hr class="half-bottom"/>
-		    {{ form.username.errors }}
-		    <label>Email:</label>
-		    {{ form.username }}
-		    {{ form.password.errors }}
-		    <label>{{ form.password.label }}:</label>
-		    {{ form.password }}
-		<button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
-	    </fieldset>
-	</form>
-    </div>
+    <form class="four columns half-bottom" method="post" action="{% url login %}" style="background: #eee;">{% csrf_token %}
+	<fieldset class="remove-bottom">
+	    <legend><h4>Login</h4></legend>
+	    <hr class="half-bottom"/>
+	    <p>
+		{{ form.username.errors }}
+		<label>Email:</label>
+		{{ form.username }}
+	    </p>
+	    <p>
+		{{ form.password.errors }}
+		<label>{{ form.password.label }}:</label>
+		{{ form.password }}
+	    </p>
+	    <button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
+	</fieldset>
+    </form>
 {% endblock %}
