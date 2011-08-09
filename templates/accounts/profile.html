@@ -1,16 +1,13 @@
 {% extends "core/base.html" %}
 
 {% block app_body_content %}
-    <div id="core_nav" class="grid_16">
+    <div class="sixteen columns">
 	<ul class="tabs">
-	    <li><a href="{{ user.profile.get_absolute_url }}">View Profile</a></li>
-	    <li><a href="{% url profile_edit %}">Edit Profile</a></li>
+	    <li><a class="active" href="#viewprofile">View Profile</a></li>
+	    <li><a href="#editprofile">Edit Profile</a></li>
 	</ul>
-    </div>
-    <div class="clear"></div>
-    {% block profile_display %}
-	<div class="grid_16">
-	    <div class="box">
+	<ul class="tabs-content">
+	    <li class="active" id="viewprofileTab">
 		<h2>{{ user.get_full_name }}</h2>
 		{% if user.get_profile.photo %}
 		    <img src="{{ MEDIA_URL }}{{ user.get_profile.photo }}"/>
@@ -21,7 +18,46 @@
 		<p>{{ user.get_profile.about }}</p>
 		<h3>Voicebank URL</h3>
 		<p><a href="{{ user.profile.get_absolute_url }}">{{ user.profile.get_absolute_url }}</a></p>
-	    </div>
-	</div>
-    {% endblock %}
+	    </li>
+	    <li id="editprofileTab">
+		<form class="four columns half-bottom" method="post"
+		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
+		    <fieldset>
+			{{ form.user.as_hidden }}
+			<p>
+			    {{ form.photo.errors }}
+			    <label>{{ form.photo.label }}:</label>
+			    {{ form.photo }}
+			</p>
+			<p>
+			    {{ form.first_name.errors }}
+			    <label>{{ form.first_name.label }}:</label>
+			    {{ form.first_name }}
+			</p>
+			<p>
+			    {{ form.last_name.errors }}
+			    <label>{{ form.last_name.label }}:</label>
+			    {{ form.last_name }}
+			</p>
+			<p>
+			    {{ form.location.errors }}
+			    <label>{{ form.location.label }}</label>
+			    {{ form.location }}
+			</p>
+			<p>
+			    {{ form.about.errors }}
+			    <label>{{ form.about.label }}:</label>
+			    {{ form.about }}
+			</p>
+			<p>
+			    {{ form.media_interests.errors }}
+			    <label>{{ form.media_interests.label }}</label>
+			    {{ form.media_interests }}
+			</p>
+			<button>Save</button>
+		    </fieldset>
+		</form>
+	    </li>
+	</ul>
+    </div>
 {% endblock %}

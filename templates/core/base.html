@@ -7,7 +7,7 @@
 	    <li><a href="{% url dashboard %}">Dashboard</a></li>
 	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
 	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
-	    <li><a href="{% url profile_edit %}">Profile</a></li>
+	    <li><a href="{{ user.profile.get_absolute_url }}">Profile</a></li>
 	</ul>
     </div>
     {% block app_body_content %}{% endblock %}
