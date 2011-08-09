@@ -68,14 +68,3 @@ class UserProfileForm(forms.Form):
 
 	user.save()
 	profile.save()
-
-
-class SpanErrorList(ErrorList):
-    def __unicode__(self):
-	return self.as_spans()
-
-    def as_spans(self):
-	if not self:
-	    return u''
-	return mark_safe(u'%s' % ''.join([u"<span class='help'>%s</span>" %
-	    conditional_escape(force_unicode(e)) for e in self]))

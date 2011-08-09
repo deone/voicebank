@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 
-from accounts.forms import UserJoinForm, UserProfileForm, SpanErrorList
+from accounts.forms import UserJoinForm, UserProfileForm
 
 def index(request, template='accounts/index.html'):
 
@@ -18,7 +18,7 @@ def profile(request, slug, template='accounts/profile.html'):
 @login_required
 def profile_edit(request, template='accounts/profile_edit.html', form=UserProfileForm):
     if request.method == "POST":
-	form = form(request.POST, request.FILES, error_class=SpanErrorList)
+	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
 
