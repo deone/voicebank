@@ -12,7 +12,7 @@
 		{% if user.get_profile.photo %}
 		    <img src="{{ MEDIA_URL }}{{ user.get_profile.photo }}"/>
 		{% else %}
-		<img src="{{ MEDIA_URL }}img/no-image.jpg"/>
+		    <img src="{{ MEDIA_URL }}img/no-image.jpg"/>
 		{% endif %}
 		<h3>About</h3>
 		<p>{{ user.get_profile.about }}</p>
@@ -20,9 +20,9 @@
 		<p><a href="{{ user.profile.get_absolute_url }}">{{ user.profile.get_absolute_url }}</a></p>
 	    </li>
 	    <li id="editprofileTab">
-		<form class="four columns half-bottom" method="post"
+	    <form class="five columns" method="post"
 		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
-		    <fieldset>
+		    <fieldset class="wrap remove-bottom">
 			{{ form.user.as_hidden }}
 			<p>
 			    {{ form.photo.errors }}

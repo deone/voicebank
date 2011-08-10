@@ -1,10 +1,38 @@
 {% extends "core/base.html" %}
 
 {% block app_body_content %}
-    <div class="grid_16">
-	<div class="box">
-	    <p>dfjdf</p>
-	    <a href="{{ MEDIA_URL }}clips/">dfhdfdf</a>
-	</div>
+    <div class="sixteen columns half-bottom">
+	{% if messages %}
+	{% for message in messages %}
+	<p{% if message.tags %} class="{{ message.tags }}"
+	    {%endif %}>{{ message }}</p>
+	    {% endfor %}
+	{% endif %}
+    </div>
+    <form class="five columns" method="post" action="{% url login %}">{% csrf_token %}
+	<fieldset class="wrap remove-bottom">
+	    <legend><h4>Upload Voice Clips</h4></legend>
+	    <hr class="half-bottom"/>
+	    {{ form.user.as_hidden }}
+	    <p>
+		<label>{{ form.voice_clip.label }}:</label>
+		{{ form.voice_clip.errors }}
+		{{ form.voice_clip }}
+	    </p>	
+	    <p>
+		<label>{{ form.name.label }}:</label>
+		{{ form.name.errors }}
+		{{ form.name }}
+	    </p>
+	    <p>
+		<label>{{ form.language.label }}:</label>
+		{{ form.language.errors }}
+		{{ form.language }}
+	    </p>
+	    <button>Upload</button>
+	</fieldset>
+    </form>
+    <div class="eleven columns pane" style="background: #ff0">
+	<h4>My Voice Clips</h4>
     </div>
 {% endblock %}
