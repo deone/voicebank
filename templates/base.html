@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/skeleton.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css"/>
+	{% block custom_css %}{% endblock %}
     </head>
     <body>
 	<div class="container">
@@ -39,5 +40,6 @@
 	</div>
 	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script src="{{ MEDIA_URL }}js/app.js"></script>
+	{% block custom_js %}{% endblock %}
     </body>
 </html>

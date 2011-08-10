@@ -6,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Dayo Osikoya', 'oladayo.joshua@tecnotree.com')
 )
 
 MANAGERS = ADMINS
@@ -83,6 +83,15 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'context_processors.admin_media_prefix',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,3 +111,7 @@ LOGIN_REDIRECT_URL = '/home/welcome'
 LOGIN_URL = '/'
 
 AUTH_PROFILE_MODULE = 'accounts.Profile'
+
+STATICFILES_URL = '/site_media/static/'
+
+ADMIN_MEDIA_PREFIX = STATICFILES_URL + 'admin/'

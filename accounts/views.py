@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.conf import settings
 
 from accounts.forms import UserJoinForm, UserProfileForm
 
@@ -11,12 +12,7 @@ def index(request, template='accounts/index.html'):
 	}, context_instance=RequestContext(request))
 
 @login_required
-def profile(request, slug, template='accounts/profile.html'):
-    return render_to_response(template, {
-	}, context_instance=RequestContext(request))
-
-@login_required
-def profile_edit(request, template='accounts/profile_edit.html', form=UserProfileForm):
+def profile(request, slug, template='accounts/profile.html', form=UserProfileForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
@@ -59,7 +55,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
     else:
 	form = form()
 
-    return render_to_response(template, {'join_form': form},
+    return render_to_response(template, {'form': form},
 	    context_instance=RequestContext(request))
 
 def logout(request):

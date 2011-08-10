@@ -1,44 +1,60 @@
 {% extends "accounts/base.html" %}
 
+{% load adminmedia %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/calendar.css"/>
+    <link rel="stylesheet" href="{{ ADMIN_MEDIA_PREFIX }}css/widgets.css"/>
+{% endblock %}
+
+{% block custom_js %}
+    <script src="/my_admin/jsi18n/"></script>   
+    <script src="{{ ADMIN_MEDIA_PREFIX }}js/core.js"></script>
+    {{ form.media }}
+    <script>
+	window.__admin_media_prefix__ = "{% filter escapejs %}{% admin_media_prefix %}{% endfilter %}";
+    </script>
+{% endblock %}
+
 {% block app_body %}
-    <form class="four columns half-bottom" method="post" action="{% url join %}">{% csrf_token %}
-	<fieldset class="remove-bottom">
-	    <legend><h5>Join Nigerian Voice Bank</h5></legend>
+    <form class="five columns half-bottom" method="post" action="{% url join %}">{% csrf_token %}
+	<fieldset class="wrap remove-bottom">
+	<legend><h4>Join Nigerian Voice Bank</h4></legend>
 	    <hr class="half-bottom"/>
 	    <p>
-		{{ join_form.first_name.errors }}
-		<label>{{ join_form.first_name.label }}:</label>
-		{{ join_form.first_name }}
+		{{ form.first_name.errors }}
+		<label>{{ form.first_name.label }}:</label>
+		{{ form.first_name }}
 	    </p>
 	    <p>
-		{{ join_form.last_name.errors }}
-		<label>{{ join_form.last_name.label }}:</label>
-		{{ join_form.last_name }}
+		{{ form.last_name.errors }}
+		<label>{{ form.last_name.label }}:</label>
+		{{ form.last_name }}
 	    </p>
 	    <p>
-		{{ join_form.email.errors }}
-		<label>{{ join_form.email.label }}:</label>
-		{{ join_form.email }}
+		{{ form.email.errors }}
+		<label>{{ form.email.label }}:</label>
+		{{ form.email }}
 	    </p>
 	    <p>
-		{{ join_form.password.errors }}
-		<label>{{ join_form.password.label }}:</label>
-		{{ join_form.password }}
+		{{ form.password.errors }}
+		<label>{{ form.password.label }}:</label>
+		{{ form.password }}
 	    </p>
 	    <p>
-		{{ join_form.gender.errors }}
-		<label>{{ join_form.gender.label }}:</label>
-		{{ join_form.gender }}
+		{{ form.gender.errors }}
+		<label>{{ form.gender.label }}:</label>
+		{{ form.gender }}
 	    </p>
 	    <p>
-		{{ join_form.birthday.errors }}
-		<label>{{ join_form.birthday.label }}:</label>
-		{{ join_form.birthday }}
+		{{ form.birthday.errors }}
+		<label>{{ form.birthday.label }}:</label>
+		{{ form.birthday }}
+		{{ form.birthday.help_text }}
 	    </p>
-	    <p>{{ join_form.birthday.help_text }}</p>
 	    <button>Join</button>
 	    <p>Already on Nigerian Voice Bank? <a href="{% url login
-		%}">Login</a></p>
+	    %}">Login</a></p>
 	</fieldset>
     </form>
 {% endblock %}

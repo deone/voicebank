@@ -5,6 +5,7 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
+from django.contrib.admin import widgets
 
 from accounts.models import Profile, GENDER_CHOICES
 from accounts.models import Interest
@@ -18,9 +19,9 @@ class UserJoinForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
     gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select)
-    birthday = forms.DateField(('%d/%m/%Y',),
-	    help_text='Enter your birthday in DD/MM/YYYY format'
-	    )
+    # birthday = forms.DateField(widget=widgets.AdminDateWidget())
+    birthday = forms.DateField(('%d/%m/%Y',), 
+	help_text='Enter your birthday in DD/MM/YYYY format')
 
     def save(self):
 	username = self.cleaned_data['email']
@@ -53,7 +54,6 @@ class UserProfileForm(forms.Form):
     photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
-    location = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     media_interests = forms.ModelMultipleChoiceField(queryset=Interest.objects.all())
 
