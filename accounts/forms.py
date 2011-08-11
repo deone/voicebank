@@ -7,8 +7,7 @@ from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
 from django.contrib.admin import widgets
 
-from accounts.models import Profile, GENDER_CHOICES
-from accounts.models import Interest
+from accounts.models import *
 
 import random
 import string
@@ -55,16 +54,26 @@ class UserProfileForm(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
-    media_interests = forms.ModelMultipleChoiceField(queryset=Interest.objects.all())
+    country = forms.CharField(max_length=50)
+    state = forms.CharField(max_length=50)
+    media_interests = forms.ModelMultipleChoiceField(queryset=Interest.objects.all(), 
+	    help_text="Hold down the 'Ctrl' key to select multiple interests")
 
     def save(self):
 	user = get_object_or_404(User, pk=self.cleaned_data['user'])
+
 	user.first_name = self.cleaned_data['first_name']
 	user.last_name = self.cleaned_data['last_name']
-
-	profile = user.get_profile()
-	profile.about = self.cleaned_data['about']
-	profile.photo = self.cleaned_data['photo']
-
 	user.save()
-	profile.save()
+
+	user.profile.about = self.cleaned_data['about']
+	if self.cleaned_data['photo']:
+	    user.profile.photo = self.cleaned_data['photo']
+	user.profile.country = self.cleaned_data['country']
+	user.profile.state = self.cleaned_data['state']
+	user.profile.save()
+
+	MediaInterest.objects.filter(profile=user.profile).delete()
+	for interest in self.cleaned_data['media_interests']:
+	    MediaInterest.objects.create(profile=user.profile,
+		    interest=interest)

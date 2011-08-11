@@ -10,8 +10,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     slug = models.SlugField(unique=True, editable=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    location = models.CharField(max_length=30)
     about = models.CharField(max_length=255)
+    country = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
     birthday = models.DateField()
     photo = models.ImageField(upload_to="profile_pics")
 
@@ -33,3 +34,6 @@ class Interest(models.Model):
 class MediaInterest(models.Model):
     profile = models.ForeignKey(Profile)
     interest = models.ForeignKey(Interest)
+
+    def __unicode__(self):
+	return self.interest.interest

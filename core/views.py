@@ -17,16 +17,7 @@ def dashboard(request, template='core/dashboard.html'):
     return render_to_response(template, {}, context_instance=RequestContext(request))
 
 @login_required
-def voiceclips(request, template='core/voiceclips.html'):
-    return render_to_response(template, {}, context_instance=RequestContext(request))
-
-@login_required
-def following(request, template='core/following.html'):
-    return render_to_response(template, {}, context_instance=RequestContext(request))
-
-@login_required
-def upload(request, template='core/index.html', form=VoiceClipForm):
-
+def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
@@ -45,3 +36,7 @@ def upload(request, template='core/index.html', form=VoiceClipForm):
 	    'form': form,
 	    'clips': voice_clips
 	}, context_instance=RequestContext(request))
+
+@login_required
+def following(request, template='core/following.html'):
+    return render_to_response(template, {}, context_instance=RequestContext(request))

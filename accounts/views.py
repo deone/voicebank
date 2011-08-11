@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.contrib.sites.models import Site
 from django.conf import settings
 
 from accounts.forms import UserJoinForm, UserProfileForm
@@ -13,6 +14,8 @@ def index(request, template='accounts/index.html'):
 
 @login_required
 def profile(request, slug, template='accounts/profile.html', form=UserProfileForm):
+    current_site = Site.objects.get_current()
+
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
@@ -25,11 +28,16 @@ def profile(request, slug, template='accounts/profile.html', form=UserProfileFor
 	    'user': request.user.id, 
 	    'first_name': request.user.first_name,
 	    'last_name': request.user.last_name,
-	    'birthday': request.user.get_profile().birthday,
+	    'about': request.user.profile.about,
+	    'country': request.user.profile.country,
+	    'state': request.user.profile.state,
+	    'media_interests': [interest.interest.id for interest in
+		request.user.profile.mediainterest_set.all()],
 	    })
 
     return render_to_response(template, {
-	    'form': form
+	    'form': form,
+	    'site': current_site.name,
 	}, context_instance=RequestContext(request))
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
