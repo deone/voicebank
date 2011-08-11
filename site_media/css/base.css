@@ -227,7 +227,8 @@
 		border-width: 1px 0 0 1px; 
 		margin: 0;  
 		background: #f5f5f5;
-		font-size: 13px; }
+		font-size: 13px;
+	    }
 	ul.tabs li a.active { 
 		background: #fff; 
 		height: 30px;
@@ -298,6 +299,7 @@
 		display: block;
 		margin-bottom: 20px;
 		background: #fff; }
+	/* ========= Added ======= */
 	/*select { 
 		padding: 0; }*/
 	#profile-edit img   {
@@ -311,6 +313,7 @@
 	    margin-right: 20px;
 	    margin-top: 30px;
 	}
+	/* ================ */
 	input[type="text"]:focus,
 	input[type="password"]:focus,
 	input[type="email"]:focus, 

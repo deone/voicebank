@@ -1,38 +1,52 @@
 {% extends "core/base.html" %}
 
 {% block app_body_content %}
-    <div class="sixteen columns half-bottom">
-	{% if messages %}
-	{% for message in messages %}
-	<p{% if message.tags %} class="{{ message.tags }}"
-	    {%endif %}>{{ message }}</p>
-	    {% endfor %}
-	{% endif %}
-    </div>
-    <form class="five columns" method="post" action="{% url login %}">{% csrf_token %}
-	<fieldset class="wrap remove-bottom">
-	    <legend><h4>Upload Voice Clips</h4></legend>
-	    <hr class="half-bottom"/>
-	    {{ form.user.as_hidden }}
-	    <p>
-		<label>{{ form.voice_clip.label }}:</label>
-		{{ form.voice_clip.errors }}
-		{{ form.voice_clip }}
-	    </p>	
-	    <p>
-		<label>{{ form.name.label }}:</label>
-		{{ form.name.errors }}
-		{{ form.name }}
-	    </p>
-	    <p>
-		<label>{{ form.language.label }}:</label>
-		{{ form.language.errors }}
-		{{ form.language }}
-	    </p>
-	    <button>Upload</button>
-	</fieldset>
-    </form>
-    <div class="eleven columns pane" style="background: #ff0">
-	<h4>My Voice Clips</h4>
+    <div class="sixteen columns">
+	<ul class="tabs">
+	    <li><a href="#myvoiceclips">My Voice Clips</a></li>
+	    <li><a class="active" href="#uploadvoiceclip">Upload Voice Clip</a></li>
+	</ul>
+	<ul class="tabs-content">
+	    <li id="myvoiceclipsTab">
+		<div class="eleven columns pane add-bottom">
+		    <div class="wrap">
+			<ul>
+			    <li><a href="#">Yodel</a></li>
+			    <li><a href="#">Yodel</a></li>
+			    <li><a href="#">Yodel</a></li>
+			</ul>
+		    </div>
+		</div>
+	    </li>
+	    <li class="active" id="uploadvoiceclipTab">
+		{% if messages %}
+		    {% for message in messages %}
+			<p{% if message.tags %} class="{{ message.tags }}"
+			{%endif %}>{{ message }}</p>
+		    {% endfor %}
+		{% endif %}
+		<form class="five columns" method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
+		    <fieldset class="wrap remove-bottom">
+			{{ form.user.as_hidden }}
+			<p>
+			    <label>{{ form.voice_clip.label }}:</label>
+			    {{ form.voice_clip.errors }}
+			    {{ form.voice_clip }}
+			</p>	
+			<p>
+			    <label>{{ form.name.label }}:</label>
+			    {{ form.name.errors }}
+			    {{ form.name }}
+			</p>
+			<p>
+			    <label>{{ form.language.label }}:</label>
+			    {{ form.language.errors }}
+			    {{ form.language }}
+			</p>
+			<button>Upload</button>
+		    </fieldset>
+		</form> 
+	    </li>
+	</ul>
     </div>
 {% endblock %}
