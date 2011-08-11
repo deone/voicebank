@@ -1,33 +1,45 @@
 {% extends "core/base.html" %}
 
+{% load thumbnail %}
+
 {% block app_body_content %}
     <div class="sixteen columns">
 	<ul class="tabs">
-	    <li><a class="active" href="#viewprofile">View Profile</a></li>
-	    <li><a href="#editprofile">Edit Profile</a></li>
+	    <li><a href="#viewprofile">View Profile</a></li>
+	    <li><a class="active" href="#editprofile">Edit Profile</a></li>
 	</ul>
 	<ul class="tabs-content">
-	    <li class="active" id="viewprofileTab">
-		<h2>{{ user.get_full_name }}</h2>
-		{% if user.get_profile.photo %}
-		    <img src="{{ MEDIA_URL }}{{ user.get_profile.photo }}"/>
+	    <li id="viewprofileTab">
+		<h2 class="fullname">{{ user.get_full_name }}</h2>
+		{% if user.profile.photo %}
+		    {% thumbnail user.profile.photo "138x138" crop="center" as up %}
+			<img src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+		    {% endthumbnail %}
 		{% else %}
 		    <img src="{{ MEDIA_URL }}img/no-image.jpg"/>
 		{% endif %}
 		<h3>About</h3>
 		<p>{{ user.get_profile.about }}</p>
 		<h3>Voicebank URL</h3>
-		<p><a href="{{ user.profile.get_absolute_url }}">{{ user.profile.get_absolute_url }}</a></p>
+		<p><a href="{{ user.profile.get_absolute_url }}">http://{{ site }}{{ user.profile.get_absolute_url }}</a></p>
 	    </li>
-	    <li id="editprofileTab">
-	    <form class="five columns" method="post"
+	    <li class="active" id="editprofileTab">
+		<form id="profile-edit" class="five columns" method="post"
 		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
 		    <fieldset class="wrap remove-bottom">
 			{{ form.user.as_hidden }}
 			<p>
-			    {{ form.photo.errors }}
 			    <label>{{ form.photo.label }}:</label>
+			    {% if user.profile.photo %}
+				{% thumbnail user.profile.photo "50x50" crop="center" as up %}
+				    <img src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+				{% endthumbnail %}
+			    {% else %}
+				<img src="{{ MEDIA_URL }}img/no-image-small.jpg"/>
+			    {% endif %}
+			    {{ form.photo.errors }}
 			    {{ form.photo }}
+			    <div class="clear"></div>
 			</p>
 			<p>
 			    {{ form.first_name.errors }}
@@ -40,19 +52,20 @@
 			    {{ form.last_name }}
 			</p>
 			<p>
-			    {{ form.location.errors }}
-			    <label>{{ form.location.label }}</label>
-			    {{ form.location }}
-			</p>
-			<p>
 			    {{ form.about.errors }}
 			    <label>{{ form.about.label }}:</label>
 			    {{ form.about }}
 			</p>
 			<p>
+			    <label>Location:</label>
+			    {{ form.country }}
+			    {{ form.state }}
+			</p>
+			<p>
 			    {{ form.media_interests.errors }}
 			    <label>{{ form.media_interests.label }}</label>
 			    {{ form.media_interests }}
+			    <span>{{ form.media_interests.help_text }}</span>
 			</p>
 			<button>Save</button>
 		    </fieldset>
