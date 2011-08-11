@@ -9,7 +9,7 @@ class VoiceClip(models.Model):
     language = models.CharField(max_length=30)
     date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
     is_active = models.BooleanField(default=False)
-    listens = models.IntegerField()
+    listens = models.IntegerField(default=0)
 
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())

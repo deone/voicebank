@@ -2,8 +2,7 @@ Unit-test:
 - Profile model, accounts forms and views.
 - Core app.
 
-Update date_added timestamp after user uploads voice clip. Use auto update
+Make country (UserProfileForm) and language (VoiceClipForm) select fields.
 feature.
 
 Use Yahoo! webplayer for voice clips.
-Users should specify language during voice clip upload.
