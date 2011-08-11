@@ -10,19 +10,27 @@
 	</ul>
 	<ul class="tabs-content">
 	    <li id="viewprofileTab">
-		<div class="six columns">
-		    <h2 class="fullname">{{ user.get_full_name }}</h2>
-		    {% if user.profile.photo %}
-			{% thumbnail user.profile.photo "138x138" crop="center" as up %}
-			    <img src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
-			{% endthumbnail %}
-		    {% else %}
-			<img src="{{ MEDIA_URL }}img/no-image.jpg"/>
-		    {% endif %}
-		    <h3>About</h3>
-		    <p>{{ user.get_profile.about }}</p>
-		    <h3>Voicebank URL</h3>
-		    <p><a href="{{ user.profile.get_absolute_url }}">http://{{ site }}{{ user.profile.get_absolute_url }}</a></p>
+		<div class="six columns pane add-bottom">
+		    <div class="wrap">
+			<h4 class="fullname">{{ user.get_full_name }}</h4>
+			{% if user.profile.photo %}
+			    {% thumbnail user.profile.photo "138x138" crop="center" as up %}
+				<img src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+			    {% endthumbnail %}
+			{% else %}
+			    <img src="{{ MEDIA_URL }}img/no-image.jpg"/>
+			{% endif %}
+			<h5>About</h5>
+			<p>{{ user.profile.about }}</p>
+			<h5>Media Interests</h5>
+			<ul>
+			    {% for interest in user.profile.mediainterest_set.all %}
+				<li>{{ interest.interest }}</li>
+			    {% endfor %}
+			</ul>
+			<h5>Voicebank URL</h5>
+			<p><a href="{{ user.profile.get_absolute_url }}">http://{{ site }}{{ user.profile.get_absolute_url }}</a></p>
+		    </div>
 		</div>
 	    </li>
 	    <li class="active" id="editprofileTab">

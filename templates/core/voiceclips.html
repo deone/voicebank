@@ -11,41 +11,43 @@
 		<div class="eleven columns pane add-bottom">
 		    <div class="wrap">
 			<ul>
-			    <li><a href="#">Yodel</a></li>
-			    <li><a href="#">Yodel</a></li>
-			    <li><a href="#">Yodel</a></li>
+			{% for clip in clips %}
+			    <li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+			{% endfor %}
 			</ul>
 		    </div>
 		</div>
 	    </li>
 	    <li class="active" id="uploadvoiceclipTab">
-		{% if messages %}
-		    {% for message in messages %}
-			<p{% if message.tags %} class="{{ message.tags }}"
-			{%endif %}>{{ message }}</p>
-		    {% endfor %}
-		{% endif %}
-		<form class="five columns" method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
-		    <fieldset class="wrap remove-bottom">
-			{{ form.user.as_hidden }}
-			<p>
-			    <label>{{ form.voice_clip.label }}:</label>
-			    {{ form.voice_clip.errors }}
-			    {{ form.voice_clip }}
-			</p>	
-			<p>
-			    <label>{{ form.name.label }}:</label>
-			    {{ form.name.errors }}
-			    {{ form.name }}
-			</p>
-			<p>
-			    <label>{{ form.language.label }}:</label>
-			    {{ form.language.errors }}
-			    {{ form.language }}
-			</p>
-			<button>Upload</button>
-		    </fieldset>
-		</form> 
+		<div class="five columns">
+		    {% if messages %}
+			{% for message in messages %}
+			    <p{% if message.tags %} class="{{ message.tags }}"
+			    {%endif %}>{{ message }}</p>
+			{% endfor %}
+		    {% endif %}
+		    <form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
+			<fieldset class="wrap remove-bottom">
+			    {{ form.user.as_hidden }}
+			    <p>
+				<label>{{ form.voice_clip.label }}:</label>
+				{{ form.voice_clip.errors }}
+				{{ form.voice_clip }}
+			    </p>	
+			    <p>
+				<label>{{ form.name.label }}:</label>
+				{{ form.name.errors }}
+				{{ form.name }}
+			    </p>
+			    <p>
+				<label>{{ form.language.label }}:</label>
+				{{ form.language.errors }}
+				{{ form.language }}
+			    </p>
+			    <button>Upload</button>
+			</fieldset>
+		    </form>
+		</div>
 	    </li>
 	</ul>
     </div>
