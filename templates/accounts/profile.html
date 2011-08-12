@@ -25,7 +25,7 @@
 			<h5>Media Interests</h5>
 			<ul>
 			    {% for interest in user.profile.mediainterest_set.all %}
-				<li>{{ interest.interest }}</li>
+			    <li>{{ interest.interest }}</li>
 			    {% endfor %}
 			</ul>
 			<h5>Voicebank URL</h5>

@@ -11,9 +11,15 @@
 		<div class="eleven columns pane add-bottom">
 		    <div class="wrap">
 			<ul>
-			{% for clip in clips %}
-			    <li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
-			{% endfor %}
+			{% if clips %}
+			    {% for clip in clips %}
+				<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+			    {% endfor %}
+			{% else %}
+			    <p class="remove-bottom">It's either you have not uploaded any voice
+			    clips, or they have not been approved by the
+			    Administrator.</p>
+			{% endif %}
 			</ul>
 		    </div>
 		</div>

@@ -5,6 +5,27 @@
 	<div class="half-bottom" style="background: #ff0; height: 160px;">&nbsp;</div>
 	<div class="four columns pane alpha half-bottom">
 	    <div class="wrap">
+		<h4 class="remove-bottom">Categories</h4>
+		<hr/>
+	    </div>
+	</div>
+	<div class="five columns pane half-bottom">
+	    <div class="wrap">
+		<h4 class="remove-bottom">Most Recent Additions</h4>
+		<hr/>
+		<ul>
+		{% if clips %}
+		    {% for clip in clips %}
+			<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+		    {% endfor %}
+		{% else %}
+		<p class="remove-bottom">None yet. Sorry!</p>
+		{% endif %}
+		</ul>
+	    </div>
+	</div>
+	<div class="four columns pane omega half-bottom">
+	    <div class="wrap">
 		<h4 class="remove-bottom">Top Ten Voices</h4>
 		<hr/>
 		<ul>
@@ -14,26 +35,15 @@
 		</ul>
 	    </div>
 	</div>
-	<div class="five columns pane half-bottom">
-	    <div class="wrap">
-		<h4 class="remove-bottom">Most Recent Additions</h4>
-		<hr/>
-		<ul>
-		    <li><a href="#">Yodel</a></li>
-		    <li><a href="#">Yodel</a></li>
-		    <li><a href="#">Yodel</a></li>
-		</ul>
-	    </div>
-	</div>
-	<div class="four columns pane omega half-bottom">
-	    <div class="wrap">
+    </div>
+    <div class="three columns">
+	<div class="half-bottom" style="background: #eee; height: 300px;">&nbsp;</div>
+	<div style="background: #eee">
+	    <div class="wrap" style="background: #eee;">
 		<h4 class="remove-bottom">Success Stories</h4>
 		<hr/>
-		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future. Design is about life — past, present and future — and the learning process that happens between birth and death. It is about community and shared knowledge and experience. It is the passion to build on what we've learned to create something better.</p>
+		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
 	    </div>
-	</div>
-    </div>
-    <div class="three columns" style="background: #eee; height: 524px">
-	&nbsp;
+	</div> 
     </div>
 {% endblock %}
