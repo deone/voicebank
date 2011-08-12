@@ -35,8 +35,6 @@ def profile(request, slug, template='accounts/profile.html', form=UserProfileFor
 	    'about': request.user.profile.about,
 	    'country': request.user.profile.country,
 	    'state': request.user.profile.state,
-	    'media_interests': [interest.interest.id for interest in
-		request.user.profile.mediainterest_set.all()],
 	    })
 
     return render_to_response(template, {

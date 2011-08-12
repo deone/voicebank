@@ -24,16 +24,8 @@ class Profile(models.Model):
 	return ('user_profile', [self.slug])
 
 
-class Interest(models.Model):
-    interest = models.CharField(max_length=50)
+class Country(models.Model):
+    name = models.CharField(max_length=150)
 
     def __unicode__(self):
-	return self.interest
-
-
-class MediaInterest(models.Model):
-    profile = models.ForeignKey(Profile)
-    interest = models.ForeignKey(Interest)
-
-    def __unicode__(self):
-	return self.interest.interest
+	return self.name

@@ -13,3 +13,18 @@ class VoiceClip(models.Model):
 
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
+
+
+class Interest(models.Model):
+    interest = models.CharField(max_length=50)
+
+    def __unicode__(self):
+	return self.interest
+
+
+class MediaInterest(models.Model):
+    voice_clip = models.ForeignKey(VoiceClip)
+    interest = models.ForeignKey(Interest)
+
+    def __unicode__(self):
+	return self.interest.interest

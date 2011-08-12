@@ -56,8 +56,6 @@ class UserProfileForm(forms.Form):
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     country = forms.CharField(max_length=50)
     state = forms.CharField(max_length=50)
-    media_interests = forms.ModelMultipleChoiceField(queryset=Interest.objects.all(), 
-	    help_text="Hold down the 'Ctrl' key to select multiple interests")
 
     def save(self):
 	user = get_object_or_404(User, pk=self.cleaned_data['user'])
