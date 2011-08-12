@@ -35,6 +35,7 @@ def profile(request, slug, template='accounts/profile.html', form=UserProfileFor
 	    'about': request.user.profile.about,
 	    'country': request.user.profile.country,
 	    'state': request.user.profile.state,
+	    'url_id': request.user.profile.slug
 	    })
 
     return render_to_response(template, {

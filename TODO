@@ -4,5 +4,4 @@ Unit-test:
 
 Make country (UserProfileForm) and language (VoiceClipForm) select fields.
 feature.
-
-Use Yahoo! webplayer for voice clips.
+Implement site url in profile page properly.

@@ -54,24 +54,21 @@ class UserProfileForm(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+    url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a custom URL like http://nigerianvoicebank.com/yournickname?")
     country = forms.CharField(max_length=50)
     state = forms.CharField(max_length=50)
 
     def save(self):
 	user = get_object_or_404(User, pk=self.cleaned_data['user'])
 
+	if self.cleaned_data['photo']:
+	    user.profile.photo = self.cleaned_data['photo']
 	user.first_name = self.cleaned_data['first_name']
 	user.last_name = self.cleaned_data['last_name']
 	user.save()
 
 	user.profile.about = self.cleaned_data['about']
-	if self.cleaned_data['photo']:
-	    user.profile.photo = self.cleaned_data['photo']
+	user.profile.slug = self.cleaned_data['url_id']
 	user.profile.country = self.cleaned_data['country']
 	user.profile.state = self.cleaned_data['state']
 	user.profile.save()
-
-	MediaInterest.objects.filter(profile=user.profile).delete()
-	for interest in self.cleaned_data['media_interests']:
-	    MediaInterest.objects.create(profile=user.profile,
-		    interest=interest)
