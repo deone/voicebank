@@ -4,12 +4,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.sites.models import Site
 from django.conf import settings
+from core.models import VoiceClip
 
 from accounts.forms import UserJoinForm, UserProfileForm
 
 def index(request, template='accounts/index.html'):
 
+    voice_clips = VoiceClip.objects.filter(is_active=True).order_by('-date_added')
+
     return render_to_response(template, {
+	'clips': voice_clips
 	}, context_instance=RequestContext(request))
 
 @login_required

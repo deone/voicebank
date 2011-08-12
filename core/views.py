@@ -28,7 +28,8 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	form = form(initial={'user': request.user.id})
 
     try:
-	voice_clips = get_list_or_404(VoiceClip, user=request.user)
+	voice_clips = get_list_or_404(VoiceClip, user=request.user,
+		is_active=True)
     except Http404:
 	voice_clips = None
     
