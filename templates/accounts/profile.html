@@ -22,12 +22,6 @@
 			{% endif %}
 			<h5>About</h5>
 			<p>{{ user.profile.about }}</p>
-			<h5>Media Interests</h5>
-			<ul>
-			    {% for interest in user.profile.mediainterest_set.all %}
-			    <li>{{ interest.interest }}</li>
-			    {% endfor %}
-			</ul>
 			<h5>Voicebank URL</h5>
 			<p><a href="{{ user.profile.get_absolute_url }}">http://{{ site }}{{ user.profile.get_absolute_url }}</a></p>
 		    </div>
@@ -65,6 +59,12 @@
 			    {{ form.about.errors }}
 			    <label>{{ form.about.label }}:</label>
 			    {{ form.about }}
+			</p>
+			<p>
+			    {{ form.url_id.errors }}
+			    <label>URL ID:</label>
+			    {{ form.url_id }}
+			    <span>{{ form.url_id.help_text }}</span>
 			</p>
 			<p>
 			    <label>Location:</label>

@@ -30,7 +30,7 @@ ul.nav>:first-child a	{ padding-left: 0 }
 form		{ background: #eee; }
 ul.errorlist	{ margin: 0; }
 ul.errorlist li	{ margin: 3px 0; }
-form span, .errorlist	{ font-style: italic; color: green; }
+form span, .errorlist	{ font-style: italic; color: green; font-size: 82% }
 .fullname	{ text-transform: capitalize; }
 
 /* #Page Styles

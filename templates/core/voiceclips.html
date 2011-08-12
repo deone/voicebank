@@ -34,7 +34,6 @@
 		    {% endif %}
 		    <form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
 			<fieldset class="wrap remove-bottom">
-			    {{ form.user.as_hidden }}
 			    <p>
 				<label>{{ form.voice_clip.label }}:</label>
 				{{ form.voice_clip.errors }}
@@ -49,6 +48,11 @@
 				<label>{{ form.language.label }}:</label>
 				{{ form.language.errors }}
 				{{ form.language }}
+			    </p>
+			    <p>
+				<label>{{ form.category.label }}:</label>
+				{{ form.category.errors }}
+				{{ form.category }}
 			    </p>
 			    <button>Upload</button>
 			</fieldset>

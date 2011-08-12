@@ -5,7 +5,7 @@ import datetime
 class VoiceClip(models.Model):
     user = models.ForeignKey('auth.User')
     name = models.CharField(max_length=30)
-    voice_clip = models.FileField(upload_to='clips')
+    voice_clip = models.FileField(upload_to='clips/%Y/%m/%d')
     language = models.CharField(max_length=30)
     date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
     is_active = models.BooleanField(default=False)
@@ -15,16 +15,16 @@ class VoiceClip(models.Model):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
 
 
-class Interest(models.Model):
-    interest = models.CharField(max_length=50)
+class Category(models.Model):
+    name = models.CharField(max_length=50)
 
     def __unicode__(self):
-	return self.interest
+	return self.name
 
 
-class MediaInterest(models.Model):
+class VoiceClipCategory(models.Model):
     voice_clip = models.ForeignKey(VoiceClip)
-    interest = models.ForeignKey(Interest)
+    category = models.ForeignKey(Category)
 
     def __unicode__(self):
-	return self.interest.interest
+	return self.category.name
