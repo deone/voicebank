@@ -13,6 +13,7 @@ site.
 Fix:
 - Anonymous users can't access user profile with something like; http://localhost:8000/dayo.
 - Why are the errors in UserProfileForm not displaying on profile.html?
+- Validate user slug update, should allow only -_ and . special characters.
 
 Use:
 - jQuery date picker
