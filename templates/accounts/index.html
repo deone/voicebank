@@ -5,18 +5,15 @@
 	<div class="half-bottom" style="background: #ff0; height: 160px;">&nbsp;</div>
 	<div class="four columns pane alpha half-bottom">
 	    <div class="wrap">
-		<h4 class="remove-bottom">Categories</h4>
-		<hr/>
-	    </div>
-	</div>
-	<div class="five columns pane half-bottom">
-	    <div class="wrap">
-		<h4 class="remove-bottom">Most Recent Additions</h4>
+		<h5 class="remove-bottom">Most Recent Additions</h5>
 		<hr/>
 		<ul>
 		{% if clips %}
 		    {% for clip in clips %}
-			<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+		    <li>
+			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
+			by 
+			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a></li>
 		    {% endfor %}
 		{% else %}
 		<p class="remove-bottom">None yet. Sorry!</p>
@@ -24,9 +21,15 @@
 		</ul>
 	    </div>
 	</div>
+	<div class="five columns pane half-bottom">
+	    <div class="wrap">
+		<h5 class="remove-bottom">Voice Categories</h5>
+		<hr/>
+	    </div>
+	</div>
 	<div class="four columns pane omega half-bottom">
 	    <div class="wrap">
-		<h4 class="remove-bottom">Top Ten Voices</h4>
+		<h5 class="remove-bottom">Top Ten Voices</h5>
 		<hr/>
 		<ul>
 		    <li><a href="#">Yodel</a></li>
@@ -37,10 +40,25 @@
 	</div>
     </div>
     <div class="three columns">
-	<div class="half-bottom" style="background: #eee; height: 300px;">&nbsp;</div>
-	<div style="background: #eee">
-	    <div class="wrap" style="background: #eee;">
-		<h4 class="remove-bottom">Success Stories</h4>
+	<div class="help half-bottom pane">
+	    <div class="wrap">
+		<h5 class="remove-bottom">Help</h5>
+		<hr/>
+		<ul>
+		    <li><a href="help.html">Getting your voice on the voice bank</a></li>
+		    <li><a href="#">Registering on the Voice bank</a></li>
+		    <li><a href="#">Payment Process</a></li>
+		    <li><a href="#">Voice bank subscription cost</a></li>
+		    <li><a href="#">Booking for your recording</a></li>
+		    <li><a href="#">What to bring to the recording</a></li>
+		    <li><a href="#">Renewals</a></li>
+		    <li><a href="#">Uploading your voice clips</a></li>
+		</ul>
+	    </div>
+	</div>
+	<div class="pane">
+	    <div class="wrap">
+		<h5 class="remove-bottom">Success Stories</h5>
 		<hr/>
 		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
 	    </div>

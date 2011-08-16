@@ -69,13 +69,8 @@
 			<p>
 			    <label>Location:</label>
 			    {{ form.country }}
+			    {{ form.state.errors }}
 			    {{ form.state }}
-			</p>
-			<p>
-			    {{ form.media_interests.errors }}
-			    <label>{{ form.media_interests.label }}</label>
-			    {{ form.media_interests }}
-			    <span>{{ form.media_interests.help_text }}</span>
 			</p>
 			<button>Save</button>
 		    </fieldset>

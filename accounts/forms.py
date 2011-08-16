@@ -12,6 +12,11 @@ from accounts.models import *
 import random
 import string
 
+COUNTRIES = (
+	('Nigeria', 'Nigeria'),
+	('Benin Republic', 'Benin Republic'),
+	)
+
 class UserJoinForm(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
@@ -55,7 +60,7 @@ class UserProfileForm(forms.Form):
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a custom URL like http://nigerianvoicebank.com/yournickname?")
-    country = forms.CharField(max_length=50)
+    country = forms.ChoiceField(choices=COUNTRIES)
     state = forms.CharField(max_length=50)
 
     def save(self):

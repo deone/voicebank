@@ -18,6 +18,9 @@ class VoiceClip(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
+    class Meta:
+	verbose_name_plural = "Categories"
+
     def __unicode__(self):
 	return self.name
 
@@ -25,6 +28,9 @@ class Category(models.Model):
 class VoiceClipCategory(models.Model):
     voice_clip = models.ForeignKey(VoiceClip)
     category = models.ForeignKey(Category)
+
+    class Meta:
+	verbose_name_plural = "Voice clip categories"
 
     def __unicode__(self):
 	return self.category.name
