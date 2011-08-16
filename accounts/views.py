@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
@@ -6,10 +6,10 @@ from django.contrib.sites.models import Site
 from django.conf import settings
 from core.models import VoiceClip
 
+from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 
 def index(request, template='accounts/index.html'):
-
     voice_clips = VoiceClip.objects.filter(is_active=True).order_by('-date_added')
 
     return render_to_response(template, {
@@ -44,7 +44,11 @@ def profile_edit(request, id, template='accounts/profile_edit.html', form=UserPr
 	}, context_instance=RequestContext(request))
 
 def profile(request, slug, template='accounts/profile.html'):
+    user_profile = get_object_or_404(Profile, slug__iexact=slug)
+    print dir(user_profile.user)
+
     return render_to_response(template, {
+	'user_profile': user_profile,
 	}, context_instance=RequestContext(request))
 
 def join(request, template='accounts/join.html', form=UserJoinForm):

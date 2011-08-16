@@ -3,7 +3,32 @@
 {% load thumbnail %}
 
 {% block app_body_content %}
-    <div class="sixteen columns">
-	<p>dfhdfdfd</p>
+    <div class="thirteen columns add-bottom pane">
+	<div class="wrap">
+	    <h4>{{ user_profile.user.get_full_name }}</h4>
+	    <hr class="half-bottom"/>
+	    {% if user_profile.photo %}
+		{% thumbnail user_profile.photo "138x138" crop="center" as up %}
+		    <img src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+		{% endthumbnail %}
+	    {% else %}
+		<img src="{{ MEDIA_URL }}img/no-image.jpg"/>
+	    {% endif %}
+	    <h5>About</h5>
+	    <hr class="remove-bottom"/>
+	    <p>{{ user_profile.about }}</p>
+	    <h5>Voice Clips</h5>
+	    <hr class="remove-bottom"/>
+	    {% if user_profile.user.voiceclip_set.all %}
+	    <ul>
+		{% for clip in user_profile.user.voiceclip_set.all %}
+		<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+		{% endfor %}
+	    </ul>
+	    {% else %}
+	    <p>This user has not uploaded any voice clips.</p>
+	    {% endif %}
+	</div>
     </div>
+    <div class="three columns pane">&nbsp;</div>
 {% endblock %}
