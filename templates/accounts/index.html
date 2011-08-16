@@ -13,7 +13,7 @@
 		    <li>
 			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
 			by 
-			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a></li>
+			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a></li>
 		    {% endfor %}
 		{% else %}
 		<p class="remove-bottom">None yet. Sorry!</p>
