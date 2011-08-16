@@ -21,7 +21,7 @@ class Profile(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-	return ('user_profile', [self.slug])
+	return ('profile_edit', [self.id])
 
 
 class Country(models.Model):
