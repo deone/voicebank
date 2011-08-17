@@ -1,0 +1,85 @@
+{% extends "core/base.html" %}
+
+{% load thumbnail %}
+
+{% block app_body_content %}
+    <div class="sixteen columns">
+	<ul class="tabs">
+	    <li><a href="#viewprofile">View Profile</a></li>
+	    <li><a class="active" href="#editprofile">Edit Profile</a></li>
+	</ul>
+	<ul class="tabs-content">
+	    <li id="viewprofileTab">
+		<div class="six columns pane add-bottom">
+		    <div class="wrap">
+			<h4 class="fullname">{{ user.get_full_name }}</h4>
+			{% if user.profile.photo %}
+			    {% thumbnail user.profile.photo "138x138" crop="center" as up %}
+				<img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+			    {% endthumbnail %}
+			{% else %}
+			    <img src="{{ MEDIA_URL }}img/no-image.jpg"/>
+			{% endif %}
+			<h5>About</h5>
+			<p>{{ user.profile.about }}</p>
+			<h5>Voice Bank URL</h5>
+			<p>
+			    <a href="http://{{ site }}/{{ user.profile.slug }}">
+			    http://{{ site }}/{{ user.profile.slug }}
+			    </a>
+			</p>
+		    </div>
+		</div>
+	    </li>
+	    <li class="active" id="editprofileTab">
+		<form id="profile-edit" class="five columns" method="post"
+		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
+		    <fieldset class="wrap remove-bottom">
+			{{ form.user.as_hidden }}
+			<p>
+			    <label>{{ form.photo.label }}:</label>
+			    {% if user.profile.photo %}
+				{% thumbnail user.profile.photo "50x50" crop="center" as up %}
+				    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+				{% endthumbnail %}
+			    {% else %}
+				<img src="{{ MEDIA_URL }}img/no-image-small.jpg"/>
+			    {% endif %}
+			    {{ form.photo.errors }}
+			    {{ form.photo }}
+			    <br class="clear"/>
+			</p>
+			<p>
+			    {{ form.first_name.errors }}
+			    <label>{{ form.first_name.label }}:</label>
+			    {{ form.first_name }}
+			</p>
+			<p>
+			    {{ form.last_name.errors }}
+			    <label>{{ form.last_name.label }}:</label>
+			    {{ form.last_name }}
+			</p>
+			<p>
+			    {{ form.about.errors }}
+			    <label>{{ form.about.label }}:</label>
+			    {{ form.about }}
+			</p>
+			<p>
+			    {{ form.url_id.errors }}
+			    <label>URL ID:</label>
+			    {{ form.url_id }}
+			    <span>{{ form.url_id.help_text }}</span>
+			</p>
+			<p>
+			    <label>Location:</label>
+			    {{ form.country }}
+			    {{ form.state.errors }}
+			    {{ form.state }}
+			</p>
+			<button>Save</button>
+		    </fieldset>
+		</form>
+	    </li>
+	</ul>
+    </div>
+{% endblock %}
