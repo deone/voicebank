@@ -12,7 +12,7 @@ from accounts.forms import UserJoinForm, UserProfileForm
 CURRENT_SITE = Site.objects.get_current()
 
 def index(request, template='accounts/index.html'):
-    voice_clips = VoiceClip.objects.filter(is_active=True)
+    voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_ADDITIONS_DISPLAY_LIMIT]
 
     return render_to_response(template, {
 	'clips': voice_clips
