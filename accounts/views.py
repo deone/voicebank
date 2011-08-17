@@ -9,6 +9,8 @@ from core.models import VoiceClip
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 
+CURRENT_SITE = Site.objects.get_current()
+
 def index(request, template='accounts/index.html'):
     voice_clips = VoiceClip.objects.filter(is_active=True).order_by('-date_added')
 
@@ -18,8 +20,6 @@ def index(request, template='accounts/index.html'):
 
 @login_required
 def profile_edit(request, id, template='accounts/profile_edit.html', form=UserProfileForm):
-    current_site = Site.objects.get_current()
-
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
@@ -40,15 +40,15 @@ def profile_edit(request, id, template='accounts/profile_edit.html', form=UserPr
 
     return render_to_response(template, {
 	    'form': form,
-	    'site': current_site.name,
+	    'site': CURRENT_SITE.name,
 	}, context_instance=RequestContext(request))
 
 def profile(request, slug, template='accounts/profile.html'):
     user_profile = get_object_or_404(Profile, slug__iexact=slug)
-    print dir(user_profile.user)
 
     return render_to_response(template, {
-	'user_profile': user_profile,
+	    'user_profile': user_profile,
+	    'site': CURRENT_SITE.name,
 	}, context_instance=RequestContext(request))
 
 def join(request, template='accounts/join.html', form=UserJoinForm):

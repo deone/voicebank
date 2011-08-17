@@ -5,13 +5,9 @@ Unit-test:
 Populate Country model and use in profile.html select field.
 Top Ten Voices feature.
 Basic Search (by voice category) with 'View all' option.
-Users' profile views to the world should be a merger of profile and voice clips.
 Images for voice categories, display categories at middle of home page.
-Help -> Links from homepage, downloadable in pdf format, and email-able from
-site.
 
 Fix:
-- Anonymous users can't access user profile with something like; http://localhost:8000/dayo.
 - Why are the errors in UserProfileForm not displaying on profile.html?
 - Validate user slug update, should allow only -_ and . special characters.
 
