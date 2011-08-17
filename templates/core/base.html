@@ -2,6 +2,7 @@
 
 {% block app_body %}
     <div class="sixteen columns">
+	{% if user.id %}
 	<ul class="nav">
 	    <li><a href="{% url welcome %}">Getting Started</a></li>
 	    <li><a href="{% url dashboard %}">Dashboard</a></li>
@@ -9,6 +10,7 @@
 	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
 	    <li><a href="{{ user.profile.get_absolute_url }}">Profile</a></li>
 	</ul>
+	{% endif %}
     </div>
     {% block app_body_content %}{% endblock %}
 {% endblock %}
