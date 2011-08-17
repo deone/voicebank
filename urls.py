@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^help$', direct_to_template, {'template': 'help.html'}),
     # (r'^my_admin/jsi18n', 'django.views.i18n.javascript_catalog'),
-    (r'^(?P<slug>[-A-za-z0-9_.]+)$', 'accounts.views.profile'),
+    (r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile'),
 )
 
 if settings.DEBUG:

@@ -15,21 +15,24 @@
 		<img src="{{ MEDIA_URL }}img/no-image.jpg"/>
 	    {% endif %}
 	    <h5>About</h5>
-	    <hr class="remove-bottom"/>
+	    <hr class="half-bottom"/>
 	    <p>{{ user_profile.about }}</p>
 	    <h5>Voice Clips</h5>
-	    <hr class="remove-bottom"/>
+	    <hr class="half-bottom"/>
 	    {% if user_profile.user.voiceclip_set.all %}
-	    <ul class="add-bottom">
+	    <ul class="clips add-bottom">
 		{% for clip in user_profile.user.voiceclip_set.all %}
-		<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+		<li>
+		    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+		    <span>Added {{ clip.date_added }}</span>
+		</li>
 		{% endfor %}
 	    </ul>
 	    {% else %}
 	    <p>This user has not uploaded any voice clips.</p>
 	    {% endif %}
 	    <h5>Voice Bank URL</h5>
-	    <hr class="remove-bottom"/>
+	    <hr class="half-bottom"/>
 	    <p>
 		<a href="http://{{ site }}/{{ user.profile.slug }}">
 		http://{{ site }}/{{ user.profile.slug }}

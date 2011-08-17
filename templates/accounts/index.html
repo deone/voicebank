@@ -7,13 +7,15 @@
 	    <div class="wrap">
 		<h5 class="remove-bottom">Most Recent Additions</h5>
 		<hr/>
-		<ul>
+		<ul class="clips">
 		{% if clips %}
 		    {% for clip in clips %}
 		    <li>
 			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
 			by 
-			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a></li>
+			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
+			<span>Added {{ clip.date_added }}</span>
+		    </li>
 		    {% endfor %}
 		{% else %}
 		<p class="remove-bottom">None yet. Sorry!</p>

@@ -11,6 +11,9 @@ class VoiceClip(models.Model):
     is_active = models.BooleanField(default=False)
     listens = models.IntegerField(default=0)
 
+    class Meta:
+	ordering = ['-date_added']
+
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
 

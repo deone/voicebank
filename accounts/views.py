@@ -12,7 +12,7 @@ from accounts.forms import UserJoinForm, UserProfileForm
 CURRENT_SITE = Site.objects.get_current()
 
 def index(request, template='accounts/index.html'):
-    voice_clips = VoiceClip.objects.filter(is_active=True).order_by('-date_added')
+    voice_clips = VoiceClip.objects.filter(is_active=True)
 
     return render_to_response(template, {
 	'clips': voice_clips
@@ -24,6 +24,8 @@ def profile_edit(request, id, template='accounts/profile_edit.html', form=UserPr
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
+	else:
+	    print form.errors
 
 	return redirect(request.user.profile.get_absolute_url())
 

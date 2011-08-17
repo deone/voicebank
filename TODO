@@ -7,10 +7,7 @@ Top Ten Voices feature.
 Basic Search (by voice category) with 'View all' option.
 Images for voice categories, display categories at middle of home page.
 Add phone number field to UserProfileForm.
-
-Fix:
-- Why are the errors in UserProfileForm not displaying on profile.html?
-- Validate user slug update, should allow only -_ and . special characters.
+Ensure that all forms display errors.
 
 Use:
 - jQuery date picker

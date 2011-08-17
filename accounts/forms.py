@@ -6,16 +6,24 @@ from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
 from django.contrib.admin import widgets
+from django.core.exceptions import ValidationError
 
 from accounts.models import *
 
 import random
 import string
+import re
 
 COUNTRIES = (
 	('Nigeria', 'Nigeria'),
 	('Benin Republic', 'Benin Republic'),
 	)
+
+url_id_re = re.compile(r'^[-.\w]+$')
+
+def validate_url_id(value):
+    if not url_id_re.search(value):
+	raise ValidationError("Enter a valid 'url_id' consisting of letters, numbers, underscores, dots or hyphens.")
 
 class UserJoinForm(forms.Form):
     first_name = forms.CharField(max_length=30)
@@ -52,14 +60,15 @@ class UserJoinForm(forms.Form):
 
         return user
 
-
 class UserProfileForm(forms.Form):
     user = forms.CharField(max_length=5)
     photo = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
-    url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a custom URL like http://nigerianvoicebank.com/yournickname?")
+    url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
+	    custom URL like http://nigerianvoicebank.com/yournickname?",
+	    validators=[validate_url_id])
     country = forms.ChoiceField(choices=COUNTRIES)
     state = forms.CharField(max_length=50)
 

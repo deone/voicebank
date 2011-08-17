@@ -13,7 +13,10 @@
 			<ul>
 			{% if clips %}
 			    {% for clip in clips %}
-				<li><a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a></li>
+			    <li>
+				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+				<span>Added {{ clip.date_added }}</span>
+			    </li>
 			    {% endfor %}
 			{% else %}
 			    <p class="remove-bottom">It's either you have not uploaded any voice
