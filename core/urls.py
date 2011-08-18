@@ -6,3 +6,7 @@ urlpatterns = patterns('core.views',
     url(r'^voiceclips$', 'voiceclips', name='voiceclips'),
     url(r'^following$', 'following', name='following'),
 )
+
+urlpatterns += patterns('',
+    url(r'^profile$', 'accounts.views.profile_edit', name='profile_edit'),
+)

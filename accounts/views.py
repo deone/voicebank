@@ -21,12 +21,12 @@ def index(request, template='accounts/index.html'):
 	}, context_instance=RequestContext(request))
 
 @login_required
-def profile_edit(request, id, template='accounts/profile_edit.html', form=UserProfileForm):
+def profile_edit(request, template='accounts/profile_edit.html', form=UserProfileForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	    return redirect(request.user.profile.get_absolute_url())
+	    return redirect('accounts.views.profile_edit')
     else:
 	form = form(initial={
 	    'user': request.user.id, 

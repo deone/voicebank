@@ -20,10 +20,6 @@ class Profile(models.Model):
     def __unicode__(self):
 	return self.slug
 
-    @models.permalink
-    def get_absolute_url(self):
-	return ('profile_edit', [self.id])
-
 
 class Country(models.Model):
     name = models.CharField(max_length=150)
