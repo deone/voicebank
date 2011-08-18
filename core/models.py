@@ -23,9 +23,14 @@ class Category(models.Model):
 
     class Meta:
 	verbose_name_plural = "Categories"
+	ordering = ['name']
 
     def __unicode__(self):
 	return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+	return ('category', [self.id])
 
 
 class VoiceClipCategory(models.Model):

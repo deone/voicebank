@@ -17,27 +17,37 @@
 			<span>Added {{ clip.date_added }}</span>
 		    </li>
 		    {% endfor %}
+		</ul>
 		{% else %}
 		<p class="remove-bottom">None yet. Sorry!</p>
 		{% endif %}
-		</ul>
 	    </div>
 	</div>
 	<div class="five columns pane half-bottom">
 	    <div class="wrap">
 		<h5 class="remove-bottom">Voice Categories</h5>
 		<hr/>
+		<ul>
+		{% if categories %}
+		    {% for category in categories %}
+		    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+		    {% endfor %}
+		    <li><a href="{% url all_clips %}">View all...</a></li>
+		</ul>
+		{% else %}
+		<p>Please <a href="/admin/">log in</a> to add voice categories</p>
+		{% endif %}
 	    </div>
 	</div>
 	<div class="four columns pane omega half-bottom">
 	    <div class="wrap">
 		<h5 class="remove-bottom">Top Ten Voices</h5>
 		<hr/>
-		<ul>
+		<!--<ul>
 		    <li><a href="#">Yodel</a></li>
 		    <li><a href="#">Yodel</a></li>
 		    <li><a href="#">Yodel</a></li>
-		</ul>
+		</ul>-->
 	    </div>
 	</div>
     </div>

@@ -4,7 +4,6 @@ Unit-test:
 
 Populate Country model and use in profile.html select field.
 Top Ten Voices feature.
-Basic Search (by voice category) with 'View all' option.
 Images for voice categories, display categories at middle of home page.
 Ensure that all forms display errors.
 
@@ -12,3 +11,4 @@ Use:
 - jQuery date picker
 - jQuery Chosen
 - Django Piston, later.
+- Generic views for create/update profile and voice clips functionality.

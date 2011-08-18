@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.sites.models import Site
 from django.conf import settings
-from core.models import VoiceClip
+from core.models import VoiceClip, Category
 
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
@@ -13,9 +13,11 @@ CURRENT_SITE = Site.objects.get_current()
 
 def index(request, template='accounts/index.html'):
     voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_ADDITIONS_DISPLAY_LIMIT]
+    categories = Category.objects.all()
 
     return render_to_response(template, {
-	'clips': voice_clips
+	'clips': voice_clips,
+	'categories': categories,
 	}, context_instance=RequestContext(request))
 
 @login_required
