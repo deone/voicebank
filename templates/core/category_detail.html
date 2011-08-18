@@ -3,7 +3,9 @@
 {% block app_body_content %}
     <div class="seven columns pane add-bottom">
 	<div class="wrap">
-	    <h4 class="remove-bottom">Voice Clips in {{ object.name }} category</h4>
+	    <h4 class="remove-bottom">
+		Voice clips in <span class="italic">{{ object.name }}</span> category
+	    </h4>
 	    <hr/>
 	    {% if object.voiceclipcategory_set.all %}
 	    <ul class="clips">

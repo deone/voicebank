@@ -38,6 +38,7 @@ form span, .errorlist	{ font-style: italic; color: green; font-size: 82% }
 .display-picture    { border: solid 1px #fff }
 #profile-edit img   { display: inline }
 #profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }
+.italic	    { font-style: italic }
 
 /* #Page Styles
 ================================================== */
