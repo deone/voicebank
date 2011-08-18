@@ -2,13 +2,17 @@ Unit-test:
 - Profile model, accounts forms and views.
 - Core app.
 
-Populate Country model and use in profile.html select field.
-Top Ten Voices feature.
 Images for voice categories, display categories at middle of home page.
+Populate Country model and use in profile.html select field.
 Ensure that all forms display errors.
 
 Use:
 - jQuery date picker
 - jQuery Chosen
-- Django Piston, later.
+
+Milestone II
+- Top Ten Voices feature.
+
+Improvements
+- REST - Django Piston.
 - Generic views for create/update profile and voice clips functionality.

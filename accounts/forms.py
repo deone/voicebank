@@ -66,7 +66,7 @@ class UserProfileForm(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
-    phone_number = forms.CharField(max_length=15, required=False,
+    phone_number = forms.CharField(max_length=15,
 	    help_text="Enter phone number in full international format.\
 	    Ignore\
 	    the leading plus sign. e.g. 2348033344455, 23417745566")
