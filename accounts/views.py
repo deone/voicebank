@@ -35,6 +35,7 @@ def profile_edit(request, id, template='accounts/profile_edit.html', form=UserPr
 	    'first_name': request.user.first_name,
 	    'last_name': request.user.last_name,
 	    'about': request.user.profile.about,
+	    'phone_number': request.user.profile.phone_number,
 	    'country': request.user.profile.country,
 	    'state': request.user.profile.state,
 	    'url_id': request.user.profile.slug

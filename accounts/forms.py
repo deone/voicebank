@@ -66,6 +66,10 @@ class UserProfileForm(forms.Form):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+    phone_number = forms.CharField(max_length=15, required=False,
+	    help_text="Enter phone number in full international format.\
+	    Ignore\
+	    the leading plus sign. e.g. 2348033344455, 23417745566")
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_url_id])
@@ -82,6 +86,7 @@ class UserProfileForm(forms.Form):
 	user.save()
 
 	user.profile.about = self.cleaned_data['about']
+	user.profile.phone_number = self.cleaned_data['phone_number']
 	user.profile.slug = self.cleaned_data['url_id']
 	user.profile.country = self.cleaned_data['country']
 	user.profile.state = self.cleaned_data['state']

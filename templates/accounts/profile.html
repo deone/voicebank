@@ -9,10 +9,10 @@
 	    <hr class="half-bottom"/>
 	    {% if user_profile.photo %}
 		{% thumbnail user_profile.photo "138x138" crop="center" as up %}
-		<img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+		<img class="add-bottom display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
 		{% endthumbnail %}
 	    {% else %}
-		<img src="{{ MEDIA_URL }}img/no-image.jpg"/>
+		<img class="add-bottom" src="{{ MEDIA_URL }}img/no-image.jpg"/>
 	    {% endif %}
 	    <h5>About</h5>
 	    <hr class="half-bottom"/>
@@ -40,5 +40,5 @@
 	    </p>
 	</div>
     </div>
-    <div class="three columns pane">&nbsp;</div>
+    <div class="three columns pane" style="height: 582px">&nbsp;</div>
 {% endblock %}

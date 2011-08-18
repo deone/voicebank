@@ -6,62 +6,64 @@
 	    <li><a href="#myvoiceclips">My Voice Clips</a></li>
 	    <li><a class="active" href="#uploadvoiceclip">Upload Voice Clip</a></li>
 	</ul>
-	<ul class="tabs-content">
-	    <li id="myvoiceclipsTab">
-		<div class="eleven columns pane add-bottom">
-		    <div class="wrap">
-			<ul>
-			{% if clips %}
-			    {% for clip in clips %}
-			    <li>
-				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
-				<span>Added {{ clip.date_added }}</span>
-			    </li>
-			    {% endfor %}
-			{% else %}
-			    <p class="remove-bottom">It's either you have not uploaded any voice
-			    clips, or they have not been approved by the
-			    Administrator.</p>
-			{% endif %}
-			</ul>
-		    </div>
-		</div>
-	    </li>
-	    <li class="active" id="uploadvoiceclipTab">
-		<div class="five columns">
-		    {% if messages %}
-			{% for message in messages %}
-			    <p{% if message.tags %} class="{{ message.tags }}"
-			    {%endif %}>{{ message }}</p>
-			{% endfor %}
-		    {% endif %}
-		    <form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
-			<fieldset class="wrap remove-bottom">
-			    <p>
-				<label>{{ form.voice_clip.label }}:</label>
-				{{ form.voice_clip.errors }}
-				{{ form.voice_clip }}
-			    </p>	
-			    <p>
-				<label>{{ form.name.label }}:</label>
-				{{ form.name.errors }}
-				{{ form.name }}
-			    </p>
-			    <p>
-				<label>{{ form.language.label }}:</label>
-				{{ form.language.errors }}
-				{{ form.language }}
-			    </p>
-			    <p>
-				<label>{{ form.category.label }}:</label>
-				{{ form.category.errors }}
-				{{ form.category }}
-			    </p>
-			    <button>Upload</button>
-			</fieldset>
-		    </form>
-		</div>
-	    </li>
-	</ul>
     </div>
+    <ul class="tabs-content">
+	<li id="myvoiceclipsTab">
+	    <div class="six columns pane add-bottom">
+		<div class="wrap">
+		    <ul>
+		    {% if clips %}
+			{% for clip in clips %}
+			<li>
+			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+			    <span>Added {{ clip.date_added }}</span>
+			</li>
+			{% endfor %}
+		    {% else %}
+			<p class="remove-bottom">It's either you have not uploaded any voice
+			clips, or they have not been approved by the
+			Administrator.</p>
+		    {% endif %}
+		    </ul>
+		</div>
+	    </div>
+	    <div class="ten columns pane">&nbsp;</div>
+	</li>
+	<li class="active" id="uploadvoiceclipTab">
+	    <div class="five columns">
+		{% if messages %}
+		    {% for message in messages %}
+			<p{% if message.tags %} class="{{ message.tags }}"
+			{%endif %}>{{ message }}</p>
+		    {% endfor %}
+		{% endif %}
+		<form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
+		    <fieldset class="wrap remove-bottom">
+			<p>
+			    <label>{{ form.voice_clip.label }}:</label>
+			    {{ form.voice_clip.errors }}
+			    {{ form.voice_clip }}
+			</p>	
+			<p>
+			    <label>{{ form.name.label }}:</label>
+			    {{ form.name.errors }}
+			    {{ form.name }}
+			</p>
+			<p>
+			    <label>{{ form.language.label }}:</label>
+			    {{ form.language.errors }}
+			    {{ form.language }}
+			</p>
+			<p>
+			    <label>{{ form.category.label }}:</label>
+			    {{ form.category.errors }}
+			    {{ form.category }}
+			</p>
+			<button>Upload</button>
+		    </fieldset>
+		</form>
+	    </div>
+	    <div class="eleven columns pane">&nbsp;</div>
+	</li>
+    </ul>
 {% endblock %}

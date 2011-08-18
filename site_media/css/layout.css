@@ -23,6 +23,7 @@ ul.nav li	{ display: inline; text-align: center; }
 ul.nav li a	{ padding: 3px 10px; }
 ul.nav>:first-child a	{ padding-left: 0 }
 .pane		{ background: #eee; }
+.pane hr	{ border-color: #fff }
 .wrap		{ margin: 0 10px; }
 .wrap hr	{ margin-top: 0; margin-bottom: 5px; }
 .wrap ul	{ margin-bottom: 0; }
