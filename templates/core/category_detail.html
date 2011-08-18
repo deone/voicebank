@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% block app_body_content %}
+    <div class="seven columns pane add-bottom">
+	<div class="wrap">
+	    <h4 class="remove-bottom">Voice Clips in {{ object.name }} category</h4>
+	    <hr/>
+	    {% if object.voiceclipcategory_set.all %}
+	    <ul class="clips">
+		{% for clip_category in object.voiceclipcategory_set.all %}
+		<li>
+		    <a href="{{ MEDIA_URL }}{{ clip_category.voice_clip.voice_clip }}">
+			{{ clip_category.voice_clip.name }}</a>
+		    by 
+		    <a href="{{ clip_category.voice_clip.user.profile }}">{{ clip_category.voice_clip.user.first_name }}</a><br/>
+		    <span>Added {{ clip_category.voice_clip.date_added }}</span>
+		</li>
+		{% endfor %}
+	    </ul>
+	    {% else %}
+	    <p class="half-bottom">There are no voice clips in this category yet. :-)</p>
+	    {% endif %}
+	</div>
+    </div>
+    <div class="nine columns pane">&nbsp;</div>
+{% endblock %}

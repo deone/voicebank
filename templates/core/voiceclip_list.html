@@ -1,1 +1,25 @@
-dfkdfk
+{% extends "core/base.html" %}
+
+{% block app_body_content %}
+    <div class="five columns pane add-bottom">
+	<div class="wrap">
+	    <h3 class="remove-bottom">All Voice Clips</h3>
+	    <hr/>
+	    {% if object_list %}
+	    <ul class="clips">
+		{% for object in object_list %}
+		<li>
+		    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
+		    by 
+		    <a href="{{ object.user.profile }}">{{ object.user.first_name }}</a><br/>
+		    <span>Added {{ object.date_added }}</span>
+		</li>
+		{% endfor %}
+	    </ul>
+	    {% else %}
+	    <p>There are no voice clips yet :-)</p>
+	    {% endif %}
+	</div>
+    </div>
+    <div class="eleven columns pane">&nbsp;</div>
+{% endblock %}
