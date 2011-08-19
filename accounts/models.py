@@ -22,7 +22,8 @@ class Profile(models.Model):
 
 
 class Country(models.Model):
-    name = models.CharField(max_length=150)
+    code = models.CharField(max_length=2)
+    name = models.CharField(max_length=200)
 
     def __unicode__(self):
 	return self.name

@@ -3,7 +3,6 @@ Unit-test:
 - Core app.
 
 Images for voice categories, display categories at middle of home page.
-Populate Country model and use in profile.html select field.
 Ensure that all forms display errors.
 
 Use:

@@ -14,11 +14,6 @@ import random
 import string
 import re
 
-COUNTRIES = (
-	('Nigeria', 'Nigeria'),
-	('Benin Republic', 'Benin Republic'),
-	)
-
 url_id_re = re.compile(r'^[-.\w]+$')
 
 def validate_url_id(value):
@@ -73,7 +68,8 @@ class UserProfileForm(forms.Form):
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_url_id])
-    country = forms.ChoiceField(choices=COUNTRIES)
+    country = forms.ModelChoiceField(queryset=Country.objects.all(),
+	    empty_label="Select...")
     state = forms.CharField(max_length=50)
 
     def save(self):
