@@ -46,7 +46,7 @@ form span	{ color: green; }
     float: left;
     margin-right: 10px;
     width: 120px;
-    height: 100px;
+    height: 120px;
 }
 .categories-list a img    { display: block; border: solid #aaa 1px }
 .categories-list a span   { font-size: 12px }

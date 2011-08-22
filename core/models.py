@@ -20,6 +20,7 @@ class VoiceClip(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="category_pics")
 
     class Meta:
 	verbose_name_plural = "Categories"

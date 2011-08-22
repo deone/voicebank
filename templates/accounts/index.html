@@ -1,5 +1,7 @@
 {% extends "accounts/base.html" %}
 
+{% load thumbnail %}
+
 {% block app_body %}
     <div class="thirteen columns half-bottom">
 	<div class="half-bottom" style="background: #ff0; height: 160px;">&nbsp;</div>
@@ -33,7 +35,13 @@
 		    {% for category in categories %}
 			<li>
 			    <a href="{{ category.get_absolute_url }}">
-				<img src="{{ MEDIA_URL }}img/comedy.jpg"/>
+			    {% if category.image %}
+				{% thumbnail category.image "120x60" crop="center" as ci %}
+				<img src="{{ ci.url }}" width="{{ ci.width }}" height="{{ ci.height }}"/>
+				{% endthumbnail %}
+			    {% else %}
+				<img src="{{ MEDIA_URL }}img/no_cat_image.jpg"/>
+			    {% endif %}
 				<span>{{ category.name }}</span>
 			    </a>
 			</li>
