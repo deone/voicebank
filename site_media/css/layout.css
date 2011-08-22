@@ -41,6 +41,15 @@ form span	{ color: green; }
 #profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }
 .italic	    { font-style: italic }
 .small-font	{ font-size: 12px }
+.categories-list ul .wrap   { margin: 0 -4px 0 4px; }
+.categories-list ul li a    {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+    height: 100px;
+}
+.categories-list a img    { display: block; border: solid #aaa 1px }
+.categories-list a span   { font-size: 12px }
 
 /* #Page Styles
 ================================================== */
