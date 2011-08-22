@@ -16,7 +16,7 @@
 			{% for clip in clips %}
 			<li>
 			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
-			    <span>Added {{ clip.date_added }}</span>
+			    <span class="small-font">Added {{ clip.date_added }}</span>
 			</li>
 			{% endfor %}
 		    {% else %}

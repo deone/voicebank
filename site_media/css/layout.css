@@ -28,7 +28,6 @@ ul.nav>:first-child a	{ padding-left: 0 }
 .wrap hr	{ margin-top: 0; margin-bottom: 5px; }
 .wrap ul	{ margin-bottom: 0; }
 .wrap ul li	{ margin-bottom: 5px; }
-ul.clips li span   { font-size: 85% }
 form		{ background: #eee; }
 ul.errorlist	{ margin: 0; }
 ul.errorlist li	{ margin: 3px 0; }
@@ -41,6 +40,7 @@ form span	{ color: green; }
 #profile-edit img   { display: inline }
 #profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }
 .italic	    { font-style: italic }
+.small-font	{ font-size: 12px }
 
 /* #Page Styles
 ================================================== */

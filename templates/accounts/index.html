@@ -14,7 +14,7 @@
 			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
 			by 
 			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
-			<span>Added {{ clip.date_added }}</span>
+			<span class="small-font">Added {{ clip.date_added }}</span>
 		    </li>
 		    {% endfor %}
 		</ul>
@@ -56,7 +56,7 @@
 	    <div class="wrap">
 		<h5 class="remove-bottom">Help</h5>
 		<hr/>
-		<ul>
+		<ul class="small-font">
 		    <li><a href="help">Getting your voice on the voice bank</a></li>
 		    <li><a href="#">Registering on the Voice bank</a></li>
 		    <li><a href="#">Payment Process</a></li>

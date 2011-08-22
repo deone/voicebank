@@ -5,7 +5,6 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
-from django.contrib.admin import widgets
 from django.core.exceptions import ValidationError
 
 from accounts.models import *
@@ -26,9 +25,7 @@ class UserJoinForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
     gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select)
-    # birthday = forms.DateField(widget=widgets.AdminDateWidget())
-    birthday = forms.DateField(('%d/%m/%Y',), 
-	help_text='Enter your birthday in DD/MM/YYYY format')
+    birthday = forms.DateField(('%m/%d/%Y',))
 
     def save(self):
 	username = self.cleaned_data['email']
