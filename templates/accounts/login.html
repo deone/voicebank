@@ -2,22 +2,24 @@
 
 {% block app_body %}
     <div class="five columns">&nbsp;</div>
-    <form class="six columns" method="post" action="{% url login %}">{% csrf_token %}
-	<fieldset class="wrap remove-bottom">
-	    <legend><h4>Login</h4></legend>
-	    <hr class="half-bottom"/>
-	    <p>
-		{{ form.username.errors }}
-		<label>Email:</label>
-		{{ form.username }}
-	    </p>
-	    <p>
-		{{ form.password.errors }}
-		<label>{{ form.password.label }}:</label>
-		{{ form.password }}
-	    </p>
-	    <button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
-	</fieldset>
-    </form>
-    <div class="five columns">&nbsp;</div>
+    <div class="five columns">
+	<form method="post" action="{% url login %}">{% csrf_token %}
+	    <fieldset class="wrap remove-bottom">
+		<legend><h4>Login</h4></legend>
+		<hr class="half-bottom"/>
+		<p>
+		    {{ form.username.errors }}
+		    <label>Email:</label>
+		    {{ form.username }}
+		</p>
+		<p>
+		    {{ form.password.errors }}
+		    <label>{{ form.password.label }}:</label>
+		    {{ form.password }}
+		</p>
+		<button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
+	    </fieldset>
+	</form>
+    </div> 
+    <div class="six columns">&nbsp;</div>
 {% endblock %}
