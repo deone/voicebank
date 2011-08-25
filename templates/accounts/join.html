@@ -4,10 +4,12 @@
 
 {% block custom_css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.8.2.custom.css"/>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
 {% endblock %}
 
 {% block custom_js %}
     <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.2.custom.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
     <script>
 	$(function()	{
 	    $("#id_birthday").datepicker({
@@ -15,11 +17,13 @@
 		changeYear: true,
 		yearRange: '1930:2005'
 	    });
+	    $(".chzn-select").chosen();
 	});
     </script>
 {% endblock %}
 
 {% block app_body %}
+    <div class="six columns">&nbsp;</div>
     <form class="five columns" method="post" action="{% url join %}">{% csrf_token %}
 	<fieldset class="wrap remove-bottom">
 	<legend><h4>Join Nigerian Voice Bank</h4></legend>
@@ -53,11 +57,10 @@
 		{{ form.birthday.errors }}
 		<label>{{ form.birthday.label }}:</label>
 		{{ form.birthday }}
-		<span>{{ form.birthday.help_text }}</span>
 	    </p>
 	    <button>Join</button>
 	    <p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>
 	</fieldset>
     </form>
-    <div class="eleven columns pane">&nbsp;</div>
+    <div class="six columns">&nbsp;</div>
 {% endblock %}

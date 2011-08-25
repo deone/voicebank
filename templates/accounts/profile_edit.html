@@ -2,6 +2,19 @@
 
 {% load thumbnail %}
 
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
+{% endblock %}
+
+{% block custom_js %}
+    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
+    <script>
+	$(function()    {
+	    $(".chzn-select").chosen();
+	});
+    </script>
+{% endblock %}
+
 {% block app_body_content %}
     <div class="sixteen columns">
 	<ul class="tabs">
@@ -37,6 +50,7 @@
 	    <div class="three columns pane">&nbsp;</div>
 	</li>
 	<li class="active" id="editprofileTab">
+	    <div class="one column">&nbsp;</div>
 	    <form id="profile-edit" class="five columns" method="post"
 		enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
 		<fieldset class="wrap remove-bottom">
@@ -73,24 +87,26 @@
 			{{ form.phone_number.errors }}
 			<label>{{ form.phone_number.label }}:</label>
 			{{ form.phone_number }}
-			<span>{{ form.phone_number.help_text }}</span>
+			<span class="help">{{ form.phone_number.help_text }}</span>
 		    </p>
 		    <p>
 			{{ form.url_id.errors }}
 			<label>URL ID:</label>
 			{{ form.url_id }}
-			<span>{{ form.url_id.help_text }}</span>
+			<span class="help">{{ form.url_id.help_text }}</span>
 		    </p>
 		    <p>
 			<label>Location:</label>
 			{{ form.country }}
+		    </p>
+		    <p>
 			{{ form.state.errors }}
 			{{ form.state }}
 		    </p>
 		    <button>Save</button>
 		</fieldset>
 	    </form>
-	    <div class="eleven columns pane">&nbsp;</div>
+	    <div class="ten columns">&nbsp;</div>
 	</li>
     </ul>
 {% endblock %}

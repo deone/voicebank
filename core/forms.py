@@ -3,6 +3,7 @@ from django import forms
 from core.models import *
 
 LANGUAGES = (
+	('', 'Select...'),
 	('English', 'English'),
 	('Pidgin English', 'Pidgin English'),
 	('Yoruba', 'Yoruba'),
@@ -13,9 +14,10 @@ LANGUAGES = (
 class VoiceClipForm(forms.Form):
     voice_clip = forms.FileField()
     name = forms.CharField(max_length=30)
-    language = forms.ChoiceField(choices=LANGUAGES)
+    language = forms.ChoiceField(choices=LANGUAGES,
+	    widget=forms.Select(attrs={'class': 'chzn-select'}))
     category = forms.ModelChoiceField(queryset=Category.objects.all(),
-	    empty_label="Select...")
+	    empty_label="Select...", widget=forms.Select(attrs={'class': 'chzn-select'}))
 
     def clean(self):
 	clip = self.cleaned_data.get('voice_clip', False)

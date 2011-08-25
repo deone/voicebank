@@ -24,7 +24,8 @@ class UserJoinForm(forms.Form):
     last_name = forms.CharField(max_length=30)
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
-    gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select)
+    gender = forms.ChoiceField(choices=GENDER_CHOICES,
+	    widget=forms.Select(attrs={'class': 'chzn-select'}))
     birthday = forms.DateField(('%m/%d/%Y',))
 
     def save(self):
@@ -66,7 +67,8 @@ class UserProfileForm(forms.Form):
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_url_id])
     country = forms.ModelChoiceField(queryset=Country.objects.all(),
-	    empty_label="Select...")
+	    empty_label="Select...", 
+	    widget=forms.Select(attrs={'class': 'chzn-select'}))
     state = forms.CharField(max_length=50)
 
     def save(self):

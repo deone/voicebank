@@ -12,7 +12,7 @@
 		    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
 		    by 
 		    <a href="{{ object.user.profile }}">{{ object.user.first_name }}</a><br/>
-		    <span>Added {{ object.date_added }}</span>
+		    <span class="small-font">Added {{ object.date_added }}</span>
 		</li>
 		{% endfor %}
 	    </ul>

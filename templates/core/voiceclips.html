@@ -1,5 +1,18 @@
 {% extends "core/base.html" %}
 
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
+{% endblock %}
+
+{% block custom_js %}
+    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
+    <script>
+	$(function()    {
+	    $(".chzn-select").chosen();
+	});
+    </script>
+{% endblock %}
+
 {% block app_body_content %}
     <div class="sixteen columns">
 	<ul class="tabs">
@@ -9,7 +22,7 @@
     </div>
     <ul class="tabs-content">
 	<li id="myvoiceclipsTab">
-	    <div class="six columns pane add-bottom">
+	    <div class="six columns add-bottom">
 		<div class="wrap">
 		    <ul>
 		    {% if clips %}
@@ -27,9 +40,10 @@
 		    </ul>
 		</div>
 	    </div>
-	    <div class="ten columns pane">&nbsp;</div>
+	    <div class="ten columns">&nbsp;</div>
 	</li>
 	<li class="active" id="uploadvoiceclipTab">
+	    <div class="one column">&nbsp;</div>
 	    <div class="five columns">
 		{% if messages %}
 		    {% for message in messages %}
@@ -63,7 +77,7 @@
 		    </fieldset>
 		</form>
 	    </div>
-	    <div class="eleven columns pane">&nbsp;</div>
+	    <div class="ten columns">&nbsp;</div>
 	</li>
     </ul>
 {% endblock %}

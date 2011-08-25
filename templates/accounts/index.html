@@ -4,11 +4,10 @@
 
 {% block app_body %}
     <div class="thirteen columns half-bottom">
-	<div class="half-bottom" style="background: #ff0; height: 160px;">&nbsp;</div>
-	<div class="four columns pane alpha half-bottom">
+	<div class="four columns alpha half-bottom">
 	    <div class="wrap">
-		<h5 class="remove-bottom">Most Recent Additions</h5>
-		<hr/>
+		<h5>Most Recent Additions</h5>
+		<hr class="half-bottom"/>
 		<ul class="clips">
 		{% if clips %}
 		    {% for clip in clips %}
@@ -25,18 +24,18 @@
 		{% endif %}
 	    </div>
 	</div>
-	<div class="five columns pane half-bottom categories-list">
+	<div class="five columns half-bottom categories-list">
 	    <div class="wrap">
 		<h5 class="remove-bottom">Voice Categories</h5>
-		<hr/>
+		<hr class="half-bottom"/>
 		<ul>
 		{% if categories %}
 		    <div class="wrap">
 		    {% for category in categories %}
 			<li>
-			    <a href="{{ category.get_absolute_url }}">
+			<a href="{{ category.get_absolute_url }}">
 			    {% if category.image %}
-				{% thumbnail category.image "120x60" crop="center" as ci %}
+				{% thumbnail category.image "75x60" crop="center" as ci %}
 				<img src="{{ ci.url }}" width="{{ ci.width }}" height="{{ ci.height }}"/>
 				{% endthumbnail %}
 			    {% else %}
@@ -55,23 +54,23 @@
 		{% endif %}
 	    </div>
 	</div>
-	<div class="four columns pane omega half-bottom">
+	<div class="four columns omega half-bottom">
 	    <div class="wrap">
 		<h5 class="remove-bottom">Top Ten Voices</h5>
-		<hr/>
-		<!--<ul>
+		<hr class="half-bottom"/>
+		<ul>
 		    <li><a href="#">Yodel</a></li>
 		    <li><a href="#">Yodel</a></li>
 		    <li><a href="#">Yodel</a></li>
-		</ul>-->
+		</ul>
 	    </div>
 	</div>
     </div>
     <div class="three columns">
-	<div class="help half-bottom pane">
+	<div class="help half-bottom">
 	    <div class="wrap">
-		<h5 class="remove-bottom">Help</h5>
-		<hr/>
+		<h5 class="remove-bottom">How-tos</h5>
+		<hr class="half-bottom"/>
 		<ul class="small-font">
 		    <li><a href="help">Getting your voice on the voice bank</a></li>
 		    <li><a href="#">Registering on the Voice bank</a></li>
@@ -84,7 +83,7 @@
 		</ul>
 	    </div>
 	</div>
-	<div class="pane">
+	<div>
 	    <div class="wrap">
 		<h5 class="remove-bottom">Success Stories</h5>
 		<hr/>
