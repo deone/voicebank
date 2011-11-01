@@ -4,7 +4,40 @@
 
 {% block app_body %}
     <div class="thirteen columns half-bottom">
-	<div class="four columns alpha half-bottom">
+	<div class="thirteen pane add-bottom" style="text-align: center">
+	    <h2><a style="text-decoration: none" href="{% url join %}">Start Uploading your voice clips</a></h2>
+	</div>
+	<div class="thirteen pane add-bottom categories-list">
+	    <div class="wrap">
+		<h5 class="remove-bottom">Voice Categories</h5>
+		<hr class="half-bottom"/>
+		<ul>
+		{% if categories %}
+		    <div class="wrap">
+		    {% for category in categories %}
+			<li>
+			<a href="{{ category.get_absolute_url }}">
+			    {% if category.image %}
+				{% thumbnail category.image "120x60" crop="center" as ci %}
+				<img src="{{ ci.url }}" width="{{ ci.width }}" height="{{ ci.height }}"/>
+				{% endthumbnail %}
+			    {% else %}
+				<img src="{{ MEDIA_URL }}img/no_cat_image.jpg"/>
+			    {% endif %}
+				<span>{{ category.name }}</span>
+			    </a>
+			</li>
+		    {% endfor %}
+		    <div class="clear"></div>
+		    </div>
+		</ul>
+		<a href="{% url all_clips %}">View all voice clips...</a>
+		{% else %}
+		<p class="half-bottom">Please <a href="/admin/">log in</a> to add voice categories</p>
+		{% endif %}
+	    </div>
+	</div>
+	<div class="four pane columns alpha half-bottom">
 	    <div class="wrap">
 		<h5>Most Recent Additions</h5>
 		<hr class="half-bottom"/>
@@ -24,46 +57,11 @@
 		{% endif %}
 	    </div>
 	</div>
-	<div class="five columns half-bottom categories-list">
-	    <div class="wrap">
-		<h5 class="remove-bottom">Voice Categories</h5>
-		<hr class="half-bottom"/>
-		<ul>
-		{% if categories %}
-		    <div class="wrap">
-		    {% for category in categories %}
-			<li>
-			<a href="{{ category.get_absolute_url }}">
-			    {% if category.image %}
-				{% thumbnail category.image "75x60" crop="center" as ci %}
-				<img src="{{ ci.url }}" width="{{ ci.width }}" height="{{ ci.height }}"/>
-				{% endthumbnail %}
-			    {% else %}
-				<img src="{{ MEDIA_URL }}img/no_cat_image.jpg"/>
-			    {% endif %}
-				<span>{{ category.name }}</span>
-			    </a>
-			</li>
-		    {% endfor %}
-		    <div class="clear"></div>
-		    </div>
-		</ul>
-		<a href="{% url all_clips %}">View all voice clips...</a>
-		{% else %}
-		<p class="half-bottom">Please <a href="/admin/">log in</a> to add voice categories</p>
-		{% endif %}
-	    </div>
+	<div class="five columns half-bottom">
+	    &nbsp;
 	</div>
 	<div class="four columns omega half-bottom">
-	    <div class="wrap">
-		<h5 class="remove-bottom">Top Ten Voices</h5>
-		<hr class="half-bottom"/>
-		<ul>
-		    <li><a href="#">Yodel</a></li>
-		    <li><a href="#">Yodel</a></li>
-		    <li><a href="#">Yodel</a></li>
-		</ul>
-	    </div>
+	    &nbsp;
 	</div>
     </div>
     <div class="three columns">

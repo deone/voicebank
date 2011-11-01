@@ -28,36 +28,47 @@
 	<form method="post" action="{% url join %}">{% csrf_token %}
 	    <fieldset class="wrap remove-bottom">
 	    <legend><h4>Join Nigerian Voice Bank</h4></legend>
-		<hr class="half-bottom"/>
+		<hr class="add-bottom"/>
 		<p>
-		    {{ form.first_name.errors }}
-		    <label>{{ form.first_name.label }}:</label>
-		    {{ form.first_name }}
+		    <label class="input">
+			{{ form.first_name.errors }}
+			<span>{{ form.first_name.label }}</span>
+			{{ form.first_name }}
+		    </label>
 		</p>
 		<p>
-		    {{ form.last_name.errors }}
-		    <label>{{ form.last_name.label }}:</label>
-		    {{ form.last_name }}
+		    <label class="input">
+			{{ form.last_name.errors }}
+			<span>{{ form.last_name.label }}</span>
+			{{ form.last_name }}
+		    </label>
 		</p>
 		<p>
-		    {{ form.email.errors }}
-		    <label>{{ form.email.label }}:</label>
-		    {{ form.email }}
+		    <label class="input">
+			{{ form.email.errors }}
+			<span>{{ form.email.label }}</span>
+			{{ form.email }}
+		    </label>
 		</p>
 		<p>
-		    {{ form.password.errors }}
-		    <label>{{ form.password.label }}:</label>
-		    {{ form.password }}
+		    <label class="input">
+			{{ form.password.errors }}
+			<span>{{ form.password.label }}</span>
+			{{ form.password }}
+		    </label>
 		</p>
 		<p>
-		    {{ form.gender.errors }}
-		    <label>{{ form.gender.label }}:</label>
-		    {{ form.gender }}
+		    <div class="select-wrap">
+			{{ form.gender.errors }}
+			{{ form.gender }}
+		    </div>
 		</p>
 		<p>
-		    {{ form.birthday.errors }}
-		    <label>{{ form.birthday.label }}:</label>
-		    {{ form.birthday }}
+		    <label class="input">
+			{{ form.birthday.errors }}
+			<span>{{ form.birthday.label }}</span>
+			{{ form.birthday }}
+		    </label>
 		</p>
 		<button>Join</button>
 		<p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>

@@ -67,7 +67,7 @@ class UserProfileForm(forms.Form):
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_url_id])
     country = forms.ModelChoiceField(queryset=Country.objects.all(),
-	    empty_label="Select...", 
+	    empty_label="Country", 
 	    widget=forms.Select(attrs={'class': 'chzn-select'}))
     state = forms.CharField(max_length=50)
 

@@ -24,7 +24,7 @@
     </div>
     <ul class="tabs-content">
 	<li id="viewprofileTab">
-	    <div class="thirteen columns add-bottom">
+	    <div class="six columns">
 		<div class="wrap">
 		    <h4 class="fullname">{{ user.get_full_name }}</h4>
 		    <hr class="half-bottom"/>
@@ -47,7 +47,7 @@
 		    </p>
 		</div>
 	    </div>
-	    <div class="three columns pane">&nbsp;</div>
+	    <div class="ten columns">&nbsp;</div>
 	</li>
 	<li class="active" id="editprofileTab">
 	    <div class="one column">&nbsp;</div>
@@ -56,7 +56,6 @@
 		<fieldset class="wrap remove-bottom">
 		    {{ form.user.as_hidden }}
 		    <p>
-			<label>{{ form.photo.label }}:</label>
 			{% if user.profile.photo %}
 			    {% thumbnail user.profile.photo "50x50" crop="center" as up %}
 				<img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
@@ -69,39 +68,54 @@
 			<br class="clear"/>
 		    </p>
 		    <p>
-			{{ form.first_name.errors }}
-			<label>{{ form.first_name.label }}:</label>
-			{{ form.first_name }}
+			<label class="input">
+			    {{ form.first_name.errors }}
+			    <span>{{ form.first_name.label }}</span>
+			    {{ form.first_name }}
+			</label>
 		    </p>
 		    <p>
-			{{ form.last_name.errors }}
-			<label>{{ form.last_name.label }}:</label>
-			{{ form.last_name }}
+			<label class="input">
+			    {{ form.last_name.errors }}
+			    <span>{{ form.last_name.label }}</span>
+			    {{ form.last_name }}
+			</label>
 		    </p>
 		    <p>
-			{{ form.about.errors }}
-			<label>{{ form.about.label }}:</label>
-			{{ form.about }}
+			<label class="input">
+			    {{ form.about.errors }}
+			    <span>{{ form.about.label }}</span>
+			    {{ form.about }}
+			</label>
 		    </p>
 		    <p>
-			{{ form.phone_number.errors }}
-			<label>{{ form.phone_number.label }}:</label>
-			{{ form.phone_number }}
+			<label class="input">
+			    {{ form.phone_number.errors }}
+			    <span>{{ form.phone_number.label }}</span>
+			    {{ form.phone_number }}
+			</label>
 			<span class="help">{{ form.phone_number.help_text }}</span>
 		    </p>
 		    <p>
-			{{ form.url_id.errors }}
-			<label>URL ID:</label>
-			{{ form.url_id }}
+			<label class="input">
+			    {{ form.url_id.errors }}
+			    <span>URL ID</span>
+			    {{ form.url_id }}
+			</label>
 			<span class="help">{{ form.url_id.help_text }}</span>
 		    </p>
 		    <p>
-			<label>Location:</label>
-			{{ form.country }}
+			<div class="select-wrap">
+			    {{ form.country.errors }}
+			    {{ form.country }}
+			</div>
 		    </p>
 		    <p>
-			{{ form.state.errors }}
-			{{ form.state }}
+			<label class="input">
+			    {{ form.state.errors }}
+			    <span>{{ form.state.label }}</span>
+			    {{ form.state }}
+			</label>
 		    </p>
 		    <button>Save</button>
 		</fieldset>

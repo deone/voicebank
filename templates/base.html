@@ -9,35 +9,38 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/skeleton.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css"/>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.label.css"/>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Delius Unicase" type="text/css">
+	<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Abel" type="text/css">
 	{% block custom_css %}{% endblock %}
     </head>
     <body>
 	<div class="container">
-	    <header>
-		<div class="nine columns">
-		    <h1><a href="{% url home %}">Voice Bank</a></h1>
-		</div>
-		<div class="seven columns">
-		    <ul class="nav remove-bottom">
-		    {% if user.is_authenticated %}
-			<li><a href="{% url logout %}">Logout</a></li>
-			<li><a href="#">Help</a></li>
-			<li class="fullname"><a href="{% url profile_edit %}">{{ user.get_full_name }}</a></li>
-		    {% else %}
-			<li><a href="{% url help %}">Help</a></li>
-			<li><a href="{% url login %}">Log In</a></li>
-			<li><a href="{% url join %}">Join</a></li>
-		    {% endif %}
-		    </ul>
-		</div>
-		<hr class="add-bottom"/>
-	    </header>
+	    <div class="sixteen columns" style="text-align: center">
+		<h1 style="font-family: 'Delius Unicase'; font-size: 40px; text-transform: lowercase; margin-top: 30px"><a style="text-decoration: none"
+			href="{% url home %}">Nigerian Voice Bank</a></h1>
+	    </div>
+	    <div class="sixteen columns" style="text-align: center; margin: 20px
+		0 40px 0;">
+		<ul class="nav remove-bottom">
+		{% if user.is_authenticated %}
+		    <li class="fullname"><a href="{% url profile_edit %}">{{ user.get_full_name }}</a></li>
+		    <li><a href="{% url logout %}">Logout</a></li>
+		{% else %}
+		    <li><a href="{% url join %}">Join</a></li>
+		    <li><a href="{% url login %}">Log In</a></li>
+		{% endif %}
+		    <li><a href="#">Help</a></li>
+		</ul>
+	    </div>
 	    {% block app_body %}{% endblock %}
 	    <hr class="half-bottom"/>
-	    <p class="sixteen columns">&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>
+	    <p class="sixteen columns small-font">&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>
 	</div>
 	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script src="{{ MEDIA_URL }}js/app.js"></script>
+	<script src="{{ MEDIA_URL }}js/jquery.label.js"></script>
 	<script src="http://webplayer.yahooapis.com/player-beta.js"></script>
 	{% block custom_js %}{% endblock %}
     </body>

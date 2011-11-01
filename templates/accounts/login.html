@@ -6,16 +6,20 @@
 	<form method="post" action="{% url login %}">{% csrf_token %}
 	    <fieldset class="wrap remove-bottom">
 		<legend><h4>Login</h4></legend>
-		<hr class="half-bottom"/>
+		<hr class="add-bottom"/>
 		<p>
-		    {{ form.username.errors }}
-		    <label>Email:</label>
-		    {{ form.username }}
+		    <label class="input">
+			{{ form.username.errors }}
+			<span>Email</span>
+			{{ form.username }}
+		    </label>
 		</p>
 		<p>
 		    {{ form.password.errors }}
-		    <label>{{ form.password.label }}:</label>
-		    {{ form.password }}
+		    <label class="input">
+			<span>{{ form.password.label }}</span>
+			{{ form.password }}
+		    </label>
 		</p>
 		<button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
 	    </fieldset>

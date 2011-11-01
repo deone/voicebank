@@ -37,7 +37,7 @@
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -45,7 +45,7 @@
   height: 26px;
   line-height: 26px;
   padding: 0 0 0 8px;
-  color: #444;
+  color: #777;
   text-decoration: none;
 }
 .chzn-container-single .chzn-single span {

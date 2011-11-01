@@ -17,8 +17,6 @@
 /* #Site Styles
 ================================================== */
 h1		{ margin-top: 10px; }
-header ul.nav	{ margin-top: 36px; float: right }
-header ul.nav li    { float: right }
 ul.nav li	{ display: inline; text-align: center; }
 ul.nav li a	{ padding: 3px 10px; }
 ul.nav>:first-child a	{ padding-left: 0 }
@@ -41,15 +39,15 @@ form span.help	{ color: green; }
 .categories-list ul .wrap   { margin: 0 -4px 0 4px; }
 .categories-list ul li a    {
     float: left;
-    margin-right: 10px;
-    width: 75px;
+    margin-right: 28px;
+    width: 120px;
     height: 120px;
 }
 .categories-list a img    { display: block; border: solid #aaa 1px }
 .categories-list a span   { font-size: 12px }
 .ui-datepicker select.ui-datepicker-month, 
 .ui-datepicker select.ui-datepicker-year { display:inline-block; }
-input	{
+input[type=text], input[type=password], textarea    {
     -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.15);
     -moz-box-shadow   : 0 4px 5px rgba(0,0,0,.15);
     -o-box-shadow     : 0 4px 5px rgba(0,0,0,.15);
