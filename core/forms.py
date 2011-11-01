@@ -23,10 +23,10 @@ class VoiceClipForm(forms.Form):
 	clip = self.cleaned_data.get('voice_clip', False)
 
 	if clip:
-	    if clip.content_type != 'audio/mp3':
+	    if clip.content_type not in ['audio/mp3', 'audio/mpeg']:
 		raise forms.ValidationError("Please upload an mp3 audio file")
 	    if clip.name.split(".")[-1] != 'mp3':
-		raise ValidationError("File does not have .mp3 extension")
+		raise forms.ValidationError("File does not have .mp3 extension")
 
 	return self.cleaned_data
 
