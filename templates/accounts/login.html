@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "accounts/index.html" %}
 
-{% block app_body %}
-    <div class="five columns">&nbsp;</div>
-    <div class="five columns">
-	<form method="post" action="{% url login %}">{% csrf_token %}
+{% block app_content %}
+    <div class="twelve columns add-bottom">
+	<div class="three columns alpha">&nbsp;</div>
+	<form class="six columns alpha pane rounded" method="post" action="{% url login %}">{% csrf_token %}
 	    <fieldset class="wrap remove-bottom">
-		<legend><h4>Login</h4></legend>
+		<h4>Login</h4>
 		<hr class="add-bottom"/>
 		<p>
 		    <label class="input">
@@ -21,9 +21,11 @@
 			{{ form.password }}
 		    </label>
 		</p>
-		<button>Sign In</button> or <a href="{% url join %}">Join Voicebank</a>
+		<div><button>Sign In</button> or <a href="{% url join %}">Join
+			Voicebank</a></div>
 	    </fieldset>
 	</form>
-    </div> 
-    <div class="six columns">&nbsp;</div>
+    </div>
 {% endblock %}
+
+{% block success_stories %}{% endblock %}

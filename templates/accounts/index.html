@@ -3,13 +3,11 @@
 {% load thumbnail %}
 
 {% block app_body %}
-    <div class="thirteen columns half-bottom">
-	<div class="thirteen pane add-bottom" style="text-align: center">
-	    <h2><a style="text-decoration: none" href="{% url join %}">Start Uploading your voice clips</a></h2>
-	</div>
-	<div class="thirteen pane add-bottom categories-list">
+{% block app_content %}
+    <div class="twelve columns add-bottom">
+	<div class="pane add-bottom categories-list rounded">
 	    <div class="wrap">
-		<h5 class="remove-bottom">Voice Categories</h5>
+		<h5 class="remove-bottom">Voice Artist Categories</h5>
 		<hr class="half-bottom"/>
 		<ul>
 		{% if categories %}
@@ -18,9 +16,7 @@
 			<li>
 			<a href="{{ category.get_absolute_url }}">
 			    {% if category.image %}
-				{% thumbnail category.image "120x60" crop="center" as ci %}
-				<img src="{{ ci.url }}" width="{{ ci.width }}" height="{{ ci.height }}"/>
-				{% endthumbnail %}
+				<img src="{{ category.image.url }}"/>
 			    {% else %}
 				<img src="{{ MEDIA_URL }}img/no_cat_image.jpg"/>
 			    {% endif %}
@@ -31,13 +27,34 @@
 		    <div class="clear"></div>
 		    </div>
 		</ul>
-		<a href="{% url all_clips %}">View all voice clips...</a>
 		{% else %}
 		<p class="half-bottom">Please <a href="/admin/">log in</a> to add voice categories</p>
 		{% endif %}
 	    </div>
 	</div>
-	<div class="four pane columns alpha half-bottom">
+	<div id="pro" class="three pane columns rounded alpha add-bottom">
+	    <div class="wrap">
+		<a href="#">
+		    <img src="{{ MEDIA_URL }}img/professionals.png" alt="Professionals" title="Professionals"/>
+		    <span>Professionals</span>
+		</a>
+	    </div>
+	</div>
+	<div id="all" class="four columns add-bottom rounded pane">
+	    <div class="wrap">
+		<a href="#">
+		    <img src="{{ MEDIA_URL }}img/all_voice.png" alt="All voice clips" title="All voice clips"/>
+		    <span>All voice clips</span>
+		</a>
+	    </div>
+	</div>
+	<div class="five columns add-bottom omega">
+	    <div class="wrap" style="padding-left: 30px">
+		<img src="{{ MEDIA_URL }}img/recording.png" alt="Book for your recording here" 
+		    title="Book for your recording here"/>
+	    </div>
+	</div>
+	<div class="six columns alpha pane rounded">
 	    <div class="wrap">
 		<h5>Most Recent Additions</h5>
 		<hr class="half-bottom"/>
@@ -57,14 +74,45 @@
 		{% endif %}
 	    </div>
 	</div>
-	<div class="five columns half-bottom">
-	    &nbsp;
-	</div>
-	<div class="four columns omega half-bottom">
-	    &nbsp;
+	<div class="six columns pane rounded omega">
+	    <div class="wrap">
+		<h5>Top 5 Voice Clips</h5>
+		<hr class="half-bottom"/>
+		<ul class="clips">
+		{% if clips %}
+		    {% for clip in clips %}
+		    <li>
+			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
+			by 
+			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
+			<span class="small-font">Added {{ clip.date_added }}</span>
+		    </li>
+		    {% endfor %}
+		</ul>
+		{% else %}
+		<p class="half-bottom">None yet. Sorry!</p>
+		{% endif %}
+	    </div>
 	</div>
     </div>
-    <div class="three columns">
+{% endblock %}
+{% block adspace %}
+    <div class="four columns half-bottom">
+	<img src="{{ MEDIA_URL }}img/caption.png" alt="Nigeria's first online
+	voice casting tool" class="half-bottom"/><br/>
+	<img src="{{ MEDIA_URL }}img/ad.jpg" alt="Flame Media Works"
+	    class="half-bottom"/>
+	{% block success_stories %}
+	<div class="pane">
+	    <div class="wrap">
+		<h5>Success Stories</h5>
+		<hr class="half-bottom"/>
+		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
+	    </div>
+	</div>
+	{% endblock %}
+    </div>
+    <!--<div class="three columns">
 	<div class="help half-bottom">
 	    <div class="wrap">
 		<h5 class="remove-bottom">How-tos</h5>
@@ -87,6 +135,7 @@
 		<hr/>
 		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
 	    </div>
-	</div> 
-    </div>
+	</div>
+    </div>-->
+{% endblock %}
 {% endblock %}

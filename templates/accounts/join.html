@@ -1,6 +1,4 @@
-{% extends "accounts/base.html" %}
-
-{% load adminmedia %}
+{% extends "accounts/index.html" %}
 
 {% block custom_css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.8.2.custom.css"/>
@@ -22,12 +20,12 @@
     </script>
 {% endblock %}
 
-{% block app_body %}
-    <div class="five columns">&nbsp;</div>
-    <div class="five columns">
-	<form method="post" action="{% url join %}">{% csrf_token %}
+{% block app_content %}
+    <div class="twelve columns add-bottom">
+	<div class="three columns alpha">&nbsp;</div>
+	<form class="six columns alpha pane rounded remove-bottom" method="post" action="{% url join %}">{% csrf_token %}
 	    <fieldset class="wrap remove-bottom">
-	    <legend><h4>Join Nigerian Voice Bank</h4></legend>
+		<h4>Join Nigerian Voice Bank</h4>
 		<hr class="add-bottom"/>
 		<p>
 		    <label class="input">
@@ -74,6 +72,7 @@
 		<p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>
 	    </fieldset>
 	</form>
-    </div> 
-    <div class="six columns">&nbsp;</div>
+    </div>
 {% endblock %}
+
+{% block success_stories %}{% endblock %}

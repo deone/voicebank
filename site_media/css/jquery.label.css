@@ -4,8 +4,6 @@
 }
 .select-wrap, .input {
     margin-bottom: 20px;
-    float: left;
-    clear: both;
 }
 .input span {
   position: absolute;

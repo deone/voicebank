@@ -1,3 +1,60 @@
+body	{
+    background: #e0e0e0 url('../img/header_bg.png') repeat-x;
+}
+#header	{
+    z-index: 9;
+    height: 80px;
+}
+h1  {
+    display: none;
+}
+#header .top {
+    float: right;
+}
+.login {
+    display: none;
+}
+.top {
+	margin: 20px 0px 0px 0px;
+}
+a:link	{
+	text-decoration: none;
+	color: #449636;
+}
+a:visited {
+	color: #449636;
+}
+.rounded    {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.wrap	{
+    margin: 0 10px;
+    padding: 0.1em 0 0.3em;
+}
+form .wrap  {
+    margin: 0 35px;
+    padding: 0.3em 0 0.3em;
+}
+#pro .wrap, #all .wrap	{
+    padding: 0.3em 0 0.1em;
+}
+#pro a, #all a	{
+    display: block;
+}
+.pane	{
+    background: #fff;
+}
+hr  {
+    border-color: #a1a1a1;
+}
+.wrap hr    {
+    margin: 0;
+    border-color: #ccc;
+}
+
+
 /* 
 * Skeleton V1.0.3
 * Copyright 2011, Dave Gamache
@@ -16,13 +73,31 @@
 	
 /* #Site Styles
 ================================================== */
-h1		{ margin-top: 10px; }
-ul.nav li	{ display: inline; text-align: center; }
+
+.categories-list ul .wrap   {
+/*    margin: 0 -4px 0 4px;*/
+}
+.categories-list ul li a    {
+    float: left;
+    margin-left: 20px;
+    width: 140px;
+    text-align: center;
+}
+.categories-list a img	{
+    display: block;
+    margin: 10px auto;
+}
+.categories-list a span	{
+    font-size: 12px;
+}
+
+
+ul.nav li   {
+    display: inline;
+    text-align: center;
+}
 ul.nav li a	{ padding: 3px 10px; }
 ul.nav>:first-child a	{ padding-left: 0 }
-.pane		{ background: #eee; }
-.wrap		{ margin: 0 10px; }
-.wrap hr	{ margin: 0; }
 .wrap ul	{ margin-bottom: 0; }
 .wrap ul li	{ margin-bottom: 5px; }
 ul.errorlist	{ margin: 0; }
@@ -36,15 +111,6 @@ form span.help	{ color: green; }
 #profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }
 .italic	    { font-style: italic }
 .small-font	{ font-size: 12px }
-.categories-list ul .wrap   { margin: 0 -4px 0 4px; }
-.categories-list ul li a    {
-    float: left;
-    margin-right: 28px;
-    width: 120px;
-    height: 120px;
-}
-.categories-list a img    { display: block; border: solid #aaa 1px }
-.categories-list a span   { font-size: 12px }
 .ui-datepicker select.ui-datepicker-month, 
 .ui-datepicker select.ui-datepicker-year { display:inline-block; }
 input[type=text], input[type=password], textarea    {
