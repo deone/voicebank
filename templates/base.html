@@ -26,7 +26,7 @@
 			<a href="{% url profile_edit %}"><span>{{ user.get_full_name }}</span></a>
 			<a href="{% url logout %}"><span>Logout</span></a>
 		    {% else %}
-			<a href="how_it_works.html">How it works</a> 
+			<a href="{% url how_it_works %}">How it works</a> 
 			<a href="{% url join %}"><span class="login">Join</span><img
 			    src="{{ MEDIA_URL }}img/join.png" alt="Join"/></a>  
 			<a href="{% url login %}"><span class="login">Login</span><img
@@ -41,8 +41,8 @@
 	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script src="{{ MEDIA_URL }}js/app.js"></script>
 	<script src="{{ MEDIA_URL }}js/jquery.label.js"></script>
-	<script
-	    src="http://webplayer.yahooapis.com/player-beta.js"></script>
+	<!--<script
+	    src="http://webplayer.yahooapis.com/player-beta.js"></script>-->
 	{% block custom_js %}{% endblock %}
     </body>
 </html>

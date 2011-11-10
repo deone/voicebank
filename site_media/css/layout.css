@@ -53,6 +53,9 @@ hr  {
     margin: 0;
     border-color: #ccc;
 }
+h5  {
+    font-weight: bold;
+}
 
 
 /* 
@@ -74,6 +77,9 @@ hr  {
 /* #Site Styles
 ================================================== */
 
+.categories-list    {
+    padding: 0.5em 0;
+}
 .categories-list ul .wrap   {
 /*    margin: 0 -4px 0 4px;*/
 }
