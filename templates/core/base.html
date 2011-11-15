@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block app_body %}
-    <div class="sixteen columns add-bottom" style="background: #fff">
-	{% if user.id %}
-	<ul class="nav">
-	    <li><a href="{% url welcome %}">Getting Started</a></li>
-	    <li><a href="{% url dashboard %}">Dashboard</a></li>
-	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
-	    <li><a href="{% url following %}">I&lsquo;m Following</a></li>
-	    <li><a href="{% url profile_edit %}">Profile</a></li>
-	</ul>
-	{% endif %}
-    </div>
-    {% block app_body_content %}{% endblock %}
+    <div class="twelve columns">
+	<div class="pane add-bottom">
+	    <div class="wrap">
+		{% if user.id %}
+		<ul class="nav">
+		    <li><a href="{% url dashboard %}">Dashboard</a></li>
+		    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+		    <li><a href="{% url profile_edit %}">Profile</a></li>
+		</ul>
+		{% endif %}
+	    </div>
+	</div>
+	{% block app_body_content %}{% endblock %}
+    </div>    
 {% endblock %}

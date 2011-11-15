@@ -1,6 +1,6 @@
 {% extends "accounts/index.html" %}
 
-{% block app_content %}
+{% block app_body %}
     <div class="twelve columns add-bottom">
 	<div class="three columns alpha">&nbsp;</div>
 	<form class="six columns alpha pane rounded" method="post" action="{% url login %}">{% csrf_token %}
@@ -27,5 +27,3 @@
 	</form>
     </div>
 {% endblock %}
-
-{% block success_stories %}{% endblock %}

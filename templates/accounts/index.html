@@ -1,7 +1,6 @@
 {% extends "accounts/base.html" %}
 
 {% block app_body %}
-{% block app_content %}
     <div class="twelve columns add-bottom">
 	<div class="pane add-bottom categories-list rounded">
 	    <div class="wrap">
@@ -60,7 +59,8 @@
 		{% if clips %}
 		    {% for clip in clips %}
 		    <li>
-			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
+			<strong><a href="{{ MEDIA_URL }}{{ clip.voice_clip
+				}}">{{ clip.name }}</a></strong>
 			by 
 			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
 			<span class="small-font">Added {{ clip.date_added }}</span>
@@ -93,47 +93,4 @@
 	    </div>
 	</div>
     </div>
-{% endblock %}
-{% block adspace %}
-    <div class="four columns half-bottom">
-	<img src="{{ MEDIA_URL }}img/caption.png" alt="Nigeria's first online
-	voice casting tool" class="half-bottom"/><br/>
-	<img src="{{ MEDIA_URL }}img/ad.jpg" alt="Flame Media Works"
-	    class="half-bottom"/>
-	{% block success_stories %}
-	<div class="pane">
-	    <div class="wrap">
-		<h5>Success Stories</h5>
-		<hr class="half-bottom"/>
-		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
-	    </div>
-	</div>
-	{% endblock %}
-    </div>
-    <!--<div class="three columns">
-	<div class="help half-bottom">
-	    <div class="wrap">
-		<h5 class="remove-bottom">How-tos</h5>
-		<hr class="half-bottom"/>
-		<ul class="small-font">
-		    <li><a href="help">Getting your voice on the voice bank</a></li>
-		    <li><a href="#">Registering on the Voice bank</a></li>
-		    <li><a href="#">Payment Process</a></li>
-		    <li><a href="#">Voice bank subscription cost</a></li>
-		    <li><a href="#">Booking for your recording</a></li>
-		    <li><a href="#">What to bring to the recording</a></li>
-		    <li><a href="#">Renewals</a></li>
-		    <li><a href="#">Uploading your voice clips</a></li>
-		</ul>
-	    </div>
-	</div>
-	<div>
-	    <div class="wrap">
-		<h5 class="remove-bottom">Success Stories</h5>
-		<hr/>
-		<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
-	    </div>
-	</div>
-    </div>-->
-{% endblock %}
 {% endblock %}

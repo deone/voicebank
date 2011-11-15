@@ -20,7 +20,7 @@
     </script>
 {% endblock %}
 
-{% block app_content %}
+{% block app_body %}
     <div class="twelve columns add-bottom">
 	<div class="three columns alpha">&nbsp;</div>
 	<form class="six columns alpha pane rounded remove-bottom" method="post" action="{% url join %}">{% csrf_token %}
@@ -74,5 +74,3 @@
 	</form>
     </div>
 {% endblock %}
-
-{% block success_stories %}{% endblock %}

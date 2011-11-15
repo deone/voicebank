@@ -56,6 +56,17 @@ hr  {
 h5  {
     font-weight: bold;
 }
+#steps	{
+    text-align: center;
+}
+blockquote  {
+    border: none;
+    text-align: center;
+    height: 200px;
+}
+blockquote p	{
+    color: #000;
+}
 
 
 /* 
@@ -113,8 +124,8 @@ form span.help	{ color: green; }
 .errorlist	{ color: red }
 .fullname	{ text-transform: capitalize; }
 .display-picture    { border: solid 1px #fff }
-#profile-edit img   { display: inline }
-#profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }
+/*#profile-edit img   { display: inline }
+#profile-edit input[type="file"]  { width: 180px; display: inline; float: right; margin-right: 20px; margin-top: 30px }*/
 .italic	    { font-style: italic }
 .small-font	{ font-size: 12px }
 .ui-datepicker select.ui-datepicker-month, 

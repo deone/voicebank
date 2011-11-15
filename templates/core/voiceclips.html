@@ -14,71 +14,62 @@
 {% endblock %}
 
 {% block app_body_content %}
-    <div class="sixteen columns">
+    <div>
 	<ul class="tabs">
 	    <li><a href="#myvoiceclips">My Voice Clips</a></li>
 	    <li><a class="active" href="#uploadvoiceclip">Upload Voice Clip</a></li>
 	</ul>
 	<ul class="tabs-content rounded">
 	    <li id="myvoiceclipsTab">
-		<div class="sixteen columns alpha add-bottom" style="border: solid 1px
-		    #000">
-		    <div class="wrap">
-			<ul>
-			{% if clips %}
-			    {% for clip in clips %}
-			    <li>
-				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
-				<span class="small-font">Added {{ clip.date_added }}</span>
-			    </li>
-			    {% endfor %}
-			{% else %}
-			    <p class="remove-bottom">It's either you have not uploaded any voice
-			    clips, or they have not been approved by the
-			    Administrator.</p>
-			{% endif %}
-			</ul>
-		    </div>
+		<div class="wrap">
+		    <ul>
+		    {% if clips %}
+			{% for clip in clips %}
+			<li>
+			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+			    <span class="small-font">Added {{ clip.date_added }}</span>
+			</li>
+			{% endfor %}
+		    {% else %}
+			<p class="remove-bottom">It's either you have not uploaded any voice
+			clips, or they have not been approved by the
+			Administrator.</p>
+		    {% endif %}
+		    </ul>
 		</div>
-		<div class="clear"></div>
 	    </li>
 	    <li class="active" id="uploadvoiceclipTab">
-		<div class="one column">&nbsp;</div>
-		<div class="five columns">
+		<form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
 		    {% if messages %}
 			{% for message in messages %}
 			    <p{% if message.tags %} class="{{ message.tags }}"
 			    {%endif %}>{{ message }}</p>
 			{% endfor %}
 		    {% endif %}
-		    <form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
-			<fieldset class="wrap remove-bottom">
-			    <p>
-				<label>{{ form.voice_clip.label }}:</label>
-				{{ form.voice_clip.errors }}
-				{{ form.voice_clip }}
-			    </p>	
-			    <p>
-				<label>{{ form.name.label }}:</label>
-				{{ form.name.errors }}
-				{{ form.name }}
-			    </p>
-			    <p>
-				<label>{{ form.language.label }}:</label>
-				{{ form.language.errors }}
-				{{ form.language }}
-			    </p>
-			    <p>
-				<label>{{ form.category.label }}:</label>
-				{{ form.category.errors }}
-				{{ form.category }}
-			    </p>
-			    <button>Upload</button>
-			</fieldset>
-		    </form>
-		</div>
-		<div class="ten columns">&nbsp;</div>
-		<div class="clear"></div>
+		    <fieldset class="wrap remove-bottom">
+			<p>
+			    <label>{{ form.voice_clip.label }}:</label>
+			    {{ form.voice_clip.errors }}
+			    {{ form.voice_clip }}
+			</p>	
+			<p>
+			    <label>{{ form.name.label }}:</label>
+			    {{ form.name.errors }}
+			    {{ form.name }}
+			</p>
+			<p>
+			    <label>{{ form.language.label }}:</label>
+			    {{ form.language.errors }}
+			    {{ form.language }}
+			</p>
+			<p>
+			    <label>{{ form.category.label }}:</label>
+			    {{ form.category.errors }}
+			    {{ form.category }}
+			</p>
+			<button>Upload</button>
+		    </fieldset>
+		</form>
 	    </li>
 	</ul>
     </div>

@@ -16,46 +16,41 @@
 {% endblock %}
 
 {% block app_body_content %}
-    <div class="sixteen columns">
+    <div>
 	<ul class="tabs">
 	    <li><a href="#viewprofile">View Profile</a></li>
 	    <li><a class="active" href="#editprofile">Edit Profile</a></li>
 	</ul>
 	<ul class="tabs-content rounded">
 	    <li id="viewprofileTab">
-		<div class="six columns">
-		    <div class="wrap">
-			<h4 class="fullname">{{ user.get_full_name }}</h4>
-			<hr class="half-bottom"/>
-			{% if user.profile.photo %}
-			    {% thumbnail user.profile.photo "138x138" crop="center" as up %}
-				<img class="add-bottom display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
-			    {% endthumbnail %}
-			{% else %}
-			    <img class="add-bottom" src="{{ MEDIA_URL }}img/no-image.jpg"/>
-			{% endif %}
-			<h5>About</h5>
-			<hr class="half-bottom"/>
-			<p>{{ user.profile.about }}</p>
-			<h5>Voice Bank URL</h5>
-			<hr class="half-bottom"/>
-			<p>
-			    <a href="http://{{ site }}/{{ user.profile.slug }}">
-			    http://{{ site }}/{{ user.profile.slug }}
-			    </a>
-			</p>
-		    </div>
+		<div class="wrap">
+		    <h4 class="fullname">{{ user.get_full_name }}</h4>
+		    <hr class="half-bottom"/>
+		    {% if user.profile.photo %}
+			{% thumbnail user.profile.photo "138x138" crop="center" as up %}
+			    <img class="add-bottom display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+			{% endthumbnail %}
+		    {% else %}
+			<img class="add-bottom" src="{{ MEDIA_URL }}img/no-image.jpg"/>
+		    {% endif %}
+		    <h5>About</h5>
+		    <hr class="half-bottom"/>
+		    <p>{{ user.profile.about }}</p>
+		    <h5>Voice Bank URL</h5>
+		    <hr class="half-bottom"/>
+		    <p>
+			<a href="http://{{ site }}/{{ user.profile.slug }}">
+			http://{{ site }}/{{ user.profile.slug }}
+			</a>
+		    </p>
 		</div>
-		<div class="ten columns">&nbsp;</div>
-		<div class="clear"></div>
 	    </li>
 	    <li class="active" id="editprofileTab">
-		<div class="one column">&nbsp;</div>
-		<form id="profile-edit" class="five columns" method="post"
+		<form id="profile-edit" method="post"
 		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
 		    <fieldset class="wrap remove-bottom">
 			{{ form.user.as_hidden }}
-			<p>
+			<p class="one column alpha remove-bottom">
 			    {% if user.profile.photo %}
 				{% thumbnail user.profile.photo "50x50" crop="center" as up %}
 				    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
@@ -63,10 +58,12 @@
 			    {% else %}
 				<img src="{{ MEDIA_URL }}img/no-image-small.jpg"/>
 			    {% endif %}
+			</p>
+			<p class="three columns" style="padding-top: 28px;">
 			    {{ form.photo.errors }}
 			    {{ form.photo }}
-			    <br class="clear"/>
 			</p>
+			<br class="clear"/>
 			<p>
 			    <label class="input">
 				{{ form.first_name.errors }}
@@ -120,8 +117,6 @@
 			<button>Save</button>
 		    </fieldset>
 		</form>
-		<div class="ten columns">&nbsp;</div>
-		<div class="clear"></div>
 	    </li>
 	</ul>
     </div>

@@ -17,8 +17,6 @@ category_dict = {
 	}
 
 urlpatterns = patterns('django.views.generic',
-    # url(r'^help$', 'simple.direct_to_template', {'template':
-	# 'help.html'}, name='help'),
     url(r'^how_it_works$', 'simple.direct_to_template', {'template':
 	'how_it_works.html'}, name='how_it_works'),
     url(r'^voiceclips/all$', 'list_detail.object_list', voiceclip_dict, name='all_clips'),
