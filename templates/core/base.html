@@ -2,6 +2,7 @@
 
 {% block app_body %}
     <div class="twelve columns">
+	{% block nav %}
 	<div class="pane add-bottom">
 	    <div class="wrap">
 		{% if user.id %}
@@ -13,6 +14,7 @@
 		{% endif %}
 	    </div>
 	</div>
+	{% endblock %}
 	{% block app_body_content %}{% endblock %}
     </div>    
 {% endblock %}

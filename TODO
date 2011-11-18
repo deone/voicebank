@@ -1,13 +1,11 @@
-Unit-test:
+Do:
+* Use slugs for category homes - should read /categories/slug instead of
+/categories/id/voiceclips
+* Ensure that all forms display errors.
+* Make chosen work properly.
+* Unit-test:
 - Profile model, accounts forms and views.
 - Core app.
-
-Images for voice categories, display categories at middle of home page.
-Ensure that all forms display errors.
-
-Use:
-- jQuery date picker
-- jQuery Chosen
 
 Milestone II
 - Top Ten Voices feature.

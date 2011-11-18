@@ -23,7 +23,7 @@
 {% block app_body %}
     <div class="twelve columns add-bottom">
 	<div class="three columns alpha">&nbsp;</div>
-	<form class="six columns alpha pane rounded remove-bottom" method="post" action="{% url join %}">{% csrf_token %}
+	<form id="join" class="six columns alpha pane rounded remove-bottom" method="post" action="{% url join %}">{% csrf_token %}
 	    <fieldset class="wrap remove-bottom">
 		<h4>Join Nigerian Voice Bank</h4>
 		<hr class="add-bottom"/>
@@ -56,10 +56,15 @@
 		    </label>
 		</p>
 		<p>
-		    <div class="select-wrap">
+		    <select data-placeholder="Choose a Country..." class="chzn-select">
+			<option value=""></option> 
+			<option value="United States">United States</option> 
+			<option value="United Kingdom">United Kingdom</option> 
+		    </select>
+		    <!--<div class="select-wrap">
 			{{ form.gender.errors }}
 			{{ form.gender }}
-		    </div>
+		    </div>-->
 		</p>
 		<p>
 		    <label class="input">

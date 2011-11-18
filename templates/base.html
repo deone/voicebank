@@ -8,8 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/skeleton.css"/>
-	<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css"/>
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.label.css"/>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/layout.css"/>
 	{% block custom_css %}{% endblock %}
     </head>
     <body>
@@ -22,7 +22,6 @@
 		</a>
 		<span class="top">
 		    {% if user.is_authenticated %}
-			<a href="#">Help</a> 
 			<a href="{% url profile_edit %}"><span>{{ user.get_full_name }}</span></a>
 			<a href="{% url logout %}"><span>Logout</span></a>
 		    {% else %}
