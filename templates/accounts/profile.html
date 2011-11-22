@@ -24,7 +24,9 @@
 	    <ul class="clips add-bottom">
 		{% for clip in user_profile.user.voiceclip_set.all %}
 		<li>
-		    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+		    <strong>
+			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+		    </strong>
 		    <span>Added {{ clip.date_added }}</span>
 		</li>
 		{% endfor %}

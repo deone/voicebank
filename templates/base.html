@@ -14,39 +14,41 @@
     </head>
     <body>
 	<div class="container">
-	    <div id="header" class="sixteen columns add-bottom">
+	    <div id="header" class="sixteen columns half-bottom">
 		<a href="{% url home %}">
 		    <h1>Nigerian Voice Bank</h1> <img
 		    src="{{ MEDIA_URL }}img/nigerian_voice_bank_logo.png" alt="Nigerian
 		    Voice Bank logo"/>
 		</a>
 		<span class="top">
-		    {% if user.is_authenticated %}
-			<a href="{% url profile_edit %}"><span>{{ user.get_full_name }}</span></a>
-			<a href="{% url logout %}"><span>Logout</span></a>
-		    {% else %}
-			<a href="{% url how_it_works %}">How it works</a> 
-			<a href="{% url join %}"><span class="login">Join</span><img
-			    src="{{ MEDIA_URL }}img/join.png" alt="Join"/></a>  
-			<a href="{% url login %}"><span class="login">Login</span><img
-			    src="{{ MEDIA_URL }}img/login.png" alt="Log in"/></a>
-		    {% endif %}
+		    <a href="{% url how_it_works %}">How it works</a> 
+		{% if user.is_authenticated %}
+		    | <a href="{% url profile_edit %}"><span>{{ user.get_full_name }}</span></a>
+		    | <a href="{% url logout %}"><span>Logout</span></a>
+		{% else %}
+		    <a href="{% url join %}"><span class="login">Join</span><img
+			src="{{ MEDIA_URL }}img/join.png" alt="Join"/></a>  
+		    <a href="{% url login %}"><span class="login">Login</span><img
+			src="{{ MEDIA_URL }}img/login.png" alt="Log in"/></a>
+		{% endif %}
 		</span>
 	    </div>
+	    {% block swf_banner %}
+	    <div class="sixteen columns half-bottom">
+		<embed src="{{ MEDIA_URL }}swf/banner.swf" width="100%"
+		type="application/x-shockwave-flash" height="120px" bgcolor="#e0e0e0"></embed>
+	    </div>
+	    {% endblock %}
 	    {% block app_body %}{% endblock %}
 	    {% block adspace %}
 	    <div class="four columns half-bottom">
 		<img src="{{ MEDIA_URL }}img/caption.png" alt="Nigeria's first online
-		voice casting tool" class="half-bottom"/><br/>
+		voice casting tool" title="Nigeria's first online
+		voice casting tool" class="half-bottom"/>
 		<img src="{{ MEDIA_URL }}img/ad.jpg" alt="Flame Media Works"
-		    class="half-bottom"/>
-		<div class="pane half-bottom">
-		    <div class="wrap">
-			<h5>Success Stories</h5>
-			<hr class="half-bottom"/>
-			<p>Design is based on the inspiration of past accomplishments. On that foundation, we can build upon those achievements to shape the future.</p>
-		    </div>
-		</div>
+		title="Flame Media Works" class="half-bottom"/>
+		<img src="{{ MEDIA_URL }}img/customer_care_banner.jpg"
+		alt="Customer care lines" title="Customer care lines" class="half-bottom"/>
 	    </div>
 	    {% endblock %}
 	    <hr class="half-bottom"/>
@@ -55,8 +57,8 @@
 	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script src="{{ MEDIA_URL }}js/app.js"></script>
 	<script src="{{ MEDIA_URL }}js/jquery.label.js"></script>
-	<!--<script
-	    src="http://webplayer.yahooapis.com/player-beta.js"></script>-->
+	<script
+	    src="http://webplayer.yahooapis.com/player-beta.js"></script>
 	{% block custom_js %}{% endblock %}
     </body>
 </html>

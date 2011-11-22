@@ -55,15 +55,16 @@
 	    <div class="wrap">
 		<h5>Most Recent Additions</h5>
 		<hr class="half-bottom"/>
-		<ul>
+		<ul class="clips">
 		{% if clips %}
 		    {% for clip in clips %}
 		    <li>
-			<strong><a href="{{ MEDIA_URL }}{{ clip.voice_clip
-				}}">{{ clip.name }}</a></strong>
+			<strong>
+			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a>
+			</strong>
 			by 
 			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
-			<span class="small-font">Added {{ clip.date_added }}</span>
+			<span>Added {{ clip.date_added }}</span>
 		    </li>
 		    {% endfor %}
 		</ul>
@@ -80,7 +81,9 @@
 		{% if clips %}
 		    {% for clip in clips %}
 		    <li>
+			<strong>
 			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
+			</strong>
 			by 
 			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
 			<span class="small-font">Added {{ clip.date_added }}</span>

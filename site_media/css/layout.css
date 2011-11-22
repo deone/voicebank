@@ -104,6 +104,9 @@ ul li ul li a	{
     padding: 5px;
     border-bottom: solid 1px #e0e0e0;
 }
+.clips span, .small-font    {
+    font-size: 12px;
+}
 
 
 .categories-list    {
@@ -143,7 +146,6 @@ form span.help	{ color: green; }
 .fullname	{ text-transform: capitalize; }
 .display-picture    { border: solid 1px #fff }
 .italic	    { font-style: italic }
-.small-font	{ font-size: 12px }
 .ui-datepicker select.ui-datepicker-month, 
 .ui-datepicker select.ui-datepicker-year { display:inline-block; }
 input[type=text], input[type=password], textarea    {
