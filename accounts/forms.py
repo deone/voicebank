@@ -5,6 +5,7 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
+from django.db import IntegrityError
 from django.core.exceptions import ValidationError
 
 from accounts.models import *
@@ -71,6 +72,19 @@ class UserProfileForm(forms.Form):
 	    empty_label="Country", 
 	    widget=forms.Select(attrs={'class': 'chzn-select'}))
     state = forms.CharField(max_length=50)
+
+    def clean_url_id(self):
+	data = self.cleaned_data['url_id']
+
+	try:
+	    Profile.objects.get(slug=data)
+	except:
+	    pass
+	else:
+	    raise forms.ValidationError("""This URL ID is taken. Please choose
+		    another.""")
+
+	return data
 
     def save(self):
 	user = get_object_or_404(User, pk=self.cleaned_data['user'])

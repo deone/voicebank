@@ -112,8 +112,4 @@ LOGIN_URL = '/login'
 
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
-STATICFILES_URL = '/site_media/static/'
-
-ADMIN_MEDIA_PREFIX = STATICFILES_URL + 'admin/'
-
 RECENT_ADDITIONS_DISPLAY_LIMIT = 10
