@@ -33,23 +33,25 @@
 		{% endif %}
 		</span>
 	    </div>
-	    {% block swf_banner %}
-	    <div class="sixteen columns half-bottom">
-		<embed src="{{ MEDIA_URL }}swf/banner.swf" width="100%"
-		type="application/x-shockwave-flash" height="120px" bgcolor="#e0e0e0"></embed>
-	    </div>
-	    {% endblock %}
-	    {% block app_body %}{% endblock %}
-	    {% block adspace %}
-	    <div class="four columns half-bottom">
-		<img src="{{ MEDIA_URL }}img/caption.png" alt="Nigeria's first online
-		voice casting tool" title="Nigeria's first online
-		voice casting tool" class="half-bottom"/>
-		<img src="{{ MEDIA_URL }}img/ad.jpg" alt="Flame Media Works"
-		title="Flame Media Works" class="half-bottom"/>
-		<img src="{{ MEDIA_URL }}img/customer_care_banner.jpg"
-		alt="Customer care lines" title="Customer care lines" class="half-bottom"/>
-	    </div>
+	    {% block content %}
+		{% block swf_banner %}
+		<div class="sixteen columns half-bottom">
+		    <embed src="{{ MEDIA_URL }}swf/banner.swf" width="100%"
+		    type="application/x-shockwave-flash" height="120px" bgcolor="#e0e0e0"></embed>
+		</div>
+		{% endblock %}
+		{% block app_body %}{% endblock %}
+		{% block adspace %}
+		<div class="four columns half-bottom">
+		    <img src="{{ MEDIA_URL }}img/caption.png" alt="Nigeria's first online
+		    voice casting tool" title="Nigeria's first online
+		    voice casting tool" class="half-bottom"/>
+		    <img src="{{ MEDIA_URL }}img/ad.jpg" alt="Flame Media Works"
+		    title="Flame Media Works" class="half-bottom"/>
+		    <img src="{{ MEDIA_URL }}img/customer_care_banner.jpg"
+		    alt="Customer care lines" title="Customer care lines" class="half-bottom"/>
+		</div>
+		{% endblock %}
 	    {% endblock %}
 	    <hr class="half-bottom"/>
 	    <p class="sixteen columns small-font">&copy; 2011 Nigerian Voice Bank. All rights reserved.</p>

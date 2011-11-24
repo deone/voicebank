@@ -1,19 +1,20 @@
 Do:
+* Send email to user after registration.
 * Use slugs for category homes - should read /categories/slug instead of
-/categories/id/voiceclips
+/categories/id/voiceclips.
+* Can't we use `slug` instead of `url_id` in UserProfileForm?
 * Ensure that all forms display errors.
 * Make chosen work properly.
 * Unit-test:
     - Profile model, accounts forms and views.
     - Core app.
-* Send email to user after registration.
 * Separate app-specific settings.
 * Clean url_id in such a way that it won't raise an error when a user uses his
   current url_id.
-* Can't we use `slug` instead of `url_id` in UserProfileForm?
+* Provide initial data.
+* Automate deployment.
 
-Milestone II
-- Top Ten Voices feature.
+
 
 Improvements
 - REST - Django Piston.
