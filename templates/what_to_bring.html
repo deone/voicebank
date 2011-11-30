@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block app_body %}
+    <div class="five columns pane add-bottom" style="height: 380px;">
+	<ul id="menu_how">
+	    <li><a href="{% url registering %}">Registering on the Voice Bank</a></li>
+	    <li><a href="{% url payment_process %}">Payment Process</a></li>
+	    <li><a href="{% url subscription_cost %}">Voice Bank Subscription Cost</a></li>
+	    <li><a href="{% url booking %}">Booking for your recording</a></li>
+	    <li><a href="{% url what_to_bring %}">What to bring to the recording</a></li>
+	    <li><a href="{% url renewals %}">Renewals</a></li>
+	</ul>
+    </div>
+    <div class="eleven columns pane add-bottom">
+	<div class="wrap">
+	    <h4>What to bring to the recording</h4>
+	    <hr class="half-bottom"/>
+	    <p>
+		The voice artist should come to the recording with their scripts.
+		These scripts should have been properly rehearsed before recording
+		day.
+	    </p>
+	    <p>
+		Remember each voice clip requires a script. Apparently, if you
+		are only recording 2 clips then you only need 2 scripts.
+	    </p>
+	    <p><strong>The Nigerian Voice bank will not supply scripts!</strong></p>
+	    <p>
+		All scripts are to be delivered within 60 seconds.
+		Scripts should be original or reworked, using fictitious
+		brand names and company names. Voice artists should
+		respect copyright laws.
+	    </p>
+	    <p>
+	    <strong>
+		The Nigerian Voice Bank will not take responsibility for any legal
+		issues emanating from content supplied by any artist.
+	    </strong>
+	    </p>
+	    <p>
+		Please ensure that you are prepared for the recording and that you have rehearsed your scripts!
+	    </p>
+	    <blockquote>
+		<p>
+		    If for any reason the Nigerian Voice Bank considers your
+		    voice clip not suitable or too inexperienced, the Nigerian
+		    voice bank reserves the right to decline your subscription.
+		    In this case your subscription fee will be refunded.
+		</p>
+	    </blockquote>
+	</div>
+    </div>
+{% endblock %}
+{% block adspace %}{% endblock %}

@@ -8,28 +8,34 @@
 	profile; (3)Record your voice; (4)Upload; (5)Subscribe" title="(1)Login; (2)Create profile; (3)Record your voice; (4)Upload; (5)Subscribe"/>
 	</div>
     </div>
-    <div class="five columns pane add-bottom" style="height: 228px;">
+    <div class="five columns pane add-bottom" style="height: 380px;">
 	<ul id="menu_how">
-	    <li><a href="#">Registering on the Voice Bank</a></li>
-	    <li><a href="#">Payment Process</a></li>
-	    <li><a href="#">Voice Bank Subscription Cost</a></li>
-	    <li><a href="#">Booking for your recording</a></li>
-	    <li><a href="#">What to bring to the recording</a></li>
-	    <li><a href="#">Renewals</a></li>
-	    <li><a href="#">Uploading your Voice Clips</a></li>
+	    <li><a href="{% url registering %}">Registering on the Voice Bank</a></li>
+	    <li><a href="{% url payment_process %}">Payment Process</a></li>
+	    <li><a href="{% url subscription_cost %}">Voice Bank Subscription Cost</a></li>
+	    <li><a href="{% url booking %}">Booking for your recording</a></li>
+	    <li><a href="{% url what_to_bring %}">What to bring to the recording</a></li>
+	    <li><a href="{% url renewals %}">Renewals</a></li>
 	</ul>
     </div>
     <div class="six columns pane add-bottom">
-	<blockquote>
+	<blockquote id="advantage">
+	    <h5>The Voice Bank Advantage</h5>
 	    <p>
-		Subscribe to the Nigerian Voice Bank between November 1 and
-		December 16 and get two voice clips recorded for free at our partner
-		studios when you book your recording online.
+		Imagine your voice being heard by all the advertising agencies,
+		radio stations, television stations, casting companies, customer
+		care agencies around Nigeria.
+		Imagine being contacted for a job you never knew existed and
+		never applied for. Just because someone heard your voice on the
+		Nigerian Voice Bank and liked it.
+		That&rsquo;s the miracle of the Nigerian Voice Bank and
+		that&rsquo;s our
+		advantage.
 	    </p>
 	    <a href="#"><img src="{{ MEDIA_URL }}img/booking.png" alt="Book for your recording
 	    here" title="Book for your recording here"/></a>
 	</blockquote>
     </div>
-    <div class="five columns pane add-bottom" style="height: 228px;">&nbsp;</div>
+    <div class="five columns pane add-bottom" style="height: 380px;">&nbsp;</div>
 {% endblock %}
 {% block adspace %}{% endblock %}

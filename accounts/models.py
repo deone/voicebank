@@ -21,7 +21,6 @@ class Profile(models.Model):
     def __unicode__(self):
 	return self.slug
 
-
 class Country(models.Model):
     code = models.CharField(max_length=2)
     name = models.CharField(max_length=200)

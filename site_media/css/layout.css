@@ -81,10 +81,10 @@ h5  {
 #steps	{
     text-align: center;
 }
-blockquote  {
+#advantage blockquote  {
     border: none;
     text-align: center;
-    height: 200px;
+    height: 350px;
 }
 blockquote p	{
     color: #000;

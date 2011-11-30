@@ -1,4 +1,5 @@
 Do:
+* Provide initial data.
 * Send email to user after registration.
 * Use slugs for category homes - should read /categories/slug instead of
 /categories/id/voiceclips.
@@ -9,10 +10,9 @@ Do:
     - Profile model, accounts forms and views.
     - Core app.
 * Separate app-specific settings.
-* Clean url_id in such a way that it won't raise an error when a user uses his
-  current url_id.
-* Provide initial data.
 * Automate deployment.
+* Align form (success) messages properly.
+* Fix user profile linking on home and categories page.
 
 
 

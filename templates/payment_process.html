@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block app_body %}
+    <div class="five columns pane add-bottom" style="height: 380px;">
+	<ul id="menu_how">
+	    <li><a href="{% url registering %}">Registering on the Voice Bank</a></li>
+	    <li><a href="{% url payment_process %}">Payment Process</a></li>
+	    <li><a href="{% url subscription_cost %}">Voice Bank Subscription Cost</a></li>
+	    <li><a href="{% url booking %}">Booking for your recording</a></li>
+	    <li><a href="{% url what_to_bring %}">What to bring to the recording</a></li>
+	    <li><a href="{% url renewals %}">Renewals</a></li>
+	</ul>
+    </div>
+    <div class="eleven columns pane add-bottom">
+	<div class="wrap">
+	    <h4>Payment Process</h4>
+	    <hr class="half-bottom"/>
+	    <p>
+		The full subscription amount for your preferred plan must be paid
+		into any of our account before your voice clips can be activated. We
+		reserve the right to refund any subscription that does not meet our
+		standard.<br/><br/>
+		<strong>Account Name:</strong> Flame Media Works<br/>
+		<strong>Bank Name:</strong> Guaranty Trust Bank<br/>
+		<strong>A/C No:</strong> 226908063110<br/>
+		<strong>Branch:</strong> Festac Town.<br/><br/>
+		OR<br/><br/>
+		<strong>Account Name:</strong> Flame Media Works<br/>
+		<strong>Bank Name:</strong> Access Bank<br/>
+		<strong>A/C No:</strong> 0008471860<br/>
+		<strong>Branch:</strong> Festac Town.<br/>
+	    </p>
+	    <p>Please look through the Voice Bank <a href="{% url
+		subscription_cost %}">subscription details</a> because subscription plans differ depending on your preferred
+				      plan.
+	    </p>
+	    <p><strong>NOTE</strong>:
+				      The name and contact details on the
+				      payment teller should be same as the name
+				      used during registration on the Voice
+				      bank.
+				      You will receive confirmation of payment
+				      within 48 hours.</p>
+				      <p>If confirmation is not received within 48
+				      hours, call our customer care lines on
+				      07044700254, 08092796787 or send a mail to
+				      <a
+					  href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a> for
+				      assistance.
+	    
+	    </p>
+	</div>
+    </div>
+{% endblock %}
+{% block adspace %}{% endblock %}

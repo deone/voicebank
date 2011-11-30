@@ -77,11 +77,12 @@ class UserProfileForm(forms.Form):
 	data = self.cleaned_data['url_id']
 
 	try:
-	    Profile.objects.get(slug=data)
+	    profile = Profile.objects.get(slug=data)
 	except:
 	    pass
 	else:
-	    raise forms.ValidationError("""This URL ID is taken. Please choose
+	    if profile.slug != data:
+		raise forms.ValidationError("""This URL ID is taken. Please choose
 		    another.""")
 
 	return data

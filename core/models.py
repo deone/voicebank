@@ -24,7 +24,7 @@ class Category(models.Model):
 
     class Meta:
 	verbose_name_plural = "Categories"
-	ordering = ['name']
+	ordering = ['-name']
 
     def __unicode__(self):
 	return self.name

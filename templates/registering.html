@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block app_body %}
+    <div class="five columns pane add-bottom" style="height: 380px;">
+	<ul id="menu_how">
+	    <li><a href="{% url registering %}">Registering on the Voice Bank</a></li>
+	    <li><a href="{% url payment_process %}">Payment Process</a></li>
+	    <li><a href="{% url subscription_cost %}">Voice Bank Subscription Cost</a></li>
+	    <li><a href="{% url booking %}">Booking for your recording</a></li>
+	    <li><a href="{% url what_to_bring %}">What to bring to the recording</a></li>
+	    <li><a href="{% url renewals %}">Renewals</a></li>
+	</ul>
+    </div>
+    <div class="eleven columns pane add-bottom">
+	<div class="wrap">
+	<h4>Registering On the Voice Bank</h4>
+	<hr class="half-bottom"/>
+	<p>
+	    The first step to getting your voice on the voice bank is to join, by
+	    clicking the join link on the top corner of the site. Generate a
+	    username and password, using your already existing email account and a
+	    new set of password. 
+	</p>
+	After which you create your profile and upload your profile picture.
+	The next step will be to upload your voice clip if you already have them
+	and if you don’t, then you need to book for your recording.
+	To book for your recording send a mail to
+	customercare@nigerianvoicebank.com with your name, phone number,
+	location and the word VOICE RECORDING. You can also send us a text or
+	just call our customer care lines on 08092796787 or 07044700254. 
+	After recording you upload your voice clip. You can have as many as 10
+	voice clips.
+	Note: all voice clips should be in MP3 format and max of 60seconds long. 
+	“YOUR VOICE CLIPS WILL BE ACTIVATED ON THE SITE AFTER YOU HAVE PAID FOR
+	YOUR SUBSCRIPTION” 
+	When filling your profile,Your phone number and email address is very
+	important. Ensure they are correct because you will be contacted
+	directly for job offers
+	Complete the registration process then click on register.
+	You will receive an email or sms or both prompting you with information
+	on how to activate your profile. Follow this instruction precisely to
+	effectively activate your profile.
+	Please contact customercare@nigerianvoicebank.com  for assistance
+	</div>
+    </div>
+{% endblock %}
+{% block adspace %}{% endblock %}

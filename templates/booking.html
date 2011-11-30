@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block app_body %}
+    <div class="five columns pane add-bottom" style="height: 380px;">
+	<ul id="menu_how">
+	    <li><a href="{% url registering %}">Registering on the Voice Bank</a></li>
+	    <li><a href="{% url payment_process %}">Payment Process</a></li>
+	    <li><a href="{% url subscription_cost %}">Voice Bank Subscription Cost</a></li>
+	    <li><a href="{% url booking %}">Booking for your recording</a></li>
+	    <li><a href="{% url what_to_bring %}">What to bring to the recording</a></li>
+	    <li><a href="{% url renewals %}">Renewals</a></li>
+	</ul>
+    </div>
+    <div class="eleven columns pane add-bottom">
+	<div class="wrap">
+	    <h4>Booking For Your Recording</h4>
+	    <hr class="half-bottom"/>
+	    <p>
+		Before your booking can be accepted, you must have signed up and
+		created your profile and made payment for your preferred
+		subscription plan.
+		To book for your recording send a mail to
+		customercare@nigerianvoicebank.com with your name, phone number,
+		location and the word VOICE RECORDING. You can also send us a
+		text or just call our customer care lines on 08092796787 or
+		07044700254. 
+		You will receive a confirmation mail, text and call informing
+		you of the date, time and location for your recording.
+		Should you be unable to attend the recording that have been
+		scheduled for you, please notify us at least 24hours in advance
+		so we can arrange a new date for you.
+		If you fail to cancel your booking 48hours before the scheduled
+		session, you will be charged one thousand naira for the
+		recording of each voice clip.
+	    </p>
+	</div>
+    </div>
+{% endblock %}
+{% block adspace %}{% endblock %}
