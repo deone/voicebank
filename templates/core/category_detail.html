@@ -9,18 +9,22 @@
 		Voice clips in <span class="italic">{{ object.name }}</span> category
 	    </h4>
 	    <hr class="half-bottom"/>
-	    {% if object.voiceclipcategory_set.all %}
+	    {% if object.voiceclip_set.all %}
 	    <ul class="clips">
-		{% for clip_category in object.voiceclipcategory_set.all %}
-		<li>
-		    <strong>
-		    <a href="{{ MEDIA_URL }}{{ clip_category.voice_clip.voice_clip }}">
-			{{ clip_category.voice_clip.name }}</a>
-		    </strong>
-		    by 
-		    <a href="{{ clip_category.voice_clip.user.profile }}">{{ clip_category.voice_clip.user.first_name }}</a><br/>
-		    <span>Added {{ clip_category.voice_clip.date_added }}</span>
-		</li>
+		{% for clip in object.voiceclip_set.all %}
+		    {% if clip.is_active %}
+		    <li>
+			<strong>
+			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">
+			    {{ clip.name }}</a>
+			</strong>
+			by 
+			<a href="{{ clip.voice_clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
+			<span>Added {{ clip.date_added }}</span>
+		    </li>
+		    {% else %}
+		    <p class="half-bottom">None yet. Sorry!</p>
+		    {% endif %}
 		{% endfor %}
 	    </ul>
 	    {% else %}
