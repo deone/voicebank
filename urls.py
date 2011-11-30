@@ -9,7 +9,7 @@ admin.autodiscover()
 from core.models import VoiceClip, Category
 
 voiceclip_dict = {
-	'queryset': VoiceClip.objects.all(),
+	'queryset': VoiceClip.objects.filter(is_active=True),
 	}
 
 category_dict = {

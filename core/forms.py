@@ -34,7 +34,5 @@ class VoiceClipForm(forms.Form):
 	voice_clip = VoiceClip.objects.create(user=request.user,
 		name=self.cleaned_data['name'],
 		voice_clip=self.cleaned_data['voice_clip'],
-		language=self.cleaned_data['language'])
-
-	VoiceClipCategory.objects.create(voice_clip=voice_clip,
+		language=self.cleaned_data['language'],
 		category=self.cleaned_data['category'])
