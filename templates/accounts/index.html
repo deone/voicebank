@@ -85,7 +85,7 @@
 			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
 			</strong>
 			by 
-			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
+			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
 			<span class="small-font">Added {{ clip.date_added }}</span>
 		    </li>
 		    {% endfor %}
