@@ -4,10 +4,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.sites.models import Site
 from django.conf import settings
-from core.models import VoiceClip, Category
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
+from core.models import VoiceClip, Category
 
 import datetime
 
@@ -63,6 +66,23 @@ def profile(request, slug, template='accounts/profile.html'):
 	    'site': CURRENT_SITE.name,
 	}, context_instance=RequestContext(request))
 
+def send_notification(subject, sender, mail_template, *recipients, **context_vars):
+    """
+	Send email notification to `recipients` using `mail_template`, replacing context variables with `context_vars`.
+    """
+    html_content = render_to_string(mail_template, context_vars)
+    text_content = strip_tags(html_content)
+
+    message = EmailMultiAlternatives(subject, text_content, sender, recipients)
+    message.attach_alternative(html_content, "text/html")
+
+    try:
+	message.send()
+    except Exception, e:
+	return False
+
+    return True
+
 def join(request, template='accounts/join.html', form=UserJoinForm):
     if request.method == "POST":
 	form = form(request.POST)
@@ -81,6 +101,16 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 		else:
 		    # Do something if we ever need to.
 		    pass
+
+	    recipients = []
+	    recipients.append(email)
+
+	    context_vars = {}
+	    context_vars['login_url'] = "%s%s" % (CURRENT_SITE.name,
+		    settings.LOGIN_URL)
+
+	    send_notification(WELCOME_MSG_SUBJECT, settings.EMAIL_SENDER,
+		    "accounts/welcome_mail.html", recipients, context_vars)
 	    
 	    return redirect(settings.LOGIN_REDIRECT_URL)
     else:

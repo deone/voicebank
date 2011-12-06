@@ -112,3 +112,6 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 RECENT_ADDITIONS_DISPLAY_LIMIT = 10
 EMAIL_HOST = 'aerixnigeria.com'
 EMAIL_PORT = 25
+
+WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
+EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com"
