@@ -107,9 +107,8 @@ INSTALLED_APPS = (
 )
 
 LOGIN_REDIRECT_URL = '/home/dashboard'
-
 LOGIN_URL = '/login'
-
 AUTH_PROFILE_MODULE = 'accounts.Profile'
-
 RECENT_ADDITIONS_DISPLAY_LIMIT = 10
+EMAIL_HOST = 'aerixnigeria.com'
+EMAIL_PORT = 25

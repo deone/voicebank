@@ -16,7 +16,13 @@
 	
 /* #Site Styles
 ================================================== */
-
+table, td, th	{
+    border: solid 1px #000;
+    padding: 2px;
+}
+table	{
+    margin-bottom: 10px;
+}
 body	{
     background: #e0e0e0 url('../img/header_bg.png') repeat-x;
 }
@@ -81,7 +87,7 @@ h5  {
 #steps	{
     text-align: center;
 }
-#advantage blockquote  {
+#advantage  {
     border: none;
     text-align: center;
     height: 350px;
