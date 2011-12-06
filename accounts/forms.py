@@ -1,24 +1,17 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.forms.util import ErrorList
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
-from django.core.exceptions import ValidationError
+from django.core.validators import validate_slug
 
 from accounts.models import *
 
 import random
 import string
 import re
-
-url_id_re = re.compile(r'^[-.\w]+$')
-
-def validate_url_id(value):
-    if not url_id_re.search(value):
-	raise ValidationError("Enter a valid 'url_id' consisting of letters, numbers, underscores, dots or hyphens.")
 
 class UserJoinForm(forms.Form):
     first_name = forms.CharField(max_length=30)
@@ -29,6 +22,13 @@ class UserJoinForm(forms.Form):
 	    widget=forms.Select(attrs={'class': 'chzn-select',
 		'data-placeholder': 'Gender...'}))
     birthday = forms.DateField(('%m/%d/%Y',))
+
+    def clean_email(self):
+	if self.cleaned_data['email'] in [obj.email for obj in
+		User.objects.all()]:
+	    raise forms.ValidationError("Email belongs to another user.")
+	
+	return self.cleaned_data['email']
 
     def save(self):
 	username = self.cleaned_data['email']
@@ -62,16 +62,12 @@ class UserProfileForm(forms.Form):
     last_name = forms.CharField(max_length=30)
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     phone_number = forms.CharField(max_length=15,
-	    help_text="Enter phone number in full international format.\
-	    Ignore\
-	    the leading plus sign. e.g. 2348033344455, 23417745566")
+	    help_text="e.g. 08033344455, 017745566")
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
-	    validators=[validate_url_id])
-    country = forms.ModelChoiceField(queryset=Country.objects.all(),
-	    empty_label="Country", 
-	    widget=forms.Select(attrs={'class': 'chzn-select'}))
-    state = forms.CharField(max_length=50)
+	    validators=[validate_slug])
+    location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja,\
+	    Port-Harcourt")
 
     def clean_url_id(self):
 	data = self.cleaned_data['url_id']
@@ -99,6 +95,5 @@ class UserProfileForm(forms.Form):
 	user.profile.about = self.cleaned_data['about']
 	user.profile.phone_number = self.cleaned_data['phone_number']
 	user.profile.slug = self.cleaned_data['url_id']
-	user.profile.country = self.cleaned_data['country']
-	user.profile.state = self.cleaned_data['state']
+	user.profile.location = self.cleaned_data['location']
 	user.profile.save()

@@ -106,7 +106,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-LOGIN_REDIRECT_URL = '/home/dashboard'
+LOGIN_REDIRECT_URL = '/home/profile'
 LOGIN_URL = '/login'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 RECENT_ADDITIONS_DISPLAY_LIMIT = 10

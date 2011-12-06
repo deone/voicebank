@@ -27,7 +27,6 @@ body	{
     background: #e0e0e0 url('../img/header_bg.png') repeat-x;
 }
 #header	{
-    z-index: 9;
     height: 80px;
 }
 #header h1  {

@@ -12,9 +12,8 @@ class Profile(models.Model):
     slug = models.SlugField(unique=True, editable=False)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     about = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=15, null=True)
-    country = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=11, null=True)
+    location = models.CharField(max_length=50)
     birthday = models.DateField()
     photo = models.ImageField(upload_to="profile_pics")
 

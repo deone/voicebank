@@ -15,6 +15,16 @@
 	    {% else %}
 		<img class="add-bottom" src="{{ MEDIA_URL }}img/no-image.jpg"/>
 	    {% endif %}
+	    <p>
+		<strong>Gender:</strong>
+		{% if user.gender == "M" %}
+		Male
+		{% else %}
+		Female
+		{% endif %}
+		<br/>
+		<strong>Age:</strong> {{ age }}
+	    </p>
 	    <h5>About</h5>
 	    <hr class="half-bottom"/>
 	    <p>{{ user_profile.about }}</p>
@@ -40,6 +50,17 @@
 		<a href="http://{{ site }}/{{ user_profile.slug }}">
 		http://{{ site }}/{{ user_profile.slug }}
 		</a>
+	    </p>
+	    <h5>Contact/Booking</h5>
+	    <hr class="half-bottom"/>
+	    <p>
+	    {% if user_profile.phone_number %}
+		Call {{ user_profile.phone_number }}
+	    {% else %}
+		This user has not provided a phone number.
+	    {% endif %}
+		<br/>
+		Email: <a href="mailto:{{ user.email }}">{{ user_profile.user.email }}</a>
 	    </p>
 	</div>
     </div>

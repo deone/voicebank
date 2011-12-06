@@ -9,6 +9,8 @@ from core.models import VoiceClip, Category
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 
+import datetime
+
 CURRENT_SITE = Site.objects.get_current()
 
 def index(request, template='accounts/index.html'):
@@ -34,8 +36,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'last_name': request.user.last_name,
 	    'about': request.user.profile.about,
 	    'phone_number': request.user.profile.phone_number,
-	    'country': request.user.profile.country,
-	    'state': request.user.profile.state,
+	    'location': request.user.profile.location,
 	    'url_id': request.user.profile.slug
 	    })
 
@@ -44,11 +45,21 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'site': CURRENT_SITE.name,
 	}, context_instance=RequestContext(request))
 
+def calculate_age(born):
+    today = datetime.date.today()
+    try:
+	birthday = born.replace(year=today.year)
+    except ValueError:
+	birthday = born.replace(year=today.year, day=born.day-1)
+
+    return today.year - born.year
+
 def profile(request, slug, template='accounts/profile.html'):
     user_profile = get_object_or_404(Profile, slug__iexact=slug)
 
     return render_to_response(template, {
 	    'user_profile': user_profile,
+	    'age': calculate_age(user_profile.birthday),
 	    'site': CURRENT_SITE.name,
 	}, context_instance=RequestContext(request))
 
@@ -71,7 +82,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 		    # Do something if we ever need to.
 		    pass
 	    
-	    return redirect('core.views.index')
+	    return redirect(settings.LOGIN_REDIRECT_URL)
     else:
 	form = form()
 

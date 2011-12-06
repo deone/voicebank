@@ -47,7 +47,7 @@
 	    </li>
 	    <li class="active" id="editprofileTab">
 		<form id="profile-edit" method="post"
-		    enctype="multipart/form-data" action="{{ user.profile.get_absolute_url }}">{% csrf_token %}
+		    enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
 		    <fieldset class="wrap remove-bottom">
 			{{ form.user.as_hidden }}
 			<p class="one column alpha remove-bottom">
@@ -102,16 +102,10 @@
 			    <span class="help">{{ form.url_id.help_text }}</span>
 			</p>
 			<p>
-			    <div class="select-wrap">
-				{{ form.country.errors }}
-				{{ form.country }}
-			    </div>
-			</p>
-			<p>
 			    <label class="input">
-				{{ form.state.errors }}
-				<span>{{ form.state.label }}</span>
-				{{ form.state }}
+				{{ form.location.errors }}
+				<span>{{ form.location.label }}</span>
+				{{ form.location }}
 			    </label>
 			</p>
 			<button>Save</button>
