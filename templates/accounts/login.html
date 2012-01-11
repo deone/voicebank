@@ -1,28 +1,53 @@
-{% extends "accounts/index.html" %}
+{% extends "accounts/base.html" %}
+
+{% block customer_care_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}" class="current">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block swf_banner %}{% endblock %}
 
 {% block app_body %}
-    <div class="twelve columns add-bottom">
-	<form id="login" class="alpha pane rounded" method="post" action="{% url login %}">{% csrf_token %}
-	    <fieldset class="wrap remove-bottom">
-		<h4>Login</h4>
-		<hr class="add-bottom"/>
-		<p>
-		    <label class="input">
-			{{ form.username.errors }}
-			<span>Email</span>
-			{{ form.username }}
-		    </label>
-		</p>
-		<p>
-		    {{ form.password.errors }}
-		    <label class="input">
-			<span>{{ form.password.label }}</span>
-			{{ form.password }}
-		    </label>
-		</p>
-		<div><button>Sign In</button> or <a href="{% url join %}">Join
-			Voicebank</a></div>
-	    </fieldset>
+<div class="leftdiv">
+    <div class="rform">
+	<h3>Login</h3>
+
+	<form method="post" action="{% url login %}">{% csrf_token %}
+
+	    <p>
+		{{ form.username.errors }}
+		<label>Email</label>
+		{{ form.username }}
+	    </p>
+	    <p>
+		{{ form.password.errors }}
+		<label>Password</label>
+		{{ form.password }}
+	    </p>
+	    <p>
+		<input class="btn" type="button" value="Login">
+	    </p>
+
 	</form>
-    </div>
+
+	<div class="clear pad"></div>
+
+	<h3>Don't have an account?</h3>
+	<p><a href="{% url join %}">Click here</a> to Join Nigerian Voice Bank.</p>
+
+    </div> <!--/rform-->
+</div> <!--/leftdiv-->
 {% endblock %}
