@@ -1,6 +1,190 @@
 {% extends "accounts/base.html" %}
 
 {% block app_body %}
+<div class="leftdiv">
+    <div class="categories">
+	<h3>Voice Artist Categories 
+	    <span class="alt">
+		<a href="">Book your recordings here <em>&raquo;</em></a>
+	    </span>
+	    <span><a href="">View All Voice Clips <em>&raquo;</em></a></span>
+	</h3>
+
+	<ul>
+	    {% for category in categories %}
+		{% if forloop.counter == 5 or forloop.counter == 10 %}
+		<li class="last">
+		    <a href="{{ category.get_absolute_url }}">
+			<span>{{ category.name }}</span>
+			<img src="{{ category.image.url }}"/>
+		    </a>
+		</li>
+		{% else %}
+		<li>
+		    <a href="{{ category.get_absolute_url }}">
+			<span>{{ category.name }}</span>
+			<img src="{{ category.image.url }}"/>
+		    </a>
+		</li>
+		{% endif %}
+	    {% endfor %}
+	    <li>
+		<a href="" class="allvoice"></a>
+	    </li>
+	</ul>
+    </div> <!--/categories-->
+
+    <div class="musicbox">
+	<h3>Music Box</h3>
+
+	<ul class="mbox">
+	    <li>
+		<a href=""><img src="{{ MEDIA_URL }}img/mbox.jpg"/></a>
+		<a href="">Illegal Music 2 (The Single)</a>
+		<span>M.I</span>
+		<div class="rating">
+		    <div style="width:75%"></div>
+		</div>
+	    </li>
+
+	    <li>
+		<a href=""><img src="{{ MEDIA_URL }}img/mbox1.jpg"/></a>
+		<a href="">Bibanke</a>
+		<span>Asa</span>
+		<div class="rating">
+		    <div style="width:30%"></div>
+		</div>
+	    </li>
+
+	    <li>
+		<a href=""><img src="{{ MEDIA_URL }}img/mbox2.jpg"/></a>
+		<a href="">Sample Text</a>
+		<span>Description</span>
+		<div class="rating">
+		    <div style="width:30%"></div>
+		</div>
+	    </li>
+
+	    <li>
+		<a href=""><img src="{{ MEDIA_URL }}img/mbox3.jpg"/></a>
+		<a href="">Sample Text</a>
+		<span>Description</span>
+		<div class="rating">
+		    <div style="width:30%"></div>
+		</div>
+	    </li>
+
+	    <li class="last">
+		<a href=""><img src="{{ MEDIA_URL }}img/mbox4.jpg"/></a>
+		<a href="">Sample Text</a>
+		<span>Description</span>
+		<div class="rating">
+		    <div style="width:30%"></div>
+		</div>
+	    </li>
+	</ul>
+
+	<a href="musicbox.html" class="more">View More</a>
+
+	<div class="clear"></div>
+    </div>
+
+    <div class="feature">
+	<div class="recent">
+	    <div class="upper">
+		<h3>Most Recent Additions</h3>
+		<ul class="clips">
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+		    </li>
+
+		</ul>
+	    </div>
+	    <div class="lower">
+		<a href="">View All<em>&raquo;</em></a>
+	    </div>
+	</div>
+
+
+	<div class="additions">
+	    <div class="upper">
+		<h3>Top 5 voice clips</h3>
+		<ul class="clips">
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<span class="numeric">1<span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<span class="numeric">2<span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<span class="numeric">3<span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<span class="numeric">4<span>
+		    </li>
+
+		    <li>
+			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
+			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<span class="numeric">5<span>
+		    </li>
+
+		</ul>
+	    </div>
+	    <div class="lower">
+	    <a href="">View All<em>&raquo;</em></a>
+	    </div>
+	</div>
+    </div> <!--/feature-->
+
+</div> <!--/leftdiv-->
+{% endblock %}
+
+
     <div class="twelve columns add-bottom">
 	<div class="pane add-bottom categories-list rounded">
 	    <div class="wrap">
@@ -96,4 +280,17 @@
 	    </div>
 	</div>
     </div>
+
+{% block custom_js %}
+<script>
+	    $(function(){
+		    $('#slides').slides({
+			    preload: true,
+			    preloadImage: '{{ MEDIA_URL }}img/loading.gif',
+			    play: 8000,
+			    pause: 2500,
+			    hoverPause: true
+		    });
+	    });
+</script>
 {% endblock %}

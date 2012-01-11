@@ -19,8 +19,7 @@ class UserJoinForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
     gender = forms.ChoiceField(choices=GENDER_CHOICES,
-	    widget=forms.Select(attrs={'class': 'chzn-select',
-		'data-placeholder': 'Gender...'}))
+	    widget=forms.Select(attrs={'class': 'choose'}))
     birthday = forms.DateField(('%m/%d/%Y',))
 
     def clean_email(self):

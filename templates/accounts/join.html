@@ -1,75 +1,73 @@
-{% extends "accounts/index.html" %}
+{% extends "accounts/base.html" %}
 
-{% block custom_css %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.8.2.custom.css"/>
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
+{% block customer_care_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}" class="current">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
 {% endblock %}
 
-{% block custom_js %}
-    <script src="{{ MEDIA_URL }}js/jquery-ui-1.8.2.custom.min.js"></script>
-    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
-    <script>
-	$(function()	{
-	    $("#id_birthday").datepicker({
-		changeMonth: true,
-		changeYear: true,
-		yearRange: '1930:2005'
-	    });
-	    $(".chzn-select").chosen();
-	});
-    </script>
-{% endblock %}
+{% block swf_banner %}{% endblock %}
 
 {% block app_body %}
-    <div class="twelve columns add-bottom">
-	<form id="join" class="alpha pane rounded remove-bottom" method="post" action="{% url join %}">{% csrf_token %}
-	    <fieldset class="wrap remove-bottom">
-		<h4>Join Nigerian Voice Bank</h4>
-		<hr class="add-bottom"/>
-		<p>
-		    <label class="input">
-			{{ form.first_name.errors }}
-			<span>{{ form.first_name.label }}</span>
-			{{ form.first_name }}
-		    </label>
-		</p>
-		<p>
-		    <label class="input">
-			{{ form.last_name.errors }}
-			<span>{{ form.last_name.label }}</span>
-			{{ form.last_name }}
-		    </label>
-		</p>
-		<p>
-		    <label class="input">
-			{{ form.email.errors }}
-			<span>{{ form.email.label }}</span>
-			{{ form.email }}
-		    </label>
-		</p>
-		<p>
-		    <label class="input">
-			{{ form.password.errors }}
-			<span>{{ form.password.label }}</span>
-			{{ form.password }}
-		    </label>
-		</p>
-		<p>
-		    <div class="select-wrap">
-			{{ form.gender.errors }}
-			{{ form.gender }}
-		    </div>
-		</p>
-		<p>
-		    <label class="input">
-			{{ form.birthday.errors }}
-			<span>{{ form.birthday.label }}</span>
-			{{ form.birthday }}
-		    </label>
-		</p>
-		<button>Join</button>
-		<p>Already on Nigerian Voice Bank? <a href="{% url login %}">Login</a></p>
-	    </fieldset>
+<div class="leftdiv">
+    <div class="rform">
+	<h3>Join Nigerian Voice Bank</h3>
+
+	<form method="post" action="{% url join %}">{% csrf_token %}
+
+	    <p>
+		{{ form.first_name.errors }}
+		<label>First Name</label>
+		{{ form.first_name }}
+	    </p>
+	    <p>
+		{{ form.last_name.errors }}
+		<label>Last Name</label>
+		{{ form.last_name }}
+	    </p>
+	    <p>
+		{{ form.email.errors }}
+		<label>Email</label>
+		{{ form.email }}
+	    </p>
+	    <p>
+		{{ form.password.errors }}
+		<label>Password</label>
+		{{ form.password }}
+	    </p>
+	    <p>
+		{{ form.gender.errors }}
+		<label>Gender</label>
+		{{ form.gender }}
+	    </p>
+	    <p>
+		{{ form.birthday.errors }}
+		<label>Birthday</label>
+		{{ form.birthday }}
+	    </p>
+	    <p>
+		<input class="btn" type="button" value="Join">
+	    </p>
+
 	</form>
-    </div>
+
+	<div class="clear pad"></div>
+
+	<h3>Already have an account?</h3>
+	<p><a href="login.html">Click here</a> to Login.</p>
+
+    </div> <!--/rform-->
+</div> <!--/leftdiv-->
 {% endblock %}

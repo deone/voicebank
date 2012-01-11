@@ -17,8 +17,8 @@ category_dict = {
 	}
 
 urlpatterns = patterns('django.views.generic',
-    url(r'^how_it_works$', 'simple.direct_to_template', {'template':
-	'how_it_works.html'}, name='how_it_works'),
+    url(r'^how$', 'simple.direct_to_template', {'template':
+	'how.html'}, name='how'),
     url(r'^registering$', 'simple.direct_to_template', {'template':
 	'registering.html'}, name='registering'),
     url(r'^payment_process$', 'simple.direct_to_template', {'template':
