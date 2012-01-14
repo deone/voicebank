@@ -16,28 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `core_category`
+-- Table structure for table `accounts_profile`
 --
 
-DROP TABLE IF EXISTS `core_category`;
+DROP TABLE IF EXISTS `accounts_profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `core_category` (
+CREATE TABLE `accounts_profile` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `user_id` int(11) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `about` varchar(255) NOT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
+  `location` varchar(50) NOT NULL,
+  `birthday` date NOT NULL,
+  `photo` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  UNIQUE KEY `slug` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `core_category`
+-- Dumping data for table `accounts_profile`
 --
 
-LOCK TABLES `core_category` WRITE;
-/*!40000 ALTER TABLE `core_category` DISABLE KEYS */;
-INSERT INTO `core_category` VALUES (1,'Radio Presenters','category_pics/radio.jpg'),(3,'News Anchors','category_pics/news.jpg'),(4,'Sports Commentators','category_pics/sports.jpg'),(5,'Actors','category_pics/actor.jpg'),(6,'Documentaries','category_pics/doc.jpg'),(7,'Customer Care','category_pics/customer.jpg'),(8,'Animation','category_pics/animation.jpg'),(9,'Comedians','category_pics/comedian.jpg'),(11,'Television Hosts','category_pics/tv.jpg'),(13,'Jingles','category_pics/jingle.jpg'),(14,'Movie Trailers','category_pics/movie.jpg'),(15,'Voice-Over','category_pics/voiceover.jpg');
-/*!40000 ALTER TABLE `core_category` ENABLE KEYS */;
+LOCK TABLES `accounts_profile` WRITE;
+/*!40000 ALTER TABLE `accounts_profile` DISABLE KEYS */;
+INSERT INTO `accounts_profile` VALUES (1,92,'deone','M','Me.','08033445555','Abuja','2011-12-22','profile_pics/299187_10150421067275259_683775258_10672115_1485181272_n.jpg'),(2,93,'oladayo.joshuai8q2','M','',NULL,'','2000-12-15','');
+/*!40000 ALTER TABLE `accounts_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-01-13 22:33:52
+-- Dump completed on 2012-01-13 22:33:27

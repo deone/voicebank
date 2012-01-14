@@ -1,0 +1,56 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "zedd", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2012-01-13 21:27:32", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$ea4a1$b0d896b435edef6943ee529931f613df3bc84452", 
+            "email": "alwaysdeone@gmail.com", 
+            "date_joined": "2011-07-15 14:01:53"
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "alwaysdeone@yahoo.com", 
+            "first_name": "Ola", 
+            "last_name": "Olu", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2012-01-13 21:28:37", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$f369d$f282d44bbcb193a8f12bea3774117a77451ba6a3", 
+            "email": "alwaysdeone@yahoo.com", 
+            "date_joined": "2011-12-06 12:35:42"
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "oladayo.joshua@tecnotree.com", 
+            "first_name": "Ade", 
+            "last_name": "Olu", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2011-12-06 15:20:01", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$647d9$45d0775a756a4b58af6ea31daeb7dd9cd8f0b0ec", 
+            "email": "oladayo.joshua@tecnotree.com", 
+            "date_joined": "2011-12-06 15:20:01"
+        }
+    }
+]

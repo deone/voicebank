@@ -18,7 +18,7 @@ class Profile(models.Model):
     photo = models.ImageField(upload_to="profile_pics")
 
     def __unicode__(self):
-	return self.slug
+	return self.user.email
 
     @models.permalink
     def get_absolute_url(self):

@@ -109,7 +109,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    context_vars['login_url'] = "%s%s" % (CURRENT_SITE.name,
 		    settings.LOGIN_URL)
 
-	    send_notification(WELCOME_MSG_SUBJECT, settings.EMAIL_SENDER,
+	    send_notification(settings.WELCOME_MSG_SUBJECT, settings.EMAIL_SENDER,
 		    "accounts/welcome_mail.html", recipients, context_vars)
 	    
 	    return redirect(settings.LOGIN_REDIRECT_URL)
