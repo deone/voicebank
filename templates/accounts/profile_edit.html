@@ -1,117 +1,176 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 
 {% load thumbnail %}
 
-{% block custom_css %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
-{% endblock %}
+{% block customer_care_banner %}{% endblock %}
+
+{% block swf_banner %}{% endblock %}
 
 {% block custom_js %}
-    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
-    <script>
-	$(function()    {
-	    $(".chzn-select").chosen();
-	});
-    </script>
+<script src="{{ MEDIA_URL }}js/jquery-tabs.js"></script>
 {% endblock %}
 
-{% block app_body_content %}
-    <div>
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}" class="current">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="tabbed">
 	<ul class="tabs">
-	    <li><a href="#viewprofile">View Profile</a></li>
-	    <li><a class="active" href="#editprofile">Edit Profile</a></li>
+	    <li><a href="#tab-1">View Profile</a></li>
+	    <li><a href="#tab-2">Edit Profile</a></li>
 	</ul>
-	<ul class="tabs-content rounded">
-	    <li id="viewprofileTab">
-		<div class="wrap">
-		    <h4 class="fullname">{{ user.get_full_name }}</h4>
-		    <hr class="half-bottom"/>
+
+	<div class="tab_container">
+	    <div class="tab_content" id="tab-1">
+
+		<div class="pro-info">
+		    <h3>{{ user.get_full_name }}</h3>
 		    {% if user.profile.photo %}
-			{% thumbnail user.profile.photo "138x138" crop="center" as up %}
-			    <img class="add-bottom display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+			{% thumbnail user.profile.photo "97x94" crop="center" as up %}
+			    <img src="{{ up.url }}" width="{{ up.width }}"
+			    height="{{ up.height }}" class="profile"/>
 			{% endthumbnail %}
 		    {% else %}
-			<img class="add-bottom" src="{{ MEDIA_URL }}img/no-image.jpg"/>
+			<img src="{{ MEDIA_URL }}img/profile.jpg" class="profile"/>
 		    {% endif %}
-		    <h5>About</h5>
-		    <hr class="half-bottom"/>
-		    <p>{{ user.profile.about }}</p>
-		    <h5>Voice Bank URL</h5>
-		    <hr class="half-bottom"/>
+
+		    <h3>Booking</h3>
+		    <p>{{ user.profile.phone_number }}</p>
+
+		    <h3>Location</h3>
+		    <p>{{ user.profile.location }}</p>
+
+		    <h3>Voice Bank URL</h3>
 		    <p>
 			<a href="http://{{ site }}/{{ user.profile.slug }}">
-			http://{{ site }}/{{ user.profile.slug }}
+			    http://{{ site }}/{{ user.profile.slug }}
 			</a>
-		    </p>
 		</div>
-	    </li>
-	    <li class="active" id="editprofileTab">
-		<form id="profile-edit" method="post"
-		    enctype="multipart/form-data" action="{% url profile_edit %}">{% csrf_token %}
-		    <fieldset class="wrap remove-bottom">
+
+		<div class="pro-details">
+		    <h3>About</h3>
+		    <p>{{ user.profile.about }}</p>
+		    
+		    <h3>Experience</h3>
+		    <p>{{ user.profile.experience }}</p>
+
+		    <h3>Skills</h3>
+		    <p>{{ user.profile.skills }}</p>
+		</div>
+	      
+	    </div>
+
+	    <div class="tab_content" id="tab-2">
+
+		<form method="post"
+		    enctype="multipart/form-data" action="{% url profile_edit
+		    %}" class="profile-edit">{% csrf_token %}
+		    <fieldset>
+
 			{{ form.user.as_hidden }}
-			<p class="one column alpha remove-bottom">
+
+			<p class="thumb">
 			    {% if user.profile.photo %}
-				{% thumbnail user.profile.photo "50x50" crop="center" as up %}
+				{% thumbnail user.profile.photo "48x48" crop="center" as up %}
 				    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
 				{% endthumbnail %}
 			    {% else %}
-				<img src="{{ MEDIA_URL }}img/no-image-small.jpg"/>
+				<img src="{{ MEDIA_URL }}img/profile.jpg" width="48px">
 			    {% endif %}
 			</p>
-			<p class="three columns" style="padding-top: 28px;">
+
+			<p class="upload">
 			    {{ form.photo.errors }}
 			    {{ form.photo }}
 			</p>
-			<br class="clear"/>
+
 			<p>
-			    <label class="input">
-				{{ form.first_name.errors }}
-				<span>{{ form.first_name.label }}</span>
-				{{ form.first_name }}
+			    {{ form.first_name.errors }}
+			    <label>
+				<span>First name</span>
 			    </label>
+			    {{ form.first_name }}
 			</p>
+
 			<p>
-			    <label class="input">
-				{{ form.last_name.errors }}
-				<span>{{ form.last_name.label }}</span>
-				{{ form.last_name }}
+			    {{ form.last_name.errors }}
+			    <label>
+				<span>Last name</span>
 			    </label>
+			    {{ form.last_name }}
 			</p>
+
 			<p>
-			    <label class="input">
-				{{ form.about.errors }}
-				<span>{{ form.about.label }}</span>
-				{{ form.about }}
+			    {{ form.about.errors }}
+			    <label>
+				<span>About</span>
 			    </label>
+			    {{ form.about }}
 			</p>
+
 			<p>
-			    <label class="input">
-				{{ form.phone_number.errors }}
-				<span>{{ form.phone_number.label }}</span>
-				{{ form.phone_number }}
+			    <label>
+				<span>Skills</span>
 			    </label>
-			    <span class="help">{{ form.phone_number.help_text }}</span>
+			    <input type="text" maxlength="15" name="phone_number" value="" class="field">
 			</p>
+
 			<p>
-			    <label class="input">
-				{{ form.url_id.errors }}
+			    <label>
+				<span>Experience</span>
+			    </label>
+			    <textarea name="experience" cols="40" rows="10"></textarea>
+			</p>
+
+			<p>
+			    {{ form.phone_number.errors }}
+			    <label>
+				<span>Phone number</span>
+			    </label>
+			    {{ form.phone_number }}
+			    <span class="tip">e.g. 08033344455, 017745566</span>
+			</p>
+
+			<p>
+			    {{ form.url_id.errors }}
+			    <label>
 				<span>URL ID</span>
-				{{ form.url_id }}
 			    </label>
-			    <span class="help">{{ form.url_id.help_text }}</span>
+			    {{ form.url_id }}
+			    <span class="tip">Ain't it cool to have a custom URL like http://nigerianvoicebank.com/yournickname?</span>
 			</p>
+
 			<p>
-			    <label class="input">
-				{{ form.location.errors }}
-				<span>{{ form.location.label }}</span>
-				{{ form.location }}
+			    {{ form.location.errors }}
+			    <label>
+				<span>Location</span>
 			    </label>
+			    {{ form.location }}
 			</p>
-			<button>Save</button>
+
+			<p>
+			    <input type="submit" value="Save" class="btn">
+			</p>
 		    </fieldset>
 		</form>
-	    </li>
-	</ul>
-    </div>
+
+	    </div>
+
+	</div>
+    </div> <!--/tabbed-->
+</div> <!--/leftdiv-->
 {% endblock %}

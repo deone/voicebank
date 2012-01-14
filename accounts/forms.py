@@ -57,16 +57,17 @@ class UserJoinForm(forms.Form):
 class UserProfileForm(forms.Form):
     user = forms.CharField(max_length=5)
     photo = forms.ImageField(required=False)
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
+    first_name = forms.CharField(max_length=30,
+	    widget=forms.TextInput(attrs={'class': 'field'}))
+    last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'field'}))
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     phone_number = forms.CharField(max_length=15,
-	    help_text="e.g. 08033344455, 017745566")
+	    help_text="e.g. 08033344455, 017745566", widget=forms.TextInput(attrs={'class': 'field'}))
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
 	    custom URL like http://nigerianvoicebank.com/yournickname?",
-	    validators=[validate_slug])
+	    validators=[validate_slug], widget=forms.TextInput(attrs={'class': 'field'}))
     location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja,\
-	    Port-Harcourt")
+	    Port-Harcourt", widget=forms.TextInput(attrs={'class': 'field'}))
 
     def clean_url_id(self):
 	data = self.cleaned_data['url_id']
