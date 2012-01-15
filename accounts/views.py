@@ -38,6 +38,8 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'first_name': request.user.first_name,
 	    'last_name': request.user.last_name,
 	    'about': request.user.profile.about,
+	    'skills': request.user.profile.skills,
+	    'experience': request.user.profile.experience,
 	    'phone_number': request.user.profile.phone_number,
 	    'location': request.user.profile.location,
 	    'url_id': request.user.profile.slug

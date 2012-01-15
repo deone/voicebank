@@ -66,8 +66,10 @@ class UserJoinFormTestCase(TestCase):
 	self.assertEqual(repr(u), '<User: earthqiss@yahoo.com>')
 
 
-class UserProfileFormTestCase(TestCase):
-    pass
+"""class UserProfileFormTestCase(TestCase):
+
+    def test_success(self):
+	pass"""
 
 
 class ProfileModelTestCase(TestCase):
@@ -83,6 +85,8 @@ class ProfileModelTestCase(TestCase):
 	self.assertEquals(p.slug, 'alwaysdeone123')
 	self.assertEquals(p.gender, 'F')
 	self.assertEquals(p.birthday, '1956-03-02')
+	self.assertEquals(p.skills, '')
+	self.assertEquals(p.experience, '')
 
 
 class JoinViewTest(TestCase):

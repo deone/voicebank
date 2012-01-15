@@ -16,6 +16,8 @@ class Profile(models.Model):
     location = models.CharField(max_length=50)
     birthday = models.DateField()
     photo = models.ImageField(upload_to="profile_pics")
+    skills = models.CharField(max_length=100)
+    experience = models.CharField(max_length=255)
 
     def __unicode__(self):
 	return self.user.email
@@ -23,10 +25,3 @@ class Profile(models.Model):
     @models.permalink
     def get_absolute_url(self):
 	return ('accounts.views.profile', [self.slug])
-
-class Country(models.Model):
-    code = models.CharField(max_length=2)
-    name = models.CharField(max_length=200)
-
-    def __unicode__(self):
-	return self.name

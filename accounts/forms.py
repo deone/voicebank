@@ -61,10 +61,14 @@ class UserProfileForm(forms.Form):
 	    widget=forms.TextInput(attrs={'class': 'field'}))
     last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'field'}))
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+    skills = forms.CharField(max_length=100, help_text="Enter multiple skills as\
+	    comma-separated values e.g. Reading, Swimming, Cooking",
+	    required=False, widget=forms.TextInput(attrs={'class': 'field'}))
+    experience = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     phone_number = forms.CharField(max_length=15,
 	    help_text="e.g. 08033344455, 017745566", widget=forms.TextInput(attrs={'class': 'field'}))
     url_id = forms.CharField(max_length=50, help_text="Ain't it cool to have a\
-	    custom URL like http://nigerianvoicebank.com/yournickname?",
+	    customized URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_slug], widget=forms.TextInput(attrs={'class': 'field'}))
     location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja,\
 	    Port-Harcourt", widget=forms.TextInput(attrs={'class': 'field'}))
@@ -96,4 +100,6 @@ class UserProfileForm(forms.Form):
 	user.profile.phone_number = self.cleaned_data['phone_number']
 	user.profile.slug = self.cleaned_data['url_id']
 	user.profile.location = self.cleaned_data['location']
+	user.profile.skills = self.cleaned_data['skills']
+	user.profile.experience = self.cleaned_data['experience']
 	user.profile.save()

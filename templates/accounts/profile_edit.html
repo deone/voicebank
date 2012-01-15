@@ -77,8 +77,7 @@
 	    <div class="tab_content" id="tab-2">
 
 		<form method="post"
-		    enctype="multipart/form-data" action="{% url profile_edit
-		    %}" class="profile-edit">{% csrf_token %}
+		    enctype="multipart/form-data" action="{% url profile_edit %}" class="profile-edit">{% csrf_token %}
 		    <fieldset>
 
 			{{ form.user.as_hidden }}
@@ -123,17 +122,21 @@
 			</p>
 
 			<p>
+			    {{ form.skills.errors }}
 			    <label>
 				<span>Skills</span>
 			    </label>
-			    <input type="text" maxlength="15" name="phone_number" value="" class="field">
+			    {{ form.skills }}
+			    <span class="tip">{{ form.skills.help_text }}</span>
 			</p>
 
 			<p>
+			    {{ form.experience.errors }}
 			    <label>
 				<span>Experience</span>
 			    </label>
-			    <textarea name="experience" cols="40" rows="10"></textarea>
+			    {{ form.experience }}
+			    <span class="tip">{{ form.experience.help_text }}</span>
 			</p>
 
 			<p>
@@ -142,7 +145,7 @@
 				<span>Phone number</span>
 			    </label>
 			    {{ form.phone_number }}
-			    <span class="tip">e.g. 08033344455, 017745566</span>
+			    <span class="tip">{{ form.phone_number.help_text }}</span>
 			</p>
 
 			<p>
@@ -151,7 +154,7 @@
 				<span>URL ID</span>
 			    </label>
 			    {{ form.url_id }}
-			    <span class="tip">Ain't it cool to have a custom URL like http://nigerianvoicebank.com/yournickname?</span>
+			    <span class="tip">{{ form.url_id.help_text }}</span>
 			</p>
 
 			<p>
