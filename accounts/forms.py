@@ -62,7 +62,7 @@ class UserProfileForm(forms.Form):
     last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'field'}))
     about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     skills = forms.CharField(max_length=100, help_text="Enter multiple skills as\
-	    comma-separated values e.g. Reading, Swimming, Cooking",
+	    comma-separated values e.g. Broadcasting, Producing.",
 	    required=False, widget=forms.TextInput(attrs={'class': 'field'}))
     experience = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     phone_number = forms.CharField(max_length=15,
@@ -103,3 +103,5 @@ class UserProfileForm(forms.Form):
 	user.profile.skills = self.cleaned_data['skills']
 	user.profile.experience = self.cleaned_data['experience']
 	user.profile.save()
+
+	return user.profile
