@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block swf_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="inner">
+    <h3>About Us</h3>
+
+    <p>Nigerian Voicebank, is Nigeria's first online voice casting tool.</p>
+
+    <p>The Nigerian Voice Bank is an initiative of Flame Media Works and have been designed to cater for advertising agencies, theatrical producers, casting agents, and radio and television producers who require access to an audio database of Nigeria's best voices.</p>
+
+    <p>The Nigerian Voice Bank desires to create an opportunity for every creative voice talent in Nigeria.</p>
+
+    <p>The Nigerian Voice Bank is a total voice casting tool where users can easily search for artists using our simplified and direct search options.  Every voice on the voice bank is uploaded under a specific category. From the search results, users can listen to the artist's voice clips or download the clips. Users can also contact voice talent directly and book the artist for the recording if they pick an interest on anyone.</p>
+
+    <h3>Artists</h3>
+
+    <p>Imagine being contacted for a job you never knew existed and never applied for just because someone heard your voice on the voice bank and liked it. That's the miracle of having your voice on the Nigerian voice bank. If you are a voice artist, getting your voice on the Nigerian voice bank is the best way to market your talent. Whether you are an independent artist or a managed artist, The Nigerian Voice bank offers you your own page on the site to showcase your talent.</p>
+
+    <h3>Talent Management</h3>
+    <p>The Nigerian Voice Bank also provides professional voice talent management through its subsidiary "VOICELLS" Voicells seeks out the best voice artist in Nigeria and connects then to the best productions using the Nigerian voice bank as a means of promoting these talents.</p>
+
+    <h3>Voice Talent Agencies</h3>
+
+    <p>The Nigerian Voice bank also offers voiceover agents a great way to promote their business and their artists. Voiceover Agents can register on the Nigerian Voice Bank and receive their own promotional page on the site with links to their artists. Agents are also able to manage their artists online and update biographies, keywords and pictures amongst many other things.</p>
+
+
+    <h3>Vision</h3>
+
+    <p>Our vision is to create a platform where all Nigerian voice talent can be heard and equally connect these talents to the best production jobs.</p>
+
+    <p>To inspire professionalism in the Nigerian voice artistry.</p>
+
+    <h3>Mission</h3>
+
+    <p>To create a resourceful and engaging online platform.<br/>
+    To simplify the process of contacting a voice talent using creative and highly innovative strategies.</p>
+
+    <h3>Core Values</h3>
+
+    <p>Our values are simple,</p>
+
+    <p>Innovation<br/>
+    Professionalism<br/>
+    Service Delivery.<br/></p>
+
+    <p>To know more about the Voice Bank, please click here. <a href="{% url how%}">How It Works</a>.</p>
+
+    </div> <!--/inner-->
+</div> <!--/leftdiv-->
+{% endblock %}

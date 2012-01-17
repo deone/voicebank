@@ -19,18 +19,12 @@ category_dict = {
 urlpatterns = patterns('django.views.generic',
     url(r'^how$', 'simple.direct_to_template', {'template':
 	'how.html'}, name='how'),
-    url(r'^registering$', 'simple.direct_to_template', {'template':
-	'registering.html'}, name='registering'),
-    url(r'^payment_process$', 'simple.direct_to_template', {'template':
-	'payment_process.html'}, name='payment_process'),
-    url(r'^subscription_cost$', 'simple.direct_to_template', {'template':
-	'subscription_cost.html'}, name='subscription_cost'),
+    url(r'^about$', 'simple.direct_to_template', {'template': 'about.html'},
+	name='about'),
     url(r'^booking$', 'simple.direct_to_template', {'template':
 	'booking.html'}, name='booking'),
-    url(r'^what_to_bring$', 'simple.direct_to_template', {'template':
-	'what_to_bring.html'}, name='what_to_bring'),
     url(r'^renewals$', 'simple.direct_to_template', {'template':
-	'renewals.html'}, name='renewals'),
+	'contact.html'}, name='contact'),
     url(r'^voiceclips/all$', 'list_detail.object_list', voiceclip_dict, name='all_clips'),
     url(r'^categories/(?P<object_id>\d+)/voiceclips$', 'list_detail.object_detail',
 	category_dict, name='category'),
