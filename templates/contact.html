@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block swf_banner %}{% endblock %}
+
+{% block customer_care_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+<div class="inner">
+<h3>Contact Us</h3>
+
+<div class="address">
+<p>Contact the Nigerian Voice Bank on;</p>
+<p>Covenant Sound Studio<br/>
+21 Road, E close, House 30,<br/>
+Festac Town.<br/></p>
+
+
+<p>Tel: 07044770254, 08092796787<br/>
+<a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a><br/></p>
+</div>
+
+<div class="contactform">
+<form>
+<p>
+<label>Name</label>
+<input type="text"/>
+</p>
+
+<p>
+<label>Email</label>
+<input type="text"/>
+</p>
+
+<p>
+<label>Phone no.</label>
+<input type="text"/>
+</p>
+
+<p>
+<label>Comment</label>
+<textarea></textarea>
+</p>
+
+<p><input type="button" value="Send" class="btn"></p>
+</form>
+</div>
+
+</div> <!--/inner-->
+</div> <!--/leftdiv-->
+{% endblock %}

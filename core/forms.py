@@ -36,3 +36,11 @@ class VoiceClipForm(forms.Form):
 		voice_clip=self.cleaned_data['voice_clip'],
 		language=self.cleaned_data['language'],
 		category=self.cleaned_data['category'])
+
+
+class BookingForm(forms.Form):
+    pass
+
+
+class ContactForm(forms.Form):
+    pass

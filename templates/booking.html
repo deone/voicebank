@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block swf_banner %}{% endblock %}
+
+{% block customer_care_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="rform">
+    <h3>Book your recordings here</h3>
+
+    <form>
+
+	<p>
+	    <label>Name</label>
+	    <input type="text">
+	</p>
+	<p><label>Email</label><input type="text"> </p>
+	<p><label>Location</label><input type="text"> <span class="tip">The area you reside.</span></p>
+	<p><label>Phone no.</label><input type="text"></p>
+	<p>
+	<label>Payment Info</label>
+	<textarea></textarea>
+	<span class="tip">Name on teller, date of payment and bank.</span>
+	</p>
+	<p><input class="btn" type="button" value="Send"></p>
+
+
+    </form>
+
+    </div> <!--/rform-->
+</div> <!--/leftdiv-->
+{% endblock %}
