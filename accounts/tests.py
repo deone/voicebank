@@ -2,9 +2,11 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core import mail
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.conf import settings
 
 from accounts.forms import *
 from accounts.models import *
+
 
 class UserJoinFormTestCase(TestCase):
 
@@ -103,7 +105,7 @@ class ProfileModelTestCase(TestCase):
     def setUp(self):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
 	'alwaysdeone@yahoo.com', 'test123')
-    
+
     def test_profile(self):
 	p = Profile.objects.create(user=self.user, birthday='1956-03-02',
 			slug='alwaysdeone123', gender='F')
@@ -115,9 +117,7 @@ class ProfileModelTestCase(TestCase):
 	self.assertEquals(p.experience, '')
 
 
-class JoinViewTest(TestCase):
-
-    fixtures = ['authtestdata.json']
+class JoinViewTestCase(TestCase):
 
     def test_join(self):
 	response = self.client.post('/join', {
@@ -130,3 +130,45 @@ class JoinViewTest(TestCase):
 	    })
 	self.assertEquals(response.status_code, 302)
 	self.assertEquals(len(mail.outbox), 1)
+
+
+class AccountsViewsTestCase(TestCase):
+
+    def setUp(self):
+	self.join_response = self.client.post('/join', {
+	    'first_name': 'Ola',
+	    'last_name': 'Olu',
+	    'email': 'earthqiss@yahoo.com',
+	    'password': 'test123',
+	    'gender': 'M',
+	    'birthday': '02/03/1956',
+	    })
+	self.user = User.objects.get(username='earthqiss@yahoo.com')
+
+    def login(self, password='test123'):
+	response = self.client.post('/login', {
+	    'username': 'earthqiss@yahoo.com',
+	    'password': password
+	    })
+	self.assertEquals(response.status_code, 302)
+	self.assert_(response['Location'].endswith(settings.LOGIN_REDIRECT_URL))
+
+    def test_join(self):
+	self.assertEquals(self.join_response.status_code, 302)
+	self.assertEquals(len(mail.outbox), 1)
+
+    def test_profile_edit(self):
+	self.login()
+	response = self.client.post('/home/profile', {
+	    'user': self.user.id,
+	    'first_name': self.user.first_name,
+	    'last_name': self.user.last_name,
+	    'about': "It's all about me.",
+	    'skills': "Reading.",
+	    'experience': "I am still me.",
+	    'phone_number': "08033344455",
+	    'url_id': self.user.profile.slug,
+	    'location': "Abuja",
+	    'photo': ""
+	    })
+	self.assertEquals(response.status_code, 302)

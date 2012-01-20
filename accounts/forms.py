@@ -11,7 +11,6 @@ from accounts.models import *
 
 import random
 import string
-import re
 
 class UserJoinForm(forms.Form):
     first_name = forms.CharField(max_length=30)

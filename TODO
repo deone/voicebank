@@ -1,11 +1,9 @@
 Do:
 * Provide initial data.
-* Send email to user after registration.
 * Use slugs for category homes - should read /categories/slug instead of
 /categories/id/voiceclips.
 * Can't we use `slug` instead of `url_id` in UserProfileForm?
 * Ensure that all forms display errors.
-* Make chosen work properly.
 * Unit-test:
     - Profile model, accounts forms and views.
     - Core app.
