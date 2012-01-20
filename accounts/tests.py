@@ -117,21 +117,6 @@ class ProfileModelTestCase(TestCase):
 	self.assertEquals(p.experience, '')
 
 
-class JoinViewTestCase(TestCase):
-
-    def test_join(self):
-	response = self.client.post('/join', {
-	    'first_name': 'Ola',
-	    'last_name': 'Olu',
-	    'email': 'earthqiss@yahoo.com',
-	    'password': 'test123',
-	    'gender': 'M',
-	    'birthday': '02/03/1956',
-	    })
-	self.assertEquals(response.status_code, 302)
-	self.assertEquals(len(mail.outbox), 1)
-
-
 class AccountsViewsTestCase(TestCase):
 
     def setUp(self):
@@ -159,6 +144,7 @@ class AccountsViewsTestCase(TestCase):
 
     def test_profile_edit(self):
 	self.login()
+	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
 	response = self.client.post('/home/profile', {
 	    'user': self.user.id,
 	    'first_name': self.user.first_name,
@@ -169,6 +155,6 @@ class AccountsViewsTestCase(TestCase):
 	    'phone_number': "08033344455",
 	    'url_id': self.user.profile.slug,
 	    'location': "Abuja",
-	    'photo': ""
+	    'photo': SimpleUploadedFile(upload_file.name, upload_file.read())
 	    })
 	self.assertEquals(response.status_code, 302)

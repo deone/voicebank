@@ -5,8 +5,8 @@ Do:
 * Can't we use `slug` instead of `url_id` in UserProfileForm?
 * Ensure that all forms display errors.
 * Unit-test:
-    - Profile model, accounts forms and views.
     - Core app.
+    - Form validation.
 * Separate app-specific settings.
 * Automate deployment.
 * Align form (success) messages properly.
