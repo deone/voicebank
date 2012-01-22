@@ -99,69 +99,53 @@
 
 			<p>
 			    {{ form.first_name.errors }}
-			    <label>
-				<span>First name</span>
-			    </label>
+			    <label>{{ form.first_name.label }}</label>
 			    {{ form.first_name }}
 			</p>
 
 			<p>
 			    {{ form.last_name.errors }}
-			    <label>
-				<span>Last name</span>
-			    </label>
+			    <label>{{ form.last_name.label }}</label>
 			    {{ form.last_name }}
 			</p>
 
 			<p>
 			    {{ form.about.errors }}
-			    <label>
-				<span>About</span>
-			    </label>
+			    <label>{{ form.about.label }}</label>
 			    {{ form.about }}
 			</p>
 
 			<p>
 			    {{ form.skills.errors }}
-			    <label>
-				<span>Skills</span>
-			    </label>
+			    <label>{{ form.skills.label }}</label>
 			    {{ form.skills }}
 			    <span class="tip">{{ form.skills.help_text }}</span>
 			</p>
 
 			<p>
 			    {{ form.experience.errors }}
-			    <label>
-				<span>Experience</span>
-			    </label>
+			    <label>{{ form.experience.label }}</label>
 			    {{ form.experience }}
 			    <span class="tip">{{ form.experience.help_text }}</span>
 			</p>
 
 			<p>
 			    {{ form.phone_number.errors }}
-			    <label>
-				<span>Phone number</span>
-			    </label>
+			    <label>{{ form.phone_number.label }}</label>
 			    {{ form.phone_number }}
 			    <span class="tip">{{ form.phone_number.help_text }}</span>
 			</p>
 
 			<p>
 			    {{ form.url_id.errors }}
-			    <label>
-				<span>URL ID</span>
-			    </label>
+			    <label>{{ form.url_id.label }}</label>
 			    {{ form.url_id }}
 			    <span class="tip">{{ form.url_id.help_text }}</span>
 			</p>
 
 			<p>
 			    {{ form.location.errors }}
-			    <label>
-				<span>Location</span>
-			    </label>
+			    <label>{{ form.location.label }}</label>
 			    {{ form.location }}
 			</p>
 

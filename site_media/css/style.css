@@ -22,7 +22,7 @@ color:#3151A2;
 text-decoration:none;
 }
 
-a:hover{
+a:hover	{
 text-decoration:underline;
 }
 
@@ -514,7 +514,8 @@ font-weight:bold;
 
 
 /*********************************/
-.rform input, .profile-edit input.field, .contactform input, .comments input{
+/*.rform input, input, .profile-edit input.field, .contactform input, .comments input{*/
+input[type='text'], input[type='password']  {
 background:#fff;
 border:1px solid #A4C739;
 color:#777;
@@ -563,11 +564,14 @@ width:90px !important;
 margin-left:90px !important;
 }
 
-.rform label, .contactform label, .comments label{
+/*.rform label, .contactform label, .comments label{*/
+label	{
 width:110px;
 float:left;
 padding:8px 0 0;
 font-weight:bold;
+color:#575757;
+font-size:13px;
 }
 
 select.choose{
@@ -582,7 +586,7 @@ margin-top:3px;
 padding:4px;
 width:260px;
 }
-select.choose:focus{
+select.choose:focus {
 box-shadow:0 0 2px #ddd;
 }
 
@@ -603,12 +607,12 @@ cursor:pointer;
 border-radius:3px;
 }
 
-input.btn:hover, a.download-button:hover{
+input.btn:hover, a.download-button:hover    {
 background:#A4C739;
 text-decoration:none;
 }
 
-input.btn:active, a.download-button:active{
+input.btn:active, a.download-button:active  {
 background:#9BBA3B;
 box-shadow:2px 2px 0 rgba(0, 0, 0, 0.2),2px 2px 0 #619600 inset;
 }
@@ -731,7 +735,7 @@ border:none;
 color:#A4C739;
 }
 
-.how ul.tabs li.active a:hover{
+.how ul.tabs li.active a:hover	{
 color:#A4C739;
 }
 
@@ -774,11 +778,7 @@ border-right:1px solid #ccc;
 border-top:5px solid #ccc;
 }
 
-ul.tabs li a:hover{
-
-}
-
-ul.tabs li.active a, ul.tabs li.active a:hover{
+ul.tabs li.active a, ul.tabs li.active a:hover	{
 background:#fff;
 color:#222;
 }
@@ -793,7 +793,7 @@ border:1px solid #ccc;
 border-radius:0 5px 5px;
 }
 
-.tab_content p{
+#tab-1 p{
 padding:0 0 15px;
 }
 
@@ -843,14 +843,14 @@ height:auto;
 box-shadow:none;
 }
 
-.profile-edit label span{
+/*.profile-edit label span{
 float:left;
 width:110px;
 font-weight:bold;
 padding:8px 0 0;
 color:#575757;
 font-size:13px;
-}
+}*/
 
 form .tip{
 color:#777;
