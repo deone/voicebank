@@ -37,29 +37,33 @@ Festac Town.<br/></p>
 </div>
 
 <div class="contactform">
-<form>
-<p>
-<label>Name</label>
-<input type="text"/>
-</p>
+    <form>
+	<p>
+	    {{ form.name.errors }}
+	    <label>{{ form.name.label }}</label>
+	    {{ form.name }}
+	</p>
 
-<p>
-<label>Email</label>
-<input type="text"/>
-</p>
+	<p>
+	    {{ form.email.errors }}
+	    <label>{{ form.email.label }}</label>
+	    {{ form.email }}
+	</p>
 
-<p>
-<label>Phone no.</label>
-<input type="text"/>
-</p>
+	<p>
+	    {{ form.phone_number.errors }}
+	    <label>{{ form.phone_number.label }}</label>
+	    {{ form.phone_number }}
+	</p>
 
-<p>
-<label>Comment</label>
-<textarea></textarea>
-</p>
+	<p>
+	    {{ form.comment.errors }}
+	    <label>{{ form.comment.label }}</label>
+	    {{ form.comment }}
+	</p>
 
-<p><input type="button" value="Send" class="btn"></p>
-</form>
+	<p><input type="submit" value="Submit" class="btn"></p>
+    </form>
 </div>
 
 </div> <!--/inner-->
