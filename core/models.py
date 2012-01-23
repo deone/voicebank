@@ -32,3 +32,17 @@ class VoiceClip(models.Model):
 
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
+
+
+class Booking(models.Model):
+    user = models.ForeignKey('auth.User')
+    name_on_teller = models.CharField(max_length=30)
+    date_of_payment = models.DateField()
+    bank_name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+	return self.name_on_teller
+
+
+class Contact(models.Model):
+    pass

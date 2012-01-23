@@ -39,6 +39,7 @@ class VoiceClipForm(forms.Form):
 
 
 class BookingForm(forms.Form):
+    user = forms.CharField(max_length=5)
     name_on_teller = forms.CharField(max_length=30)
     date_of_payment = forms.DateField(('%m/%d/%Y',), help_text="Enter date in MM/DD/YYYY format")
     bank_name = forms.CharField(label="Name of Bank", max_length=30)
