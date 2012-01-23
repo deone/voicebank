@@ -6,7 +6,7 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-from core.forms import BookingForm, ContactForm 
+from core.forms import ContactForm 
 from core.models import VoiceClip, Category
 
 voiceclip_dict = {
@@ -22,11 +22,6 @@ urlpatterns = patterns('django.views.generic',
 	'how.html'}, name='how'),
     url(r'^about$', 'simple.direct_to_template', {'template': 'about.html'},
 	name='about'),
-    url(r'^booking$', 'simple.direct_to_template', {
-	'template': 'booking.html', 
-	'extra_context': {
-	    'form': BookingForm
-	    }}, name='booking'),
     url(r'^contact$', 'simple.direct_to_template', {
 	'template': 'contact.html',
 	'extra_context': {
@@ -44,6 +39,7 @@ urlpatterns += patterns('',
 
     url(r'^', include('accounts.urls')),
     (r'^home/', include('core.urls')),
+    url(r'^booking$', 'core.views.booking', name='booking'),
     (r'^admin/', include(admin.site.urls)),
     (r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile'),
 )

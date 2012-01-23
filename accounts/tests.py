@@ -74,8 +74,7 @@ class UserProfileFormTestCase(TestCase):
     def setUp(self):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
 	'alwaysdeone@yahoo.com', 'test123')
-	self.profile = Profile.objects.create(user=self.user,
-	birthday='1956-03-02')
+	Profile.objects.create(user=self.user, birthday='1956-03-02')
 
     def test_success(self):
 	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')

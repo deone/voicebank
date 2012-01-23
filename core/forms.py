@@ -37,12 +37,22 @@ class VoiceClipForm(forms.Form):
 		language=self.cleaned_data['language'],
 		category=self.cleaned_data['category'])
 
+	return voice_clip
+
 
 class BookingForm(forms.Form):
     user = forms.CharField(max_length=5)
     name_on_teller = forms.CharField(max_length=30)
     date_of_payment = forms.DateField(('%m/%d/%Y',), help_text="Enter date in MM/DD/YYYY format")
-    bank_name = forms.CharField(label="Name of Bank", max_length=30)
+    bank_name = forms.CharField(max_length=30)
+
+    def save(self, request):
+	booking = Booking.objects.create(user=request.user, 
+		name_on_teller=self.cleaned_data['name_on_teller'],
+		date_of_payment=self.cleaned_data['date_of_payment'],
+		bank_name=self.cleaned_data['bank_name'])
+
+	return booking
 
 
 class ContactForm(forms.Form):

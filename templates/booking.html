@@ -27,7 +27,14 @@
     <h3>Book your recordings here</h3>
 
     {% if user.is_authenticated %}
-    <form>
+    <form method="post" action="{% url booking %}">{% csrf_token %}
+	{% if messages %}
+	    {% for message in messages %}
+	    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+	    {% endfor %}
+	{% endif %}
+	
+	{{ form.user.as_hidden }}
 
 	<p>
 	    {{ form.name_on_teller.errors }}
@@ -48,7 +55,8 @@
 
     </form>
     {% else %}
-    <p>Only users can book recordings. Join <a href="{% url join %}">here</a>.</p>
+    <p>Only users can book recordings. Join <a href="{% url join %}">here</a> or
+    <a href="{% url login %}">log in</a> if you are already a user.</p>
     {% endif %}
 
 </div>

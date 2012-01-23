@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core import mail
 
 from core.models import *
+from core.forms import *
 
 
 class BookingModelTestCase(TestCase):
@@ -18,4 +19,18 @@ class BookingModelTestCase(TestCase):
 
 
 class BookingFormTestCase(TestCase):
-    pass
+
+    def setUp(self):
+	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
+		'alwaysdeone@yahoo.com', 'test123')
+
+    def test_success(self):
+	data = {
+		'user': self.user.id,
+		'name_on_teller': 'Ade Oluwa',
+		'date_of_payment': '02/03/1956',
+		'bank_name': 'GTBank'
+		}
+	form = BookingForm(data)
+	b = form.save()
+	self.assertEquals(repr(b), '<Profile: alwaysdeone@yahoo.com>')

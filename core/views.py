@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import Http404
 
-from core.forms import VoiceClipForm
+from core.forms import * 
 from core.models import VoiceClip
 
 @login_required
@@ -39,5 +39,18 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	}, context_instance=RequestContext(request))
 
 @login_required
-def following(request, template='core/following.html'):
-    return render_to_response(template, {}, context_instance=RequestContext(request))
+def booking(request, template='booking.html', form=BookingForm):
+    if request.method == "POST":
+	form = form(request.POST)
+	print form
+	if form.is_valid():
+	    form.save(request)
+	    messages.success(request, "Your booking was submitted\
+		    successfully.")
+	    return redirect('core.views.booking')
+    else:
+	form = form(initial={'user': request.user.id})
+    return render_to_response(template, {
+	'form': form
+	},
+	    context_instance=RequestContext(request))
