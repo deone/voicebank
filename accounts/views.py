@@ -32,7 +32,6 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	    return redirect('accounts.views.profile_edit')
 	else:
 	    messages.error(request, 'Sorry, we encountered an error while attempting to update your profile.')
     else:
