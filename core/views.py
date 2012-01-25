@@ -38,6 +38,7 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	    'clips': voice_clips
 	}, context_instance=RequestContext(request))
 
+@login_required
 def booking(request, template='booking.html', form=BookingForm):
     if request.method == "POST":
 	form = form(request.POST)

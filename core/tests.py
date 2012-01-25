@@ -103,6 +103,7 @@ class BookingViewTestCase(TestCase):
 	self.assert_(response['Location'].endswith(settings.LOGIN_REDIRECT_URL))
 
     def test_get_booking(self):
+	self.login()
 	response = self.client.get(reverse('booking'))
 	self.assertEquals(response.status_code, 200)
 	self.assertEquals(response['Content-Type'], "text/html; charset=utf-8")

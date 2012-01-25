@@ -25,7 +25,7 @@
     <div class="rform">
 	<h3>Login</h3>
 
-	<form method="post" action="{% url login %}">{% csrf_token %}
+	<form method="post" action="{% url login %}?next={{ next }}">{% csrf_token %}
 
 	    {{ form.non_field_errors }}
 
