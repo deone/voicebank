@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 from core.models import *
 
@@ -46,8 +48,9 @@ class BookingForm(forms.Form):
     date_of_payment = forms.DateField(('%m/%d/%Y',), help_text="Enter date in MM/DD/YYYY format")
     bank_name = forms.CharField(max_length=30)
 
-    def save(self, request):
-	booking = Booking.objects.create(user=request.user, 
+    def save(self):
+	user = get_object_or_404(User, pk=self.cleaned_data['user'])
+	booking = Booking.objects.create(user=user, 
 		name_on_teller=self.cleaned_data['name_on_teller'],
 		date_of_payment=self.cleaned_data['date_of_payment'],
 		bank_name=self.cleaned_data['bank_name'])
@@ -60,3 +63,11 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15)
     comment = forms.CharField(max_length=255, widget=forms.Textarea)
+
+    def save(self):
+	contact = Contact.objects.create(name=self.cleaned_data['name'],
+		email=self.cleaned_data['email'],
+		phone_number=self.cleaned_data['phone_number'],
+		comment=self.cleaned_data['comment'])
+
+	return contact

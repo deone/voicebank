@@ -161,16 +161,19 @@ class AccountsViewsTestCase(TestCase):
 
     def test_get_index(self):
 	response = self.client.get('/')
+	self.assertEquals(response.status_code, 200)
 	self.assertTrue('categories' in response.context)
 	self.assertTrue('clips' in response.context)
 
     def test_get_join(self):
 	response = self.client.get('/join')
+	self.assertEquals(response.status_code, 200)
 	self.assertTrue('form' in response.context)
 	self.assertTrue(response['Content-Type'], 'text/html; charset=utf-8')
 
     def test_get_profile_edit(self):
 	response = self.client.get('/home/profile')
+	self.assertEquals(response.status_code, 200)
 	self.assertTrue('site' in response.context)
 	self.assertTrue('form' in response.context)
 	self.assertTrue(response['Content-Type'], 'text/html; charset=utf-8')

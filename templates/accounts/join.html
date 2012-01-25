@@ -25,7 +25,7 @@
     <h3>Join Nigerian Voice Bank</h3>
 
     <form method="post" action="{% url join %}">{% csrf_token %}
-
+	{{ form.non_field_errors }}
 	<p>
 	    {{ form.first_name.errors }}
 	    <label>{{ form.first_name.label }}</label>
