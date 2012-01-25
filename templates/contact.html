@@ -37,7 +37,17 @@ Festac Town.<br/></p>
 </div>
 
 <div class="contactform">
-    <form>
+
+    {% if messages %}
+	{% for message in messages %}
+	<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+	{% endfor %}
+    {% endif %}
+    
+    <form method="post" action={% url contact %}>{% csrf_token %}
+
+	{{ form.non_field_errors }}
+
 	<p>
 	    {{ form.name.errors }}
 	    <label>{{ form.name.label }}</label>

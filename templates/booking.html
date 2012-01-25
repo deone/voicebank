@@ -26,13 +26,14 @@
 
     <h3>Book your recordings here</h3>
 
+    {% if messages %}
+	{% for message in messages %}
+	<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+	{% endfor %}
+    {% endif %}
+
     {% if user.is_authenticated %}
     <form method="post" action="{% url booking %}">{% csrf_token %}
-	{% if messages %}
-	    {% for message in messages %}
-	    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-	    {% endfor %}
-	{% endif %}
 	
 	{{ form.user.as_hidden }}
 

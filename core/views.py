@@ -38,19 +38,30 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	    'clips': voice_clips
 	}, context_instance=RequestContext(request))
 
-@login_required
 def booking(request, template='booking.html', form=BookingForm):
     if request.method == "POST":
 	form = form(request.POST)
-	print form
 	if form.is_valid():
-	    form.save(request)
-	    messages.success(request, "Your booking was submitted\
-		    successfully.")
-	    return redirect('core.views.booking')
+	    form.save()
+	    messages.success(request, """Your booking was submitted
+	    successfully.""")
     else:
 	form = form(initial={'user': request.user.id})
+
+    return render_to_response(template, {
+	'form': form,
+	}, context_instance=RequestContext(request))
+
+def contact(request, template='contact.html', form=ContactForm):
+    if request.method == "POST":
+	form = form(request.POST)
+	if form.is_valid():
+	    form.save()
+	    messages.success(request, """Your enquiry was submitted successfully.
+	    We would reply as soon as possible.""")
+    else:
+	form = form()
+	    
     return render_to_response(template, {
 	'form': form
-	},
-	    context_instance=RequestContext(request))
+	}, context_instance=RequestContext(request))
