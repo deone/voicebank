@@ -37,7 +37,7 @@ class UserJoinFormTestCase(TestCase):
 	    }
 	form = UserJoinForm(data)
         self.assertFalse(form.is_valid())
-        self.assertEqual(form['email'].errors,
+        self.assertEquals(form['email'].errors,
                          [u'Enter a valid e-mail address.'])
 
     def test_email_password(self):
@@ -76,6 +76,26 @@ class UserProfileFormTestCase(TestCase):
 	'alwaysdeone@yahoo.com', 'test123')
 	Profile.objects.create(user=self.user, birthday='1956-03-02')
 
+    def test_invalid_data(self):
+	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	data = {
+		'user': self.user.id,
+		'first_name': 'Ola',
+		'last_name': 'Olu',
+		'about': 'I am Me.',
+		'skills': 'Broadcasting, Producing, Directing.',
+		'experience': 'I am still me.',
+		'phone_number': '080333444556',
+		'url_id': 'deone~',
+		'location': 'Abuja'
+	    }
+	file_data = {'photo':
+		SimpleUploadedFile(upload_file.name, upload_file.read())}
+	form = UserProfileForm(data, file_data)
+	self.assertFalse(form.is_valid())
+	self.assertEquals(form['phone_number'].errors, [u'Ensure this value has at most 11 characters (it has 12).'])
+	self.assertEquals(form['url_id'].errors, [u'Enter a valid value.'])
+	
     def test_success(self):
 	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
 	data = {
@@ -120,14 +140,15 @@ class ProfileModelTestCase(TestCase):
 class AccountsViewsTestCase(TestCase):
 
     def setUp(self):
-	self.join_response = self.client.post('/join', {
+	data = {
 	    'first_name': 'Ola',
 	    'last_name': 'Olu',
 	    'email': 'earthqiss@yahoo.com',
 	    'password': 'test123',
 	    'gender': 'M',
 	    'birthday': '02/03/1956',
-	    })
+	    }
+	self.join_response = self.client.post('/join', data)
 	self.user = User.objects.get(username='earthqiss@yahoo.com')
 
     def login(self, password='test123'):
@@ -138,11 +159,27 @@ class AccountsViewsTestCase(TestCase):
 	self.assertEquals(response.status_code, 302)
 	self.assert_(response['Location'].endswith(settings.LOGIN_REDIRECT_URL))
 
-    def test_join(self):
+    def test_get_index(self):
+	response = self.client.get('/')
+	self.assertTrue('categories' in response.context)
+	self.assertTrue('clips' in response.context)
+
+    def test_get_join(self):
+	response = self.client.get('/join')
+	self.assertTrue('form' in response.context)
+	self.assertTrue(response['Content-Type'], 'text/html; charset=utf-8')
+
+    def test_get_profile_edit(self):
+	response = self.client.get('/home/profile')
+	self.assertTrue('site' in response.context)
+	self.assertTrue('form' in response.context)
+	self.assertTrue(response['Content-Type'], 'text/html; charset=utf-8')
+
+    def test_post_join(self):
 	self.assertEquals(self.join_response.status_code, 302)
 	self.assertEquals(len(mail.outbox), 1)
 
-    def test_profile_edit(self):
+    def test_post_profile_edit(self):
 	self.login()
 	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
 	response = self.client.post('/home/profile', {

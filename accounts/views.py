@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.contrib import messages
 
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
@@ -32,6 +33,8 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	if form.is_valid():
 	    form.save()
 	    return redirect('accounts.views.profile_edit')
+	else:
+	    messages.error(request, 'Sorry, we encountered an error while attempting to update your profile.')
     else:
 	form = form(initial={
 	    'user': request.user.id, 

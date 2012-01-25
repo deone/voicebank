@@ -63,7 +63,7 @@ class UserProfileForm(forms.Form):
 	    comma-separated values e.g. Broadcasting, Producing.",
 	    required=False)
     experience = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
-    phone_number = forms.CharField(max_length=15,
+    phone_number = forms.CharField(max_length=11,
 	    help_text="e.g. 08033344455, 017745566")
     url_id = forms.CharField(label="URL ID", max_length=50, help_text="Ain't it cool to have a\
 	    customized URL like http://nigerianvoicebank.com/yournickname?",
