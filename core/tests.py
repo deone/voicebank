@@ -44,6 +44,25 @@ class ContactFormTestCase(TestCase):
 	self.assertTrue(form['email'].errors, [u'Enter a valid e-mail address.'])
 
 
+class ContactViewTestCase(TestCase):
+
+    def test_get_contact(self):
+	response = self.client.get(reverse('contact'))
+	self.assertEquals(response.status_code, 200)
+	self.assertTrue('form' in response.context)
+	self.assertEquals(response['Content-Type'], "text/html; charset=utf-8")
+
+    def test_post_contact(self):
+	data = {
+		'name': 'Ola Olu',
+		'email': 'alwaysdeone@email.com',
+		'phone_number': '08033445566',
+		'comment': 'Hi there!'
+		}
+	response = self.client.post(reverse('contact'), data)
+	self.assertEquals(response.status_code, 200)
+
+
 class BookingModelTestCase(TestCase):
 
     def setUp(self):
@@ -119,15 +138,3 @@ class BookingViewTestCase(TestCase):
 	    }
 	response = self.client.post(reverse('booking'), data)
 	self.assertEquals(response.status_code, 200) 
-
-
-class ContactViewTestCase(TestCase):
-
-    def test_get_contact(self):
-	response = self.client.get(reverse('contact'))
-	self.assertEquals(response.status_code, 200)
-	self.assertTrue('form' in response.context)
-	self.assertEquals(response['Content-Type'], "text/html; charset=utf-8")
-
-    def test_post_contact(self):
-	pass
