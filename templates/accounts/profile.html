@@ -30,6 +30,7 @@
 	    <p>{{ user_profile.about }}</p>
 	    <h5>Voice Clips</h5>
 	    <hr class="half-bottom"/>
+	    <!-- This should display only approved clips -->
 	    {% if user_profile.user.voiceclip_set.all %}
 	    <ul class="clips add-bottom">
 		{% for clip in user_profile.user.voiceclip_set.all %}

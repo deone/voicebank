@@ -4,15 +4,10 @@ Do:
 /categories/id/voiceclips.
 * Can't we use `slug` instead of `url_id` in UserProfileForm?
 * Ensure that all forms display errors.
-* Unit-test:
-    - Core app.
-    - Form validation/success messages.
 * Separate app-specific settings.
 * Automate deployment.
-* Align form (success) messages properly.
 * Fix user profile linking on home and categories page.
-* Fix login redirection issues.
-
+* Check event date before displaying 'em i.e don't display past events.
 
 
 Improvements

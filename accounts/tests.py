@@ -127,8 +127,11 @@ class ProfileModelTestCase(TestCase):
 	'alwaysdeone@yahoo.com', 'test123')
 
     def test_profile(self):
+	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
 	p = Profile.objects.create(user=self.user, birthday='1956-03-02',
-			slug='alwaysdeone123', gender='F')
+			slug='alwaysdeone123', gender='F',
+			photo=SimpleUploadedFile(upload_file.name,
+			    upload_file.read()))
 	self.assertEquals(p.user.email, 'alwaysdeone@yahoo.com')
 	self.assertEquals(p.slug, 'alwaysdeone123')
 	self.assertEquals(p.gender, 'F')
@@ -166,6 +169,7 @@ class AccountsViewsTestCase(TestCase):
 	self.assertEquals(response.status_code, 200)
 	self.assertTrue('categories' in response.context)
 	self.assertTrue('clips' in response.context)
+	self.assertTrue('events' in response.context)
 
     def test_get_join(self):
 	response = self.client.get(reverse('join'))

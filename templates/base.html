@@ -1,3 +1,6 @@
+
+{% load thumbnail %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -73,24 +76,21 @@
 
 			<div class="sidein">
 			    <h3>Upcoming Events</h3>
-
-			    <div class="ev">
-				<img src="{{ MEDIA_URL }}img/ev1.jpg"/>
-				<p>
-				    <span class="heading"><a href="">Voice Traning...</a></span>
-				    <span>Sample description here</span>
-				    <span class="date">January 22, 2012</span>
-				</p>
-			    </div>
-
-			    <div class="ev">
-				<img src="{{ MEDIA_URL }}img/ev1.jpg"/>
-				<p>
-				    <span class="heading"><a href="">Voice Traning...</a></span>
-				    <span>Sample description here</span>
-				    <span class="date">January 22, 2012</span>
-				</p>
-			    </div>
+			    {% if events %}
+				{% for event in events %}
+				<div class="ev">
+				    {% thumbnail event.image "50x50" crop="center" as ei %}
+				    <img src="{{ ei.url }}" width="{{ ei.width }}"
+				    height="{{ ei.height }}"/>
+				    {% endthumbnail %}
+				    <p>
+					<span class="heading">{{ event.title }}</span>
+					<span>{{ event.description }}</span>
+					<span class="date">{{ event.date }}</span>
+				    </p>
+				</div>
+				{% endfor %}
+			    {% endif %}
 
 			    <a href="events.html" class="more">See more upcoming events</a>
 			</div> <!--/sidein-->

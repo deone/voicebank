@@ -7,7 +7,7 @@ class Category(models.Model):
     image = models.ImageField(upload_to="category_pics")
 
     class Meta:
-	verbose_name_plural = "Categories"
+	verbose_name_plural = "Voice Clip Categories"
 	ordering = ['-name']
 
     def __unicode__(self):
@@ -23,7 +23,7 @@ class VoiceClip(models.Model):
     voice_clip = models.FileField(upload_to='clips/%Y/%m/%d')
     language = models.CharField(max_length=30)
     date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField('Approval status', default=False)
     listens = models.IntegerField(default=0)
     category = models.ForeignKey(Category)
 
@@ -52,3 +52,17 @@ class Contact(models.Model):
 
     def __unicode__(self):
 	return u'%s : %s' % (self.name, self.comment)
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=30)
+    image = models.ImageField(upload_to="event_images")
+    description = models.CharField(max_length=255)
+    venue = models.CharField(max_length=100)
+    date = models.DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+	ordering = ['-date']
+
+    def __unicode__(self):
+	return self.title

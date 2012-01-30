@@ -3,9 +3,20 @@ from django.contrib.auth.models import User
 from django.core import mail
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from core.models import *
 from core.forms import *
+
+
+class EventModelTestCase(TestCase):
+
+    def test_success(self):
+	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	e = Event.objects.create(title="Voice Training",
+		image=SimpleUploadedFile(upload_file.name, upload_file.read()),
+		description="Training", venue="Ikeja", date="2001-05-04")
+	self.assertEquals(repr(e), '<Event: Voice Training>')
 
 
 class ContactModelTestCase(TestCase):
