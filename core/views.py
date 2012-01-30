@@ -7,6 +7,7 @@ from django.http import Http404
 
 from core.forms import * 
 from core.models import VoiceClip
+from accounts.views import events
 
 @login_required
 def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
@@ -27,7 +28,8 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     
     return render_to_response(template, {
 	    'form': form,
-	    'clips': voice_clips
+	    'clips': voice_clips,
+	    'events': events
 	}, context_instance=RequestContext(request))
 
 @login_required

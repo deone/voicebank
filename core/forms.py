@@ -17,9 +17,9 @@ class VoiceClipForm(forms.Form):
     voice_clip = forms.FileField()
     name = forms.CharField(max_length=30)
     language = forms.ChoiceField(choices=LANGUAGES,
-	    widget=forms.Select(attrs={'class': 'chzn-select'}))
+	    widget=forms.Select(attrs={'class': 'choose'}))
     category = forms.ModelChoiceField(queryset=Category.objects.all(),
-	    empty_label="Category", widget=forms.Select(attrs={'class': 'chzn-select'}))
+	    empty_label="Category", widget=forms.Select(attrs={'class': 'choose'}))
 
     def clean(self):
 	clip = self.cleaned_data.get('voice_clip', False)

@@ -1,20 +1,90 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 
-{% block custom_css %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/chosen.css"/>
-{% endblock %}
+{% block swf_banner %}{% endblock %}
+
+{% block customer_care_banner %}{% endblock %}
 
 {% block custom_js %}
-    <script src="{{ MEDIA_URL }}js/chosen.jquery.min.js"></script>
-    <script>
-	$(function()    {
-	    $(".chzn-select").chosen();
-	});
-    </script>
+<script src="{{ MEDIA_URL }}js/jquery-tabs.js"></script>
 {% endblock %}
 
-{% block app_body_content %}
-    <div>
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}" class="current">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="tabbed">
+	<ul class="tabs">
+	    <li><a href="#tab-1">My Voice Clips</a></li>
+	    <li><a href="#tab-2">Upload Voice Clip</a></li>
+	</ul>
+
+	<div class="tab_container">
+
+	    <div class="tab_content" id="tab-1">
+
+		<div style="padding:10px 15px;">
+		<p>It's either you have not uploaded any voice clips, or they have not been approved by the Administrator.</p>  
+		</div>
+	    </div>
+
+	    <div class="tab_content" id="tab-2">
+
+		<form action="" method="post" class="profile-edit">
+		    <fieldset>
+			<p>
+			    {{ form.voice_clip.errors }}
+			    <label>{{ form.voice_clip.label }}</label>
+			    {{ form.voice_clip }}
+			</p>
+
+			<p>
+			    {{ form.name.errors }}
+			    <label>{{ form.name.label }}</label>
+			    {{ form.name }}
+			</p>
+
+			<p>
+			    {{ form.language.errors }}
+			    <label>{{ form.language.label }}</label>
+			    {{ form.language }}
+			</p>
+
+			</p>
+
+			<p>
+			    {{ form.category.errors }}
+			    <label>Category</label>
+			    {{ form.category }}
+			</p>
+
+			<p>
+			    <input type="submit" value="Upload" class="btn">
+			</p>
+		    </fieldset>
+		</form>
+
+	    </div>
+
+	</div>
+    </div> <!--/tabbed-->
+</div> <!--/leftdiv--> 
+{% endblock %}
+
+<div>
 	<ul class="tabs">
 	    <li><a href="#myvoiceclips">My Voice Clips</a></li>
 	    <li><a class="active" href="#uploadvoiceclip">Upload Voice Clip</a></li>
@@ -76,5 +146,3 @@
 	    </li>
 	</ul>
     </div>
-    
-{% endblock %}

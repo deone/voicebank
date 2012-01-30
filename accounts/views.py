@@ -17,11 +17,11 @@ import datetime
 
 CURRENT_SITE = Site.objects.get_current()
 
+events = [event for event in Event.objects.all() if datetime.datetime.now() < event.date][:settings.EVENTS_DISPLAY_LIMIT]
+
 def index(request, template='accounts/index.html'):
     voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
-    # events = [event for event in Event.objects.all() if datetime.datetime.now > event.date][:settings.EVENTS_DISPLAY_LIMIT]
-    events = Event.objects.all()[:settings.EVENTS_DISPLAY_LIMIT]
 
     return render_to_response(template, {
 	'clips': voice_clips,
@@ -53,6 +53,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
     return render_to_response(template, {
 	    'form': form,
 	    'site': CURRENT_SITE.name,
+	    'events': events,
 	}, context_instance=RequestContext(request))
 
 def calculate_age(born):
@@ -123,7 +124,10 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
     else:
 	form = form()
 
-    return render_to_response(template, {'form': form},
+    return render_to_response(template, {
+	'form': form,
+	'events': events,
+	},
 	    context_instance=RequestContext(request))
 
 def logout(request):
