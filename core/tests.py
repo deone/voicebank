@@ -9,6 +9,23 @@ from core.models import *
 from core.forms import *
 
 
+class VoiceClipModelTestCase(TestCase):
+    
+    def setUp(self):
+	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
+	'alwaysdeone@yahoo.com', 'test123')
+	self.category = Category.objects.all()[0]
+
+    def test_success(self):
+	upload_clip = open('/home/deone/Downloads/Sugarr-IYAWO_LO.mp3', 'rb')
+	v = VoiceClip.objects.create(user=self.user, name="Be mine",
+		voice_clip=SimpleUploadedFile(upload_clip.name,
+		    upload_clip.read()), language='English',
+		    date_added='2011-05-04', is_active=True,
+		    category=self.category)
+	self.assertEquals(repr(v), '<VoiceClip: Be mine by >')
+
+
 class EventModelTestCase(TestCase):
 
     def test_success(self):
