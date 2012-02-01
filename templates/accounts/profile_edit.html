@@ -28,6 +28,12 @@
 
 {% block app_body %}
 <div class="leftdiv">
+    <div class="t-link">
+	<ul>
+	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+	    <li><a href="{% url profile_edit %}">Profile</a></li>
+	</ul>
+    </div>
     <div class="tabbed">
 	{% if messages %}
 	    {% for message in messages %}
