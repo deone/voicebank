@@ -14,9 +14,8 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
-	    form.save(request)
+	    form.save()
 	    messages.success(request, "Audio clip uploaded")
-	    return redirect('core.views.voiceclips')
     else:
 	form = form(initial={'user': request.user.id})
 

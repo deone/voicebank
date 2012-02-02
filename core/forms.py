@@ -14,6 +14,7 @@ LANGUAGES = (
 	)
 
 class VoiceClipForm(forms.Form):
+    user = forms.CharField(max_length=5)
     voice_clip = forms.FileField()
     name = forms.CharField(max_length=30)
     language = forms.ChoiceField(choices=LANGUAGES,
@@ -21,19 +22,20 @@ class VoiceClipForm(forms.Form):
     category = forms.ModelChoiceField(queryset=Category.objects.all(),
 	    empty_label="Category", widget=forms.Select(attrs={'class': 'choose'}))
 
-    def clean(self):
+    def clean_voice_clip(self):
 	clip = self.cleaned_data.get('voice_clip', False)
 
 	if clip:
 	    if clip.content_type not in ['audio/mp3', 'audio/mpeg']:
-		raise forms.ValidationError("Please upload an mp3 audio file")
+		raise forms.ValidationError("Please upload an mp3 audio file.")
 	    if clip.name.split(".")[-1] != 'mp3':
-		raise forms.ValidationError("File does not have .mp3 extension")
+		raise forms.ValidationError("File does not have .mp3 extension.")
 
-	return self.cleaned_data
+	return self.cleaned_data['voice_clip']
 
-    def save(self, request):
-	voice_clip = VoiceClip.objects.create(user=request.user,
+    def save(self):
+	user = get_object_or_404(User, pk=self.cleaned_data['user'])
+	voice_clip = VoiceClip.objects.create(user=user,
 		name=self.cleaned_data['name'],
 		voice_clip=self.cleaned_data['voice_clip'],
 		language=self.cleaned_data['language'],

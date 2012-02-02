@@ -8,6 +8,8 @@ Do:
 * Automate deployment.
 * Fix user profile linking on home and categories page.
 * Check event date before displaying 'em i.e don't display past events.
+* Unit-test model ImageField.
+* Specify content_type for file upload tests in core.
 
 
 Improvements
