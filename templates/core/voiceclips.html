@@ -49,8 +49,11 @@
 
 	    <div class="tab_content" id="tab-2">
 
-		<form action="" method="post" class="profile-edit">
+		<form action="{% url voiceclips %}" method="post" class="profile-edit">{% csrf_token %}
 		    <fieldset>
+
+			{{ form.user.as_hidden }}
+
 			<p>
 			    {{ form.voice_clip.errors }}
 			    <label>{{ form.voice_clip.label }}</label>
