@@ -33,7 +33,7 @@ class UserJoinFormTestCase(TestCase):
 	    }
 	form = UserJoinForm(data)
         self.assertFalse(form.is_valid())
-        self.assertEquals(form['email'].errors,
+        self.assertEqual(form['email'].errors,
                          [u'Enter a valid e-mail address.'])
 
     def test_email_password(self):
@@ -90,8 +90,8 @@ class UserProfileFormTestCase(TestCase):
 		'image/jpeg')}
 	form = UserProfileForm(data, file_data)
 	self.assertFalse(form.is_valid())
-	self.assertEquals(form['phone_number'].errors, [u'Ensure this value has at most 11 characters (it has 12).'])
-	self.assertEquals(form['url_id'].errors, [u'Enter a valid value.'])
+	self.assertEqual(form['phone_number'].errors, [u'Ensure this value has at most 11 characters (it has 12).'])
+	self.assertEqual(form['url_id'].errors, [u'Enter a valid value.'])
 	
     def test_success(self):
 	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
@@ -113,5 +113,5 @@ class UserProfileFormTestCase(TestCase):
 	self.assertTrue(form.is_multipart())
 	self.assertTrue(form.is_valid())
 	p = form.save()
-	self.assertEquals(repr(p), '<Profile: alwaysdeone@yahoo.com>')
-	self.assertEquals(p.slug, 'deone')
+	self.assertEqual(repr(p), '<Profile: alwaysdeone@yahoo.com>')
+	self.assertEqual(p.slug, 'deone')

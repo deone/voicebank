@@ -1,7 +1,7 @@
 Do:
 * Provide initial data.
 * Use slugs for category homes - should read /categories/slug instead of
-/categories/id/voiceclips.
+/categories/id/voiceclips. Also unit-test this.
 * Can't we use `slug` instead of `url_id` in UserProfileForm?
 * Ensure that all forms display errors.
 * Separate app-specific settings.
@@ -10,6 +10,7 @@ Do:
 * Check event date before displaying 'em i.e don't display past events.
 * Unit-test model ImageField.
 * Specify content_type for file upload tests in core.
+* Unit-testing for success or error messages is crucial to robust POST views tests because the response status_code is always 200.
 
 
 Improvements

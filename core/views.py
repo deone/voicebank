@@ -15,7 +15,7 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	    messages.success(request, "Audio clip uploaded")
+	    messages.success(request, "Audio clip uploaded successfully.")
     else:
 	form = form(initial={'user': request.user.id})
 

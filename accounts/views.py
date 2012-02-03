@@ -35,8 +35,6 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	else:
-	    messages.error(request, 'Sorry, we encountered an error while attempting to update your profile.')
     else:
 	form = form(initial={
 	    'user': request.user.id, 

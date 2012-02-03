@@ -15,10 +15,10 @@ class ProfileModelTestCase(TestCase):
 			slug='alwaysdeone123', gender='F',
 			photo=SimpleUploadedFile(upload_file.name,
 			    upload_file.read(), 'image/jpeg'))
-	self.assertEquals(p.user.email, 'alwaysdeone@yahoo.com')
-	self.assertEquals(p.slug, 'alwaysdeone123')
-	self.assertEquals(p.gender, 'F')
-	self.assertEquals(p.birthday, '1956-03-02')
-	self.assertEquals(p.skills, '')
-	self.assertEquals(p.experience, '')
-	self.assertEquals(repr(p), '<Profile: alwaysdeone@yahoo.com>')
+	self.assertEqual(p.user.email, 'alwaysdeone@yahoo.com')
+	self.assertEqual(p.slug, 'alwaysdeone123')
+	self.assertEqual(p.gender, 'F')
+	self.assertEqual(p.birthday, '1956-03-02')
+	self.assertEqual(p.skills, '')
+	self.assertEqual(p.experience, '')
+	self.assertEqual(repr(p), '<Profile: alwaysdeone@yahoo.com>')
