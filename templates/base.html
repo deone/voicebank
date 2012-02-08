@@ -64,54 +64,54 @@
 	    <div class="wrapper">
 		{% block app_body %}{% endblock %}
 		{% block sidebar %}
-		    <div class="sidebar">
-			<div class="ad">
-			    <img src="{{ MEDIA_URL }}img/ad1.png"/>
-			</div>
-			{% block customer_care_banner %}
-			<div class="ad">
-			    <img src="{{ MEDIA_URL }}img/customer_care_banner.jpg"/>
-			</div>
-			{% endblock %}
+		<div class="sidebar">
+		    <div class="ad">
+			<img src="{{ MEDIA_URL }}img/ad1.png"/>
+		    </div>
+		    {% block customer_care_banner %}
+		    <div class="ad">
+			<img src="{{ MEDIA_URL }}img/customer_care_banner.jpg"/>
+		    </div>
+		    {% endblock %}
 
-			{% block events %}
-			<div class="sidein">
-			    <h3>Upcoming Events</h3>
-			    {% if events %}
-				{% for event in events %}
-				<div class="ev">
-				    {% thumbnail event.image "50x50" crop="center" as ei %}
-				    <img src="{{ ei.url }}" width="{{ ei.width }}"
-				    height="{{ ei.height }}"/>
-				    {% endthumbnail %}
-				    <p>
-					<span class="heading">{{ event.title }}</span>
-					<span>{{ event.description }}</span>
-					<span class="date">{{ event.date }}</span>
-				    </p>
-				</div>
-				{% endfor %}
-			    {% endif %}
-
-			    <a href="events.html" class="more">See more upcoming events</a>
-			</div> <!--/sidein-->
-			{% endblock %}
-
-			<div class="sidein">
-			    <h3>Connect with us</h3>
-
+		    {% block events %}
+		    <div class="sidein">
+			<h3>Upcoming Events</h3>
+			{% if events %}
+			    {% for event in events %}
 			    <div class="ev">
-				<ul class="connect">
-				    <li><a href="http://facebook.com/nigerianmusicbox" title="Join us on Facebook" target="_blank">Facebook</a></li>
-				    <li class="tw"><a href="http://twitter.com/voicebankng" title="Follow us on Twitter" target="_blank">Twitter</a></li>
-				    <li class="lk"><a href="http://linkedin.com/" title="Join us on LinkedIn" target="_blank">LinkedIn</a></li>
-				    <li class="gp"><a href="http://plus.google.com/" title="Join us on Google Plus" target="_blank">Google Plus</a></li>
-				    <li class="yt"><a href="http://youtube.com/" title="View our YouTube channel" target="_blank">YouTube</a></li>
-				</ul>
+				{% thumbnail event.image "50x50" crop="center" as ei %}
+				<img src="{{ ei.url }}" width="{{ ei.width }}"
+				height="{{ ei.height }}"/>
+				{% endthumbnail %}
+				<p>
+				    <span class="heading">{{ event.title }}</span>
+				    <span>{{ event.description }}</span>
+				    <span class="date">{{ event.date }}</span>
+				</p>
 			    </div>
+			    {% endfor %}
+			{% endif %}
 
-			</div> <!--/sidein-->
-		    </div> <!--/sidebar-->
+			<a href="events.html" class="more">See more upcoming events</a>
+		    </div> <!--/sidein-->
+		    {% endblock %}
+
+		    <div class="sidein">
+			<h3>Connect with us</h3>
+
+			<div class="ev">
+			    <ul class="connect">
+				<li><a href="http://facebook.com/nigerianmusicbox" title="Join us on Facebook" target="_blank">Facebook</a></li>
+				<li class="tw"><a href="http://twitter.com/voicebankng" title="Follow us on Twitter" target="_blank">Twitter</a></li>
+				<li class="lk"><a href="http://linkedin.com/" title="Join us on LinkedIn" target="_blank">LinkedIn</a></li>
+				<li class="gp"><a href="http://plus.google.com/" title="Join us on Google Plus" target="_blank">Google Plus</a></li>
+				<li class="yt"><a href="http://youtube.com/" title="View our YouTube channel" target="_blank">YouTube</a></li>
+			    </ul>
+			</div>
+
+		    </div> <!--/sidein-->
+		</div> <!--/sidebar-->
 		{% endblock %}
 	    </div>
 	    <div class="clear"></div>

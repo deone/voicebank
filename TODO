@@ -1,5 +1,4 @@
 Do:
-* Provide initial data.
 * Use slugs for category homes - should read /categories/slug instead of
 /categories/id/voiceclips. Also unit-test this.
 * Can't we use `slug` instead of `url_id` in UserProfileForm?

@@ -1,35 +1,55 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 
-{% block nav %}{% endblock %}
+{% block swf_banner %}{% endblock %}
 
-{% block app_body_content %}
-    <div class="pane rounded add-bottom">
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+
+    <h3>Voice clips in {{ object.name }} category</h3>
+
+    {% if object.voiceclip_set.all %}
+    <ul>
+	{% for clip in object.voiceclip_set.all %}
+	<li>
+	    <strong>
+	    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">
+		{{ clip.name }}</a>
+	    </strong>
+	    by 
+	    <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
+	    <span>Added {{ clip.date_added }}</span>
+	</li>
+	{% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no voice clips in this category yet.</p>
+    {% endif %}
+
+</div> <!--/leftdiv-->
+{% endblock %}
+
+<div class="pane rounded add-bottom">
 	<div class="wrap">
 	    <h4 class="remove-bottom">
 		Voice clips in <span class="italic">{{ object.name }}</span> category
 	    </h4>
 	    <hr class="half-bottom"/>
-	    {% if object.voiceclip_set.all %}
-	    <ul class="clips">
-		{% for clip in object.voiceclip_set.all %}
-		    {% if clip.is_active %}
-		    <li>
-			<strong>
-			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">
-			    {{ clip.name }}</a>
-			</strong>
-			by 
-			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
-			<span>Added {{ clip.date_added }}</span>
-		    </li>
-		    {% else %}
-		    <p class="half-bottom">None yet. Sorry!</p>
-		    {% endif %}
-		{% endfor %}
-	    </ul>
-	    {% else %}
-	    <p class="half-bottom">There are no voice clips in this category yet. :-)</p>
-	    {% endif %}
+	    
 	</div>
     </div>
-{% endblock %}
