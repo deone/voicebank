@@ -3,16 +3,13 @@ Do:
 * Use slugs for category homes - should read /categories/slug instead of
 /categories/id/voiceclips. Also unit-test this.
 * Can't we use `slug` instead of `url_id` in UserProfileForm?
-* Ensure that all forms display errors.
-* Separate app-specific settings.
-* Automate deployment.
 * Fix user profile linking on home and categories page.
-* Check event date before displaying 'em i.e don't display past events.
-* Unit-test model ImageField.
-* Specify content_type for file upload tests in core.
-* Unit-testing for success or error messages is crucial to robust POST views tests because the response status_code is always 200.
+* POST view tests are crass.
+ - Unit-test for success or error messages.
+ - Also, look out for other things to check in POST views.
 
 
 Improvements
+- Separate app-specific settings.
 - REST - Django Piston.
 - Generic views for create/update profile and voice clips functionality.

@@ -4,15 +4,9 @@ from django.core.urlresolvers import reverse
 from django.core import mail
 from django.contrib.auth.models import User
 
-class VoiceClipViewTestCase(TestCase):
-    pass
-
-class BookingViewTestCase(TestCase):
+class CoreViewsTestCase(TestCase):
 
     fixtures = ['authtestdata.json']
-
-    def setUp(self):
-	self.user = User.objects.get(username='alwaysdeone@yahoo.com')
 
     def login(self):
 	data = {
@@ -22,6 +16,26 @@ class BookingViewTestCase(TestCase):
 	response = self.client.post(reverse('login'), data)
 	self.assertEqual(response.status_code, 302)
 	self.assert_(response['Location'].endswith(settings.LOGIN_REDIRECT_URL))
+
+
+class VoiceClipsViewTestCase(CoreViewsTestCase):
+
+    def test_get_voiceclips(self):
+	self.login()
+	response = self.client.get(reverse('voiceclips'))
+	self.assertEqual(response.status_code, 200)
+
+    def test_post_voiceclips(self):
+	self.login()
+	data = {}
+	response = self.client.post(reverse('voiceclips'), data)
+	self.assertEqual(response.status_code, 200)
+
+
+class BookingViewTestCase(CoreViewsTestCase):
+
+    def setUp(self):
+	self.user = User.objects.get(username='alwaysdeone@yahoo.com')
 
     def test_get_booking(self):
 	self.login()
