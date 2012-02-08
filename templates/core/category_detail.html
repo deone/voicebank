@@ -26,19 +26,21 @@
     {% if object.voiceclip_set.all %}
     <ul>
 	{% for clip in object.voiceclip_set.all %}
-	<li>
-	    <strong>
-	    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">
-		{{ clip.name }}</a>
-	    </strong>
-	    by 
-	    <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
-	    <span>Added {{ clip.date_added }}</span>
-	</li>
+	    {% if clip.is_active %}
+	    <li>
+		<strong>
+		<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">
+		    {{ clip.name }}</a>
+		</strong>
+		by 
+		<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
+		<span>Added {{ clip.date_added }}</span>
+	    </li>
+	    {% endif %}
 	{% endfor %}
     </ul>
     {% else %}
-    <p>There are no voice clips in this category yet.</p>
+    <p>No voice clips have been uploaded in this category yet.</p>
     {% endif %}
 
 </div> <!--/leftdiv-->
