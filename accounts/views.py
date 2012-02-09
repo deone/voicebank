@@ -45,7 +45,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'experience': request.user.profile.experience,
 	    'phone_number': request.user.profile.phone_number,
 	    'location': request.user.profile.location,
-	    'url_id': request.user.profile.slug
+	    'slug': request.user.profile.slug
 	    })
 
     return render_to_response(template, {
