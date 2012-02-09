@@ -65,13 +65,13 @@ class UserProfileForm(forms.Form):
     experience = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
     phone_number = forms.CharField(max_length=11,
 	    help_text="e.g. 08033344455, 017745566")
-    url_id = forms.CharField(label="URL ID", max_length=50, help_text="Ain't it cool to have a\
+    slug = forms.CharField(label="URL ID", max_length=50, help_text="Ain't it cool to have a\
 	    customized URL like http://nigerianvoicebank.com/yournickname?",
 	    validators=[validate_slug])
     location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja, Port-Harcourt")
 
-    def clean_url_id(self):
-	data = self.cleaned_data['url_id']
+    def clean_slug(self):
+	data = self.cleaned_data['slug']
 
 	try:
 	    profile = Profile.objects.get(slug=data)
@@ -95,7 +95,7 @@ class UserProfileForm(forms.Form):
 
 	user.profile.about = self.cleaned_data['about']
 	user.profile.phone_number = self.cleaned_data['phone_number']
-	user.profile.slug = self.cleaned_data['url_id']
+	user.profile.slug = self.cleaned_data['slug']
 	user.profile.location = self.cleaned_data['location']
 	user.profile.skills = self.cleaned_data['skills']
 	user.profile.experience = self.cleaned_data['experience']

@@ -82,7 +82,7 @@ class UserProfileFormTestCase(TestCase):
 		'skills': 'Broadcasting, Producing, Directing.',
 		'experience': 'I am still me.',
 		'phone_number': '080333444556',
-		'url_id': 'deone~',
+		'slug': 'deone~',
 		'location': 'Abuja'
 	    }
 	file_data = {'photo':
@@ -91,7 +91,7 @@ class UserProfileFormTestCase(TestCase):
 	form = UserProfileForm(data, file_data)
 	self.assertFalse(form.is_valid())
 	self.assertEqual(form['phone_number'].errors, [u'Ensure this value has at most 11 characters (it has 12).'])
-	self.assertEqual(form['url_id'].errors, [u'Enter a valid value.'])
+	self.assertEqual(form['slug'].errors, [u'Enter a valid value.'])
 	
     def test_success(self):
 	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
@@ -103,7 +103,7 @@ class UserProfileFormTestCase(TestCase):
 		'skills': 'Broadcasting, Producing, Directing.',
 		'experience': 'I am still me.',
 		'phone_number': '08033344455',
-		'url_id': 'deone',
+		'slug': 'deone',
 		'location': 'Abuja'
 	    }
 	file_data = {'photo':

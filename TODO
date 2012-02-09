@@ -1,8 +1,7 @@
 Do:
+* Find and use a robust yet simple audio player.
 * Use slugs for category homes - should read /categories/slug instead of
-/categories/id/voiceclips. Also unit-test this.
-* Can't we use `slug` instead of `url_id` in UserProfileForm?
-* Fix user profile linking on home and categories page.
+/categories/id. Also unit-test this.
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.

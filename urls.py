@@ -27,8 +27,8 @@ urlpatterns = patterns('django.views.generic',
 	    'events': events
 	    }},
 	name='about'),
-    url(r'^voiceclips/all$', 'list_detail.object_list', voiceclip_dict, name='all_clips'),
-    url(r'^categories/(?P<object_id>\d+)/voiceclips$', 'list_detail.object_detail',
+    url(r'^voiceclips$', 'list_detail.object_list', voiceclip_dict, name='all_clips'),
+    url(r'^categories/(?P<object_id>\d+)$', 'list_detail.object_detail',
 	category_dict, name='category'),
 )
 
