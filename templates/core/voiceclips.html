@@ -28,8 +28,8 @@
 <div class="leftdiv">
     <div class="t-link">
 	<ul>
-	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
 	    <li><a href="{% url profile_edit %}">Profile</a></li>
+	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
 	</ul>
     </div>
     <div class="tabbed">
@@ -48,7 +48,22 @@
 	    <div class="tab_content" id="tab-1">
 
 		<div style="padding:10px 15px;">
-		<p>It's either you have not uploaded any voice clips, or they have not been approved by the Administrator.</p>  
+		{% if clips %}
+		    <ul>
+		    {% for clip in clips %}
+			<li>
+			    <strong>
+				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
+			    </strong>
+			    <span>Added {{ clip.date_added }}</span>
+			</li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>It's either you have not uploaded any voice
+		    clips, or they have not been approved by the
+		    Administrator.</p>
+		{% endif %}
 		</div>
 	    </div>
 

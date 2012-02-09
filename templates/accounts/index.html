@@ -94,44 +94,26 @@
 	    <div class="upper">
 		<h3>Most Recent Additions</h3>
 		<ul class="clips">
-
+		{% if clips %}
+		    {% for clip in clips %}
 		    <li>
-			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
-			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
+			<strong>
+			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a>
+			</strong>
+			by 
+			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a><br/>
+			<span class="date">Added {{ clip.date_added }}</span>
 		    </li>
-
-		    <li>
-			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
-			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
-		    </li>
-
-		    <li>
-			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
-			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
-		    </li>
-
-		    <li>
-			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
-			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
-		    </li>
-
-		    <li>
-			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
-			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
-		    </li>
-
+		    {% endfor %}
 		</ul>
+		{% else %}
+		<p>No voice clips yet.</p>
+		{% endif %}
 	    </div>
 	    <div class="lower">
-		<a href="">View All<em>&raquo;</em></a>
+		<a href="{% url all_clips %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
-
 
 	<div class="additions">
 	    <div class="upper">
@@ -140,35 +122,35 @@
 
 		    <li>
 			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			by <a href="#">Emeka</a><br/>
 			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
 			<span class="numeric">1<span>
 		    </li>
 
 		    <li>
 			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			by <a href="#">Emeka</a><br/>
 			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
 			<span class="numeric">2<span>
 		    </li>
 
 		    <li>
 			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			by <a href="#">Emeka</a><br/>
 			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
 			<span class="numeric">3<span>
 		    </li>
 
 		    <li>
 			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			by <a href="#">Emeka</a><br/>
 			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
 			<span class="numeric">4<span>
 		    </li>
 
 		    <li>
 			<strong><span class=""><em class="" title="Play Audio"></em><a href="">Radio</a></span></strong>
-			by <a href="http://www.nigerianvoicebank.com/tzar">Emeka</a><br/>
+			by <a href="#">Emeka</a><br/>
 			<span class="date">Added Dec. 12, 2011, 12:12 p.m.</span>
 			<span class="numeric">5<span>
 		    </li>
@@ -176,110 +158,13 @@
 		</ul>
 	    </div>
 	    <div class="lower">
-	    <a href="">View All<em>&raquo;</em></a>
+	    <a href="{% url all_clips %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
     </div> <!--/feature-->
 
 </div> <!--/leftdiv-->
 {% endblock %}
-
-
-    <div class="twelve columns add-bottom">
-	<div class="pane add-bottom categories-list rounded">
-	    <div class="wrap">
-		<h5 class="remove-bottom">Voice Artist Categories</h5>
-		<hr class="half-bottom"/>
-		<ul>
-		{% if categories %}
-		    <div class="wrap">
-		    {% for category in categories %}
-			<li>
-			<a href="{{ category.get_absolute_url }}">
-			    {% if category.image %}
-				<img src="{{ category.image.url }}"/>
-			    {% else %}
-				<img src="{{ MEDIA_URL }}img/no_cat_image.jpg"/>
-			    {% endif %}
-				<span>{{ category.name }}</span>
-			    </a>
-			</li>
-		    {% endfor %}
-		    <div class="clear"></div>
-		    </div>
-		</ul>
-		{% else %}
-		<p class="half-bottom">Please <a href="/admin/">log in</a> to add voice categories</p>
-		{% endif %}
-	    </div>
-	</div>
-	<div id="pro" class="three pane columns rounded alpha add-bottom">
-	    <div class="wrap">
-		<a href="#">
-		    <img src="{{ MEDIA_URL }}img/professionals.png" alt="Professionals" title="Professionals"/>
-		    <span>Professionals</span>
-		</a>
-	    </div>
-	</div>
-	<div id="all" class="four columns add-bottom rounded pane">
-	    <div class="wrap">
-		<a href="{% url all_clips %}">
-		    <img src="{{ MEDIA_URL }}img/all_voice.png" alt="All voice clips" title="All voice clips"/>
-		    <span>All voice clips</span>
-		</a>
-	    </div>
-	</div>
-	<div class="five columns add-bottom omega">
-	    <div class="wrap" style="padding-left: 30px">
-		<img src="{{ MEDIA_URL }}img/recording.png" alt="Book for your recording here" 
-		    title="Book for your recording here"/>
-	    </div>
-	</div>
-	<div class="six columns alpha pane rounded">
-	    <div class="wrap">
-		<h5>Most Recent Additions</h5>
-		<hr class="half-bottom"/>
-		<ul class="clips">
-		{% if clips %}
-		    {% for clip in clips %}
-		    <li>
-			<strong>
-			    <a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a>
-			</strong>
-			by 
-			<a href="{{ clip.user.profile }}">{{ clip.user.first_name }}</a><br/>
-			<span>Added {{ clip.date_added }}</span>
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% else %}
-		<p class="half-bottom">None yet. Sorry!</p>
-		{% endif %}
-	    </div>
-	</div>
-	<div class="six columns pane rounded omega">
-	    <div class="wrap">
-		<h5>Top 5 Voice Clips</h5>
-		<hr class="half-bottom"/>
-		<ul class="clips">
-		{% if clips %}
-		    {% for clip in clips %}
-		    <li>
-			<strong>
-			<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a> 
-			</strong>
-			by 
-			<a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.first_name }}</a><br/>
-			<span class="small-font">Added {{ clip.date_added }}</span>
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% else %}
-		<p class="half-bottom">None yet. Sorry!</p>
-		{% endif %}
-	    </div>
-	</div>
-    </div>
 
 {% block custom_js %}
 <script>

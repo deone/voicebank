@@ -52,6 +52,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'form': form,
 	    'site': CURRENT_SITE.name,
 	    'events': events,
+	    'age': calculate_age(request.user.profile.birthday),
 	}, context_instance=RequestContext(request))
 
 def calculate_age(born):
@@ -70,6 +71,7 @@ def profile(request, slug, template='accounts/profile.html'):
 	    'user_profile': user_profile,
 	    'age': calculate_age(user_profile.birthday),
 	    'site': CURRENT_SITE.name,
+	    'events': events,
 	}, context_instance=RequestContext(request))
 
 def send_notification(subject, sender, mail_template, *recipients, **context_vars):

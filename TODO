@@ -1,5 +1,6 @@
 Do:
 * Find and use a robust yet simple audio player.
+* Top 5 voice clips.
 * Use slugs for category homes - should read /categories/slug instead of
 /categories/id. Also unit-test this.
 * POST view tests are crass.
@@ -11,3 +12,7 @@ Improvements
 - Separate app-specific settings.
 - REST - Django Piston.
 - Generic views for create/update profile and voice clips functionality.
+
+Design work to be paid for:
+* Public Profile.
+* "My Voice Clips" tab.

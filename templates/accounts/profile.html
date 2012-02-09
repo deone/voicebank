@@ -1,9 +1,84 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
+
+{% block swf_banner %}{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <ul>
+	<li><a href="{% url home %}">Home</a></li>
+	<li><a href="{% url how %}">How it works</a></li>
+    {% if user.is_authenticated %}
+	<li><a href="{% url profile_edit %}">Profile</a></li>
+	<li><a href="{% url logout %}">Logout</a></li>
+    {% else %}
+	<li><a href="{% url join %}">Join</a></li>
+	<li><a href="{% url login %}">Login</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock %}
 
 {% load thumbnail %}
 
-{% block app_body_content %}
-    {% block nav %}{% endblock %}
+{% block app_body %}
+<div class="leftdiv">
+    <div class="tabbed">
+	<div class="tab_container">
+	    <div class="tab_content" id="tab-1">
+
+		<div class="pro-info">
+		    <h3>{{ user.get_full_name }}</h3>
+		    {% if user.profile.photo %}
+			{% thumbnail user.profile.photo "97x94" crop="center" as up %}
+			    <img src="{{ up.url }}" width="{{ up.width }}"
+			    height="{{ up.height }}" class="profile"/>
+			{% endthumbnail %}
+		    {% else %}
+			<img src="{{ MEDIA_URL }}img/profile.jpg" class="profile"/>
+		    {% endif %}
+
+		    <h3>Gender</h3>
+		    <p>
+			{% if user_profile.gender == "M" %}
+			Male
+			{% else %}
+			Female
+			{% endif %}
+		    </p>
+
+		    <h3>Age</h3>
+		    <p>{{ age }}</p>
+
+		    <h3>Booking</h3>
+		    <p>{{ user.profile.phone_number }}</p>
+
+		    <h3>Location</h3>
+		    <p>{{ user.profile.location }}</p>
+
+		    <h3>Voice Bank URL</h3>
+		    <p>
+			<a href="{{ user.profile.get_absolute_url }}">
+			    http://{{ site }}/{{ user.profile.slug }}
+			</a>
+		</div>
+
+		<div class="pro-details">
+		    <h3>About</h3>
+		    <p>{{ user.profile.about }}</p>
+		    
+		    <h3>Experience</h3>
+		    <p>{{ user.profile.experience }}</p>
+
+		    <h3>Skills</h3>
+		    <p>{{ user.profile.skills }}</p>
+		</div>
+	      
+	    </div>
+
+	</div>
+    </div> <!--/tabbed-->
+</div>
+{% endblock %}
     <div class="pane rounded half-bottom">
 	<div class="wrap">
 	    <h4>{{ user_profile.user.get_full_name }}</h4>
@@ -65,4 +140,3 @@
 	    </p>
 	</div>
     </div>
-{% endblock %}

@@ -3,26 +3,24 @@
 {% block swf_banner %}{% endblock %}
 
 {% block app_body %}
-    <div class="pane rounded add-bottom">
-	<div class="wrap">
-	    <h4 class="remove-bottom">All Voice Clips</h4>
-	    <hr class="half-bottom"/>
-	    {% if object_list %}
-	    <ul class="clips">
-		{% for object in object_list %}
-		<li>
-		    <strong>
-		    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
-		    </strong>
-		    by 
-		    <a href="{{ object.user.profile }}">{{ object.user.first_name }}</a><br/>
-		    <span class="small-font">Added {{ object.date_added }}</span>
-		</li>
-		{% endfor %}
-	    </ul>
-	    {% else %}
-	    <p>There are no voice clips yet :-)</p>
-	    {% endif %}
-	</div>
-    </div>
+<div class="leftdiv">
+    <h3>All Voice Clips</h3>
+
+    {% if object_list %}
+    <ul>
+	{% for object in object_list %}
+	<li>
+	    <strong>
+	    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
+	    </strong>
+	    by 
+	    <a href="{{ object.user.profile }}">{{ object.user.first_name }}</a><br/>
+	    <span>Added {{ object.date_added }}</span>
+	</li>
+	{% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no voice clips yet.</p>
+    {% endif %}
+</div>
 {% endblock %}
