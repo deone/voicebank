@@ -7,7 +7,7 @@ from django.http import Http404
 
 from core.forms import * 
 from core.models import VoiceClip
-from accounts.views import events
+from accounts.views import events_context_var
 
 @login_required
 def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
@@ -28,7 +28,7 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     return render_to_response(template, {
 	    'form': form,
 	    'clips': voice_clips,
-	    'events': events
+	    'events': events_context_var
 	}, context_instance=RequestContext(request))
 
 @login_required
@@ -58,4 +58,10 @@ def contact(request, template='contact.html', form=ContactForm):
 	    
     return render_to_response(template, {
 	'form': form
+	}, context_instance=RequestContext(request))
+
+def events(request, template='events.html'):
+
+    return render_to_response(template, {
+	    'events': events_context_var
 	}, context_instance=RequestContext(request))

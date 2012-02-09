@@ -73,3 +73,11 @@ class ContactViewTestCase(TestCase):
 		}
 	response = self.client.post(reverse('contact'), data)
 	self.assertEqual(response.status_code, 200)
+
+
+class EventsViewTestCase(TestCase):
+
+    def test_get_events(self):
+	response = self.client.get(reverse('events'))
+	self.assertEqual(response.status_code, 200)
+	self.assertEqual(response['Content-Type'], "text/html; charset=utf-8")

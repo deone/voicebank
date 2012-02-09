@@ -7,7 +7,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from core.models import VoiceClip, Category
-from accounts.views import events
+from accounts.views import events_context_var
 
 voiceclip_dict = {
 	'queryset': VoiceClip.objects.filter(is_active=True),
@@ -20,11 +20,11 @@ category_dict = {
 urlpatterns = patterns('django.views.generic',
     url(r'^how$', 'simple.direct_to_template', {'template':
 	'how.html', 'extra_context': {
-	    'events': events
+	    'events': events_context_var
 	    }}, name='how'),
     url(r'^about$', 'simple.direct_to_template', {'template': 'about.html',
 	'extra_context': {
-	    'events': events
+	    'events': events_context_var
 	    }},
 	name='about'),
     url(r'^voiceclips$', 'list_detail.object_list', voiceclip_dict, name='all_clips'),
@@ -41,6 +41,7 @@ urlpatterns += patterns('',
     (r'^home/', include('core.urls')),
     url(r'^booking$', 'core.views.booking', name='booking'),
     url(r'^contact$', 'core.views.contact', name='contact'),
+    url(r'^events$', 'core.views.events', name='events'),
     (r'^admin/', include(admin.site.urls)),
     (r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile'),
 )

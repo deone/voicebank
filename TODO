@@ -6,6 +6,10 @@ Do:
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
+Unit-test:
+ - Public profile.
+ - /categories/{{id}}
+ - /voiceclips
 
 
 Improvements

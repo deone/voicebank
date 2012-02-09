@@ -17,7 +17,7 @@ import datetime
 
 CURRENT_SITE = Site.objects.get_current()
 
-events = [event for event in Event.objects.all() if datetime.datetime.now() < event.date][:settings.EVENTS_DISPLAY_LIMIT]
+events_context_var = [event for event in Event.objects.all() if datetime.datetime.now() < event.date][:settings.EVENTS_DISPLAY_LIMIT]
 
 def index(request, template='accounts/index.html'):
     voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
@@ -26,7 +26,7 @@ def index(request, template='accounts/index.html'):
     return render_to_response(template, {
 	'clips': voice_clips,
 	'categories': categories,
-	'events': events,
+	'events': events_context_var,
 	}, context_instance=RequestContext(request))
 
 @login_required
@@ -51,7 +51,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
     return render_to_response(template, {
 	    'form': form,
 	    'site': CURRENT_SITE.name,
-	    'events': events,
+	    'events': events_context_var,
 	    'age': calculate_age(request.user.profile.birthday),
 	}, context_instance=RequestContext(request))
 
@@ -71,7 +71,7 @@ def profile(request, slug, template='accounts/profile.html'):
 	    'user_profile': user_profile,
 	    'age': calculate_age(user_profile.birthday),
 	    'site': CURRENT_SITE.name,
-	    'events': events,
+	    'events': events_context_var,
 	}, context_instance=RequestContext(request))
 
 def send_notification(subject, sender, mail_template, *recipients, **context_vars):
@@ -126,7 +126,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 
     return render_to_response(template, {
 	'form': form,
-	'events': events,
+	'events': events_context_var,
 	},
 	    context_instance=RequestContext(request))
 
