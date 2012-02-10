@@ -14,7 +14,7 @@
 	    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
 	    </strong>
 	    by 
-	    <a href="{{ object.user.profile }}">{{ object.user.first_name }}</a><br/>
+	    <a href="{{ object.user.get_absolute_url }}">{{ object.user.first_name }}</a><br/>
 	    <span>Added {{ object.date_added }}</span>
 	</li>
 	{% endfor %}

@@ -13,6 +13,9 @@
 	<link rel="Shortcut Icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css"/>
+	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
+	<script src="{{ MEDIA_URL }}js/slides.min.jquery.js"></script>
+	{% block custom_js %}{% endblock %}
     </head>
     <body>
 	<div class="header">
@@ -136,8 +139,5 @@
 	    </div>
 	</div> <!--/footer-->
 
-	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
-	<script src="{{ MEDIA_URL }}js/slides.min.jquery.js"></script>
-	{% block custom_js %}{% endblock %}
     </body>
 </html>
