@@ -24,4 +24,4 @@ class Profile(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-	return ('accounts.views.profile', [self.slug])
+	return ('profile', [self.slug])

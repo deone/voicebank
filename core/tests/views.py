@@ -20,15 +20,21 @@ class CoreViewsTestCase(TestCase):
 
 class VoiceClipsViewTestCase(CoreViewsTestCase):
 
+    def test_get_how(self):
+	response = self.client.get(reverse('how'))
+	self.assertEqual(response.status_code, 200)
+
+    def test_get_about(self):
+	response = self.client.get(reverse('about'))
+	self.assertEqual(response.status_code, 200)
+
     def test_get_voiceclips(self):
 	self.login()
 	response = self.client.get(reverse('voiceclips'))
 	self.assertEqual(response.status_code, 200)
 
-    def test_post_voiceclips(self):
-	self.login()
-	data = {}
-	response = self.client.post(reverse('voiceclips'), data)
+    def test_get_all_clips(self):
+	response = self.client.get(reverse('all_clips'))
 	self.assertEqual(response.status_code, 200)
 
 

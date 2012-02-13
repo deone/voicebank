@@ -2,13 +2,10 @@ Do:
 * Paginate all voice clips and every other page.
 * Also, ensure that events_context_var is available wherever required.
 * Top 5 voice clips.
+* Won't it be nicer to have a Profile -> VoiceClip ER rather than a User -> VoiceClip ER?
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
-Unit-test:
- - Public profile.
- - /categories/{{id}}
- - /voiceclips
 
 
 Improvements

@@ -51,3 +51,13 @@ class BookingModelTestCase(TestCase):
 	b = Booking.objects.create(user=self.user, name_on_teller='Ade Oluwa',
 		date_of_payment='2010-03-02', bank_name='GTBank')
 	self.assertEqual(repr(b), '<Booking: Ade Oluwa>')
+
+
+class CategoryModelTestCase(TestCase):
+
+    def setUp(self):
+	self.category = Category.objects.get(pk=1)
+
+    def test_get_absolute_url(self):
+	response = self.client.get(self.category.get_absolute_url())
+	self.assertEqual(response.status_code, 200)

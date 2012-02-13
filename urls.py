@@ -49,7 +49,7 @@ urlpatterns += patterns('',
     url(r'^contact$', 'core.views.contact', name='contact'),
     url(r'^events$', 'core.views.events', name='events'),
     (r'^admin/', include(admin.site.urls)),
-    (r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile'),
+    url(r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile', name='profile'),
 )
 
 if settings.DEBUG:
