@@ -47,17 +47,21 @@
 
 	    <div class="tab_content" id="tab-1">
 
-		<div style="padding:10px 15px;">
+		<div class="feature" style="padding-left: 5px;">
 		{% if clips %}
 		    <ul>
-		    {% for clip in clips %}
+			{% for clip in clips %}
 			<li>
-			    <strong>
-				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
-			    </strong>
-			    <span>Added {{ clip.date_added }}</span>
+			    <span>{{ clip.name }}</span><br/>
+			    <span class="date">Added {{ clip.date_added }}</span><br/>
+			    <span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
+			    <script>
+				AudioPlayer.embed("audioplayer_{{ clip.id }}", {
+				    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}"
+				});
+			    </script>
 			</li>
-		    {% endfor %}
+			{% endfor %}
 		    </ul>
 		{% else %}
 		    <p>It's either you have not uploaded any voice

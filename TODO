@@ -1,5 +1,6 @@
 Do:
-* Find and use a robust yet simple audio player.
+* Paginate all voice clips and every other page.
+* Also, ensure that events_context_var is available wherever required.
 * Top 5 voice clips.
 * POST view tests are crass.
  - Unit-test for success or error messages.
@@ -19,3 +20,5 @@ Improvements
 Design work to be paid for:
 * Public Profile.
 * "My Voice Clips" tab.
+* Pagination.
+* New clip design.

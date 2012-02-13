@@ -6,21 +6,32 @@
 <div class="leftdiv">
     <h3>All Voice Clips</h3>
 
-    {% if object_list %}
-    <ul>
-	{% for object in object_list %}
-	<li>
-	    <strong>
-	    <a href="{{ MEDIA_URL }}{{ object.voice_clip }}">{{ object.name }}</a>
-	    </strong>
-	    by 
-	    <a href="{{ object.user.get_absolute_url }}">{{ object.user.first_name }}</a><br/>
-	    <span>Added {{ object.date_added }}</span>
-	</li>
-	{% endfor %}
-    </ul>
-    {% else %}
-    <p>There are no voice clips yet.</p>
-    {% endif %}
+    <div class="feature">
+	{% if object_list %}
+	<ul>
+	    {% for object in object_list %}
+
+	    <li>
+		<span>
+		    {{ object.name }} by 
+		    <a href="{{ object.user.profile.get_absolute_url }}">
+			{{ object.user.get_full_name }}
+		    </a>
+		</span><br/>
+		<span class="date">Added {{ object.date_added }}</span><br/>
+		<span id="audioplayer_{{ object.id }}">{{ object.name }}</span>
+		<script>
+		    AudioPlayer.embed("audioplayer_{{ object.id }}", {
+			soundFile: "{{ MEDIA_URL }}{{ object.voice_clip }}"
+		    });
+		</script>
+	    </li>
+
+	    {% endfor %}
+	</ul>
+	{% else %}
+	<p>There are no voice clips yet.</p>
+	{% endif %}
+    </div>
 </div>
 {% endblock %}

@@ -11,10 +11,16 @@ from accounts.views import events_context_var
 
 voiceclip_dict = {
 	'queryset': VoiceClip.objects.filter(is_active=True),
+	'extra_context': {
+	    'events': events_context_var
+	    }
 	}
 
 category_dict = {
 	'queryset': Category.objects.all(),
+	'extra_context': {
+	    'events': events_context_var
+	    }
 	}
 
 urlpatterns = patterns('django.views.generic',

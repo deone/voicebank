@@ -15,6 +15,12 @@
 	<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css"/>
 	<script src="{{ MEDIA_URL }}js/jquery.js"></script>
 	<script src="{{ MEDIA_URL }}js/slides.min.jquery.js"></script>
+	<script src="{{ MEDIA_URL }}js/audio-player.js"></script>
+	<script>
+	    AudioPlayer.setup("{{ MEDIA_URL }}swf/audioplayer.swf", {
+		width: 297
+	    });
+	</script>
 	{% block custom_js %}{% endblock %}
     </head>
     <body>
