@@ -57,7 +57,8 @@ def contact(request, template='contact.html', form=ContactForm):
 	form = form()
 	    
     return render_to_response(template, {
-	'form': form
+	    'form': form,
+	    'events': events_context_var
 	}, context_instance=RequestContext(request))
 
 def events(request, template='events.html'):

@@ -32,6 +32,8 @@ class AccountsViewsTestCase(TestCase):
 	response = self.client.get(reverse('home'))
 	self.assertEqual(response.status_code, 200)
 	self.assertTrue('categories' in response.context)
+	self.assertTrue('events' in response.context)
+	self.assertTrue('clips' in response.context)
 	self.assertEqual([category.pk for category in
 	    response.context['categories']], [15, 11, 4, 1, 3, 14, 13,
 		6, 7, 9, 8, 5])
