@@ -1,4 +1,5 @@
 Do:
+* Display events on booking template.
 * Paginate all voice clips and every other page.
 * Also, ensure that events_context_var is available wherever required.
 * Top 5 voice clips.

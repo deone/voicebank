@@ -74,23 +74,6 @@ def profile(request, slug, template='accounts/profile.html'):
 	    'events': events_context_var,
 	}, context_instance=RequestContext(request))
 
-def send_notification(subject, sender, mail_template, *recipients, **context_vars):
-    """
-	Send email notification to `recipients` using `mail_template`, replacing context variables with `context_vars`.
-    """
-    html_content = render_to_string(mail_template, context_vars)
-    text_content = strip_tags(html_content)
-
-    message = EmailMultiAlternatives(subject, text_content, sender, recipients)
-    message.attach_alternative(html_content, "text/html")
-
-    try:
-	message.send()
-    except Exception, e:
-	return False
-
-    return True
-
 def join(request, template='accounts/join.html', form=UserJoinForm):
     if request.method == "POST":
 	form = form(request.POST)
@@ -117,9 +100,20 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    context_vars['login_url'] = "%s%s" % (CURRENT_SITE.name,
 		    settings.LOGIN_URL)
 
-	    send_notification(settings.WELCOME_MSG_SUBJECT, settings.EMAIL_SENDER,
-		    "accounts/welcome_mail.html", recipients, context_vars)
-	    
+	    ###########################
+
+	    html_content = render_to_string("accounts/welcome_mail.html", context_vars)
+	    text_content = strip_tags(html_content)
+
+	    msg = EmailMultiAlternatives(settings.WELCOME_MSG_SUBJECT,
+		    text_content, settings.EMAIL_SENDER, recipients)
+
+	    msg.attach_alternative(html_content, "text/html")
+
+	    msg.send()
+
+	    ##########################
+
 	    return redirect(settings.LOGIN_REDIRECT_URL)
     else:
 	form = form()

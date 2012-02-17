@@ -15,7 +15,7 @@ class UserJoinFormTestCase(TestCase):
 		'email': 'alwaysdeone@yahoo.com',
 		'password': 'test123',
 		'gender': 'M',
-		'birthday': '02/03/1956'
+		'birthday': '26/03/1956'
 	    }
 	form = UserJoinForm(data)
 	self.assertFalse(form.is_valid())
@@ -29,7 +29,7 @@ class UserJoinFormTestCase(TestCase):
 		'email': 'alwaysdeone@gmail.com!',
 		'password': 'test123',
 		'gender': 'M',
-		'birthday': '02/03/1956'
+		'birthday': '26/03/1956'
 	    }
 	form = UserJoinForm(data)
         self.assertFalse(form.is_valid())
@@ -41,7 +41,7 @@ class UserJoinFormTestCase(TestCase):
 		'first_name': 'Ola',
 		'last_name': 'Olu',
 		'gender': 'F',
-		'birthday': '02/03/1956'
+		'birthday': '26/03/1956'
 	    }
 	form = UserJoinForm(data)
 	self.assertFalse(form.is_valid())
@@ -57,7 +57,7 @@ class UserJoinFormTestCase(TestCase):
 		'email': 'earthqiss@yahoo.com',
 		'password': 'test123',
 		'gender': 'M',
-		'birthday': '02/03/1956'
+		'birthday': '26/03/1956'
 	    }
 	form = UserJoinForm(data)
 	self.assertTrue(form.is_valid())

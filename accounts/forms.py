@@ -19,7 +19,7 @@ class UserJoinForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
     gender = forms.ChoiceField(choices=GENDER_CHOICES,
 	    widget=forms.Select(attrs={'class': 'choose'}))
-    birthday = forms.DateField(('%m/%d/%Y',), help_text="Enter date in MM/DD/YYYY format")
+    birthday = forms.DateField(('%d/%m/%Y',), help_text="Enter date in DD/MM/YYYY format")
 
     def clean_email(self):
 	if self.cleaned_data['email'] in [obj.email for obj in

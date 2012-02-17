@@ -44,6 +44,7 @@ def booking(request, template='booking.html', form=BookingForm):
 
     return render_to_response(template, {
 	'form': form,
+	'events': events_context_var
 	}, context_instance=RequestContext(request))
 
 def contact(request, template='contact.html', form=ContactForm):

@@ -113,6 +113,8 @@ RECENT_VOICE_CLIPS_DISPLAY_LIMIT = 10
 EVENTS_DISPLAY_LIMIT = 2
 EMAIL_HOST = 'aerixnigeria.com'
 EMAIL_PORT = 25
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
 
 WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
 EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
