@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'core',
 )
 
+STATICFILES_URL = "/static/"
 STATIC_ROOT = "/home/deone/webapps/voicebank_static/"
 
 ADMIN_MEDIA_PREFIX = "/static/admin/"
