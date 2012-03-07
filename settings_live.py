@@ -26,10 +26,9 @@ INSTALLED_APPS = (
     'core',
 )
 
-STATIC_URL = "/site_media/"
 STATIC_ROOT = "/home/deone/webapps/voicebank_static/"
 
-ADMIN_MEDIA_PREFIX = "/site_media/admin/"
+ADMIN_MEDIA_PREFIX = "/static/admin/"
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = 'deone'
