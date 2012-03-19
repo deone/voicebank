@@ -90,6 +90,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.contrib.messages.context_processors.messages',
     'context_processors.admin_media_prefix',
+    'django.core.context_processors.static',
 )
 
 INSTALLED_APPS = (
@@ -109,7 +110,7 @@ INSTALLED_APPS = (
 LOGIN_REDIRECT_URL = '/home/profile'
 LOGIN_URL = '/login'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
-RECENT_VOICE_CLIPS_DISPLAY_LIMIT = 10
+RECENT_VOICE_CLIPS_DISPLAY_LIMIT = 5
 EVENTS_DISPLAY_LIMIT = 2
 
 EMAIL_HOST = 'localhost'

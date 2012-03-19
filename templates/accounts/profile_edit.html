@@ -7,7 +7,7 @@
 {% block swf_banner %}{% endblock %}
 
 {% block custom_js %}
-<script src="{{ MEDIA_URL }}js/jquery-tabs.js"></script>
+<script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
 {% endblock %}
 
 {% block nav %}
@@ -56,7 +56,7 @@
 			    height="{{ up.height }}" class="profile"/>
 			{% endthumbnail %}
 		    {% else %}
-			<img src="{{ MEDIA_URL }}img/profile.jpg" class="profile"/>
+			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
 		    {% endif %}
 
 		    <h3>Gender</h3>
@@ -111,7 +111,7 @@
 				    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
 				{% endthumbnail %}
 			    {% else %}
-				<img src="{{ MEDIA_URL }}img/profile.jpg" width="48px">
+				<img src="{{ STATIC_URL }}img/profile.jpg" width="48px">
 			    {% endif %}
 			</p>
 

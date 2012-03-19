@@ -12,12 +12,12 @@
 	<meta name="keywords" content="" />	
 	<link rel="Shortcut Icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="{{ STATICFILES_URL }}css/style.css"/>
-	<script src="{{ STATICFILES_URL }}js/jquery.js"></script>
-	<script src="{{ STATICFILES_URL }}js/slides.min.jquery.js"></script>
-	<script src="{{ STATICFILES_URL }}js/audio-player.js"></script>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css"/>
+	<script src="{{ STATIC_URL }}js/jquery.js"></script>
+	<script src="{{ STATIC_URL }}js/slides.min.jquery.js"></script>
+	<script src="{{ STATIC_URL }}js/audio-player.js"></script>
 	<script>
-	    AudioPlayer.setup("{{ STATICFILES_URL }}swf/audioplayer.swf", {
+	    AudioPlayer.setup("{{ STATIC_URL }}swf/audioplayer.swf", {
 		width: 297,
 		pagebg: "F9F9F9"
 	    });
@@ -51,13 +51,13 @@
 	    <div class="wrapper">
 		<div id="slides">
 		    <div class="slides_container">
-			<img src="{{ STATICFILES_URL }}img/banner1.jpg" width="720" height="225">
-			<img src="{{ STATICFILES_URL }}img/banner2.jpg" width="720" height="225">
-			<img src="{{ STATICFILES_URL }}img/banner3.jpg" width="720" height="225">
-			<img src="{{ STATICFILES_URL }}img/banner4.jpg" width="720" height="225">
+			<img src="{{ STATIC_URL }}img/banner1.jpg" width="720" height="225">
+			<img src="{{ STATIC_URL }}img/banner2.jpg" width="720" height="225">
+			<img src="{{ STATIC_URL }}img/banner3.jpg" width="720" height="225">
+			<img src="{{ STATIC_URL }}img/banner4.jpg" width="720" height="225">
 		    </div>
-		    <a href="#" class="prev"><img src="{{ STATICFILES_URL }}img/prev.png"></a>
-		    <a href="#" class="next"><img src="{{ STATICFILES_URL }}img/next.png"></a>
+		    <a href="#" class="prev"><img src="{{ STATIC_URL }}img/prev.png"></a>
+		    <a href="#" class="next"><img src="{{ STATIC_URL }}img/next.png"></a>
 		    <ul class="pagination">
 			<li class="current"><a href="#" rel="0" class="one">The Voice Bank Advantage<em></em></a></li>
 			<li class=""><a href="#" rel="1" class="two">Voice Clips Recording<em></em></a></li>
@@ -76,11 +76,11 @@
 		{% block sidebar %}
 		<div class="sidebar">
 		    <div class="ad">
-			<img src="{{ STATICFILES_URL }}img/ad1.png"/>
+			<img src="{{ STATIC_URL }}img/ad1.png"/>
 		    </div>
 		    {% block customer_care_banner %}
 		    <div class="ad">
-			<img src="{{ STATICFILES_URL }}img/customer_care_banner.jpg"/>
+			<img src="{{ STATIC_URL }}img/customer_care_banner.jpg"/>
 		    </div>
 		    {% endblock %}
 
@@ -132,7 +132,7 @@
 
 		<p class="left">
 		    <ul>
-			<li><a href="http://www.flamemediaworks.com/"><img src="{{ STATICFILES_URL }}img/flame.png"/></a></li>
+			<li><a href="http://www.flamemediaworks.com/"><img src="{{ STATIC_URL }}img/flame.png"/></a></li>
 			<li><a href="{% url about %}">About us</a></li>
 			<li><a href="{% url how %}">How it works</a></li>
 			<li><a href="{% url contact %}">Contact us</a></li>

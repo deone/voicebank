@@ -1,6 +1,6 @@
 from settings import *
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 DATABASES = {
     'default': {
@@ -26,11 +26,18 @@ INSTALLED_APPS = (
     'core',
 )
 
-STATICFILES_URL = "/static/"
+STATICFILE_DIRS = (
+    "/home/deone/webapps/voicebank/voicebank/static"
+)
+STATIC_URL = "/static/"
 STATIC_ROOT = "/home/deone/webapps/voicebank_static/"
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+)
 
 ADMIN_MEDIA_PREFIX = "/static/admin/"
 
 EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_PORT = 25
 EMAIL_HOST_USER = 'deone'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = '@dune369'
