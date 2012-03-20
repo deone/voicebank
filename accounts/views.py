@@ -21,7 +21,7 @@ events_context_var = [event for event in Event.objects.all() if datetime.datetim
 
 def index(request, template='accounts/index.html'):
     recent_voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
-    top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')[settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
+    top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
 
     return render_to_response(template, {
