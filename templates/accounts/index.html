@@ -93,9 +93,9 @@
 	<div class="recent">
 	    <div class="upper">
 		<h3>Most Recent Additions</h3>
-		{% if clips %}
+		{% if recent_clips %}
 		<ul>
-		    {% for clip in clips %}
+		    {% for clip in recent_clips %}
 		    <li>
 			<span>
 			    {{ clip.name }} by 
@@ -126,9 +126,9 @@
 	<div class="additions">
 	    <div class="upper">
 		<h3>Top 5 voice clips</h3>
-		{% if clips %}
+		{% if top_clips %}
 		<ul>
-		    {% for clip in clips %}
+		    {% for clip in top_clips %}
 		    <li>
 			<span>
 			    {{ clip.name }} by 

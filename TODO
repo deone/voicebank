@@ -5,9 +5,11 @@ Do:
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
+ - We can now do error message checks in POST requests, courtesy Django 1.3.
 
 
 Improvements
+- Review current unit tests and write more e.g. top clip feature.
 - Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.
 - Separate app-specific settings.
 - REST - Django Piston.

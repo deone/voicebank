@@ -22,16 +22,24 @@ class VoiceClip(models.Model):
     name = models.CharField(max_length=30)
     voice_clip = models.FileField(upload_to='clips/%Y/%m/%d')
     language = models.CharField(max_length=30)
-    date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
     is_active = models.BooleanField('Approval status', default=False)
-    listens = models.IntegerField(default=0)
+    is_top = models.BooleanField('Top Clip', default=False)
     category = models.ForeignKey(Category)
+    date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
+    is_top_timestamp = models.DateTimeField(default=datetime.datetime.now(),
+	    editable=False)
 
     class Meta:
 	ordering = ['-date_added']
 
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
+
+    def save(self):
+	orig = VoiceClip.objects.get(pk=self.pk)
+	if not orig.is_top and self.is_top:
+	    self.is_top_timestamp = datetime.datetime.now()
+	super(VoiceClip, self).save()
 
 
 class Booking(models.Model):

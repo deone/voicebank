@@ -20,11 +20,13 @@ CURRENT_SITE = Site.objects.get_current()
 events_context_var = [event for event in Event.objects.all() if datetime.datetime.now() < event.date][:settings.EVENTS_DISPLAY_LIMIT]
 
 def index(request, template='accounts/index.html'):
-    voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
+    recent_voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
+    top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')
     categories = Category.objects.all()
 
     return render_to_response(template, {
-	'clips': voice_clips,
+	'recent_clips': recent_voice_clips,
+	'top_clips': top_voice_clips,
 	'categories': categories,
 	'events': events_context_var,
 	}, context_instance=RequestContext(request))
