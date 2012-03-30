@@ -2,6 +2,7 @@ import os
 
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
 admin.autodiscover()
@@ -52,8 +53,10 @@ urlpatterns += patterns('',
     url(r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile', name='profile'),
 )
 
+urlpatterns += staticfiles_urlpatterns()
+
 if settings.DEBUG:
 	urlpatterns += patterns('',
 		(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-			{'document_root': os.path.join(os.path.dirname(__file__), 'site_media')}),
+			{'document_root': settings.MEDIA_ROOT}),
 	)

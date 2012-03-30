@@ -13,29 +13,10 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.admin',
-    'django.contrib.staticfiles',
-    'sorl.thumbnail',
-    'accounts',
-    'core',
-)
-
 STATICFILE_DIRS = (
-    "/home/deone/webapps/voicebank/voicebank/static"
+    os.path.join(PROJECT_DIR, "static"),
 )
-STATIC_URL = "/static/"
-STATIC_ROOT = "/home/deone/webapps/voicebank_static/"
-STATICFILES_FINDERS = (
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-)
-
-ADMIN_MEDIA_PREFIX = "/static/admin/"
+STATIC_ROOT = os.path.join(PROJECT_DIR, "../../voicebank_static"),
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = 25

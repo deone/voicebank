@@ -22,6 +22,8 @@ DATABASES = {
     }
 }
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -47,7 +49,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), "site_media")
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "site_media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -80,7 +82,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'voicebank.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'templates'),
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -100,6 +102,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'sorl.thumbnail',
     'accounts',
     'core',
@@ -119,3 +122,13 @@ EMAIL_PORT = 1025
 
 WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
 EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR, "static"),
+)
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+)
+
+ADMIN_MEDIA_PREFIX = "/static/admin/"
