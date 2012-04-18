@@ -35,11 +35,11 @@ class VoiceClip(models.Model):
     def __unicode__(self):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
 
-    def save(self):
+    def save(self, *args, **kwargs):
 	orig = VoiceClip.objects.get(pk=self.pk)
 	if not orig.is_top and self.is_top:
 	    self.is_top_timestamp = datetime.datetime.now()
-	super(VoiceClip, self).save()
+	super(VoiceClip, self).save(*args, **kwargs)
 
 
 class Booking(models.Model):
