@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from core.models import *
 
 class VoiceClipModelTestCase(TestCase):
+
+    fixtures = ['categorytestdata.json']
     
     def setUp(self):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',

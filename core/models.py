@@ -36,9 +36,13 @@ class VoiceClip(models.Model):
 	return u'%s by %s' % (self.name, self.user.get_full_name())
 
     def save(self, *args, **kwargs):
-	orig = VoiceClip.objects.get(pk=self.pk)
-	if not orig.is_top and self.is_top:
-	    self.is_top_timestamp = datetime.datetime.now()
+	try:
+	    orig = VoiceClip.objects.get(pk=self.pk)
+	except VoiceClip.DoesNotExist:
+	    pass
+	else:
+	    if not orig.is_top and self.is_top:
+		self.is_top_timestamp = datetime.datetime.now()
 	super(VoiceClip, self).save(*args, **kwargs)
 
 

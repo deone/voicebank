@@ -1,0 +1,98 @@
+[
+    {
+        "pk": 15, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/voiceover.jpg", 
+            "name": "Voice-Over"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/tv.jpg", 
+            "name": "Television Hosts"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/sports.jpg", 
+            "name": "Sports Commentators"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/radio.jpg", 
+            "name": "Radio Presenters"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/news.jpg", 
+            "name": "News Anchors"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/movie.jpg", 
+            "name": "Movie Trailers"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/jingle.jpg", 
+            "name": "Jingles"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/doc.jpg", 
+            "name": "Documentaries"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/customer.jpg", 
+            "name": "Customer Care"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/comedian.jpg", 
+            "name": "Comedians"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/animation.jpg", 
+            "name": "Animation"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "core.category", 
+        "fields": {
+            "image": "category_pics/actor.jpg", 
+            "name": "Actors"
+        }
+    }
+]
