@@ -45,6 +45,7 @@ urlpatterns += patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     (r'^', include('accounts.urls')),
+    (r'^musicbox/', include('musicbox.urls')),
     (r'^home/', include('core.urls')),
     url(r'^booking$', 'core.views.booking', name='booking'),
     url(r'^contact$', 'core.views.contact', name='contact'),
