@@ -1,7 +1,6 @@
 Do:
 * Paginate all voice clips and every other page.
-* Top 5 voice clips.
-* Won't it be nicer to have a Profile -> VoiceClip ER rather than a User -> VoiceClip ER?
+* Won't it be nicer to have a Profile -> VoiceClip ER rather than a User -> VoiceClip ER? Reasons??
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
@@ -9,11 +8,17 @@ Do:
 
 
 Improvements
-- Review current unit tests and write more e.g. top clip feature.
+- Review current unit tests and write more.
 - Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.
 - Separate app-specific settings.
-- REST - Django Piston.
 - Generic views for create/update profile and voice clips functionality.
+- Refactor core, split components into separate apps or use
+  existing apps.
+  Components are:
+  * voicebank
+  * booking
+  * contact
+  * events
 
 Design work to be paid for:
 * Public Profile.
