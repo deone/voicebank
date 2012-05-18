@@ -12,6 +12,7 @@ from django.contrib import messages
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from core.models import VoiceClip, Category, Event
+from musicbox.models import Album
 
 import datetime
 
@@ -23,8 +24,10 @@ def index(request, template='accounts/index.html'):
     recent_voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
     top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
+    albums = Album.objects.all()[:5]
 
     return render_to_response(template, {
+	'albums': albums,
 	'recent_clips': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+
 {% block app_body %}
 <div class="leftdiv">
     <div class="categories">
@@ -34,11 +36,24 @@
 	</ul>
     </div> <!--/categories-->
 
-    <!--<div class="musicbox">
+    <div class="musicbox">
 	<h3>Music Box</h3>
 
 	<ul class="mbox">
+	    {% for album in albums %}
 	    <li>
+		{% thumbnail album.art "110x80" crop="center" as aa %}
+		<a href="{{ album.get_absolute_url }}">
+		    <img src="{{ aa.url }}" width="{{ aa.width }}" 
+		    height="{{ aa.height }}"/>
+		</a>
+		{% endthumbnail %}
+		<a href="{{ album.get_absolute_url }}">{{ album.title }}</a>
+		<span>{{ album.artiste }}</span>
+	    </li>
+	    {% endfor %}
+
+	    <!--<li>
 		<a href=""><img src="{{ MEDIA_URL }}img/mbox.jpg"/></a>
 		<a href="">Illegal Music 2 (The Single)</a>
 		<span>M.I</span>
@@ -81,13 +96,13 @@
 		<div class="rating">
 		    <div style="width:30%"></div>
 		</div>
-	    </li>
+	    </li>-->
 	</ul>
 
 	<a href="musicbox.html" class="more">View More</a>
 
 	<div class="clear"></div>
-    </div>-->
+    </div>
 
     <div class="feature">
 	<div class="recent">
