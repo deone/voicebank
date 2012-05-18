@@ -51,7 +51,6 @@ urlpatterns += patterns('',
     url(r'^contact$', 'core.views.contact', name='contact'),
     url(r'^events$', 'core.views.events', name='events'),
     (r'^admin/', include(admin.site.urls)),
-    url(r'^(?P<slug>[-.\w]+)$', 'accounts.views.profile', name='profile'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

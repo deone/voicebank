@@ -13,6 +13,7 @@ Improvements
 - Separate app-specific settings.
 - Generic views for create/update profile and voice clips functionality.
 - Refactor core, split components into separate apps or use
+- Do template inheritance properly.
   existing apps.
   Components are:
   * voicebank
