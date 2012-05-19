@@ -1,10 +1,8 @@
-{% extends "base.html" %}
+{% extends "accounts/profile.html" %}
 
 {% load thumbnail %}
 
 {% block customer_care_banner %}{% endblock %}
-
-{% block swf_banner %}{% endblock %}
 
 {% block custom_js %}
 <script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
@@ -26,161 +24,130 @@
 </div>
 {% endblock %}
 
-{% block app_body %}
-<div class="leftdiv">
+{% block profile_nav %}
     <div class="t-link">
 	<ul>
 	    <li><a href="{% url profile_edit %}">Profile</a></li>
 	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
 	</ul>
     </div>
-    <div class="tabbed">
-	{% if messages %}
-	    {% for message in messages %}
-	    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-	    {% endfor %}
-	{% endif %}
-	<ul class="tabs">
-	    <li><a href="#tab-1">View Profile</a></li>
-	    <li><a href="#tab-2">Edit Profile</a></li>
-	</ul>
+{% endblock %}
 
-	<div class="tab_container">
-	    <div class="tab_content" id="tab-1">
+{% block tabnav %}
+    {% if messages %}
+	{% for message in messages %}
+	<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+	{% endfor %}
+    {% endif %}
+    <ul class="tabs">
+	<li><a href="#tab-1">View Profile</a></li>
+	<li><a href="#tab-2">Edit Profile</a></li>
+    </ul>
+{% endblock %}
 
-		<div class="pro-info">
-		    <h3>{{ user.get_full_name }}</h3>
+{% block profile_name_photo %}
+<h3>{{ user.get_full_name }}</h3>
+
+{% if user.profile.photo %}
+    {% thumbnail user.profile.photo "97x94" crop="center" as up %}
+	<img src="{{ up.url }}" width="{{ up.width }}"
+	height="{{ up.height }}" class="profile"/>
+    {% endthumbnail %}
+{% else %}
+    <img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
+{% endif %}
+{% endblock profile_name_photo %}
+
+{% block profile_url %}
+<p>
+    <a href="{{ user.profile.get_absolute_url }}">
+	http://{{ site }}/{{ user.profile.slug }}
+    </a>
+</p>
+{% endblock profile_url %}
+
+{% block edit_profile %}
+    <div class="tab_content" id="tab-2">
+	<form method="post"
+	    enctype="multipart/form-data" action="{% url profile_edit %}" class="profile-edit">{% csrf_token %}
+	    <fieldset>
+
+		{{ form.user.as_hidden }}
+
+		<p class="thumb">
 		    {% if user.profile.photo %}
-			{% thumbnail user.profile.photo "97x94" crop="center" as up %}
-			    <img src="{{ up.url }}" width="{{ up.width }}"
-			    height="{{ up.height }}" class="profile"/>
+			{% thumbnail user.profile.photo "48x48" crop="center" as up %}
+			    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
 			{% endthumbnail %}
 		    {% else %}
-			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
+			<img src="{{ STATIC_URL }}img/profile.jpg" width="48px">
 		    {% endif %}
+		</p>
 
-		    <h3>Gender</h3>
-		    <p>
-			{% if user.profile.gender == "M" %}
-			Male
-			{% else %}
-			Female
-			{% endif %}
-		    </p>
+		<p class="upload">
+		    {{ form.photo.errors }}
+		    {{ form.photo }}
+		</p>
 
-		    <h3>Age</h3>
-		    <p>{{ age }}</p>
+		<p>
+		    {{ form.first_name.errors }}
+		    <label>{{ form.first_name.label }}</label>
+		    {{ form.first_name }}
+		</p>
 
-		    <h3>Booking</h3>
-		    <p>{{ user.profile.phone_number }}</p>
+		<p>
+		    {{ form.last_name.errors }}
+		    <label>{{ form.last_name.label }}</label>
+		    {{ form.last_name }}
+		</p>
 
-		    <h3>Location</h3>
-		    <p>{{ user.profile.location }}</p>
+		<p>
+		    {{ form.about.errors }}
+		    <label>{{ form.about.label }}</label>
+		    {{ form.about }}
+		</p>
 
-		    <h3>Voice Bank URL</h3>
-		    <p>
-			<a href="{{ user.profile.get_absolute_url }}">
-			    http://{{ site }}/{{ user.profile.slug }}
-			</a>
-		</div>
+		<p>
+		    {{ form.skills.errors }}
+		    <label>{{ form.skills.label }}</label>
+		    {{ form.skills }}
+		    <span class="tip">{{ form.skills.help_text }}</span>
+		</p>
 
-		<div class="pro-details">
-		    <h3>About</h3>
-		    <p>{{ user.profile.about }}</p>
-		    
-		    <h3>Experience</h3>
-		    <p>{{ user.profile.experience }}</p>
+		<p>
+		    {{ form.experience.errors }}
+		    <label>{{ form.experience.label }}</label>
+		    {{ form.experience }}
+		    <span class="tip">{{ form.experience.help_text }}</span>
+		</p>
 
-		    <h3>Skills</h3>
-		    <p>{{ user.profile.skills }}</p>
-		</div>
-	      
-	    </div>
+		<p>
+		    {{ form.phone_number.errors }}
+		    <label>{{ form.phone_number.label }}</label>
+		    {{ form.phone_number }}
+		    <span class="tip">{{ form.phone_number.help_text }}</span>
+		</p>
 
-	    <div class="tab_content" id="tab-2">
+		<p>
+		    {{ form.slug.errors }}
+		    <label>{{ form.slug.label }}</label>
+		    {{ form.slug }}
+		    <span class="tip">{{ form.slug.help_text }}</span>
+		</p>
 
-		<form method="post"
-		    enctype="multipart/form-data" action="{% url profile_edit %}" class="profile-edit">{% csrf_token %}
-		    <fieldset>
+		<p>
+		    {{ form.location.errors }}
+		    <label>{{ form.location.label }}</label>
+		    {{ form.location }}
+		</p>
 
-			{{ form.user.as_hidden }}
+		<p>
+		    <input type="submit" value="Save" class="btn">
+		</p>
+	    </fieldset>
+	</form>
+    </div>
+{% endblock edit_profile %}
 
-			<p class="thumb">
-			    {% if user.profile.photo %}
-				{% thumbnail user.profile.photo "48x48" crop="center" as up %}
-				    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
-				{% endthumbnail %}
-			    {% else %}
-				<img src="{{ STATIC_URL }}img/profile.jpg" width="48px">
-			    {% endif %}
-			</p>
-
-			<p class="upload">
-			    {{ form.photo.errors }}
-			    {{ form.photo }}
-			</p>
-
-			<p>
-			    {{ form.first_name.errors }}
-			    <label>{{ form.first_name.label }}</label>
-			    {{ form.first_name }}
-			</p>
-
-			<p>
-			    {{ form.last_name.errors }}
-			    <label>{{ form.last_name.label }}</label>
-			    {{ form.last_name }}
-			</p>
-
-			<p>
-			    {{ form.about.errors }}
-			    <label>{{ form.about.label }}</label>
-			    {{ form.about }}
-			</p>
-
-			<p>
-			    {{ form.skills.errors }}
-			    <label>{{ form.skills.label }}</label>
-			    {{ form.skills }}
-			    <span class="tip">{{ form.skills.help_text }}</span>
-			</p>
-
-			<p>
-			    {{ form.experience.errors }}
-			    <label>{{ form.experience.label }}</label>
-			    {{ form.experience }}
-			    <span class="tip">{{ form.experience.help_text }}</span>
-			</p>
-
-			<p>
-			    {{ form.phone_number.errors }}
-			    <label>{{ form.phone_number.label }}</label>
-			    {{ form.phone_number }}
-			    <span class="tip">{{ form.phone_number.help_text }}</span>
-			</p>
-
-			<p>
-			    {{ form.slug.errors }}
-			    <label>{{ form.slug.label }}</label>
-			    {{ form.slug }}
-			    <span class="tip">{{ form.slug.help_text }}</span>
-			</p>
-
-			<p>
-			    {{ form.location.errors }}
-			    <label>{{ form.location.label }}</label>
-			    {{ form.location }}
-			</p>
-
-			<p>
-			    <input type="submit" value="Save" class="btn">
-			</p>
-		    </fieldset>
-		</form>
-
-	    </div>
-
-	</div>
-    </div> <!--/tabbed-->
-</div> <!--/leftdiv-->
-{% endblock %}
+{% block voiceclips %}
+{% endblock voiceclips %}

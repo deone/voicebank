@@ -47,16 +47,12 @@ urlpatterns += patterns('',
     (r'^', include('accounts.urls')),
     (r'^musicbox/', include('musicbox.urls')),
     (r'^home/', include('core.urls')),
-    url(r'^booking$', 'core.views.booking', name='booking'),
-    url(r'^contact$', 'core.views.contact', name='contact'),
-    url(r'^events$', 'core.views.events', name='events'),
     (r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += staticfiles_urlpatterns()
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-	    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-		    {'document_root': settings.MEDIA_ROOT}),
-    )
+urlpatterns += patterns('',
+	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
+		{'document_root': settings.MEDIA_ROOT}),
+)

@@ -1,7 +1,14 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('django.contrib.auth.views',
-    url(r'^login$', 'login', {'template_name': 'accounts/login.html'}, 'login'),
+	url(r'^login$', 'login', {'template_name': 'accounts/login.html'}, 'login'),
+)
+
+# We need to remove these later
+urlpatterns += patterns('core.views',
+	url(r'^booking$', 'booking', name='booking'),
+	url(r'^contact$', 'contact', name='contact'),
+	url(r'^events$', 'events', name='events')
 )
 
 urlpatterns += patterns('accounts.views', 
