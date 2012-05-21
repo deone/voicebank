@@ -11,6 +11,7 @@ from core.models import VoiceClip, Category
 from accounts.views import events_context_var
 
 voiceclip_dict = {
+	# Will django-model-utils come in handy here?
 	'queryset': VoiceClip.objects.filter(is_active=True),
 	'extra_context': {
 	    'events': events_context_var

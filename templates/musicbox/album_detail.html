@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+
 {% block swf_banner %}{% endblock %}
 
-{{ album.info }}
+{% block customer_care_banner %}{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="musicbox">
+	<h3><a href="{% url musicbox_home %}">Music Box</a> 
+	    &raquo; {{ album.artiste }} - {{ album.title }}</h3>
+	<div class="item">
+	    <p>
+		{% thumbnail album.art "200x200" crop="center" as aa %}
+		<img src="{{ aa.url }}" class="mbox-large"/>
+		{% endthumbnail %}
+	    </p>
+	    <div class="clear pad2"></div>
+	    <a href="" class="download-button">Download</a>
+	    <ul>
+		<li>
+		    &raquo; <a href="#">Share with Friends</a>
+		    <div class="sharepop">
+			<ul>
+			    <li><a href="">Twitter</a></li>
+			    <li><a href="">Facebook</a></li>
+			    <li><a href="">Google Plus</a></li>
+			</ul>
+		    </div>
+		</li>
+		<li>&raquo; <a href="#comments">2 Comments</a></li>
+		<li>&raquo; <strong>No. of plays:</strong> 34</li>
+		<li>&raquo; <strong>Downloads:</strong> 56</li>
+	    </ul>
+	</div>
+	<div class="item-info">
+	    <h3>Info</h3>
+	    <p>{{ album.info }}</p>
+	    <div class="clear pad"></div>
+	</div>
+    </div>
+</div>
+{% endblock app_body %}
