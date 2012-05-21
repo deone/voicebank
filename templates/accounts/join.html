@@ -22,51 +22,53 @@
 
 {% block app_body %}
 <div class="leftdiv">
-    <h3>Join Nigerian Voice Bank</h3>
+    <div class="rform">
+	<h3>Join Nigerian Voice Bank</h3>
 
-    <form method="post" action="{% url join %}">{% csrf_token %}
-	{{ form.non_field_errors }}
-	<p>
-	    {{ form.first_name.errors }}
-	    <label>{{ form.first_name.label }}</label>
-	    {{ form.first_name }}
-	</p>
-	<p>
-	    {{ form.last_name.errors }}
-	    <label>{{ form.last_name.label }}</label>
-	    {{ form.last_name }}
-	</p>
-	<p>
-	    {{ form.email.errors }}
-	    <label>{{ form.email.label }}</label>
-	    {{ form.email }}
-	</p>
-	<p>
-	    {{ form.password.errors }}
-	    <label>{{ form.password.label }}</label>
-	    {{ form.password }}
-	</p>
-	<p>
-	    {{ form.gender.errors }}
-	    <label>{{ form.gender.label }}</label>
-	    {{ form.gender }}
-	</p>
-	<p>
-	    {{ form.birthday.errors }}
-	    <label>{{ form.birthday.label }}</label>
-	    {{ form.birthday }}
-	    <span class="tip">{{ form.birthday.help_text }}</span>
-	</p>
-	<p>
-	    <input class="btn" type="submit" value="Join">
-	</p>
+	<form method="post" action="{% url join %}">{% csrf_token %}
+	    {{ form.non_field_errors }}
+	    <p>
+		{{ form.first_name.errors }}
+		<label>{{ form.first_name.label }}</label>
+		{{ form.first_name }}
+	    </p>
+	    <p>
+		{{ form.last_name.errors }}
+		<label>{{ form.last_name.label }}</label>
+		{{ form.last_name }}
+	    </p>
+	    <p>
+		{{ form.email.errors }}
+		<label>{{ form.email.label }}</label>
+		{{ form.email }}
+	    </p>
+	    <p>
+		{{ form.password.errors }}
+		<label>{{ form.password.label }}</label>
+		{{ form.password }}
+	    </p>
+	    <p>
+		{{ form.gender.errors }}
+		<label>{{ form.gender.label }}</label>
+		{{ form.gender }}
+	    </p>
+	    <p>
+		{{ form.birthday.errors }}
+		<label>{{ form.birthday.label }}</label>
+		{{ form.birthday }}
+		<span class="tip">{{ form.birthday.help_text }}</span>
+	    </p>
+	    <p>
+		<input class="btn" type="submit" value="Join">
+	    </p>
 
-    </form>
+	</form>
 
-    <div class="clear pad"></div>
+	<div class="clear pad"></div>
 
-    <h3>Already have an account?</h3>
-    <p><a href="{% url login %}">Click here</a> to Login.</p>
+	<h3>Already have an account?</h3>
+	<p><a href="{% url login %}">Click here</a> to Login.</p>
+    </div>
 
 </div> <!--/leftdiv-->
 {% endblock %}

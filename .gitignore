@@ -23,10 +23,5 @@ html/samples
 root@www.aerixnigeria.com
 root@aerixnigeria.com
 *.pdf
-site_media/clips
-site_media/profile_pics
-site_media/cache
-site_media/event_images
-site_media/album_art
+site_media
 integrate
-static
