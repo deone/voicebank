@@ -41,20 +41,6 @@
 
 	<ul class="mbox">
 	{% for album in albums %}
-	    {% if forloop.counter == 1 %}
-	    <li class="first">
-		{% thumbnail album.art "110x80" crop="center" as aa %}
-		<a href="{{ album.get_absolute_url }}">
-		    <img src="{{ aa.url }}" width="{{ aa.width }}" 
-		    height="{{ aa.height }}"/>
-		</a>
-		{% endthumbnail %}
-		<span class="capitalize">
-		    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
-		    {{ album.artiste }}
-		</span>
-	    </li>
-	    {% else %}
 	    <li>
 		{% thumbnail album.art "110x80" crop="center" as aa %}
 		<a href="{{ album.get_absolute_url }}">
@@ -66,58 +52,13 @@
 		    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
 		    {{ album.artiste }}
 		</span>
+		<div class="rating">
+		    <div style="width:70%"></div>
+		</div>
 	    </li>
-	    {% endif %}
 	{% endfor %}
-
-	    <!--<li>
-		<a href=""><img src="{{ MEDIA_URL }}img/mbox.jpg"/></a>
-		<a href="">Illegal Music 2 (The Single)</a>
-		<span>M.I</span>
-		<div class="rating">
-		    <div style="width:75%"></div>
-		</div>
-	    </li>
-
-	    <li>
-		<a href=""><img src="{{ MEDIA_URL }}img/mbox1.jpg"/></a>
-		<a href="">Bibanke</a>
-		<span>Asa</span>
-		<div class="rating">
-		    <div style="width:30%"></div>
-		</div>
-	    </li>
-
-	    <li>
-		<a href=""><img src="{{ MEDIA_URL }}img/mbox2.jpg"/></a>
-		<a href="">Sample Text</a>
-		<span>Description</span>
-		<div class="rating">
-		    <div style="width:30%"></div>
-		</div>
-	    </li>
-
-	    <li>
-		<a href=""><img src="{{ MEDIA_URL }}img/mbox3.jpg"/></a>
-		<a href="">Sample Text</a>
-		<span>Description</span>
-		<div class="rating">
-		    <div style="width:30%"></div>
-		</div>
-	    </li>
-
-	    <li class="last">
-		<a href=""><img src="{{ MEDIA_URL }}img/mbox4.jpg"/></a>
-		<a href="">Sample Text</a>
-		<span>Description</span>
-		<div class="rating">
-		    <div style="width:30%"></div>
-		</div>
-	    </li>-->
 	</ul>
-
 	<a href="{% url musicbox_home %}" class="more">View More</a>
-
 	<div class="clear"></div>
     </div>
 
