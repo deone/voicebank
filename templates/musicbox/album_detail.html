@@ -18,7 +18,7 @@
 		{% endthumbnail %}
 	    </p>
 	    <div class="clear pad2"></div>
-	    <a href="" class="download-button">Download</a>
+	    <!--<a href="" class="download-button">Download</a>
 	    <ul>
 		<li>
 		    &raquo; <a href="#">Share with Friends</a>
@@ -33,11 +33,27 @@
 		<li>&raquo; <a href="#comments">2 Comments</a></li>
 		<li>&raquo; <strong>No. of plays:</strong> 34</li>
 		<li>&raquo; <strong>Downloads:</strong> 56</li>
-	    </ul>
+	    </ul>-->
 	</div>
 	<div class="item-info">
 	    <h3>Info</h3>
 	    <p>{{ album.info }}</p>
+	    <div class="clear pad"></div>
+	    <h3>Play</h3>
+	    <ul class="item-preview">
+		{% for track in album.track_set.all %}
+		<li>
+		    <span class="capitalize">{{ track.title }}</span><br/>
+		    <span id="audioplayer_{{ track.id }}">{{ track.title }}</span>
+		    <script>
+			AudioPlayer.embed("audioplayer_{{ track.id }}", {
+			    soundFile: "{{ MEDIA_URL }}{{ track.track }}",
+			    titles: "{{ track.title }}"
+			});
+		    </script>
+		</li>
+		{% endfor %}
+	    </ul>
 	    <div class="clear pad"></div>
 	</div>
     </div>

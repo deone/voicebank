@@ -94,6 +94,7 @@ margin:-11px 0 0;
 
 .content{
 padding:10px 0 0;
+min-height: 472px;
 }
 
 .clear{
@@ -310,19 +311,22 @@ height: 14px;
 background: url(../img/star.png) repeat-x scroll 0 0 transparent;
 }
 
-ul.mbox li{
-float:left;
-width:120px;
-height:170px;
-margin:0 20px 20px 0;
+ul.mbox li  {
+    float:left;
+    display: block;
+    height:140px;
+    margin-left: 30px;
+}
+ul.mbox li.first  {
+    margin-left: 0;
 }
 
 ul.mbox li img{
-border:3px solid #ddd;
+    border:3px solid #ddd;
 }
 
-ul.mbox li img:hover{
-border:3px solid #ccc;
+ul.mbox li img:hover	{
+    border:3px solid #ccc;
 }
 
 ul.mbox li.last{
@@ -1016,4 +1020,6 @@ background:#eee;
 text-decoration:none;
 }
 
-
+.capitalize {
+    text-transform: capitalize;
+}

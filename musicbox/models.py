@@ -23,8 +23,8 @@ class Album(models.Model):
 
 class Track(models.Model):
     album = models.ForeignKey(Album)
-    name = models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
     track = models.FileField(upload_to="tracks")
 
     def __unicode__(self):
-	return self.name
+	return self.title

@@ -40,7 +40,21 @@
 	<h3>Music Box</h3>
 
 	<ul class="mbox">
-	    {% for album in albums %}
+	{% for album in albums %}
+	    {% if forloop.counter == 1 %}
+	    <li class="first">
+		{% thumbnail album.art "110x80" crop="center" as aa %}
+		<a href="{{ album.get_absolute_url }}">
+		    <img src="{{ aa.url }}" width="{{ aa.width }}" 
+		    height="{{ aa.height }}"/>
+		</a>
+		{% endthumbnail %}
+		<span class="capitalize">
+		    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
+		    {{ album.artiste }}
+		</span>
+	    </li>
+	    {% else %}
 	    <li>
 		{% thumbnail album.art "110x80" crop="center" as aa %}
 		<a href="{{ album.get_absolute_url }}">
@@ -48,10 +62,13 @@
 		    height="{{ aa.height }}"/>
 		</a>
 		{% endthumbnail %}
-		<a href="{{ album.get_absolute_url }}">{{ album.title }}</a>
-		<span>{{ album.artiste }}</span>
+		<span class="capitalize">
+		    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
+		    {{ album.artiste }}
+		</span>
 	    </li>
-	    {% endfor %}
+	    {% endif %}
+	{% endfor %}
 
 	    <!--<li>
 		<a href=""><img src="{{ MEDIA_URL }}img/mbox.jpg"/></a>
@@ -99,7 +116,7 @@
 	    </li>-->
 	</ul>
 
-	<a href="musicbox.html" class="more">View More</a>
+	<a href="{% url musicbox_home %}" class="more">View More</a>
 
 	<div class="clear"></div>
     </div>
@@ -112,9 +129,8 @@
 		<ul>
 		    {% for clip in recent_clips %}
 		    <li>
-			<span>
-			    {{ clip.name }} by 
-			    <a href="{{ clip.user.profile.get_absolute_url}}">
+			<span class="capitalize">{{ clip.name }} by 
+			    <a href="{{ clip.user.profile.get_absolute_url }}">
 				{{ clip.user.get_full_name }}
 			    </a>
 			</span><br/>
