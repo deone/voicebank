@@ -8,7 +8,7 @@ Do:
 
 
 Improvements
-- Refactor styles and URLs.
+- Refactor forms, styles and URLs.
 - Why do we need a link /home that points to core.urls?
 - Review current unit tests and write more.
 - Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.

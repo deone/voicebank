@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block swf_banner %}{% endblock %}
+{% extends "base_inner_no_nav_highlight.html" %}
 
 {% block customer_care_banner %}{% endblock %}
 
@@ -33,7 +31,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <form method="post" action="{% url booking %}">{% csrf_token %}
+    <form class="rform" method="post" action="{% url booking %}">{% csrf_token %}
 	
 	{{ form.user.as_hidden }}
 
