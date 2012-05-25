@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.staticfiles',
+    'django.contrib.comments',
     'sorl.thumbnail',
     'accounts',
     'core',

@@ -49,6 +49,7 @@ urlpatterns += patterns('',
     (r'^musicbox/', include('musicbox.urls')),
     (r'^home/', include('core.urls')),
     (r'^admin/', include(admin.site.urls)),
+    (r'^comments/', include('django.contrib.comments.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
