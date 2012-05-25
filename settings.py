@@ -115,15 +115,10 @@ INSTALLED_APPS = (
 LOGIN_REDIRECT_URL = '/home/profile'
 LOGIN_URL = '/login'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
-RECENT_VOICE_CLIPS_DISPLAY_LIMIT = 5
-TOP_VOICE_CLIPS_DISPLAY_LIMIT = 5
-EVENTS_DISPLAY_LIMIT = 2
+
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-
-WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
-EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (
@@ -135,4 +130,5 @@ STATICFILES_FINDERS = (
 )
 
 ADMIN_MEDIA_PREFIX = "/static/admin/"
-MUSICBOX_ALBUMS_PAGINATE_BY = 20
+
+from local_settings import *

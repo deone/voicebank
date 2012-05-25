@@ -1,5 +1,7 @@
 {% extends "base_inner_no_nav_highlight.html" %}
 
+{% load musicbox_tags %}
+
 {% load thumbnail %}
 
 {% load comments %}
@@ -63,25 +65,7 @@
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
 		<ul class="mbox">
-		{% for random_album in random_album_list %}
-		    {% if random_album.title != album.title %}
-		    <li>
-			{% thumbnail random_album.art "110x80" crop="center" as ra %}
-			<a href="{{ random_album.get_absolute_url }}">
-			    <img src="{{ ra.url }}" width="{{ ra.width }}" 
-			    height="{{ ra.height }}"/>
-			</a>
-			{% endthumbnail %}
-			<span class="capitalize">
-			    <a href="{{ random_album.get_absolute_url }}">{{ random_album.title }}</a><br/>
-			    {{ random_album.artiste }}
-			</span>
-			<div class="rating">
-			    <div style="width:30%"></div>
-			</div>
-		    </li>
-		    {% endif %}
-		{% endfor %}
+		    {% display_album_list %}
 		</ul>
 		<div class="clear"></div>
 	    </div>

@@ -12,5 +12,5 @@ class AlbumDetailView(DetailView):
     def get_context_data(self, **kwargs):
 	obj = self.get_object()
 	context = super(AlbumDetailView, self).get_context_data(**kwargs)
-	context['random_album_list'] = Album.objects.random_exclude(obj.id)[:3]
+	context['album_list'] = Album.objects.get_three_random_exclude(obj.id)
 	return context

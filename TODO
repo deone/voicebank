@@ -1,6 +1,5 @@
 Do:
 * Paginate all voice clips and every other page.
-* Won't it be nicer to have a Profile -> VoiceClip ER rather than a User -> VoiceClip ER? Reasons??
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
@@ -9,23 +8,15 @@ Do:
 
 Improvements
 - Refactor forms, styles and URLs.
-- Make templates DRY e.g. We can have one template for album_list.
+- Style comments.
 - Why do we need a link /home that points to core.urls?
 - Review current unit tests and write more.
 - Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.
-- Separate app-specific settings.
 - Generic views for create/update profile and voice clips functionality.
 - Refactor core, split components into separate apps or use
-- Do template inheritance properly.
   existing apps.
   Components are:
   * voicebank
   * booking
   * contact
   * events
-
-Design work to be paid for:
-* Public Profile.
-* "My Voice Clips" tab.
-* Pagination.
-* New clip design.

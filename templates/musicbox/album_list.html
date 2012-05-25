@@ -1,29 +1,13 @@
 {% extends "base_inner_no_nav_highlight.html" %}
 
-{% load thumbnail %}
+{% load musicbox_tags %}
 
 {% block app_body %}
 <div class="leftdiv">
     <div class="musicbox">
 	<h3>Music Box</h3>
 	<ul class="mbox">
-	    {% for album in album_list %}
-	    <li>
-		{% thumbnail album.art "110x80" crop="center" as aa %}
-		<a href="{{ album.get_absolute_url }}">
-		    <img src="{{ aa.url }}" width="{{ aa.width }}" 
-		    height="{{ aa.height }}"/>
-		</a>
-		{% endthumbnail %}
-		<span class="capitalize">
-		    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
-		    {{ album.artiste }}
-		</span>
-		<div class="rating">
-		    <div style="width:30%"></div>
-		</div>
-	    </li>
-	    {% endfor %}
+	    {% display_album_list %}
 	</ul>
 	{% if is_paginated %}
 	<div class="pagenav">

@@ -1,0 +1,20 @@
+
+{% load thumbnail %}
+
+{% for album in album_list %}
+    <li>
+	{% thumbnail album.art "110x80" crop="center" as aa %}
+	<a href="{{ album.get_absolute_url }}">
+	    <img src="{{ aa.url }}" width="{{ aa.width }}" 
+	    height="{{ aa.height }}"/>
+	</a>
+	{% endthumbnail %}
+	<span class="capitalize">
+	    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
+	    {{ album.artiste }}
+	</span>
+	<div class="rating">
+	    <div style="width:70%"></div>
+	</div>
+    </li>
+{% endfor %}
