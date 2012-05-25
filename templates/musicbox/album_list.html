@@ -25,6 +25,17 @@
 	    </li>
 	    {% endfor %}
 	</ul>
+	{% if is_paginated %}
+	<div class="pagenav">
+	    {% if page_obj.has_previous %}
+	    <a href="?page={{ page_obj.previous_page_number }}" class="more left">Previous</a>
+	    {% endif %}
+	    {% if page_obj.has_next %}
+	    <a href="?page={{ page_obj.next_page_number }}" class="more right">Next</a>
+	    {% endif %}
+	</div>
+	{% endif %}
+	<div class="clear"></div>
     </div>
 </div>
 {% endblock app_body %}
