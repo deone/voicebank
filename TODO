@@ -9,6 +9,7 @@ Do:
 
 Improvements
 - Refactor forms, styles and URLs.
+- Make templates DRY e.g. We can have one template for album_list.
 - Why do we need a link /home that points to core.urls?
 - Review current unit tests and write more.
 - Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.

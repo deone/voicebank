@@ -60,53 +60,31 @@
 		<div style="width:75%"></div>
 	    </div>
 	    <div class="clear pad"></div>
-	    <!--<div class="musicbox">
+	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
-		{% for album in album_list %}
-		<li>
-		    {% thumbnail album.art "110x80" crop="center" as aa %}
-		    <a href="{{ album.get_absolute_url }}">
-			<img src="{{ aa.url }}" width="{{ aa.width }}" 
-			height="{{ aa.height }}"/>
-		    </a>
-		    {% endthumbnail %}
-		    <span class="capitalize">
-			<a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
-			{{ album.artiste }}
-		    </span>
-		    <div class="rating">
-			<div style="width:30%"></div>
-		    </div>
-		</li>
-		{% endfor %}
 		<ul class="mbox">
+		{% for random_album in random_album_list %}
+		    {% if random_album.title != album.title %}
 		    <li>
-		    <a href=""><img src="images/mbox.jpg"/></a>
-		    <a href="">Illegal Music 2</a>
-		    <span>M.I</span>
-		    <div class="rating">
-		      <div style="width:75%"></div>
-		    </div>
+			{% thumbnail random_album.art "110x80" crop="center" as ra %}
+			<a href="{{ random_album.get_absolute_url }}">
+			    <img src="{{ ra.url }}" width="{{ ra.width }}" 
+			    height="{{ ra.height }}"/>
+			</a>
+			{% endthumbnail %}
+			<span class="capitalize">
+			    <a href="{{ random_album.get_absolute_url }}">{{ random_album.title }}</a><br/>
+			    {{ random_album.artiste }}
+			</span>
+			<div class="rating">
+			    <div style="width:30%"></div>
+			</div>
 		    </li>
-		    <li>
-		    <a href=""><img src="images/mbox4.jpg"/></a>
-		    <a href="">Love me, Love me</a>
-		    <span>Tiwa Savage</span>
-		    <div class="rating">
-		      <div style="width:90%"></div>
-		    </div>
-		    </li>
-		    <li>
-		    <a href=""><img src="images/mbox2.jpg"/></a>
-		    <a href="">Sample Text</a>
-		    <span>Description</span>
-		    <div class="rating">
-		      <div style="width:30%"></div>
-		    </div>
-		    </li>
+		    {% endif %}
+		{% endfor %}
 		</ul>
 		<div class="clear"></div>
-	    </div>-->
+	    </div>
 	    <h3>Comments</h3>
 	    <div class="comments" id="comments">
 

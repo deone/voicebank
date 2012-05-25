@@ -1,6 +1,12 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 
+from model_utils.managers import PassThroughManager
+
+
+class AlbumQuerySet(models.query.QuerySet):
+    def random_exclude(self, album_id):
+	return self.exclude(pk=album_id).order_by('?')
 
 class Album(models.Model):
     artiste = models.CharField(max_length=30)
@@ -8,6 +14,8 @@ class Album(models.Model):
     art = models.ImageField(upload_to="album_art")
     info = models.CharField(max_length=1000)
     slug = models.SlugField(unique=True, editable=False)
+
+    objects = PassThroughManager.for_queryset_class(AlbumQuerySet)()
 
     def __unicode__(self):
 	return self.title
