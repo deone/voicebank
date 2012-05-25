@@ -27,7 +27,7 @@ def index(request, template='accounts/index.html'):
     albums = Album.objects.all()[:5]
 
     return render_to_response(template, {
-	'albums': albums,
+	'album_list': albums,
 	'recent_clips': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,

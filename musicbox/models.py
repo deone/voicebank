@@ -5,8 +5,8 @@ from model_utils.managers import PassThroughManager
 
 
 class AlbumQuerySet(models.query.QuerySet):
-    def random_exclude(self, album_id):
-	return self.exclude(pk=album_id).order_by('?')
+    def get_three_random_exclude(self, album_id):
+	return self.exclude(pk=album_id).order_by('?')[:3]
 
 class Album(models.Model):
     artiste = models.CharField(max_length=30)
