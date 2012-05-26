@@ -1,0 +1,36 @@
+{% extends "base_inner_no_nav_highlight.html" %}
+
+{% load thumbnail %}
+
+{% block events %}{% endblock %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="inner">
+	<h3>Events</h3>
+	{% for event in event_list %}
+	<div class="ev">
+	    {% thumbnail event.image "50x50" crop="center" as ei %}
+	    <img src="{{ ei.url }}" width="{{ ei.width }}"
+	    height="{{ ei.height }}"/>
+	    {% endthumbnail %}
+	    <p>
+		<span class="heading">{{ event.title }}</span><br/>
+		<span>{{ event.description }}</span><br/>
+		<span class="date">{{ event.date }}</span>
+	    </p>
+	</div>
+	{% endfor %}
+	{% if is_paginated %}
+	<div class="pagenav">
+	    {% if page_obj.has_previous %}
+	    <a href="?page={{ page_obj.previous_page_number }}" class="more left">Previous</a>
+	    {% endif %}
+	    {% if page_obj.has_next %}
+	    <a href="?page={{ page_obj.next_page_number }}" class="more right">Next</a>
+	    {% endif %}
+	</div>
+	{% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -9,7 +9,7 @@ admin.autodiscover()
 
 from voicebank import AboutView, HowView
 from core.views import VoiceClipListView, CategoryDetailView
-from core.models import VoiceClip, Category, Event
+from core.models import VoiceClip, Category
 
 urlpatterns = patterns('',
 	url(r'^how$', HowView.as_view(), name='how'),
@@ -24,6 +24,7 @@ urlpatterns += patterns('django.views.generic',
 urlpatterns += patterns('',
 	(r'^', include('accounts.urls')),
 	(r'^musicbox/', include('musicbox.urls')),
+	(r'^events/', include('events.urls')),
 	(r'^home/', include('core.urls')),
 	(r'^admin/', include(admin.site.urls)),
 	(r'^comments/', include('django.contrib.comments.urls')),

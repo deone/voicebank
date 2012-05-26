@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from core.models import Event
+from events.models import Event
 
 
 class AboutView(TemplateView):

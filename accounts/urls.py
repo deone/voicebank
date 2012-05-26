@@ -8,7 +8,6 @@ urlpatterns = patterns('django.contrib.auth.views',
 urlpatterns += patterns('core.views',
 	url(r'^booking$', 'booking', name='booking'),
 	url(r'^contact$', 'contact', name='contact'),
-	url(r'^events$', 'events', name='events')
 )
 
 urlpatterns += patterns('accounts.views', 

@@ -1,5 +1,4 @@
 Do:
-* Paginate all voice clips and every other page.
 * Display login form error message.
 * POST view tests are crass.
  - Unit-test for success or error messages.
@@ -7,7 +6,8 @@ Do:
  - We can now do error message checks in POST requests, courtesy Django 1.3.
 
 Note these model/db changes:
-* Category now contains slug.
+* Category now contains slug field.
+* Events now standalone app - core_event now events_event.
 
 
 Improvements
@@ -24,4 +24,4 @@ Improvements
   * voicebank
   * booking
   * contact
-  * events
+  * events - done.

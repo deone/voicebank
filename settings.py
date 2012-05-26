@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'accounts',
     'core',
     'musicbox',
+    'events',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

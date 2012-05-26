@@ -8,7 +8,8 @@ from django.views.generic import ListView, DetailView
 from django.conf import settings
 
 from core.forms import * 
-from core.models import VoiceClip, Event, Category
+from core.models import VoiceClip, Category
+from events.models import Event
 
 class VoiceClipListView(ListView):
 
@@ -80,11 +81,5 @@ def contact(request, template='contact.html', form=ContactForm):
 	    
     return render_to_response(template, {
 	    'form': form,
-	    'events': Event.objects.later_than_now()
-	}, context_instance=RequestContext(request))
-
-def events(request, template='events.html'):
-
-    return render_to_response(template, {
 	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))
