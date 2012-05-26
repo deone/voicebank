@@ -4,10 +4,31 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import Http404
+from django.views.generic import ListView, DetailView
+from django.conf import settings
 
 from core.forms import * 
-from core.models import VoiceClip
-from accounts.views import events_context_var
+from core.models import VoiceClip, Event, Category
+
+class VoiceClipListView(ListView):
+
+    queryset = VoiceClip.objects.active()
+    paginate_by = settings.VOICECLIP_LIST_PAGINATE_BY
+
+    def get_context_data(self, **kwargs):
+	context = super(VoiceClipListView, self).get_context_data(**kwargs)
+	context['events'] = Event.objects.later_than_now()
+	return context
+
+
+class CategoryDetailView(DetailView):
+
+    model = Category
+
+    def get_context_data(self, **kwargs):
+	context = super(CategoryDetailView, self).get_context_data(**kwargs)
+	context['events'] = Event.objects.later_than_now()
+	return context
 
 @login_required
 def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
@@ -28,7 +49,7 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     return render_to_response(template, {
 	    'form': form,
 	    'clips': voice_clips,
-	    'events': events_context_var
+	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))
 
 @login_required
@@ -44,7 +65,7 @@ def booking(request, template='booking.html', form=BookingForm):
 
     return render_to_response(template, {
 	'form': form,
-	'events': events_context_var
+	'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))
 
 def contact(request, template='contact.html', form=ContactForm):
@@ -59,11 +80,11 @@ def contact(request, template='contact.html', form=ContactForm):
 	    
     return render_to_response(template, {
 	    'form': form,
-	    'events': events_context_var
+	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))
 
 def events(request, template='events.html'):
 
     return render_to_response(template, {
-	    'events': events_context_var
+	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))

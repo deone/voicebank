@@ -1,10 +1,15 @@
 from django.db import models
+from django.conf import settings
+from django.template.defaultfilters import slugify
 
-import datetime
+from model_utils.managers import PassThroughManager
+
+from datetime import datetime
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to="category_pics")
+    slug = models.SlugField(unique=True, editable=False)
 
     class Meta:
 	verbose_name_plural = "Voice Clip Categories"
@@ -13,9 +18,19 @@ class Category(models.Model):
     def __unicode__(self):
 	return self.name
 
+    def save(self, *args, **kwargs):
+	self.slug = slugify(self.name)
+	super(Category, self).save(*args, **kwargs)
+
     @models.permalink
     def get_absolute_url(self):
-	return ('category', [self.id])
+	return ('category', [self.slug])
+
+
+class VoiceClipQuerySet(models.query.QuerySet):
+    def active(self):
+	return self.filter(is_active=True)
+
 
 class VoiceClip(models.Model):
     user = models.ForeignKey('auth.User')
@@ -25,9 +40,11 @@ class VoiceClip(models.Model):
     is_active = models.BooleanField('Approval status', default=False)
     is_top = models.BooleanField('Top Clip', default=False)
     category = models.ForeignKey(Category)
-    date_added = models.DateTimeField(default=datetime.datetime.now(), editable=False)
-    is_top_timestamp = models.DateTimeField(default=datetime.datetime.now(),
+    date_added = models.DateTimeField(default=datetime.now(), editable=False)
+    is_top_timestamp = models.DateTimeField(default=datetime.now(),
 	    editable=False)
+
+    objects = PassThroughManager.for_queryset_class(VoiceClipQuerySet)()
 
     class Meta:
 	ordering = ['-date_added']
@@ -42,7 +59,7 @@ class VoiceClip(models.Model):
 	    pass
 	else:
 	    if not orig.is_top and self.is_top:
-		self.is_top_timestamp = datetime.datetime.now()
+		self.is_top_timestamp = datetime.now()
 	super(VoiceClip, self).save(*args, **kwargs)
 
 
@@ -66,12 +83,19 @@ class Contact(models.Model):
 	return u'%s : %s' % (self.name, self.comment)
 
 
+class EventQuerySet(models.query.QuerySet):
+    def later_than_now(self):
+	return self.filter(date__gt=datetime.now())[:settings.EVENTS_DISPLAY_LIMIT]
+
+
 class Event(models.Model):
     title = models.CharField(max_length=30)
     image = models.ImageField(upload_to="event_images")
     description = models.CharField(max_length=255)
     venue = models.CharField(max_length=100)
-    date = models.DateTimeField(default=datetime.datetime.now)
+    date = models.DateTimeField(default=datetime.now)
+
+    objects = PassThroughManager.for_queryset_class(EventQuerySet)()
 
     class Meta:
 	ordering = ['-date']

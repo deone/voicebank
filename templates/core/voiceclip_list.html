@@ -7,12 +7,11 @@
     <h3>All Voice Clips</h3>
 
     <div class="feature">
-	{% if object_list %}
+    {% if object_list %}
 	<ul>
 	    {% for clip in object_list %}
-
 	    <li>
-		<span>
+		<span class="capitalize">
 		    {{ clip.name }} by 
 		    <a href="{{ clip.user.profile.get_absolute_url }}">
 			{{ clip.user.get_full_name }}
@@ -26,12 +25,21 @@
 		    });
 		</script>
 	    </li>
-
 	    {% endfor %}
 	</ul>
+	{% if is_paginated %}
+	<div class="pagenav">
+	    {% if page_obj.has_previous %}
+	    <a href="?page={{ page_obj.previous_page_number }}" class="more left">Previous</a>
+	    {% endif %}
+	    {% if page_obj.has_next %}
+	    <a href="?page={{ page_obj.next_page_number }}" class="more right">Next</a>
+	    {% endif %}
+	</div>
+	{% endif %}
 	{% else %}
 	<p>There are no voice clips yet.</p>
-	{% endif %}
+    {% endif %}
     </div>
 </div>
 {% endblock %}

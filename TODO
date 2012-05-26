@@ -1,18 +1,23 @@
 Do:
 * Paginate all voice clips and every other page.
+* Display login form error message.
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
  - We can now do error message checks in POST requests, courtesy Django 1.3.
 
+Note these model/db changes:
+* Category now contains slug.
+
 
 Improvements
+- Do we need a templatetag for voice clip lists?
 - Refactor forms, styles and URLs.
 - Style comments.
 - Why do we need a link /home that points to core.urls?
 - Review current unit tests and write more.
-- Use slugs for category homes - should read /categories/slug instead of /categories/id. Unit-test.
 - Generic views for create/update profile and voice clips functionality.
+
 - Refactor core, split components into separate apps or use
   existing apps.
   Components are:
