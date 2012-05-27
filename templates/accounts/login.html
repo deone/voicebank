@@ -30,10 +30,12 @@
 	    {{ form.non_field_errors }}
 
 	    <p>
+		{{ form.username.errors }}
 		<label>Email</label>
 		{{ form.username }}
 	    </p>
 	    <p>
+		{{ form.password.errors }}
 		<label>{{ form.password.label }}</label>
 		{{ form.password }}
 	    </p>

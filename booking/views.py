@@ -1,5 +1,5 @@
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -14,6 +14,7 @@ def booking(request, template='booking/index.html', form=BookingForm):
 	    form.save()
 	    messages.success(request, """Your booking was submitted
 	    successfully.""")
+	    return redirect('booking.views.booking')
     else:
 	form = form(initial={'user': request.user.id})
 
