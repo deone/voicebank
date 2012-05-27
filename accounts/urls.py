@@ -6,7 +6,6 @@ urlpatterns = patterns('django.contrib.auth.views',
 
 # We need to remove these later
 urlpatterns += patterns('core.views',
-	url(r'^booking$', 'booking', name='booking'),
 	url(r'^contact$', 'contact', name='contact'),
 )
 

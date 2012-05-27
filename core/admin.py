@@ -3,5 +3,4 @@ from core.models import *
 
 admin.site.register(VoiceClip)
 admin.site.register(Category)
-admin.site.register(Booking)
 admin.site.register(Contact)

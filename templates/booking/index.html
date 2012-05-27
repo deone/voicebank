@@ -28,7 +28,8 @@
 	    {{ form.date_of_payment.errors }}
 	    <label>{{ form.date_of_payment.label }}</label>
 	    {{ form.date_of_payment }}
-	<p>
+	    <span class='tip'>{{ form.date_of_payment.help_text }}</span>
+	</p>
 	<p>
 	    {{ form.bank_name.errors }}
 	    <label>{{ form.bank_name.label }}</label>
