@@ -52,18 +52,3 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	    'clips': voice_clips,
 	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))
-
-def contact(request, template='contact.html', form=ContactForm):
-    if request.method == "POST":
-	form = form(request.POST)
-	if form.is_valid():
-	    form.save()
-	    messages.success(request, """Your enquiry was submitted successfully.
-	    We would reply as soon as possible.""")
-    else:
-	form = form()
-	    
-    return render_to_response(template, {
-	    'form': form,
-	    'events': Event.objects.later_than_now()
-	}, context_instance=RequestContext(request))

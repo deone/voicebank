@@ -27,6 +27,7 @@ urlpatterns += patterns('',
 	(r'^events/', include('events.urls')),
 	(r'^voicebank/', include('core.urls')), # Change app_name to voicebank later
 	(r'^booking/', include('booking.urls')),
+	(r'^contact/', include('contact.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),
 	(r'^admin/', include(admin.site.urls)),
 )
