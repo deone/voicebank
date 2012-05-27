@@ -11,7 +11,8 @@ from django.contrib import messages
 
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
-from core.models import VoiceClip, Category, Event
+from core.models import VoiceClip, Category
+from events.models import Event
 from musicbox.models import Album
 
 import datetime
@@ -26,7 +27,7 @@ def index(request, template='accounts/index.html'):
 
     return render_to_response(template, {
 	'album_list': albums,
-	'recent_clips': recent_voice_clips,
+	'voiceclip_list': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,
 	'events': Event.objects.later_than_now(),

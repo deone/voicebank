@@ -50,9 +50,9 @@
 	<div class="recent">
 	    <div class="upper">
 		<h3>Most Recent Additions</h3>
-		{% if recent_clips %}
+		{% if voiceclip_list %}
 		<ul>
-		    {% for clip in recent_clips %}
+		    {% for clip in voiceclip_list %}
 		    <li>
 			<span class="capitalize">{{ clip.name }} by 
 			    <a href="{{ clip.user.profile.get_absolute_url }}">

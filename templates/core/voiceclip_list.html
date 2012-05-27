@@ -1,15 +1,13 @@
 {% extends "base_inner_no_nav_highlight.html" %}
 
-{% block swf_banner %}{% endblock %}
-
 {% block app_body %}
 <div class="leftdiv">
     <h3>All Voice Clips</h3>
 
     <div class="feature">
-    {% if object_list %}
+    {% if voiceclip_list %}
 	<ul>
-	    {% for clip in object_list %}
+	    {% for clip in voiceclip_list %}
 	    <li>
 		<span class="capitalize">
 		    {{ clip.name }} by 

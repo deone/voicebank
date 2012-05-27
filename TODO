@@ -1,5 +1,5 @@
 Do:
-* Display login form error message.
+* Review current unit tests and write more.
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
@@ -8,6 +8,7 @@ Do:
 Note these model/db changes:
 * Category now contains slug field.
 * Events now standalone app - core_event now events_event.
+* Booking now standalone app - core_booking now booking_booking.
 
 
 Improvements
@@ -15,13 +16,10 @@ Improvements
 - Refactor forms, styles and URLs.
 - Style comments.
 - Why do we need a link /home that points to core.urls?
-- Review current unit tests and write more.
 - Generic views for create/update profile and voice clips functionality.
 
 - Refactor core, split components into separate apps or use
   existing apps.
   Components are:
-  * voicebank
-  * booking
+  * voicebank - core.
   * contact
-  * events - done.
