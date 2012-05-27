@@ -1,5 +1,6 @@
 from django.contrib import admin
-from core.models import *
+
+from vbank.models import *
 
 admin.site.register(VoiceClip)
 admin.site.register(Category)

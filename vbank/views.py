@@ -7,8 +7,8 @@ from django.http import Http404
 from django.views.generic import ListView, DetailView
 from django.conf import settings
 
-from core.forms import * 
-from core.models import VoiceClip, Category
+from vbank.forms import * 
+from vbank.models import VoiceClip, Category
 from events.models import Event
 
 class VoiceClipListView(ListView):

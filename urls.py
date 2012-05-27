@@ -8,8 +8,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 from voicebank import AboutView, HowView
-from core.views import VoiceClipListView, CategoryDetailView
-from core.models import VoiceClip, Category
+from vbank.views import VoiceClipListView, CategoryDetailView
+from vbank.models import VoiceClip, Category
 
 urlpatterns = patterns('',
 	url(r'^how$', HowView.as_view(), name='how'),
@@ -25,7 +25,7 @@ urlpatterns += patterns('',
 	(r'^', include('accounts.urls')),
 	(r'^musicbox/', include('musicbox.urls')),
 	(r'^events/', include('events.urls')),
-	(r'^voicebank/', include('core.urls')), # Change app_name to voicebank later
+	(r'^voicebank/', include('vbank.urls')),
 	(r'^booking/', include('booking.urls')),
 	(r'^contact/', include('contact.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),

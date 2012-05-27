@@ -11,7 +11,7 @@ from django.contrib import messages
 
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
-from core.models import VoiceClip, Category
+from vbank.models import VoiceClip, Category
 from events.models import Event
 from musicbox.models import Album
 

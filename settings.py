@@ -106,7 +106,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'sorl.thumbnail',
     'accounts',
-    'core',
+    'vbank',
     'musicbox',
     'events',
     'booking',

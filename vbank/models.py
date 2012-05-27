@@ -37,7 +37,7 @@ class VoiceClip(models.Model):
     name = models.CharField(max_length=30)
     voice_clip = models.FileField(upload_to='clips/%Y/%m/%d')
     language = models.CharField(max_length=30)
-    is_active = models.BooleanField('Approval status', default=False)
+    is_active = models.BooleanField('Approved', default=False)
     is_top = models.BooleanField('Top Clip', default=False)
     category = models.ForeignKey(Category)
     date_added = models.DateTimeField(default=datetime.now(), editable=False)
