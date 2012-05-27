@@ -1,6 +1,6 @@
 Do:
-* Do we need a templatetag for voice clip lists?
 * Refactor forms, styles and URLs.
+* Make error and success messges look nicer.
 * Generic views for create/update profile and voice clips functionality.
 * Away with tabs in profile and voice clips.
 * Style musicbox comments list.

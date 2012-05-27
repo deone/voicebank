@@ -2,6 +2,8 @@
 
 {% load musicbox %}
 
+{% load vbank %}
+
 {% block app_body %}
 <div class="leftdiv">
     <div class="categories">
@@ -50,29 +52,7 @@
 	<div class="recent">
 	    <div class="upper">
 		<h3>Most Recent Additions</h3>
-		{% if voiceclip_list %}
-		<ul>
-		    {% for clip in voiceclip_list %}
-		    <li>
-			<span class="capitalize">{{ clip.name }} by 
-			    <a href="{{ clip.user.profile.get_absolute_url }}">
-				{{ clip.user.get_full_name }}
-			    </a>
-			</span><br/>
-			<span class="date">Added {{ clip.date_added }}</span>
-			<span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
-			<script>
-			    AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-				soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-				titles: "{{ clip.name }}"
-			    });
-			</script>
-		    </li>
-		    {% endfor %}
-		</ul>
-		{% else %}
-		<p>No voice clips yet.</p>
-		{% endif %}
+		{% display_voiceclip_list %}
 	    </div>
 	    <div class="lower">
 		<a href="{% url all_clips %}">View All<em>&raquo;</em></a>
