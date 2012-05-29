@@ -1,6 +1,6 @@
-{% if voiceclip_list %}
 <ul>
-    {% for clip in voiceclip_list %}
+{% for clip in voiceclip_list %}
+    {% if clip.is_active %}
     <li>
 	<div class="capitalize">{{ clip.name }} by 
 	    <a href="{{ clip.user.profile.get_absolute_url }}">
@@ -16,8 +16,6 @@
 	</script>
 	<div class="date">Added {{ clip.date_added }}</div>
     </li>
-    {% endfor %}
+    {% endif %}
+{% endfor %}
 </ul>
-{% else %}
-<p>No voice clips yet.</p>
-{% endif %}

@@ -7,7 +7,11 @@
     <h3>All Voice Clips</h3>
 
     <div class="feature">
-	{% display_voiceclip_list %}
+	{% if voiceclip_list %}
+	    {% display_voiceclip_list %}
+	{% else %}
+	    <p>There are no voice clips.</p>
+	{% endif %}
 	{% if is_paginated %}
 	<div class="pagenav">
 	    {% if page_obj.has_previous %}

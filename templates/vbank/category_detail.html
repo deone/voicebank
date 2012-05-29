@@ -1,5 +1,7 @@
 {% extends "base_inner_no_nav_highlight.html" %}
 
+{% load vbank %}
+
 {% block nav %}
 <div class="nav">
     <ul>
@@ -18,35 +20,13 @@
 
 {% block app_body %}
 <div class="leftdiv">
-
-    <h3>Voice clips in {{ object.name }} category</h3>
-
-    {% if object.voiceclip_set.all %}
-    <ul>
-	{% for clip in object.voiceclip_set.all %}
-	    {% if clip.is_active %}
-	    <li>
-		<span>
-		    {{ clip.name }} by 
-		    <a href="{{ clip.user.profile.get_absolute_url }}">
-			{{ clip.user.get_full_name }}
-		    </a>
-		</span><br/>
-		<span class="date">Added {{ clip.date_added }}</span><br/>
-		<span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
-		<script>
-		    AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-			soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}"
-		    });
-		</script>
-		    
-	    </li>
-	    {% endif %}
-	{% endfor %}
-    </ul>
-    {% else %}
-    <p>No voice clips have been uploaded in this category yet.</p>
-    {% endif %}
-
+    <h3>Voice clips in {{ category.name }} category</h3>
+    {% with voiceclip_list=category.voiceclip_set.all %}
+	{% if voiceclip_list %}
+	    {% display_voiceclip_list %}
+	{% else %}
+	    <p>There are no voice clips in this category.</p>
+	{% endif %}
+    {% endwith %}
 </div> <!--/leftdiv-->
 {% endblock %}

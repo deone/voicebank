@@ -52,7 +52,11 @@
 	<div class="recent">
 	    <div class="upper">
 		<h3>Most Recent Additions</h3>
-		{% display_voiceclip_list %}
+		{% if voiceclip_list %}
+		    {% display_voiceclip_list %}
+		{% else %}
+		    <p> There are no recent voice clips.</p>
+		{% endif %}
 	    </div>
 	    <div class="lower">
 		<a href="{% url all_clips %}">View All<em>&raquo;</em></a>

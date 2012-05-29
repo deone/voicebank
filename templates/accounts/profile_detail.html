@@ -1,5 +1,9 @@
 {% extends "base_inner.html" %}
 
+{% load thumbnail %}
+
+{% load vbank %}
+
 {% block nav %}
 <div class="nav">
     <ul>
@@ -15,8 +19,6 @@
     </ul>
 </div>
 {% endblock %}
-
-{% load thumbnail %}
 
 {% block app_body %}
 
@@ -36,12 +38,12 @@
 
 		<div class="pro-info">
 		    {% block profile_name_photo %}
-		    <h3>{{ user_profile.user.get_full_name }}</h3>
+		    <h3>{{ profile.user.get_full_name }}</h3>
 
-		    {% if user_profile.photo %}
-			{% thumbnail user_profile.photo "97x94" crop="center" as up %}
-			    <img src="{{ up.url }}" width="{{ up.width }}"
-			    height="{{ up.height }}" class="profile"/>
+		    {% if profile.photo %}
+			{% thumbnail profile.photo "97x94" crop="center" as pp %}
+			    <img src="{{ pp.url }}" width="{{ pp.width }}"
+			    height="{{ pp.height }}" class="profile"/>
 			{% endthumbnail %}
 		    {% else %}
 			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
@@ -50,7 +52,7 @@
 
 		    <h3>Gender</h3>
 		    <p>
-			{% if user_profile.gender == "M" %}
+			{% if profile.gender == "M" %}
 			Male
 			{% else %}
 			Female
@@ -61,16 +63,16 @@
 		    <p>{{ age }}</p>
 
 		    <h3>Booking</h3>
-		    <p>{{ user_profile.phone_number }}</p>
+		    <p>{{ profile.phone_number }}</p>
 
 		    <h3>Location</h3>
-		    <p>{{ user_profile.location }}</p>
+		    <p>{{ profile.location }}</p>
 
 		    <h3>Voice Bank URL</h3>
 		    {% block profile_url %}
 		    <p>
-			<a href="{{ user_profile.get_absolute_url }}">
-			    http://{{ site }}/{{ user_profile.slug }}
+			<a href="{{ profile.get_absolute_url }}">
+			    http://{{ site }}/{{ profile.slug }}
 			</a>
 		    </p>
 		    {% endblock profile_url %}
@@ -78,34 +80,24 @@
 
 		<div class="pro-details">
 		    <h3>About</h3>
-		    <p>{{ user_profile.about }}</p>
+		    <p>{{ profile.about }}</p>
 		    
 		    <h3>Experience</h3>
-		    <p>{{ user_profile.experience }}</p>
+		    <p>{{ profile.experience }}</p>
 
 		    <h3>Skills</h3>
-		    <p>{{ user_profile.skills }}</p>
+		    <p>{{ profile.skills }}</p>
 
 		    {% block voiceclips %}
 		    <h3>Voice Clips</h3>
 		    <div class="feature">
-			<ul>
-			{% for clip in user_profile.user.voiceclip_set.all %}
-			    {% if clip.is_active %}
-				<li>
-				    <span>{{ clip.name }}</span><br/>
-				    <span class="date">Added {{ clip.date_added }}</span><br/>
-				    <span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
-				    <script>
-					AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-					    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-					    titles: "{{ clip.name }}"
-					});
-				    </script>
-				</li>	    
-			    {% endif %}
-			{% endfor %}
-			</ul>
+		    {% with voiceclip_list=profile.user.voiceclip_set.all %}
+			{% if voiceclip_list %}
+			    {% display_voiceclip_list %}
+			{% else %}
+			    <p>{{ profile.user.first_name }} has not uploaded any voice clips.</p>
+			{% endif %}
+		    {% endwith %}
 		    </div>
 		    {% endblock voiceclips %}
 		</div>

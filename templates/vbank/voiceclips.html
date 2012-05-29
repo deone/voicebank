@@ -1,5 +1,7 @@
 {% extends "base_inner.html" %}
 
+{% load vbank %}
+
 {% block customer_care_banner %}{% endblock %}
 
 {% block custom_js %}
@@ -42,25 +44,10 @@
 	</ul>
 
 	<div class="tab_container">
-
 	    <div class="tab_content" id="tab-1">
-
 		<div class="feature" style="padding-left: 5px;">
-		{% if clips %}
-		    <ul>
-			{% for clip in clips %}
-			<li>
-			    <span>{{ clip.name }}</span><br/>
-			    <span class="date">Added {{ clip.date_added }}</span><br/>
-			    <span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
-			    <script>
-				AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-				    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}"
-				});
-			    </script>
-			</li>
-			{% endfor %}
-		    </ul>
+		{% if voiceclip_list %}
+		    {% display_voiceclip_list %}
 		{% else %}
 		    <p>It's either you have not uploaded any voice
 		    clips, or they have not been approved by the
@@ -68,112 +55,37 @@
 		{% endif %}
 		</div>
 	    </div>
-
 	    <div class="tab_content" id="tab-2">
-
 		<form action="{% url voiceclips %}" enctype="multipart/form-data" method="post" class="profile-edit">{% csrf_token %}
 		    <fieldset>
-
 			{{ form.user.as_hidden }}
-
 			<p>
 			    {{ form.voice_clip.errors }}
 			    <label>{{ form.voice_clip.label }}</label>
 			    {{ form.voice_clip }}
 			</p>
-
 			<p>
 			    {{ form.name.errors }}
 			    <label>{{ form.name.label }}</label>
 			    {{ form.name }}
 			</p>
-
 			<p>
 			    {{ form.language.errors }}
 			    <label>{{ form.language.label }}</label>
 			    {{ form.language }}
 			</p>
-
-			</p>
-
 			<p>
 			    {{ form.category.errors }}
 			    <label>Category</label>
 			    {{ form.category }}
 			</p>
-
 			<p>
 			    <input type="submit" value="Upload" class="btn">
 			</p>
 		    </fieldset>
 		</form>
-
 	    </div>
-
 	</div>
     </div> <!--/tabbed-->
 </div> <!--/leftdiv--> 
 {% endblock %}
-
-<div>
-	<ul class="tabs">
-	    <li><a href="#myvoiceclips">My Voice Clips</a></li>
-	    <li><a class="active" href="#uploadvoiceclip">Upload Voice Clip</a></li>
-	</ul>
-	<ul class="tabs-content rounded">
-	    <li id="myvoiceclipsTab">
-		<div class="wrap">
-		    <ul class="clips">
-		    {% if clips %}
-			{% for clip in clips %}
-			<li>
-			    <strong>
-				<a href="{{ MEDIA_URL }}{{ clip.voice_clip }}">{{ clip.name }}</a><br/>
-			    </strong>
-			    <span>Added {{ clip.date_added }}</span>
-			</li>
-			{% endfor %}
-		    {% else %}
-			<p class="remove-bottom">It's either you have not uploaded any voice
-			clips, or they have not been approved by the
-			Administrator.</p>
-		    {% endif %}
-		    </ul>
-		</div>
-	    </li>
-	    <li class="active" id="uploadvoiceclipTab">
-		<form method="post" enctype="multipart/form-data" action="{% url voiceclips %}">{% csrf_token %}
-		    {% if messages %}
-			{% for message in messages %}
-			    <p{% if message.tags %} class="{{ message.tags }}"
-			    {%endif %}>{{ message }}</p>
-			{% endfor %}
-		    {% endif %}
-		    <div class="wrap">
-			<fieldset class="remove-bottom">
-			    <p>
-				{{ form.voice_clip.errors }}
-				{{ form.voice_clip }}
-			    </p>	
-			    <p>
-				<label class="input">
-				    {{ form.name.errors }}
-				    <span>{{ form.name.label }}</span>
-				    {{ form.name }}
-				</label>
-			    </p>
-			    <p>
-				{{ form.language.errors }}
-				{{ form.language }}
-			    </p>
-			    <p>
-				{{ form.category.errors }}
-				{{ form.category }}
-			    </p>
-			    <button>Upload</button>
-			</fieldset>
-		    </div>
-		</form>
-	    </li>
-	</ul>
-    </div>
