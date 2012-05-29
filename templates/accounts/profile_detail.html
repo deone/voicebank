@@ -2,7 +2,7 @@
 
 {% load thumbnail %}
 
-{% load vbank %}
+{% load vbank_tags %}
 
 {% block nav %}
 <div class="nav">
@@ -91,12 +91,8 @@
 		    {% block voiceclips %}
 		    <h3>Voice Clips</h3>
 		    <div class="feature">
-		    {% with voiceclip_list=profile.user.voiceclip_set.all %}
-			{% if voiceclip_list %}
-			    {% display_voiceclip_list %}
-			{% else %}
-			    <p>{{ profile.user.first_name }} has not uploaded any voice clips.</p>
-			{% endif %}
+		    {% with template='profile_detail' %}
+			{% show_user_voiceclips profile.user template %}
 		    {% endwith %}
 		    </div>
 		    {% endblock voiceclips %}

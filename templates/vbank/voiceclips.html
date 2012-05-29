@@ -1,6 +1,6 @@
 {% extends "base_inner.html" %}
 
-{% load vbank %}
+{% load vbank_tags %}
 
 {% block customer_care_banner %}{% endblock %}
 
@@ -46,7 +46,9 @@
 	<div class="tab_container">
 	    <div class="tab_content" id="tab-1">
 		<div class="feature" style="padding-left: 5px;">
-		{% show_voiceclips user %}
+		{% with template='voiceclips' %}
+		{% show_user_voiceclips user template %}
+		{% endwith %}
 		</div>
 	    </div>
 	    <div class="tab_content" id="tab-2">

@@ -20,10 +20,7 @@ Note these model/db changes:
  - core_contact now contact_contact.
  - core_category and core_voiceclips now vbank_category and vbank_voiceclips.
 
-Cleanup events context mess in views.
 Voiceclip templatetags
 - category_detail
 - index
 - voiceclip_list
-- voiceclips
-- profile

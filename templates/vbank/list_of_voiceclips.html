@@ -1,21 +1,30 @@
-<ul>
-{% for clip in voiceclip_list %}
-    {% if clip.is_active %}
-    <li>
-	<div class="capitalize">{{ clip.name }} by 
-	    <a href="{{ clip.user.profile.get_absolute_url }}">
-		{{ clip.user.get_full_name }}
-	    </a>
-	</div>
-	<span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
-	<script>
-	    AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-		soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-		titles: "{{ clip.name }}"
-	    });
-	</script>
-	<div class="date">Added {{ clip.date_added }}</div>
-    </li>
-    {% endif %}
-{% endfor %}
-</ul>
+{% if voiceclip_list %}
+    <ul>
+    {% for clip in voiceclip_list %}
+	{% if clip.is_active %}
+	<li>
+	    <div class="capitalize">{{ clip.name }} by 
+		<a href="{{ clip.user.profile.get_absolute_url }}">
+		    {{ clip.user.get_full_name }}
+		</a>
+	    </div>
+	    <span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
+	    <script>
+		AudioPlayer.embed("audioplayer_{{ clip.id }}", {
+		    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
+		    titles: "{{ clip.name }}"
+		});
+	    </script>
+	    <div class="date">Added {{ clip.date_added }}</div>
+	</li>
+	{% endif %}
+    {% endfor %}
+    </ul>
+{% else %}
+    {% ifequal template 'voiceclips' %}
+    <p>You've either not uploaded any voice clips, or they have not been approved by the Administrator.</p>
+    {% endifequal %}
+    {% ifequal template 'profile_detail' %}
+    <p>{{ user.first_name }} has either not uploaded any voice clips, or they have not been<br/> approved by the Administrator.</p>
+    {% endifequal %}
+{% endif %}
