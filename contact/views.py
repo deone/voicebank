@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib import messages
 
-from events.models import Event
 from contact.forms import ContactForm
 
 
@@ -19,5 +18,4 @@ def index(request, template='contact/index.html', form=ContactForm):
 	    
 	return render_to_response(template, {
 	    'form': form,
-	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))

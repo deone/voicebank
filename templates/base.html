@@ -1,5 +1,5 @@
 
-{% load thumbnail %}
+{% load event_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,22 +83,7 @@
 		    {% block events %}
 		    <div class="sidein">
 			<h3>Upcoming Events</h3>
-			{% if events %}
-			    {% for event in events %}
-			    <div class="ev">
-				{% thumbnail event.image "50x50" crop="center" as ei %}
-				<img src="{{ ei.url }}" width="{{ ei.width }}"
-				height="{{ ei.height }}"/>
-				{% endthumbnail %}
-				<p>
-				    <span class="heading">{{ event.title }}</span>
-				    <span>{{ event.description }}</span>
-				    <span class="date">{{ event.date }}</span>
-				</p>
-			    </div>
-			    {% endfor %}
-			{% endif %}
-
+			{% show_events %}
 			<a href="{% url events %}" class="more">See more upcoming events</a>
 		    </div> <!--/sidein-->
 		    {% endblock %}

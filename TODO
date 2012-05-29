@@ -2,8 +2,9 @@ Do:
 * Page titles.
 * Refactor forms, styles and URLs.
 * Make error and success messges look nicer.
-* Generic views for create/update profile and voice clips functionality.
-* Away with tabs in profile and voice clips.
+* Fix project name hardcoding in events templatetags.
+
+* Use templatetags this way e.g. {% show_voiceclips user %} so that we won't need to pass voiceclip as context variable.
 * Style musicbox comments list.
 * Review current unit tests and write more.
 * POST view tests are crass.
@@ -18,3 +19,11 @@ Note these model/db changes:
  - core_booking now booking_booking.
  - core_contact now contact_contact.
  - core_category and core_voiceclips now vbank_category and vbank_voiceclips.
+
+Cleanup events context mess in views.
+Voiceclip templatetags
+- category_detail
+- index
+- voiceclip_list
+- voiceclips
+- profile

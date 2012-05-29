@@ -1,0 +1,20 @@
+
+{% load thumbnail %}
+
+{% if events %}
+    {% for event in events %}
+    <div class="ev">
+	{% thumbnail event.image "50x50" crop="center" as ei %}
+	<img src="{{ ei.url }}" width="{{ ei.width }}"
+	height="{{ ei.height }}"/>
+	{% endthumbnail %}
+	<p>
+	    <span class="heading">{{ event.title }}</span><br/>
+	    <span>{{ event.description }}</span><br/>
+	    <span class="date">{{ event.date }}</span>
+	</p>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>There are no upcoming events.</p>
+{% endif %}

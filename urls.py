@@ -3,22 +3,21 @@ import os
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import ListView, DetailView, TemplateView
 
 from django.contrib import admin
 admin.autodiscover()
 
-from voicebank import AboutView, HowView
-from vbank.views import VoiceClipListView, CategoryDetailView
 from vbank.models import VoiceClip, Category
 
 urlpatterns = patterns('',
-	url(r'^how$', HowView.as_view(), name='how'),
-	url(r'^about$', AboutView.as_view(), name='about'),
-)
-
-urlpatterns += patterns('django.views.generic',
-	url(r'^voiceclips$', VoiceClipListView.as_view(), name='all_clips'),
-	url(r'^categories/(?P<slug>[-.\w]+)$', CategoryDetailView.as_view(), name='category'),
+	url(r'^how$', TemplateView.as_view(template_name='how.html'), name='how'),
+	url(r'^about$', TemplateView.as_view(template_name='about.html'), name='about'),
+	url(r'^voiceclips$', ListView.as_view(
+	    queryset=VoiceClip.objects.active(),
+		paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
+		), name='all_clips'),
+	url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
 )
 
 urlpatterns += patterns('',

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
@@ -7,16 +7,13 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.contrib import messages
 from django.views.generic import DetailView
 
 from accounts import calculate_age
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from vbank.models import VoiceClip, Category
-from events.models import Event
 from musicbox.models import Album
-
 
 CURRENT_SITE = Site.objects.get_current()
 
@@ -32,7 +29,6 @@ def index(request, template='accounts/index.html'):
 	'voiceclip_list': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,
-	'events': Event.objects.later_than_now(),
 	}, context_instance=RequestContext(request))
 
 @login_required
@@ -58,7 +54,6 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
     return render_to_response(template, {
 	    'form': form,
 	    'site': CURRENT_SITE.name,
-	    'events': Event.objects.later_than_now(),
 	    'age': calculate_age(request.user.profile.birthday),
 	    'profile': request.user.get_profile(),
 	}, context_instance=RequestContext(request))
@@ -73,7 +68,6 @@ class ProfileDetailView(DetailView):
 	context = super(ProfileDetailView, self).get_context_data(**kwargs)
 	context['age'] = calculate_age(obj.birthday)
 	context['site'] = CURRENT_SITE.name
-	context['events'] = Event.objects.later_than_now()
 	return context
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
@@ -122,7 +116,6 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 
     return render_to_response(template, {
 	'form': form,
-	'events': Event.objects.later_than_now(),
 	},
 	    context_instance=RequestContext(request))
 
