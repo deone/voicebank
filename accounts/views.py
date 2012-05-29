@@ -20,7 +20,7 @@ CURRENT_SITE = Site.objects.get_current()
 # This should be CategoryListView
 def index(request, template='accounts/index.html'):
     recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
-    top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
+    top_voice_clips = VoiceClip.objects.top()[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
     albums = Album.objects.all()[:5]
 
