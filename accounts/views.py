@@ -8,19 +8,21 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib import messages
+from django.views.generic import DetailView
 
+from accounts import calculate_age
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from vbank.models import VoiceClip, Category
 from events.models import Event
 from musicbox.models import Album
 
-import datetime
 
 CURRENT_SITE = Site.objects.get_current()
 
+# This should be CategoryListView
 def index(request, template='accounts/index.html'):
-    recent_voice_clips = VoiceClip.objects.filter(is_active=True)[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
+    recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
     top_voice_clips = VoiceClip.objects.filter(is_top=True).order_by('-is_top_timestamp')[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
     albums = Album.objects.all()[:5]
@@ -39,6 +41,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
+	    return redirect('accounts.views.profile_edit')
     else:
 	form = form(initial={
 	    'user': request.user.id, 
@@ -57,26 +60,21 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'site': CURRENT_SITE.name,
 	    'events': Event.objects.later_than_now(),
 	    'age': calculate_age(request.user.profile.birthday),
+	    'profile': request.user.get_profile(),
 	}, context_instance=RequestContext(request))
 
-def calculate_age(born):
-    today = datetime.date.today()
-    try:
-	birthday = born.replace(year=today.year)
-    except ValueError:
-	birthday = born.replace(year=today.year, day=born.day-1)
 
-    return today.year - born.year
+class ProfileDetailView(DetailView):
 
-def profile(request, slug, template='accounts/profile.html'):
-    user_profile = get_object_or_404(Profile, slug__iexact=slug)
+    model = Profile
 
-    return render_to_response(template, {
-	    'user_profile': user_profile,
-	    'age': calculate_age(user_profile.birthday),
-	    'site': CURRENT_SITE.name,
-	    'events': Event.objects.later_than_now(),
-	}, context_instance=RequestContext(request))
+    def get_context_data(self, **kwargs):
+	obj = super(ProfileDetailView, self).get_object()
+	context = super(ProfileDetailView, self).get_context_data(**kwargs)
+	context['age'] = calculate_age(obj.birthday)
+	context['site'] = CURRENT_SITE.name
+	context['events'] = Event.objects.later_than_now()
+	return context
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
     if request.method == "POST":

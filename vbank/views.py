@@ -32,7 +32,7 @@ class CategoryDetailView(DetailView):
 	return context
 
 @login_required
-def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
+def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
@@ -42,6 +42,7 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
 	form = form(initial={'user': request.user.id})
 
     try:
+	# Use model_utils here.
 	voice_clips = get_list_or_404(VoiceClip, user=request.user,
 		is_active=True)
     except Http404:
@@ -49,6 +50,6 @@ def voiceclips(request, template='core/voiceclips.html', form=VoiceClipForm):
     
     return render_to_response(template, {
 	    'form': form,
-	    'clips': voice_clips,
+	    'voiceclip_list': voice_clips,
 	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))

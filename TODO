@@ -1,4 +1,5 @@
 Do:
+* Page titles.
 * Refactor forms, styles and URLs.
 * Make error and success messges look nicer.
 * Generic views for create/update profile and voice clips functionality.
