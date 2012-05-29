@@ -2,34 +2,10 @@ from django.shortcuts import render_to_response, get_list_or_404
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.http import Http404
-from django.views.generic import ListView, DetailView
-from django.conf import settings
 
 from vbank.forms import * 
-from vbank.models import VoiceClip, Category
-from events.models import Event
-
-class VoiceClipListView(ListView):
-
-    queryset = VoiceClip.objects.active()
-    paginate_by = settings.VOICECLIP_LIST_PAGINATE_BY
-
-    def get_context_data(self, **kwargs):
-	context = super(VoiceClipListView, self).get_context_data(**kwargs)
-	context['events'] = Event.objects.later_than_now()
-	return context
-
-
-class CategoryDetailView(DetailView):
-
-    model = Category
-
-    def get_context_data(self, **kwargs):
-	context = super(CategoryDetailView, self).get_context_data(**kwargs)
-	context['events'] = Event.objects.later_than_now()
-	return context
+from vbank.models import VoiceClip
 
 @login_required
 def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
@@ -50,6 +26,4 @@ def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
     
     return render_to_response(template, {
 	    'form': form,
-	    'voiceclip_list': voice_clips,
-	    'events': Event.objects.later_than_now()
 	}, context_instance=RequestContext(request))

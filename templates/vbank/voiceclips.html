@@ -46,13 +46,7 @@
 	<div class="tab_container">
 	    <div class="tab_content" id="tab-1">
 		<div class="feature" style="padding-left: 5px;">
-		{% if voiceclip_list %}
-		    {% display_voiceclip_list %}
-		{% else %}
-		    <p>It's either you have not uploaded any voice
-		    clips, or they have not been approved by the
-		    Administrator.</p>
-		{% endif %}
+		{% show_voiceclips user %}
 		</div>
 	    </div>
 	    <div class="tab_content" id="tab-2">
