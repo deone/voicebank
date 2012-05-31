@@ -2,7 +2,6 @@ Do:
 * Page titles.
 * Refactor forms, styles and URLs.
 * Make error and success messges look nicer.
-* Fix project name hardcoding in events templatetags.
 
 * Use templatetags this way e.g. {% show_voiceclips user %} so that we won't need to pass voiceclip as context variable.
 * Style musicbox comments list.
