@@ -23,16 +23,6 @@ class VoiceClipModelTestCase(TestCase):
 	self.assertEqual(repr(v), '<VoiceClip: Be mine by >')
 
 
-class ContactModelTestCase(TestCase):
-    
-    def test_success(self):
-	c = Contact.objects.create(name='Ade Oluwa',
-	email='alwaysdeone@yahoo.com', phone_number='08033445566',
-	comment='Keep up the good work!')
-
-	self.assertEqual(repr(c), '<Contact: Ade Oluwa : Keep up the good work!>')
-
-
 class BookingModelTestCase(TestCase):
 
     def setUp(self):
