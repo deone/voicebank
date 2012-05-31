@@ -1,6 +1,6 @@
 from django import template
 
-from voicebank.events.models import Event
+from events.models import Event
 
 register = template.Library()
 

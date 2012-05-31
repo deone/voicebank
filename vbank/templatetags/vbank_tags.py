@@ -1,7 +1,7 @@
 from django import template
 from django.conf import settings
 
-from voicebank.vbank.models import VoiceClip
+from vbank.models import VoiceClip
 
 register = template.Library()
 
