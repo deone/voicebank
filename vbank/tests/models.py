@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth.models import User
 
-from core.models import *
+from vbank.models import *
 
 class VoiceClipModelTestCase(TestCase):
 
@@ -21,18 +21,6 @@ class VoiceClipModelTestCase(TestCase):
 		    date_added='2011-05-04', is_active=True,
 		    category=self.category)
 	self.assertEqual(repr(v), '<VoiceClip: Be mine by >')
-
-
-class BookingModelTestCase(TestCase):
-
-    def setUp(self):
-	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
-		'alwaysdeone@yahoo.com', 'test123')
-
-    def test_success(self):
-	b = Booking.objects.create(user=self.user, name_on_teller='Ade Oluwa',
-		date_of_payment='2010-03-02', bank_name='GTBank')
-	self.assertEqual(repr(b), '<Booking: Ade Oluwa>')
 
 
 class CategoryModelTestCase(TestCase):
