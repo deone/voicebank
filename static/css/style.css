@@ -992,9 +992,9 @@ margin:0 0 10px 0;
 }
 
 .allclips li{
-margin:0 0 10px;
-border-bottom:1px dotted #E7E7E7;
-padding-bottom:4px;
+    margin:0 0 10px;
+    border-bottom:1px dotted #E7E7E7;
+    padding-bottom:4px;
 }
 
 .t-link{
@@ -1012,11 +1012,20 @@ padding:5px 15px;
 border-radius:20px;
 }
 
-.t-link li a:hover{
-background:#eee;
-text-decoration:none;
+.t-link li a:hover  {
+    background: #eee;
+    text-decoration: none;
 }
 
 .capitalize {
     text-transform: capitalize;
+}
+
+.comment_list dt    {
+    color: #000;
+}
+
+.comment_list dd    {
+    margin-bottom: 10px;
+    font-size: 1.05em;
 }
