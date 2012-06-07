@@ -444,8 +444,8 @@ background-color:#F9F9F9;
 border-bottom:1px solid #e2e2e2
 }
 
-span.date{
-font-size:12px;
+span.date, div.date {
+font-size:11px;
 color:#999;
 }
 
