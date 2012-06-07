@@ -11,7 +11,7 @@ class VoiceClipModelTestCase(TestCase):
     def setUp(self):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
 	'alwaysdeone@yahoo.com', 'test123')
-	self.category = Category.objects.all()[0]
+	self.category = Category.objects.get(pk=1)
 
     def test_success(self):
 	upload_clip = open('/home/deone/Downloads/Sugarr-IYAWO_LO.mp3', 'rb')
@@ -24,6 +24,8 @@ class VoiceClipModelTestCase(TestCase):
 
 
 class CategoryModelTestCase(TestCase):
+
+    fixtures = ['categorytestdata.json']
 
     def setUp(self):
 	self.category = Category.objects.get(pk=1)

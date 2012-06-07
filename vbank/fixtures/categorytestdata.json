@@ -1,98 +1,110 @@
 [
     {
         "pk": 15, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/voiceover.jpg", 
-            "name": "Voice-Over"
+            "name": "Voice-Over", 
+            "slug": "voice-over"
         }
     }, 
     {
         "pk": 11, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/tv.jpg", 
-            "name": "Television Hosts"
+            "name": "Television Hosts", 
+            "slug": "television-hosts"
         }
     }, 
     {
         "pk": 4, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/sports.jpg", 
-            "name": "Sports Commentators"
+            "name": "Sports Commentators", 
+            "slug": "sports-commentators"
         }
     }, 
     {
         "pk": 1, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/radio.jpg", 
-            "name": "Radio Presenters"
+            "name": "Radio Presenters", 
+            "slug": "radio-presenters"
         }
     }, 
     {
         "pk": 3, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/news.jpg", 
-            "name": "News Anchors"
+            "name": "News Anchors", 
+            "slug": "news-anchors"
         }
     }, 
     {
         "pk": 14, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/movie.jpg", 
-            "name": "Movie Trailers"
+            "name": "Movie Trailers", 
+            "slug": "movie-trailers"
         }
     }, 
     {
         "pk": 13, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/jingle.jpg", 
-            "name": "Jingles"
+            "name": "Jingles", 
+            "slug": "jingles"
         }
     }, 
     {
         "pk": 6, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/doc.jpg", 
-            "name": "Documentaries"
+            "name": "Documentaries", 
+            "slug": "documentaries"
         }
     }, 
     {
         "pk": 7, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/customer.jpg", 
-            "name": "Customer Care"
+            "name": "Customer Care", 
+            "slug": "customer-care"
         }
     }, 
     {
         "pk": 9, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/comedian.jpg", 
-            "name": "Comedians"
+            "name": "Comedians", 
+            "slug": "comedians"
         }
     }, 
     {
         "pk": 8, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/animation.jpg", 
-            "name": "Animation"
+            "name": "Animation", 
+            "slug": "animation"
         }
     }, 
     {
         "pk": 5, 
-        "model": "core.category", 
+        "model": "vbank.category", 
         "fields": {
             "image": "category_pics/actor.jpg", 
-            "name": "Actors"
+            "name": "Actors", 
+            "slug": "actors"
         }
     }
 ]
