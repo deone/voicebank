@@ -70,12 +70,11 @@
 		<ul>
 		    {% for clip in top_clips %}
 		    <li>
-			<span>
-			    {{ clip.name }} by 
+			<div class="capitalize">{{ clip.name }} by 
 			    <a href="{{ clip.user.profile.get_absolute_url }}">
 				{{ clip.user.get_full_name }}
 			    </a>
-			</span><br/>
+			</div>
 			<span id="audioplayer_{{ forloop.counter0 }}">{{ clip.name }}</span>
 			<script>
 			    AudioPlayer.embed("audioplayer_{{ forloop.counter0 }}", {
