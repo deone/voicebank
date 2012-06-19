@@ -93,6 +93,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'context_processors.admin_media_prefix',
     'django.core.context_processors.static',
+    'django.core.context_processors.request',
 )
 
 INSTALLED_APPS = (
@@ -111,6 +112,7 @@ INSTALLED_APPS = (
     'events',
     'booking',
     'contact',
+    'agon_ratings',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

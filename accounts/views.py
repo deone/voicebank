@@ -2,20 +2,18 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
-from django.contrib.sites.models import Site
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.views.generic import DetailView
+from django.contrib.sites.models import get_current_site
 
 from accounts import calculate_age
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from vbank.models import VoiceClip, Category
 from musicbox.models import Album
-
-CURRENT_SITE = Site.objects.get_current()
 
 # This should be CategoryListView
 def index(request, template='accounts/index.html'):
@@ -53,7 +51,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 
     return render_to_response(template, {
 	    'form': form,
-	    'site': CURRENT_SITE.name,
+	    'site': get_current_site(request),
 	    'age': calculate_age(request.user.profile.birthday),
 	    'profile': request.user.get_profile(),
 	}, context_instance=RequestContext(request))
@@ -67,7 +65,7 @@ class ProfileDetailView(DetailView):
 	obj = super(ProfileDetailView, self).get_object()
 	context = super(ProfileDetailView, self).get_context_data(**kwargs)
 	context['age'] = calculate_age(obj.birthday)
-	context['site'] = CURRENT_SITE.name
+	context['site'] = get_current_site(request)
 	return context
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
@@ -93,7 +91,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    recipients.append(email)
 
 	    context_vars = {}
-	    context_vars['login_url'] = "%s%s" % (CURRENT_SITE.name,
+	    context_vars['login_url'] = "%s%s" % (get_current_site(request),
 		    settings.LOGIN_URL)
 
 	    ###########################

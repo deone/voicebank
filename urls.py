@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 		paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
 		), name='all_clips'),
 	url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
+	url(r'^ratings/', include('agon_ratings.urls')),
 )
 
 urlpatterns += patterns('',

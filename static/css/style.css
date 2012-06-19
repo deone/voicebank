@@ -1033,3 +1033,7 @@ border-radius:20px;
 .comment_list dd    {
     font-size: 1.05em;
 }
+
+.no-event   {
+    margin-bottom: 15px;
+}

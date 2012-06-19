@@ -1,10 +1,12 @@
-{% extends "base_inner_no_nav_highlight.html" %}
+{% extends "base_inner.html" %}
 
 {% load musicbox %}
 
 {% load thumbnail %}
 
 {% load comments %}
+
+{% load agon_ratings_tags %}
 
 {% block customer_care_banner %}{% endblock %}
 
@@ -57,10 +59,13 @@
 		{% endfor %}
 	    </ul>
 	    <div class="clear pad"></div>
+	    {% if user.id %}
 	    <h4>Rating:</h4>
-	    <div class="rating">
+	    <div id="user_rating"></div>
+	    {% endif %}
+	    <!--<div class="rating">
 		<div style="width:75%"></div>
-	    </div>
+	    </div>-->
 	    <div class="clear pad"></div>
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
@@ -83,3 +88,9 @@
     </div>
 </div>
 {% endblock app_body %}
+
+{% block rating_js %}
+{% if user.id %}
+    {% user_rating_js user album %}
+{% endif %}
+{% endblock %}
