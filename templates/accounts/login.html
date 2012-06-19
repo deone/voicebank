@@ -1,21 +1,5 @@
 {% extends "base_inner.html" %}
 
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}" class="current">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
-{% endblock %}
-
 {% block customer_care_banner %}{% endblock %}
 
 {% block events %}{% endblock %}
@@ -24,11 +8,8 @@
 <div class="leftdiv">
     <div class="rform">
 	<h3>Login</h3>
-
 	<form method="post" action="{% url login %}?next={{ next }}">{% csrf_token %}
-
 	    {{ form.non_field_errors }}
-
 	    <p>
 		{{ form.username.errors }}
 		<label>Email</label>
@@ -42,14 +23,18 @@
 	    <p>
 		<input class="btn" type="submit" value="Login"/>
 	    </p>
-
 	</form>
-
 	<div class="clear pad"></div>
-
 	<h3>Don't have an account?</h3>
 	<p><a href="{% url join %}">Click here</a> to Join Nigerian Voice Bank.</p>
-
     </div> <!--/rform-->
 </div> <!--/leftdiv-->
+{% endblock %}
+
+{% block custom_js %}
+<script>
+    $(function()	{
+	    $('a#login').addClass('current');
+    });
+</script>
 {% endblock %}

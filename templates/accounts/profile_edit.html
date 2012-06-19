@@ -5,23 +5,12 @@
 {% block customer_care_banner %}{% endblock %}
 
 {% block custom_js %}
+<script>
+    $(function()	{
+	    $('a#profile').addClass('current');
+    });
+</script>
 <script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
-{% endblock %}
-
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}" class="current">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
 {% endblock %}
 
 {% block profile_nav %}

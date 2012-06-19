@@ -1,22 +1,6 @@
-{% extends "base_inner_no_nav_highlight.html" %}
+{% extends "base_inner.html" %}
 
 {% load vbank_tags %}
-
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
-{% endblock %}
 
 {% block app_body %}
 <div class="leftdiv">

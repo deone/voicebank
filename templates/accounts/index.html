@@ -102,14 +102,15 @@
 
 {% block custom_js %}
 <script>
-	    $(function(){
-		    $('#slides').slides({
-			    preload: true,
-			    preloadImage: '{{ STATIC_URL }}img/loading.gif',
-			    play: 8000,
-			    pause: 2500,
-			    hoverPause: true
-		    });
+    $(function()    {
+	    $('#slides').slides({
+		    preload: true,
+		    preloadImage: '{{ STATIC_URL }}img/loading.gif',
+		    play: 8000,
+		    pause: 2500,
+		    hoverPause: true
 	    });
+	    $('a#home').addClass('current');
+    });
 </script>
 {% endblock %}

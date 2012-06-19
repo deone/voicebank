@@ -1021,11 +1021,15 @@ border-radius:20px;
     text-transform: capitalize;
 }
 
+.comment_list	{
+    margin-bottom: 40px;
+}
+
 .comment_list dt    {
     color: #000;
+    margin-bottom: 10px;
 }
 
 .comment_list dd    {
-    margin-bottom: 10px;
     font-size: 1.05em;
 }

@@ -1,21 +1,5 @@
 {% extends "base_inner.html" %}
 
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}" class="current">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
-{% endblock %}
-
 {% block app_body %}
 <div class="leftdiv">
     <div class="inner how">
@@ -224,5 +208,10 @@
 {% endblock %}
 
 {% block custom_js %}
+    <script>
+    $(function()    {
+	    $('a#how').addClass('current');
+    });
+    </script>
     <script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
 {% endblock %}

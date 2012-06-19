@@ -4,42 +4,17 @@
 
 {% load vbank_tags %}
 
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
-{% endblock %}
-
 {% block app_body %}
-
 <div class="leftdiv">
-    {% block profile_nav %}
-    {% endblock %}
-
+    {% block profile_nav %}{% endblock %}
     <div class="tabbed">
-
-	{% block tabnav %}
-	{% endblock %}
-
+	{% block tabnav %}{% endblock %}
 	<div class="tab_container">
-
 	{% block view_profile %}
 	    <div class="tab_content" id="tab-1">
-
 		<div class="pro-info">
 		    {% block profile_name_photo %}
 		    <h3>{{ profile.user.get_full_name }}</h3>
-
 		    {% if profile.photo %}
 			{% thumbnail profile.photo "97x94" crop="center" as pp %}
 			    <img src="{{ pp.url }}" width="{{ pp.width }}"
@@ -49,7 +24,6 @@
 			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
 		    {% endif %}
 		    {% endblock profile_name_photo %}
-
 		    <h3>Gender</h3>
 		    <p>
 			{% if profile.gender == "M" %}
@@ -58,16 +32,12 @@
 			Female
 			{% endif %}
 		    </p>
-
 		    <h3>Age</h3>
 		    <p>{{ age }}</p>
-
 		    <h3>Booking</h3>
 		    <p>{{ profile.phone_number }}</p>
-
 		    <h3>Location</h3>
 		    <p>{{ profile.location }}</p>
-
 		    <h3>Voice Bank URL</h3>
 		    {% block profile_url %}
 		    <p>
@@ -77,7 +47,6 @@
 		    </p>
 		    {% endblock profile_url %}
 		</div>
-
 		<div class="pro-details">
 		    <h3>About</h3>
 		    <p>{{ profile.about }}</p>
@@ -87,7 +56,6 @@
 
 		    <h3>Skills</h3>
 		    <p>{{ profile.skills }}</p>
-
 		    {% block voiceclips %}
 		    <h3>Voice Clips</h3>
 		    <div class="feature">
@@ -99,10 +67,8 @@
 		</div>
 	    </div>
 	{% endblock view_profile %}
-	{% block edit_profile %}
-	{% endblock %}
+	{% block edit_profile %}{% endblock %}
 	</div>
     </div> <!--/tabbed-->
 </div>
-
 {% endblock %}

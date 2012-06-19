@@ -1,4 +1,4 @@
-{% extends "base_inner_no_nav_highlight.html" %}
+{% extends "base_inner.html" %}
 
 {% block customer_care_banner %}{% endblock %}
 
@@ -6,42 +6,32 @@
 <div class="leftdiv">
     <div class="inner">
 	<h3>Contact Us</h3>
-
 	<div class="address">
 	    <p>Contact the Nigerian Voice Bank at;</p>
 	    <p>Covenant Sound Studio<br/>
 	    21 Road, E close, House 30,<br/>
 	    Festac Town.<br/></p>
-
-
 	    <p>Tel: 07044770254, 08092796787<br/>
 	    <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a><br/></p>
 	</div>
-
 	<div class="contactform">
-
 	    {% if messages %}
 		{% for message in messages %}
 		<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
 		{% endfor %}
 	    {% endif %}
-	    
 	    <form method="post" action={% url contact %}>{% csrf_token %}
-
 		{{ form.non_field_errors }}
-
 		<p>
 		    {{ form.name.errors }}
 		    <label>{{ form.name.label }}</label>
 		    {{ form.name }}
 		</p>
-
 		<p>
 		    {{ form.email.errors }}
 		    <label>{{ form.email.label }}</label>
 		    {{ form.email }}
 		</p>
-
 		<p>
 		    {{ form.phone_number.errors }}
 		    <label>{{ form.phone_number.label }}</label>
@@ -53,7 +43,6 @@
 		    <label>{{ form.comment.label }}</label>
 		    {{ form.comment }}
 		</p>
-
 		<p><input type="submit" value="Submit" class="btn"></p>
 	    </form>
 	</div>

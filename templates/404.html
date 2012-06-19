@@ -1,22 +1,4 @@
-{% extends "base.html" %}
-
-{% block nav %}
-<div class="nav">
-    <ul>
-	<li><a href="{% url home %}">Home</a></li>
-	<li><a href="{% url how %}">How it works</a></li>
-    {% if user.is_authenticated %}
-	<li><a href="{% url profile_edit %}">Profile</a></li>
-	<li><a href="{% url logout %}">Logout</a></li>
-    {% else %}
-	<li><a href="{% url join %}">Join</a></li>
-	<li><a href="{% url login %}">Login</a></li>
-    {% endif %}
-    </ul>
-</div>
-{% endblock %}
-
-{% block swf_banner %}{% endblock %}
+{% extends "base_inner.html" %}
 
 {% block title %}<title>Page not found</title>{% endblock %}
 
