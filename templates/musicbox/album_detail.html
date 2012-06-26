@@ -22,8 +22,11 @@
 		{% endthumbnail %}
 	    </p>
 	    <div class="clear pad2"></div>
-	    <!--<a href="" class="download-button">Download</a>
-	    <ul>
+	    {% for track in album.track_set.all %}
+	    <a href="{{ MEDIA_URL }}{{ track.track }}" class="download-button">Download</a>
+	    <p>Right-click and Select "Save Link As..."<p>
+	    {% endfor %}
+	    <!--<ul>
 		<li>
 		    &raquo; <a href="#">Share with Friends</a>
 		    <div class="sharepop">
@@ -59,13 +62,8 @@
 		{% endfor %}
 	    </ul>
 	    <div class="clear pad"></div>
-	    {% if user.id %}
 	    <h4>Rating:</h4>
 	    <div id="user_rating"></div>
-	    {% endif %}
-	    <!--<div class="rating">
-		<div style="width:75%"></div>
-	    </div>-->
 	    <div class="clear pad"></div>
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
