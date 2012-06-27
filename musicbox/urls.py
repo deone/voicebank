@@ -10,6 +10,6 @@ urlpatterns = patterns('musicbox.views',
 	    model=Album,
 	    paginate_by=settings.MUSICBOX_ALBUMS_PAGINATE_BY,
 	    ), name='musicbox_home'),
-	# url(r'^(?P<slug>[-.\w]+)$', DetailView.as_view(model=Album), name='album'),
 	url(r'^(?P<slug>[-.\w]+)$', AlbumDetailView.as_view(), name='album'),
+	url(r'^(?P<album_slug>[-.\w]+)/(?P<track_slug>[-.\w]+)$', 'download', name='track'),
 )

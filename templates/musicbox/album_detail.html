@@ -23,8 +23,7 @@
 	    </p>
 	    <div class="clear pad2"></div>
 	    {% for track in album.track_set.all %}
-	    <a href="{{ MEDIA_URL }}{{ track.track }}" class="download-button">Download</a>
-	    <p>Right-click and Select "Save Link As..."<p>
+	    <a href="{{ track.get_absolute_url }}" class="download-button">Download</a>
 	    {% endfor %}
 	    <!--<ul>
 		<li>
@@ -62,8 +61,10 @@
 		{% endfor %}
 	    </ul>
 	    <div class="clear pad"></div>
-	    <h4>Rating:</h4>
-	    <div id="user_rating"></div>
+	    {% if user.id %}
+		<h4>Rating:</h4>
+		<div id="user_rating"></div>
+	    {% endif %}
 	    <div class="clear pad"></div>
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
@@ -77,9 +78,7 @@
 		<div class="comment_list">
 		{% render_comment_list for album %}
 		</div>
-
 		{% render_comment_form for album %}
-
 	    </div> <!--/comments-->
 	</div>
 	<div class="clear"></div>

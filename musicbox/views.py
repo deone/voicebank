@@ -1,6 +1,8 @@
 from django.views.generic import DetailView
+from django.http import HttpResponse
+from django.conf import settings
 
-from musicbox.models import Album
+from musicbox.models import *
 from events.models import Event
 
 class AlbumDetailView(DetailView):
@@ -13,3 +15,11 @@ class AlbumDetailView(DetailView):
 	context['album_list'] = Album.objects.get_three_random_exclude(obj.id)
 	context['events'] = Event.objects.later_than_now()
 	return context
+
+def download(request, album_slug, track_slug):
+    album = Album.objects.get(slug__exact=album_slug)
+    track = Track.objects.get(album=album, slug__exact=track_slug)
+
+    response = HttpResponse(track.track, mimetype='audio/mp3')
+    response['Content-Disposition'] = 'attachment; filename=%s.mp3' % track.title
+    return response
