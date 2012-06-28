@@ -20,10 +20,8 @@ def index(request, template='accounts/index.html'):
     recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
     top_voice_clips = VoiceClip.objects.top()[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
-    albums = Album.objects.all()[:5]
 
     return render_to_response(template, {
-	'album_list': albums,
 	'voiceclip_list': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,

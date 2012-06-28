@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load musicbox %}
+{% load musicbox_tags %}
 
 {% load vbank_tags %}
 
@@ -41,7 +41,7 @@
     <div class="musicbox">
 	<h3>Music Box</h3>
 	<ul class="mbox">
-	    {% display_album_list %}
+	    {% display_albums 5 %}
 	</ul>
 	<a href="{% url musicbox_home %}" class="more">View More</a>
 	<div class="clear"></div>
@@ -100,6 +100,7 @@
 {% endblock %}
 
 {% block custom_js %}
+<script src="{{ STATIC_URL }}agon_ratings/js/jquery.raty.js"></script>
 <script>
     $(function()    {
 	    $('#slides').slides({

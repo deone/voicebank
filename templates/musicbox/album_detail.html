@@ -1,6 +1,6 @@
 {% extends "base_inner.html" %}
 
-{% load musicbox %}
+{% load musicbox_tags %}
 
 {% load thumbnail %}
 
@@ -61,15 +61,20 @@
 		{% endfor %}
 	    </ul>
 	    <div class="clear pad"></div>
+	    <h4>Rating:</h4>
 	    {% if user.id %}
-		<h4>Rating:</h4>
 		<div id="user_rating"></div>
+	    {% else %}
+	    <p>Please 
+		<a href="{% url login %}?next={{ request.path }}">sign in</a> or 
+		<a href="{% url join %}?next={{ request.path }}">join</a> to rate.
+	    </p>
 	    {% endif %}
 	    <div class="clear pad"></div>
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
 		<ul class="mbox">
-		    {% display_album_list %}
+		    {% display_albums_excluding album %}
 		</ul>
 		<div class="clear"></div>
 	    </div>

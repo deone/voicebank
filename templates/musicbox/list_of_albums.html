@@ -1,8 +1,10 @@
 
 {% load thumbnail %}
 
+{% load agon_ratings_tags %}
+
 {% for album in album_list %}
-    <li>
+    <li id="{{ album.slug }}">
 	{% thumbnail album.art "110x80" crop="center" as aa %}
 	<a href="{{ album.get_absolute_url }}">
 	    <img src="{{ aa.url }}" width="{{ aa.width }}" 
@@ -13,8 +15,9 @@
 	    <a href="{{ album.get_absolute_url }}">{{ album.title }}</a><br/>
 	    {{ album.artiste }}
 	</span>
+	{% overall_rating album as the_overall_rating %}
 	<div class="rating">
-	    <div style="width:70%"></div>
+	    <div style="width: {{ the_overall_rating }}em"></div>
 	</div>
     </li>
 {% endfor %}

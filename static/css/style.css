@@ -295,16 +295,18 @@ padding:0 20px 10px 0;
 }
 
 .rating {
-background: url(../img/no_star.png) repeat-x scroll 0 0 transparent;
-height: 14px;
-margin:5px 0 0;
-width: 70px;
-clear:both;
+    background-image: url(../img/nav_logo107.png);
+    background-position: 402px 520px;
+    height: 14px;
+    margin:5px 0 0;
+    width: 70px;
+    clear:both;
 }
 
 .rating div {
-background: url(../img/star.png) repeat-x scroll 0 0 transparent;
-height: 14px;
+    background-image: url(../img/nav_logo107.png);
+    background-position: 402px 504px;
+    height: 14px;
 }
 
 .rating.hover:hover {

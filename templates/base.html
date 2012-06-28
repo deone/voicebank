@@ -20,7 +20,6 @@
 		pagebg: "F9F9F9"
 	    });
 	</script>
-	{% block custom_js %}{% endblock %}
     </head>
     <body>
 	<div class="header">
@@ -93,7 +92,8 @@
 
 			<div class="ev">
 			    <ul class="connect">
-				<li><a href="http://facebook.com/nigerianvoicebank" title="Join us on Facebook" target="_blank">Facebook</a></li>
+				<li><a
+				    href="http://facebook.com/nigerianvoicebank" title="Like us on Facebook" target="_blank">Facebook</a></li>
 				<li class="tw"><a href="http://twitter.com/voicebankng" title="Follow us on Twitter" target="_blank">Twitter</a></li>
 				<!--<li class="lk"><a href="http://linkedin.com/" title="Join us on LinkedIn" target="_blank">LinkedIn</a></li>
 				<li class="gp"><a href="http://plus.google.com/" title="Join us on Google Plus" target="_blank">Google Plus</a></li>
@@ -128,6 +128,7 @@
 
 	    </div>
 	</div> <!--/footer-->
+	{% block custom_js %}{% endblock %}
 	{% block rating_js %}{% endblock %}
     </body>
 </html>

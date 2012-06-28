@@ -1,13 +1,13 @@
 {% extends "base_inner.html" %}
 
-{% load musicbox %}
+{% load musicbox_tags %}
 
 {% block app_body %}
 <div class="leftdiv">
     <div class="musicbox">
 	<h3>Music Box</h3>
 	<ul class="mbox">
-	    {% display_album_list %}
+	    {% display_albums %}
 	</ul>
 	{% if is_paginated %}
 	<div class="pagenav">
