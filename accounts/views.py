@@ -7,7 +7,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.views.generic import DetailView
-from django.contrib.sites.models import get_current_site
+from django.contrib.sites.models import Site
 
 from accounts import calculate_age
 from accounts.models import Profile
@@ -49,7 +49,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 
     return render_to_response(template, {
 	    'form': form,
-	    'site': get_current_site(request),
+	    'site': Site.objects.get_current().domain,
 	    'age': calculate_age(request.user.profile.birthday),
 	    'profile': request.user.get_profile(),
 	}, context_instance=RequestContext(request))
@@ -63,7 +63,7 @@ class ProfileDetailView(DetailView):
 	obj = super(ProfileDetailView, self).get_object()
 	context = super(ProfileDetailView, self).get_context_data(**kwargs)
 	context['age'] = calculate_age(obj.birthday)
-	context['site'] = get_current_site(request)
+	context['site'] = Site.objects.get_current().domain
 	return context
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
@@ -89,7 +89,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    recipients.append(email)
 
 	    context_vars = {}
-	    context_vars['login_url'] = "%s%s" % (get_current_site(request),
+	    context_vars['login_url'] = "%s%s" % (Site.objects.get_current().domain,
 		    settings.LOGIN_URL)
 
 	    ###########################

@@ -16,8 +16,11 @@ class AlbumDetailView(DetailView):
 	return context
 
 def download(request, album_slug, track_slug):
+    """ We can count downloads here """
     album = Album.objects.get(slug__exact=album_slug)
     track = Track.objects.get(album=album, slug__exact=track_slug)
+    track.download_count = track.download_count + 1
+    track.save()
 
     response = HttpResponse(track.track, mimetype='audio/mp3')
     response['Content-Disposition'] = 'attachment; filename=%s.mp3' % track.title

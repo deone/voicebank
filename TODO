@@ -1,25 +1,13 @@
 Do:
+* Musicbox unit tests.
+* Style musicbox comments list.
+* Musicbox track plays - attach event handler to player.
 * Page titles.
 * Refactor forms, styles and URLs.
 * Make error and success messges look nicer.
 
-* Use templatetags this way e.g. {% show_voiceclips user %} so that we won't need to pass voiceclip as context variable.
-* Style musicbox comments list.
 * Review current unit tests and write more.
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
  - We can now do error message checks in POST requests, courtesy Django 1.3.
-
-Note these model/db changes:
-* Category now contains slug field.
-* vbank, events, booking, contact now standalone apps
- - core_event now events_event.
- - core_booking now booking_booking.
- - core_contact now contact_contact.
- - core_category and core_voiceclips now vbank_category and vbank_voiceclips.
-
-Voiceclip templatetags
-- category_detail
-- index
-- voiceclip_list

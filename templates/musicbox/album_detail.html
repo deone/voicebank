@@ -45,13 +45,14 @@
 	    <h3>Info</h3>
 	    <p>{{ album.info }}</p>
 	    <div class="clear pad"></div>
+	    {% if album.track_set.all %}
 	    <h3>Play</h3>
 	    <ul class="item-preview">
 		{% for track in album.track_set.all %}
 		<li>
 		    <span class="capitalize">{{ track.title }}</span><br/>
-		    <span id="audioplayer_{{ track.id }}">{{ track.title }}</span>
-		    <script>
+		    <span id="audioplayer_{{ track.id }}"></span>
+		    <script>	
 			AudioPlayer.embed("audioplayer_{{ track.id }}", {
 			    soundFile: "{{ MEDIA_URL }}{{ track.track }}",
 			    titles: "{{ track.title }}"
@@ -60,6 +61,7 @@
 		</li>
 		{% endfor %}
 	    </ul>
+	    {% endif %}
 	    <div class="clear pad"></div>
 	    <h4>Rating:</h4>
 	    {% if user.id %}

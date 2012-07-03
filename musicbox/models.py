@@ -34,6 +34,7 @@ class Track(models.Model):
     title = models.CharField(max_length=30)
     track = models.FileField(upload_to="tracks")
     slug = models.SlugField(unique=True, editable=False)
+    download_count = models.IntegerField(default=0, editable=False)
 
     def __unicode__(self):
 	return self.title
