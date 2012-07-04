@@ -8,7 +8,7 @@
 		    {{ clip.user.get_full_name }}
 		</a>
 	    </div>
-	    <span id="audioplayer_{{ clip.id }}">{{ clip.name }}</span>
+	    <span id="audioplayer_{{ clip.id }}"></span>
 	    <script>
 		AudioPlayer.embed("audioplayer_{{ clip.id }}", {
 		    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",

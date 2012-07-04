@@ -24,9 +24,8 @@
 	    <div class="clear pad2"></div>
 	    {% for track in album.track_set.all %}
 	    <a href="{{ track.get_absolute_url }}" class="download-button">Download</a>
-	    {% endfor %}
-	    <!--<ul>
-		<li>
+	    <ul>
+		<!--<li>
 		    &raquo; <a href="#">Share with Friends</a>
 		    <div class="sharepop">
 			<ul>
@@ -35,11 +34,14 @@
 			    <li><a href="">Google Plus</a></li>
 			</ul>
 		    </div>
-		</li>
-		<li>&raquo; <a href="#comments">2 Comments</a></li>
-		<li>&raquo; <strong>No. of plays:</strong> 34</li>
-		<li>&raquo; <strong>Downloads:</strong> 56</li>
-	    </ul>-->
+		</li>-->
+		{% get_comment_count for album as comment_count %}
+		<li>&raquo; <a href="#comments">{{ comment_count }} Comments</a></li>
+		<!--<li>&raquo; <strong>No. of plays:</strong> 34</li>-->
+		<li>&raquo; <strong>Downloads:</strong>
+		 {{ track.download_count }}</li>
+	    </ul>
+	    {% endfor %}
 	</div>
 	<div class="item-info">
 	    <h3>Info</h3>
@@ -50,7 +52,7 @@
 	    <ul class="item-preview">
 		{% for track in album.track_set.all %}
 		<li>
-		    <span class="capitalize">{{ track.title }}</span><br/>
+		    <div class="capitalize">{{ track.title }}</div>
 		    <span id="audioplayer_{{ track.id }}"></span>
 		    <script>	
 			AudioPlayer.embed("audioplayer_{{ track.id }}", {
