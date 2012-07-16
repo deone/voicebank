@@ -841,8 +841,8 @@ padding:10px 20px;
 clear:both;
 }
 
-.profile-edit p.thumb{
-float:left;
+p.thumb	{
+    float:left;
 }
 
 .profile-edit p.upload{
@@ -1023,19 +1023,24 @@ border-radius:20px;
     text-transform: capitalize;
 }
 
-.comment_list	{
-    margin-bottom: 40px;
-}
-
-.comment_list dt    {
-    color: #000;
-    margin-bottom: 10px;
-}
-
-.comment_list dd    {
-    font-size: 1.05em;
-}
-
 .no-event   {
     margin-bottom: 15px;
+}
+
+#comments dt	{
+    padding: 5px 0;
+}
+
+#comments dd	{
+    border-bottom: solid 1px #e7e7e7;
+    padding: 5px 0;
+}
+
+#comments form	{
+    border-bottom: solid 1px #e7e7e7;
+    padding-bottom: 10px;
+}
+
+#comments p.thumb   {
+    margin: 10px 10px 0 0;
 }

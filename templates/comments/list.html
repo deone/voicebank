@@ -1,0 +1,22 @@
+{% load thumbnail %}
+
+<dl id="comments">
+{% for comment in comment_list %}
+    <p class="thumb">
+    {% if user.profile.photo %}
+	{% thumbnail user.profile.photo "48x48" crop="center" as up %}
+	    <img class="display-picture" src="{{ up.url }}" width="{{ up.width }}" height="{{ up.height }}"/>
+	{% endthumbnail %}
+    {% else %}
+	<img src="{{ STATIC_URL }}img/profile.jpg" width="48px">
+    {% endif %}
+    </p>
+    <dt id="c{{ comment.id }}">
+	<a href="{{ comment.user.profile.get_absolute_url }}">{{ comment.name }}</a>
+    </dt>
+    <p>{{ comment.comment }}</p>
+    <dd>
+	<span class="date">{{ comment.submit_date }}</span>
+    </dd>
+  {% endfor %}
+</dl>
