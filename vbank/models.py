@@ -42,8 +42,8 @@ class VoiceClip(models.Model):
     is_active = models.BooleanField('Approved', default=False)
     is_top = models.BooleanField('Top Clip', default=False)
     category = models.ForeignKey(Category)
-    date_added = models.DateTimeField(default=datetime.now())
-    is_top_timestamp = models.DateTimeField(default=datetime.now())
+    date_added = models.DateTimeField(default=datetime.now)
+    is_top_timestamp = models.DateTimeField(default=datetime.now)
 
     objects = PassThroughManager.for_queryset_class(VoiceClipQuerySet)()
 
