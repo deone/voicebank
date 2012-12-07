@@ -16,7 +16,7 @@ DATABASES = {
 STATICFILE_DIRS = (
     os.path.join(PROJECT_DIR, "static"),
 )
-STATIC_ROOT = os.path.join(PROJECT_DIR, "../../voicebank_static"),
+STATIC_ROOT = os.path.join(PROJECT_DIR, "../../voicebank_static")
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = 25
