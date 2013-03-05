@@ -1,4 +1,6 @@
 
-grant all on voicebank.* to 'voice_admin' identified by 'v01ce';
+drop database if exists `voicebank`;
 
-create database voicebank;
+create database `voicebank`;
+
+grant all on voicebank.* to 'voice_admin'@'localhost' identified by 'v01ce';

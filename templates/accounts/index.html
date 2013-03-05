@@ -9,9 +9,9 @@
     <div class="categories">
 	<h3>Voice Artist Categories 
 	    <span class="alt">
-		<a href="{% url booking %}">Book your recordings here <em>&raquo;</em></a>
+		<a href="{% url 'booking.views.index' %}">Book your recordings here <em>&raquo;</em></a>
 	    </span>
-	    <span><a href="{% url all_clips %}">View All Voice Clips <em>&raquo;</em></a></span>
+	    <span><a href="{% url 'all_clips' %}">View All Voice Clips <em>&raquo;</em></a></span>
 	</h3>
 
 	<ul>
@@ -33,7 +33,7 @@
 		{% endif %}
 	    {% endfor %}
 	    <li>
-		<a href="{% url all_clips %}" class="allvoice"></a>
+		<a href="{% url 'all_clips' %}" class="allvoice"></a>
 	    </li>
 	</ul>
     </div> <!--/categories-->
@@ -43,7 +43,7 @@
 	<ul class="mbox">
 	    {% display_albums 5 %}
 	</ul>
-	<a href="{% url musicbox_home %}" class="more">View More</a>
+	<a href="{% url 'musicbox_home' %}" class="more">View More</a>
 	<div class="clear"></div>
     </div>
 
@@ -58,7 +58,7 @@
 		{% endif %}
 	    </div>
 	    <div class="lower">
-		<a href="{% url all_clips %}">View All<em>&raquo;</em></a>
+		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
 
@@ -91,7 +91,7 @@
 		{% endif %}
 	    </div>
 	    <div class="lower">
-	    <a href="{% url all_clips %}">View All<em>&raquo;</em></a>
+	    <a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
     </div> <!--/feature-->
