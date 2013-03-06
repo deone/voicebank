@@ -1,0 +1,9 @@
+To solve mysql-python problem, use;
+
+    sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
+
+    sudo ln -s /usr/local/mysql/lib /usr/local/mysql/lib/mysql
+
+Another solution is to add this to your .profile;
+
+    export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
