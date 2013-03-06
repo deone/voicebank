@@ -1,6 +1,6 @@
 import os
 
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import ListView, DetailView, TemplateView
@@ -18,11 +18,12 @@ urlpatterns = patterns('',
 		paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
 		), name='all_clips'),
 	url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
-	url(r'^ratings/', include('agon_ratings.urls')),
 )
 
 urlpatterns += patterns('',
 	(r'^', include('accounts.urls')),
+	(r'^ratings/', include('agon_ratings.urls')),
+	# (r'^articles/', include('articles.urls')),
 	(r'^musicbox/', include('musicbox.urls')),
 	(r'^events/', include('events.urls')),
 	(r'^voicebank/', include('vbank.urls')),

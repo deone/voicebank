@@ -7,7 +7,7 @@
     <div class="rform">
 	<h3>Join Nigerian Voice Bank</h3>
 
-	<form method="post" action="{% url join %}">{% csrf_token %}
+	<form method="post" action="{% url 'join' %}">{% csrf_token %}
 	    {{ form.non_field_errors }}
 	    <p>
 		{{ form.first_name.errors }}
@@ -49,7 +49,7 @@
 	<div class="clear pad"></div>
 
 	<h3>Already have an account?</h3>
-	<p><a href="{% url login %}">Click here</a> to Login.</p>
+	<p><a href="{% url 'login' %}">Login</a></p>
     </div>
 
 </div> <!--/leftdiv-->

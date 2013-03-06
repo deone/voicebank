@@ -8,7 +8,7 @@
 <div class="leftdiv">
     <div class="rform">
 	<h3>Login</h3>
-	<form method="post" action="{% url login %}?next={{ next }}">{% csrf_token %}
+	<form method="post" action="{% url 'login' %}?next={{ next }}">{% csrf_token %}
 	    {{ form.non_field_errors }}
 	    <p>
 		{{ form.username.errors }}
@@ -26,7 +26,7 @@
 	</form>
 	<div class="clear pad"></div>
 	<h3>Don't have an account?</h3>
-	<p><a href="{% url join %}">Click here</a> to Join Nigerian Voice Bank.</p>
+	<p><a href="{% url 'join' %}">Join</a> Nigerian Voice Bank.</p>
     </div> <!--/rform-->
 </div> <!--/leftdiv-->
 {% endblock %}
