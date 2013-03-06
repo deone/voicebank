@@ -6,7 +6,7 @@
 
 {% block app_body %}
 <div class="leftdiv">
-    <div class="categories">
+    <div class="home-left-pane" id="categories">
 	<h3>Voice Artist Categories 
 	    <span class="alt">
 		<a href="{% url 'booking.views.index' %}">Book your recordings here <em>&raquo;</em></a>
@@ -38,32 +38,34 @@
 	</ul>
     </div> <!--/categories-->
 
-    <div class="musicbox">
+    <div class="home-left-pane" id="musicbox">
 	<h3>Music Box</h3>
-	<ul class="mbox">
+	<ul>
 	    {% display_albums 5 %}
 	</ul>
 	<a href="{% url 'musicbox_home' %}" class="more">View More</a>
 	<div class="clear"></div>
     </div>
 
-    <div class="feature">
-	<div class="recent">
-	    <div class="upper">
-		<h3>Most Recent Additions</h3>
-		{% if voiceclip_list %}
-		    {% display_voiceclip_list %}
-		{% else %}
-		    <p> There are no recent voice clips.</p>
-		{% endif %}
-	    </div>
-	    <div class="lower">
+    <div class="home-left-pane" id="articles">
+	<h3>Articles</h3>
+	&nbsp;
+    </div>
+
+    <div class="home-left-pane" id="feature">
+	<div class="compact-content-pane" id="recent">
+	    <h3>Most Recent Additions</h3>
+	    {% if voiceclip_list %}
+		{% display_voiceclip_list %}
+	    {% else %}
+		<p> There are no recent voice clips.</p>
+	    {% endif %}
+	    <div>
 		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
 
-	<div class="additions">
-	    <div class="upper">
+	<div class="compact-content-pane" id="additions">
 		<h3>Top 5 voice clips</h3>
 		{% if top_clips %}
 		<ul>
@@ -89,10 +91,9 @@
 		{% else %}
 		<p>No voice clips yet.</p>
 		{% endif %}
-	    </div>
-	    <div class="lower">
-	    <a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
-	    </div>
+		<div>
+		    <a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
+		</div>
 	</div>
     </div> <!--/feature-->
 
