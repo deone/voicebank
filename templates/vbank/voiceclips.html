@@ -17,8 +17,8 @@ $(function()	{
 <div class="leftdiv">
     <div class="t-link">
 	<ul>
-	    <li><a href="{% url profile_edit %}">Profile</a></li>
-	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+	    <li><a href="{% url 'profile_edit' %}">Profile</a></li>
+	    <li><a href="{% url 'voiceclips' %}">Voice Clips</a></li>
 	</ul>
     </div>
     <div class="tabbed">
@@ -34,14 +34,22 @@ $(function()	{
 
 	<div class="tab_container">
 	    <div class="tab_content" id="tab-1">
-		<div class="feature" style="padding-left: 5px;">
 		{% with template='voiceclips' %}
-		{% show_user_voiceclips user template %}
+		    {% if voiceclip_list %}
+			{% show_user_voiceclips user template %}
+		    {% else %}
+			{% ifequal template 'voiceclips' %}
+			    <p>You've either not uploaded any voice clips, or they have not been approved by the Administrator.</p>
+			{% endifequal %}
+			{% ifequal template 'profile_detail' %}
+			    <p>{{ user.first_name }} has either not uploaded any voice clips, or they have not been<br/> 
+			    approved by the Administrator.</p>
+			{% endifequal %}
+		    {% endif %}
 		{% endwith %}
-		</div>
 	    </div>
 	    <div class="tab_content" id="tab-2">
-		<form action="{% url voiceclips %}" enctype="multipart/form-data" method="post" class="profile-edit">{% csrf_token %}
+		<form action="{% url 'voiceclips' %}" enctype="multipart/form-data" method="post" class="profile-edit">{% csrf_token %}
 		    <fieldset>
 			{{ form.user.as_hidden }}
 			<p>

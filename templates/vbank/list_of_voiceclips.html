@@ -1,4 +1,3 @@
-{% if voiceclip_list %}
     <ul>
     {% for clip in voiceclip_list %}
 	{% if clip.is_active %}
@@ -20,11 +19,3 @@
 	{% endif %}
     {% endfor %}
     </ul>
-{% else %}
-    {% ifequal template 'voiceclips' %}
-    <p>You've either not uploaded any voice clips, or they have not been approved by the Administrator.</p>
-    {% endifequal %}
-    {% ifequal template 'profile_detail' %}
-    <p>{{ user.first_name }} has either not uploaded any voice clips, or they have not been<br/> approved by the Administrator.</p>
-    {% endifequal %}
-{% endif %}
