@@ -16,8 +16,8 @@
 {% block profile_nav %}
     <div class="t-link">
 	<ul>
-	    <li><a href="{% url profile_edit %}">Profile</a></li>
-	    <li><a href="{% url voiceclips %}">Voice Clips</a></li>
+	    <li><a href="{% url 'profile_edit' %}">Profile</a></li>
+	    <li><a href="{% url 'voiceclips' %}">Voice Clips</a></li>
 	</ul>
     </div>
 {% endblock %}
@@ -58,7 +58,7 @@
 {% block edit_profile %}
     <div class="tab_content" id="tab-2">
 	<form method="post"
-	    enctype="multipart/form-data" action="{% url profile_edit %}" class="profile-edit">{% csrf_token %}
+	    enctype="multipart/form-data" action="{% url 'profile_edit' %}" class="profile-edit">{% csrf_token %}
 	    <fieldset>
 
 		{{ form.user.as_hidden }}
