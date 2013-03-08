@@ -23,7 +23,6 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
 	(r'^', include('accounts.urls')),
 	(r'^ratings/', include('agon_ratings.urls')),
-	# (r'^articles/', include('articles.urls')),
 	(r'^musicbox/', include('musicbox.urls')),
 	(r'^events/', include('events.urls')),
 	(r'^voicebank/', include('vbank.urls')),
@@ -31,6 +30,7 @@ urlpatterns += patterns('',
 	(r'^contact/', include('contact.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),
 	(r'^admin/', include(admin.site.urls)),
+	(r'^articles/', include('django.contrib.flatpages.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

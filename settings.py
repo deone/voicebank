@@ -105,6 +105,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'django.contrib.comments',
+    'django.contrib.flatpages',
     'sorl.thumbnail',
     'accounts',
     'vbank',
@@ -113,6 +114,7 @@ INSTALLED_APPS = (
     'booking',
     'contact',
     'agon_ratings',
+    'articles',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
