@@ -4,8 +4,8 @@
 {% load agon_ratings_tags %}
 
 {% for album in album_list %}
-    <li id="{{ album.slug }}">
-	{% thumbnail album.art "110x80" crop="center" as aa %}
+    <li id="{{ album.slug }}" class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
+	{% thumbnail album.art "119x90" crop="center" as aa %}
 	<a href="{{ album.get_absolute_url }}">
 	    <img src="{{ aa.url }}" width="{{ aa.width }}" 
 	    height="{{ aa.height }}"/>
