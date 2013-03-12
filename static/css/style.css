@@ -70,10 +70,6 @@
     height:77px;
 }
 
-#categories ul li.last	{
-    margin-right:0;
-}
-
 #categories ul li span	{
     position:absolute;
     bottom:3px;
@@ -105,26 +101,22 @@
     background:#eee url(../img/allvoice.png) no-repeat;
 }
 
-#musicbox ul li	{
+.album-list ul li   {
     float:left;
-    width:120px;
+    width:125px;
     height:170px;
     margin:0 20px 20px 0;
 }
 
-#musicbox ul li img {
+.album-list ul li img {
     border:3px solid #ddd;
 }
 
-#musicbox ul li img:hover   {
+.album-list ul li img:hover   {
     border:3px solid #ccc;
 }
 
-#musicbox ul li.last	{
-    margin-right:0;
-}
-
-#musicbox ul li a   {
+.album-list ul li a   {
     font-weight:bold;
 }
 
@@ -143,6 +135,7 @@ a.more {
     padding: 3px 10px;
     text-shadow: 0 1px 0 #000;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
 a.more:hover {
@@ -150,17 +143,21 @@ a.more:hover {
     background:#CC051A;
 }
 
-#articles   {
-    background-color: #ff0;
+#articles .compact-content-pane	{
+    width: 159px;
+    margin-bottom: 20px;
+}
+
+#feature .compact-content-pane	{
+    width: 340px;
 }
 
 .compact-content-pane	{
     float: left;
-    width:340px;
     border:1px solid #ccc;
     box-shadow:0 2px 8px rgba(0, 0, 0, 0.1);
-    margin:0 0 30px;
     border-radius:5px;
+    margin-right: 20px;
 }
 
 .compact-content-pane h3   {
@@ -210,25 +207,33 @@ a.more:hover {
     padding-left:5px;
 }
 
-.feature .lower a:hover{
+#categories ul li.no-margin {
+    margin-right: 0;
+}
+
+.album-list ul li.no-margin {
+    margin-right:0;
+}
+
+.no-margin  {
+    margin-right: 0;
+}
+
+#feature .lower a:hover	{
 text-decoration:none;
 border-bottom:1px dotted #999;
 }
 
-.feature li{
+#feature li {
 padding:3px 10px;
 overflow:hidden;
 border-bottom:1px solid #eee;
 position:relative;
 }
 
-.feature li a{
+#feature li a	{
 font-weight:bold;
 color:#3151A2;
-}
-
-#recent	{
-    margin-right: 20px;
 }
 
 span.numeric{

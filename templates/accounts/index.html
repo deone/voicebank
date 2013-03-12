@@ -16,29 +16,38 @@
 
 	<ul>
 	    {% for category in categories %}
-		{% if forloop.counter == 5 or forloop.counter == 10 %}
-		<li class="last">
+		<li class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
 		    <a href="{{ category.get_absolute_url }}">
 			<span>{{ category.name }}</span>
 			<img src="{{ category.image.url }}"/>
 		    </a>
 		</li>
-		{% else %}
-		<li>
-		    <a href="{{ category.get_absolute_url }}">
-			<span>{{ category.name }}</span>
-			<img src="{{ category.image.url }}"/>
-		    </a>
-		</li>
-		{% endif %}
 	    {% endfor %}
 	    <li>
 		<a href="{% url 'all_clips' %}" class="allvoice"></a>
 	    </li>
 	</ul>
-    </div> <!--/categories-->
+    </div> <!--/categories--> 
 
-    <div class="home-left-pane" id="musicbox">
+    <div class="home-left-pane" id="articles">
+	<h3>Articles</h3>
+	<ul>
+	    <li class="compact-content-pane">
+		&nbsp;
+	    </li>
+	    <li class="compact-content-pane">
+		&nbsp;
+	    </li>
+	    <li class="compact-content-pane">
+		&nbsp;
+	    </li>
+	    <li class="compact-content-pane no-margin">
+		&nbsp;
+	    </li>
+	</ul>
+    </div>
+
+    <div class="home-left-pane album-list" id="musicbox">
 	<h3>Music Box</h3>
 	<ul>
 	    {% display_albums 5 %}
@@ -47,13 +56,8 @@
 	<div class="clear"></div>
     </div>
 
-    <div class="home-left-pane" id="articles">
-	<h3>Articles</h3>
-	&nbsp;
-    </div>
-
     <div class="home-left-pane" id="feature">
-	<div class="compact-content-pane" id="recent">
+	<div class="compact-content-pane">
 	    <h3>Most Recent Additions</h3>
 	    {% if voiceclip_list %}
 		{% display_voiceclip_list %}
@@ -65,7 +69,7 @@
 	    </div>
 	</div>
 
-	<div class="compact-content-pane" id="additions">
+	<div class="compact-content-pane no-margin" id="additions">
 		<h3>Top 5 voice clips</h3>
 		{% if top_clips %}
 		<ul>
