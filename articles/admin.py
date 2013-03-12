@@ -14,7 +14,6 @@ class ArticleForm(FlatpageForm):
     def __init__(self, *args, **kwargs):
 	super(ArticleForm, self).__init__(*args, **kwargs)
 	self.fields['url'].required = False
-	self.fields['sites'].required = False
 
     def clean_url(self):
 	return self.cleaned_data['url']
@@ -22,7 +21,7 @@ class ArticleForm(FlatpageForm):
 class ArticleAdmin(FlatPageAdmin):
     form = ArticleForm
     fieldsets = (
-        (None, {'fields': ('title', 'image', 'content', 'sites')}),
+        (None, {'fields': ('title', 'image', 'content', 'article_type', 'featured', 'enable_comments', 'sites')}),
         # (('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required')}),
     )
 
