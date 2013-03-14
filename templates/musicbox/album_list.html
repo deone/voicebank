@@ -6,9 +6,7 @@
 <div class="leftdiv">
     <div class="musicbox">
 	<h3>Music Box</h3>
-	<ul class="mbox">
-	    {% display_albums %}
-	</ul>
+	{% display_albums %}
 	{% if is_paginated %}
 	<div class="pagenav">
 	    {% if page_obj.has_previous %}

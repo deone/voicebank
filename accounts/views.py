@@ -14,6 +14,7 @@ from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from vbank.models import VoiceClip, Category
 from musicbox.models import Album
+from articles.models import Article
 
 # This should be CategoryListView
 def index(request, template='accounts/index.html'):
@@ -21,10 +22,13 @@ def index(request, template='accounts/index.html'):
     top_voice_clips = VoiceClip.objects.top()[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
     categories = Category.objects.all()
 
+    featured_articles = Article.objects.filter(featured=True)
+
     return render_to_response(template, {
 	'voiceclip_list': recent_voice_clips,
 	'top_clips': top_voice_clips,
 	'categories': categories,
+        'featured_articles': featured_articles,
 	}, context_instance=RequestContext(request))
 
 @login_required

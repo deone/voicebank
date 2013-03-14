@@ -8,8 +8,8 @@ from datetime import datetime
 ARTICLE_TYPE_CHOICES = (
     ("News", "News"),
     ("Voice Tips", "Voice Tips"),
-    ("Others", "Others"),
     ("Radio Connect", "Radio Connect"),
+    ("Others", "Others"),
 )
 
 class Article(FlatPage):
@@ -19,8 +19,23 @@ class Article(FlatPage):
     date_created = models.DateTimeField(default=datetime.now, editable=False)
     date_featured = models.DateTimeField(default=datetime.now)
 
+    class Meta:
+        ordering = ['-date_featured']
+
     def save(self, *args, **kwargs):
 	self.url = '/' + slugify(self.title) + '/'
-	if self.featured:
-	    self.date_featured = datetime.now()
+        try:
+	    orig = Article.objects.get(pk=self.pk)
+	except Article.DoesNotExist:
+	    pass
+	else:
+	    if not orig.featured and self.featured:
+		self.date_featured = datetime.now()
+
+        featured_articles = Article.objects.filter(featured=True).filter(article_type=self.article_type)
+        if featured_articles and self.featured:
+            featured_article = featured_articles[0]
+            featured_article.featured = False
+            featured_article.save()
+
 	super(Article, self).save(*args, **kwargs)

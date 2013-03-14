@@ -17,6 +17,12 @@
     background: url(../img/star.png) repeat-x scroll 0 0 transparent;
 }
 
+.leftdiv    {
+    float: left;
+    width: 720px;
+    border-right: 1px solid #eee;
+}
+
 .home-left-pane	{
     width: 705px;
     float: left;
@@ -52,25 +58,21 @@
     color:#ED1C24;
 }
 
-#categories ul li   {
-    background:#fff;
-    float:left;
+ul.categories li    {
     margin:0 12px 20px 0;
-    padding:3px;
-    position:relative;
-    width:123px;
-    height:77px;
+    padding: 3px;
     border:1px solid #CDCDCD;
     border-radius:3px;
     box-shadow:0 1px 2px rgba(0, 0, 0, 0.07);
+    position: relative;
 }
 
-#categories ul li img	{
+ul.categories li img	{
     width:123px;
     height:77px;
 }
 
-#categories ul li span	{
+ul.categories li span	{
     position:absolute;
     bottom:3px;
     right:3px;
@@ -81,42 +83,41 @@
     width:103px;
 }
 
-#categories ul li:hover	{
+ul.categories li:hover	{
     border:1px solid #777;
     box-shadow:0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-#categories ul li:hover span	{
+ul.categories li:hover span	{
     color:#fff;
     background:#444;
 }
 
-#categories ul li a {
+ul.categories li a  {
     display: block;
     height: 77px;
     width: 123px;
 }
 
-#categories ul li a.allvoice	{
+ul.categories li a.allvoice	{
     background:#eee url(../img/allvoice.png) no-repeat;
 }
 
-.album-list ul li   {
-    float:left;
+ul.albums li  {
     width:125px;
     height:170px;
     margin:0 20px 20px 0;
 }
 
-.album-list ul li img {
+ul.albums li img    {
     border:3px solid #ddd;
 }
 
-.album-list ul li img:hover   {
+ul.albums li img:hover  {
     border:3px solid #ccc;
 }
 
-.album-list ul li a   {
+ul.albums li a   {
     font-weight:bold;
 }
 
@@ -143,21 +144,34 @@ a.more:hover {
     background:#CC051A;
 }
 
-#articles .compact-content-pane	{
-    width: 159px;
+ul.articles li {
+    width: 161px;
     margin-bottom: 20px;
+}
+
+ul.articles li img  {
+    margin-bottom: 10px;
+    border: solid 1px #ddd;
+}
+
+ul.articles li img:hover  {
+    border: solid 1px #ccc;
 }
 
 #feature .compact-content-pane	{
     width: 340px;
 }
 
-.compact-content-pane	{
+.compact-content-pane,
+ul li    {
     float: left;
+    margin-right: 20px;
+}
+
+.compact-content-pane	{
     border:1px solid #ccc;
     box-shadow:0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius:5px;
-    margin-right: 20px;
 }
 
 .compact-content-pane h3   {
@@ -166,8 +180,8 @@ a.more:hover {
     color:#82A519;
     padding:10px 10px 10px 0;
     border-bottom:1px solid #EBE3E3;
-    width: 310px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .compact-content-pane p	{
@@ -207,16 +221,21 @@ a.more:hover {
     padding-left:5px;
 }
 
-#categories ul li.no-margin {
+ul li.no-margin {
     margin-right: 0;
-}
-
-.album-list ul li.no-margin {
-    margin-right:0;
 }
 
 .no-margin  {
     margin-right: 0;
+}
+
+#article-type-group {
+    margin-top: 20px;
+}
+
+#article-type-group .compact-content-pane   {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #feature .lower a:hover	{
@@ -404,12 +423,6 @@ font-weight:bold;
 background:#5E707A;
 text-decoration:none;
 border-radius:5px;
-}
-
-.leftdiv{
-float:left;
-width:720px;
-border-right:1px solid #eee;
 }
 
 

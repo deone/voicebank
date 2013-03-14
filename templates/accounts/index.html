@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+
 {% load musicbox_tags %}
 
 {% load vbank_tags %}
@@ -9,12 +11,12 @@
     <div class="home-left-pane" id="categories">
 	<h3>Voice Artist Categories 
 	    <span class="alt">
-		<a href="{% url 'booking.views.index' %}">Book your recordings here <em>&raquo;</em></a>
+		<a href="{% url 'booking' %}">Book your recordings here <em>&raquo;</em></a>
 	    </span>
 	    <span><a href="{% url 'all_clips' %}">View All Voice Clips <em>&raquo;</em></a></span>
 	</h3>
 
-	<ul>
+	<ul class="categories">
 	    {% for category in categories %}
 		<li class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
 		    <a href="{{ category.get_absolute_url }}">
@@ -29,29 +31,25 @@
 	</ul>
     </div> <!--/categories--> 
 
-    <div class="home-left-pane" id="articles">
+    <div class="home-left-pane">
 	<h3>Articles</h3>
-	<ul>
-	    <li class="compact-content-pane">
-		&nbsp;
+	<ul class="articles">
+            {% for article in featured_articles %}
+            <li class="{% if forloop.counter|divisibleby:4 %}no-margin{% endif %}">
+                <a href="{{ article.get_absolute_url }}">
+                {% thumbnail article.image "161x130" crop="center" as ar %}
+                    <img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
+                {% endthumbnail %}
+		{{ article.title }}
+                </a>
 	    </li>
-	    <li class="compact-content-pane">
-		&nbsp;
-	    </li>
-	    <li class="compact-content-pane">
-		&nbsp;
-	    </li>
-	    <li class="compact-content-pane no-margin">
-		&nbsp;
-	    </li>
+            {% endfor %}
 	</ul>
     </div>
 
-    <div class="home-left-pane album-list" id="musicbox">
+    <div class="home-left-pane" id="musicbox">
 	<h3>Music Box</h3>
-	<ul>
-	    {% display_albums 5 %}
-	</ul>
+	{% display_albums 5 %}
 	<a href="{% url 'musicbox_home' %}" class="more">View More</a>
 	<div class="clear"></div>
     </div>
@@ -100,6 +98,24 @@
 		</div>
 	</div>
     </div> <!--/feature-->
+    <div class="home-left-pane" id="article-type-group">
+	<div class="compact-content-pane">
+	    <h3>News</h3>
+	    <p>Nothing here</p>
+	</div>
+	<div class="compact-content-pane">
+	    <h3>Voice Tips</h3>
+	    <p>Nothing here</p>
+	</div>
+	<div class="compact-content-pane">
+	    <h3>Radio Connect</h3>
+	    <p>Nothing here</p>
+	</div>
+	<div class="compact-content-pane">
+	    <h3>Others</h3>
+	    <p>Nothing here</p>
+	</div>
+    </div>
 
 </div> <!--/leftdiv-->
 {% endblock %}

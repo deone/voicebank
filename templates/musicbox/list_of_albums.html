@@ -3,6 +3,7 @@
 
 {% load agon_ratings_tags %}
 
+<ul class="albums">
 {% for album in album_list %}
     <li id="{{ album.slug }}" class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
 	{% thumbnail album.art "119x90" crop="center" as aa %}
@@ -21,3 +22,4 @@
 	</div>
     </li>
 {% endfor %}
+</ul>
