@@ -39,3 +39,6 @@ class Article(FlatPage):
             featured_article.save()
 
 	super(Article, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+	return '/articles' + self.url

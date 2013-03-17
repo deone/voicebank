@@ -20,7 +20,7 @@
 		<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
 		{% endfor %}
 	    {% endif %}
-	    <form method="post" action={% url contact %}>{% csrf_token %}
+	    <form method="post" action={% url 'contact' %}>{% csrf_token %}
 		{{ form.non_field_errors }}
 		<p>
 		    {{ form.name.errors }}

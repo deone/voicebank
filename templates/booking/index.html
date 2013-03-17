@@ -15,7 +15,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <form class="rform" method="post" action="{% url booking %}">{% csrf_token %}
+    <form class="rform" method="post" action="{% url 'booking' %}">{% csrf_token %}
 	
 	{{ form.user.as_hidden }}
 
@@ -39,8 +39,8 @@
 
     </form>
     {% else %}
-    <p>Only users can book recordings. Join <a href="{% url join %}">here</a> or
-    <a href="{% url login %}">log in</a> if you are already a user.</p>
+    <p>Only users can book recordings. Join <a href="{% url 'join' %}">here</a> or
+    <a href="{% url 'login' %}">log in</a> if you are already a user.</p>
     {% endif %}
 
 </div>
