@@ -11,4 +11,5 @@ Do:
  - Also, look out for other things to check in POST views.
  - We can now do error message checks in POST requests, courtesy Django 1.3.
 
-- Ensure that we can only feature one article per article type at a time by unsetting the last featured article when a new one is featured.
+* Articles unit tests.
+* Remove inline styles from flatpages.

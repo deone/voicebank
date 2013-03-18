@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-	<title>{{ flatpage.title }}</title>
-    </head>
-    <body>
-	{{ flatpage.content }}
-    </body>
-</html>
+{% extends "base_inner.html" %}
+
+{% load thumbnail %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div style="padding-top: 5px">
+	{% thumbnail flatpage.article.image "700x300" crop="center" as fai %}
+	    <img src="{{ fai.url }}" width="{{ fai.width }}" height="{{ fai.height }}"/>
+	{% endthumbnail %}
+
+	<div style="font-size: 12px; color: #222; padding-right: 20px;">
+	    <h3>{{ flatpage.article.title }}</h3>
+	    <p>{{ flatpage.article.content|safe }}</p>
+	</div>
+    </div>
+</div>
+{% endblock %}

@@ -189,7 +189,7 @@ ul li    {
     margin-bottom: 10px;
 }
 
-.compact-content-pane li:hover span.numeric{
+.compact-content-pane li:hover span.numeric {
     color:#e2e2e2;
 }
 
@@ -818,7 +818,7 @@ color:#222;
 font-size:12px;
 overflow:hidden;
 border:1px solid #ccc;
-border-radius:0 5px 5px;
+/*border-radius:0 5px 5px;*/
 }
 
 .tab_content p{
