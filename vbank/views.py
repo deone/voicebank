@@ -26,4 +26,5 @@ def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
     
     return render_to_response(template, {
 	    'form': form,
+	    'voiceclip_list': voice_clips
 	}, context_instance=RequestContext(request))
