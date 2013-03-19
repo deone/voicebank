@@ -1,0 +1,81 @@
+.feature{
+clear:both;
+width:700px;
+}
+
+.feature h3{
+font-size:13px;
+font-weight:bold;
+color:#82A519;
+}
+
+.recent{
+float:left;
+}
+
+.additions{
+float:right;
+}
+
+.recent, .additions{
+width:340px;
+border:1px solid #ccc;
+box-shadow:0 2px 8px rgba(0, 0, 0, 0.1);
+margin:0 0 30px;
+border-radius:5px;
+}
+
+.feature .upper{
+padding:10px;
+min-height:50px;
+border-bottom:1px solid #EBE3E3;
+}
+
+.feature .lower{
+padding:10px;
+background:#F4F4F4;
+border-radius:0 0 5px 5px;
+border-top:1px solid #fff;
+overflow:hidden;
+}
+
+.lower em{
+vertical-align:1px;
+padding-left:5px;
+}
+
+.feature .lower a:hover{
+text-decoration:none;
+border-bottom:1px dotted #999;
+}
+
+.feature .lower a{
+font-weight:bold;
+float:right;
+color:#222;
+border-bottom:1px solid #F4F4F4;
+}
+
+.feature li{
+padding:3px 10px;
+overflow:hidden;
+border-bottom:1px solid #eee;
+position:relative;
+}
+
+.feature li a{
+font-weight:bold;
+color:#3151A2;
+}
+
+.feature li:hover span.numeric{
+color:#e2e2e2;
+}
+
+.feature li:nth-child(2n+1){
+background-color:#F9F9F9;
+}
+
+.feature li:hover{
+border-bottom:1px solid #e2e2e2
+}

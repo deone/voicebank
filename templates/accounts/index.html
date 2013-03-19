@@ -58,20 +58,23 @@
 	<div class="clear"></div>
     </div>
 
-    <div class="home-left-pane" id="feature">
-	<div class="compact-content-pane">
-	    <h3>Most Recent Additions</h3>
-	    {% if voiceclip_list %}
-		{% display_voiceclip_list %}
-	    {% else %}
-		<p> There are no recent voice clips.</p>
-	    {% endif %}
-	    <div>
+    <div class="feature home-left-pane">
+	<div class="recent">
+	    <div class="upper">
+		<h3>Most Recent Additions</h3>
+		{% if voiceclip_list %}
+		    {% display_voiceclip_list %}
+		{% else %}
+		    <p> There are no recent voice clips.</p>
+		{% endif %}
+	    </div>
+	    <div class="lower">
 		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
 
-	<div class="compact-content-pane no-margin" id="additions">
+	<div class="additions">
+	    <div class="upper">
 		<h3>Top 5 voice clips</h3>
 		{% if top_clips %}
 		<ul>
@@ -97,9 +100,10 @@
 		{% else %}
 		<p>No voice clips yet.</p>
 		{% endif %}
-		<div>
-		    <a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
-		</div>
+	    </div>
+	    <div class="lower">
+		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
+	    </div>
 	</div>
     </div> <!--/feature-->
     <div class="home-left-pane" id="article-type-group">
