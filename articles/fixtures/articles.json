@@ -1,0 +1,72 @@
+[
+{
+    "pk": 3, 
+    "model": "articles.article", 
+    "fields": {
+        "image": "article_images/manifestation_1.jpg", 
+        "sites": [
+            1
+        ], 
+        "date_featured": "2013-03-14T19:23:04", 
+        "article_type": "News", 
+        "featured": false, 
+        "date_created": "2013-03-14T11:21:30"
+    }
+},
+{
+    "pk": 6, 
+    "model": "articles.article", 
+    "fields": {
+        "image": "article_images/manifestation_4.jpg", 
+        "sites": [
+            1
+        ], 
+        "date_featured": "2013-03-14T18:08:10", 
+        "article_type": "Others", 
+        "featured": true, 
+        "date_created": "2013-03-14T18:08:10"
+    }
+},
+{
+    "pk": 5, 
+    "model": "articles.article", 
+    "fields": {
+        "image": "article_images/manifestation_3.jpg", 
+        "sites": [
+            1
+        ], 
+        "date_featured": "2013-03-14T18:07:40", 
+        "article_type": "Radio Connect", 
+        "featured": true, 
+        "date_created": "2013-03-14T18:07:40"
+    }
+},
+{
+    "pk": 2, 
+    "model": "articles.article", 
+    "fields": {
+        "image": "article_images/orig_25092011012348571_ground_support_equipment.jpg", 
+        "sites": [
+            1
+        ], 
+        "date_featured": "2013-03-15T20:48:37", 
+        "article_type": "News", 
+        "featured": true, 
+        "date_created": "2013-03-12T16:32:07"
+    }
+},
+{
+    "pk": 4, 
+    "model": "articles.article", 
+    "fields": {
+        "image": "article_images/manifestation_2.jpg", 
+        "sites": [
+            1
+        ], 
+        "date_featured": "2013-03-14T18:07:04", 
+        "article_type": "Voice Tips", 
+        "featured": true, 
+        "date_created": "2013-03-14T18:07:04"
+    }
+}
+]

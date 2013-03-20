@@ -1,0 +1,77 @@
+[
+{
+    "pk": 2, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Test Article", 
+        "url": "/test-article/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "Before your booking can be accepted, you must have signed up and created your profile and made payment for your preferred subscription plan.\r\n<br/><br/>\r\n\r\nTo book for your recording send a mail to customercare@nigerianvoicebank.com with your name, phone number, location and the word VOICE RECORDING. You can also send us a text or just call our customer care lines on 08092796787 or 07044700254.\r\n<br/><br/>\r\n\r\nYou will receive a confirmation mail, text and call informing you of the date, time and location for your recording. Should you be unable to attend the recording that have been scheduled for you, please notify us at least 24 hours in advance so we can arrange a new date for you.\r\n<br/><br/>\r\n\r\nIf you fail to cancel your booking 48 hours before the scheduled session, you will be charged one thousand naira for the recording of each voice clip.", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 3, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "News Test Article", 
+        "url": "/news-test-article/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "This is a news test article.", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 4, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Voice Tip Article 1", 
+        "url": "/voice-tip-article-1/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "This is voice tip article 1.", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 5, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Radio Connect Article 1", 
+        "url": "/radio-connect-article-1/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "This is radio connect article 1.", 
+        "enable_comments": false
+    }
+},
+{
+    "pk": 6, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+        "registration_required": false, 
+        "title": "Others Article 1", 
+        "url": "/others-article-1/", 
+        "template_name": "", 
+        "sites": [
+            1
+        ], 
+        "content": "This is others Article 1", 
+        "enable_comments": false
+    }
+}
+]

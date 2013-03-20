@@ -1,0 +1,77 @@
+[
+{
+    "pk": 1, 
+    "model": "vbank.voiceclip", 
+    "fields": {
+        "category": 14, 
+        "name": "Manifestation", 
+        "language": "Yoruba", 
+        "voice_clip": "clips/2013/03/19/manifestation.mp3", 
+        "is_active": true, 
+        "is_top": true, 
+        "user": 2, 
+        "date_added": "2013-03-19T08:27:14", 
+        "is_top_timestamp": "2013-03-19T08:27:58"
+    }
+},
+{
+    "pk": 2, 
+    "model": "vbank.voiceclip", 
+    "fields": {
+        "category": 1, 
+        "name": "Something", 
+        "language": "Igbo", 
+        "voice_clip": "clips/2013/03/19/manifestation_1.mp3", 
+        "is_active": true, 
+        "is_top": true, 
+        "user": 2, 
+        "date_added": "2013-03-19T08:29:35", 
+        "is_top_timestamp": "2013-03-19T08:39:27"
+    }
+},
+{
+    "pk": 3, 
+    "model": "vbank.voiceclip", 
+    "fields": {
+        "category": 7, 
+        "name": "Something Else", 
+        "language": "Yoruba", 
+        "voice_clip": "clips/2013/03/19/manifestation_2.mp3", 
+        "is_active": true, 
+        "is_top": true, 
+        "user": 2, 
+        "date_added": "2013-03-19T08:29:57", 
+        "is_top_timestamp": "2013-03-19T08:39:19"
+    }
+},
+{
+    "pk": 4, 
+    "model": "vbank.voiceclip", 
+    "fields": {
+        "category": 8, 
+        "name": "Attention", 
+        "language": "English", 
+        "voice_clip": "clips/2013/03/19/manifestation_3.mp3", 
+        "is_active": true, 
+        "is_top": true, 
+        "user": 2, 
+        "date_added": "2013-03-19T08:30:18", 
+        "is_top_timestamp": "2013-03-19T08:39:13"
+    }
+},
+{
+    "pk": 5, 
+    "model": "vbank.voiceclip", 
+    "fields": {
+        "category": 7, 
+        "name": "A Run in the Wild", 
+        "language": "Hausa", 
+        "voice_clip": "clips/2013/03/19/manifestation_4.mp3", 
+        "is_active": true, 
+        "is_top": true, 
+        "user": 2, 
+        "date_added": "2013-03-19T08:31:19", 
+        "is_top_timestamp": "2013-03-19T08:32:27"
+    }
+}
+]

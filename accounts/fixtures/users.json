@@ -1,0 +1,38 @@
+[
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "deone", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2013-03-19T08:31:33", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$10000$DzQs6PvDCQrQ$sovIQRibTWLcl6Pt68pL+5/AyP1MLKpbxLA0XIa42wk=", 
+        "email": "alwaysdeone@gmail.com", 
+        "date_joined": "2013-03-05T08:58:59"
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "alwaysdeone@yahoo.com", 
+        "first_name": "Dayo", 
+        "last_name": "Osikoya", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2013-03-19T16:08:08", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$10000$OciG8DhOnOYW$J+p5Qnj7Q8uplqhTnilPcNiPsJTPWmifrZzi/Xhv7Ls=", 
+        "email": "alwaysdeone@yahoo.com", 
+        "date_joined": "2013-03-06T11:41:55"
+    }
+}
+]

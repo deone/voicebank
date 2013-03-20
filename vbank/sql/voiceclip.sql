@@ -1,1 +1,0 @@
-INSERT INTO `vbank_voiceclip` VALUES (1,16,'Sugar','clips/2012/05/23/Sugarr-IYAWO_LO.mp3','Yoruba',1,0,13,'2012-05-23 08:49:34','2012-05-23 08:49:34'),(2,2,'Salt','clips/2012/05/26/Sugarr-IYAWO_LO.mp3','Pidgin English',1,0,11,'2012-05-26 22:08:51','2012-05-26 22:08:51');

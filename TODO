@@ -14,3 +14,4 @@ Do:
 * Articles unit tests.
 * Remove inline styles from flatpages.
 * Redirect user to the page they logged in from. Except /join.
+* Put a frame around article image and increase size of title.
