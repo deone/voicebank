@@ -22,3 +22,5 @@ EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'deone'
 EMAIL_HOST_PASSWORD = '@dune369'
+
+ALLOWED_HOSTS = ['www.nigerianvoicebank.com', 'nigerianvoicebank.com']
