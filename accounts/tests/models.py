@@ -9,7 +9,7 @@ class ProfileModelTestCase(TestCase):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
 	'alwaysdeone@yahoo.com', 'test123')
 
-	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	upload_file = open('/Users/deone/Downloads/manifestation.jpg', 'rb')
 	self.profile = Profile.objects.create(user=self.user, birthday='1956-03-02',
 			slug='alwaysdeone123', gender='F',
 			photo=SimpleUploadedFile(upload_file.name,

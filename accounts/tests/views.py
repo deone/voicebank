@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 
 class AccountsViewsTestCase(TestCase):
+    fixtures = ['users.json', 'categories.json', 'voiceclips.json', 'flatpages.json', 'articles.json']
 
     def setUp(self):
 	data = {
@@ -32,11 +33,13 @@ class AccountsViewsTestCase(TestCase):
 	response = self.client.get(reverse('home'))
 	self.assertEqual(response.status_code, 200)
 	self.assertTrue('categories' in response.context)
-	self.assertTrue('events' in response.context)
-	self.assertTrue('clips' in response.context)
-	self.assertEqual([category.pk for category in
-	    response.context['categories']], [15, 11, 4, 1, 3, 14, 13,
-		6, 7, 9, 8, 5])
+	self.assertTrue('top_clips' in response.context)
+	self.assertTrue('voiceclip_list' in response.context)
+	self.assertTrue('featured_articles' in response.context)
+	self.assertEqual([category.pk for category in response.context['categories']], [15, 11, 4, 1, 3, 14, 13, 6, 7, 9, 8, 5])
+	self.assertEqual([article.pk for article in response.context['featured_articles']], [2, 6, 5, 4])
+	self.assertEqual([clip.pk for clip in response.context['top_clips']], [2, 3, 4, 5, 1])
+	self.assertEqual([clip.pk for clip in response.context['voiceclip_list']], [5, 4, 3, 2, 1])
 
     def test_get_join(self):
 	response = self.client.get(reverse('join'))
@@ -58,7 +61,7 @@ class AccountsViewsTestCase(TestCase):
 
     def test_post_profile_edit(self):
 	self.login()
-	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	upload_file = open('/Users/deone/Downloads/manifestation.jpg', 'rb')
 	response = self.client.post(reverse('profile_edit'), {
 	    'first_name': self.user.first_name,
 	    'last_name': self.user.last_name,

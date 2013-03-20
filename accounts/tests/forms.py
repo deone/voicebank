@@ -6,7 +6,7 @@ from accounts.forms import *
 
 class UserJoinFormTestCase(TestCase):
 
-    fixtures = ['authtestdata.json']
+    fixtures = ['users.json']
 
     def test_user_already_exists(self):
 	data = {
@@ -34,7 +34,7 @@ class UserJoinFormTestCase(TestCase):
 	form = UserJoinForm(data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form['email'].errors,
-                         [u'Enter a valid e-mail address.'])
+                         [u'Enter a valid email address.'])
 
     def test_email_password(self):
 	data = {
@@ -73,7 +73,7 @@ class UserProfileFormTestCase(TestCase):
 	Profile.objects.create(user=self.user, birthday='1956-03-02')
 
     def test_invalid_data(self):
-	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	upload_file = open('/Users/deone/Downloads/manifestation.jpg', 'rb')
 	data = {
 		'user': self.user.id,
 		'first_name': 'Ola',
@@ -94,7 +94,7 @@ class UserProfileFormTestCase(TestCase):
 	self.assertEqual(form['slug'].errors, [u'Enter a valid value.'])
 	
     def test_success(self):
-	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	upload_file = open('/Users/deone/Downloads/manifestation.jpg', 'rb')
 	data = {
 		'user': self.user.id,
 		'first_name': 'Ola',
