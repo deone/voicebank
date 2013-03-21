@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 
 class VbankViewsTestCase(TestCase):
 
-    fixtures = ['authtestdata.json']
+    fixtures = ['users.json']
 
     def login(self):
 	data = {
 	    'username': 'alwaysdeone@yahoo.com',
-	    'password': 'dayo'
+	    'password': 'deone'
 	    }
 	response = self.client.post(reverse('login'), data)
 	self.assertEqual(response.status_code, 302)

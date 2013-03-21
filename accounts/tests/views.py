@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 
 class AccountsViewsTestCase(TestCase):
+
     fixtures = ['users.json', 'categories.json', 'voiceclips.json', 'flatpages.json', 'articles.json']
 
     def setUp(self):

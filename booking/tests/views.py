@@ -6,6 +6,8 @@ from vbank.tests.views import VbankViewsTestCase
 
 class BookingViewsTestCase(VbankViewsTestCase):
 
+    fixtures = ['users.json']
+
     def setUp(self):
 	self.user = User.objects.get(username='alwaysdeone@yahoo.com')
 
