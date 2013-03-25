@@ -6,7 +6,7 @@ from vbank.forms import *
 
 class VoiceClipFormTestCase(TestCase):
 
-    fixtures = ['categorytestdata.json']
+    fixtures = ['categories.json']
 
     def setUp(self):
 	self.user = User.objects.create_user('alwaysdeone@yahoo.com',
@@ -14,7 +14,7 @@ class VoiceClipFormTestCase(TestCase):
 	self.category = Category.objects.get(pk=1)
 
     def test_invalid_data(self):
-	upload_clip = open('/home/deone/Downloads/printable_final.pdf', 'rb')
+	upload_clip = open('/Users/deone/Downloads/BasicLisp1.pdf', 'rb')
 	data = {
 		'user': self.user.id,
 		'name': 'Be My Man',
@@ -28,7 +28,7 @@ class VoiceClipFormTestCase(TestCase):
 	self.assertEqual(form['voice_clip'].errors, [u"Please upload an mp3 audio file."])
     
     def test_success(self):
-	upload_clip = open('/home/deone/Downloads/Sugarr-IYAWO_LO.mp3', 'rb')
+	upload_clip = open('/Users/deone/Downloads/manifestation.mp3', 'rb')
 	data = {
 		'user': self.user.id,
 		'name': 'Be My Man',

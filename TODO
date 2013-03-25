@@ -1,17 +1,18 @@
 Do:
-* Musicbox unit tests.
 * Musicbox track plays - attach event handler to player.
 * Page titles.
 * Refactor forms, styles and URLs.
 * Make error and success messges look nicer.
 
+
+* Articles unit tests.
+* Musicbox unit tests.
 * Review current unit tests and write more.
 * POST view tests are crass.
  - Unit-test for success or error messages.
  - Also, look out for other things to check in POST views.
  - We can now do error message checks in POST requests, courtesy Django 1.3.
 
-* Articles unit tests.
 * Remove inline styles from flatpages.
 * Redirect user to the page they logged in from. Except /join.
 * Put a frame around article image and increase size of title.

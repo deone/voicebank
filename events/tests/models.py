@@ -6,7 +6,7 @@ from events.models import Event
 class ModelsTestCase(TestCase):
 
     def test_success(self):
-	upload_file = open('/home/deone/Pictures/Me/20110625_003b.jpg', 'rb')
+	upload_file = open('/Users/deone/Downloads/manifestation.jpg', 'rb')
 	e = Event.objects.create(title="Voice Training",
 		image=SimpleUploadedFile(upload_file.name, upload_file.read()),
 		description="Training", venue="Ikeja", date="2001-05-04")
