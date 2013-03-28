@@ -279,10 +279,6 @@ ul li.no-margin {
     margin-bottom: 20px;
 }
 
-#tab-1	{
-    padding-left: 20px;
-}
-
 span.numeric{
 color:#eee;
 font-size:66px;
@@ -847,6 +843,10 @@ border:1px solid #ccc;
 /*border-radius:0 5px 5px;*/
 }
 
+#tab-1	{
+    padding-left: 10px;
+}
+
 .tab_content p{
 padding:0 0 15px;
 }
@@ -854,8 +854,7 @@ padding:0 0 15px;
 .pro-info{
 float:left;
 width:190px;
-background:#fff;
-padding:10px 20px;
+padding-right:30px;
 border-right:1px solid #ccc;
 }
 

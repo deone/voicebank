@@ -23,6 +23,10 @@
 		    {% else %}
 			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
 		    {% endif %}
+		    <div class="fb-like" 
+			data-href="{{ SITE_URL }}{{ request.path }}" 
+			data-send="false" data-width="200">
+		    </div>
 		    {% endblock profile_name_photo %}
 		    <h3>Gender</h3>
 		    <p>
@@ -38,6 +42,8 @@
 		    <p>{{ profile.phone_number }}</p>
 		    <h3>Location</h3>
 		    <p>{{ profile.location }}</p>
+		</div>
+		<div class="pro-details">
 		    <h3>Voice Bank URL</h3>
 		    {% block profile_url %}
 		    <p>
@@ -46,8 +52,6 @@
 			</a>
 		    </p>
 		    {% endblock profile_url %}
-		</div>
-		<div class="pro-details">
 		    <h3>About</h3>
 		    <p>{{ profile.about }}</p>
 		    
