@@ -94,6 +94,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'context_processors.admin_media_prefix',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'context_processors.site',
 )
 
 INSTALLED_APPS = (

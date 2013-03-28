@@ -1,3 +1,44 @@
+.article    {
+    margin-right: 20px;
+    padding-top: 5px;
+}
+
+.article .image, .article .ad	{
+    width: 700px;
+}
+
+.article .image	{
+    border: solid 1px #eee;
+}
+
+.article .image img {
+    margin: 15px 0 10px 15px;
+}
+
+.article .text	{
+    margin: 10px 0 15px 0;
+}
+
+.article .text h3   {
+    font-size: 250%;
+    color: #a1a1a1;
+}
+
+.article .text p    {
+    color: #222;
+    font-size: 12px;
+}
+
+.article .ad	{
+    background: #ccc;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.fb-like    {
+    margin-bottom: 10px;
+}
+
 .rating {
     background-image: url(../img/nav_logo107.png);
     background-position: 402px 520px;

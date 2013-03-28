@@ -13,6 +13,5 @@ Do:
  - Also, look out for other things to check in POST views.
  - We can now do error message checks in POST requests, courtesy Django 1.3.
 
-* Remove inline styles from flatpages.
 * Redirect user to the page they logged in from. Except /join.
-* Put a frame around article image and increase size of title.
+* Register domain at facebook.com/insights.
