@@ -4,25 +4,23 @@
 
 {% block app_body %}
 <div class="leftdiv">
-    <div style="padding-top:5px; margin-bottom:20px;">
-	<div style="border:solid 1px #eee; width: 685px; height:315px; padding-top:15px; padding-left: 15px;">
+    <div class="article">
+	<div class="image">
 	{% thumbnail flatpage.article.image "670x300" crop="center" as fai %}
 	    <img src="{{ fai.url }}" width="{{ fai.width }}" height="{{ fai.height }}"/>
 	{% endthumbnail %}
 	</div>	
-
-	<div style="font-size:12px; color:#222; padding-right:20px;">
-	    <h3 style="margin-top: 20px; font-size:250%;">{{ flatpage.article.title }}</h3>
+	<div class="text">
+	    <h3>{{ flatpage.article.title }}</h3>
+	    <div class="fb-like" data-href="{{ SITE_URL }}{{ request.path }}" 
+		data-send="false" data-width="450"></div>
 	    <p>{{ flatpage.article.content|safe }}</p>
 	</div>
+	<div class="ad">&nbsp;</div>
+	{% if flatpage.enable_comments %}
+	<div class="fb-comments" 
+	    data-href="{{ SITE_URL }}{{ request.path }}" data-width="700" data-num-posts="10"></div>
+	{% endif %}
     </div>
-
-    <div class="fb-comments" data-href="http://{{ flatpage.sites.get_current }}/articles{{ flatpage.url }}" data-width="700" data-num-posts="10"></div>
-
-    <!--<iframe 
-    src="https://www.facebook.com/plugins/like.php?href=http://nigerianvoicebank.com" 
-    scrolling="no" frameborder="0" style="border:none; width:450px; height:80px">
-    </iframe>-->
-
 </div>
 {% endblock %}

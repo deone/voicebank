@@ -8,6 +8,10 @@
 
     <div class="feature">
 	{% if voiceclip_list %}
+	    <div class="fb-like" 
+		data-href="{{ SITE_URL }}{{ request.path }}" 
+		data-send="false" data-width="450">
+	    </div>
 	    {% display_voiceclip_list %}
 	{% else %}
 	    <p>There are no voice clips.</p>

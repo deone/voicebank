@@ -6,6 +6,10 @@
 <div class="leftdiv">
     <div class="musicbox">
 	<h3>Music Box</h3>
+	<div class="fb-like" 
+	    data-href="{{ SITE_URL }}{{ request.path }}" 
+	    data-send="false" data-width="450">
+	</div>
 	{% display_albums %}
 	{% if is_paginated %}
 	<div class="pagenav">

@@ -4,9 +4,15 @@
 
 {% block app_body %}
 <div class="leftdiv">
-    <h3>Voice clips in {{ category.name }} category</h3>
+    <h3>
+	Voice clips in {{ category.name }} Category	
+    </h3>
     {% with voiceclip_list=category.voiceclip_set.all %}
 	{% if voiceclip_list %}
+	    <div class="fb-like" 
+		data-href="{{ SITE_URL }}{{ request.path }}" 
+		data-send="false" data-width="450">
+	    </div>
 	    {% display_voiceclip_list %}
 	{% else %}
 	    <p>There are no voice clips in this category.</p>

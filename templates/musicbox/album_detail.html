@@ -24,6 +24,10 @@
 	    <div class="clear pad2"></div>
 	    {% for track in album.track_set.all %}
 	    <a href="{{ track.get_absolute_url }}" class="download-button">Download</a>
+	    <div class="fb-like" 
+		data-href="{{ SITE_URL }}{{ request.path }}" 
+		data-send="false" data-width="200">
+	    </div>
 	    <ul>
 		<!--<li>
 		    &raquo; <a href="#">Share with Friends</a>
@@ -36,7 +40,7 @@
 		    </div>
 		</li>-->
 		{% get_comment_count for album as comment_count %}
-		<li>&raquo; <a href="#comments">{{ comment_count }} Comments</a></li>
+		<!--<li>&raquo; <a href="#comments">{{ comment_count }} Comments</a></li>-->
 		<!--<li>&raquo; <strong>No. of plays:</strong> 34</li>-->
 		<li>&raquo; <strong>Downloads:</strong>
 		 {{ track.download_count }}</li>
@@ -80,13 +84,18 @@
 	        {% display_albums_excluding album %}
 		<div class="clear"></div>
 	    </div>
-	    <h3>Comments</h3>
+	    <div class="fb-comments" 
+		data-href="{{ SITE_URL }}{{ request.path }}" 
+		data-width="480" 
+		data-num-posts="10">
+	    </div>
+	    <!--<h3>Comments</h3>
 	    <div class="comments" id="comments">
 		{% render_comment_form for album %}
 		<div class="comment_list">
 		    {% render_comment_list for album %}
 		</div>
-	    </div> <!--/comments-->
+	    </div>--> <!--/comments-->
 	</div>
 	<div class="clear"></div>
     </div>
