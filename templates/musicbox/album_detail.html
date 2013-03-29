@@ -22,30 +22,15 @@
 		{% endthumbnail %}
 	    </p>
 	    <div class="clear pad2"></div>
-	    {% for track in album.track_set.all %}
-	    <a href="{{ track.get_absolute_url }}" class="download-button">Download</a>
 	    <div class="fb-like" 
 		data-href="{{ SITE_URL }}{{ request.path }}" 
 		data-send="false" data-width="200">
 	    </div>
-	    <ul>
-		<!--<li>
-		    &raquo; <a href="#">Share with Friends</a>
-		    <div class="sharepop">
-			<ul>
-			    <li><a href="">Twitter</a></li>
-			    <li><a href="">Facebook</a></li>
-			    <li><a href="">Google Plus</a></li>
-			</ul>
-		    </div>
-		</li>-->
+	    <!--<p>
 		{% get_comment_count for album as comment_count %}
-		<!--<li>&raquo; <a href="#comments">{{ comment_count }} Comments</a></li>-->
-		<!--<li>&raquo; <strong>No. of plays:</strong> 34</li>-->
-		<li>&raquo; <strong>Downloads:</strong>
-		 {{ track.download_count }}</li>
-	    </ul>
-	    {% endfor %}
+		<li>&raquo; <a href="#comments">{{ comment_count }} Comments</a></li>
+		<li>&raquo; <strong>No. of plays:</strong> 34</li>
+	    </p>-->
 	</div>
 	<div class="item-info">
 	    <h3>Info</h3>
@@ -64,6 +49,8 @@
 			    titles: "{{ track.title }}"
 			});
 		    </script>
+		    <!--<a href="{{ track.get_absolute_url }}" class="download-button">Download</a>-->
+		    <a href="{{ track.get_absolute_url }}">Download</a> {{ track.download_count }} downloads
 		</li>
 		{% endfor %}
 	    </ul>
