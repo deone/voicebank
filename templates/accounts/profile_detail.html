@@ -38,8 +38,6 @@
 		    </p>
 		    <h3>Age</h3>
 		    <p>{{ age }}</p>
-		    <h3>Booking</h3>
-		    <p>{{ profile.phone_number }}</p>
 		    <h3>Location</h3>
 		    <p>{{ profile.location }}</p>
 		</div>
@@ -52,6 +50,7 @@
 			</a>
 		    </p>
 		    {% endblock profile_url %}
+
 		    <h3>About</h3>
 		    <p>{{ profile.about }}</p>
 		    
@@ -60,6 +59,7 @@
 
 		    <h3>Skills</h3>
 		    <p>{{ profile.skills }}</p>
+
 		    {% block voiceclips %}
 		    <h3>Voice Clips</h3>
 		    <div class="feature">
@@ -68,6 +68,13 @@
 		    {% endwith %}
 		    </div>
 		    {% endblock voiceclips %}
+		    <br/>
+
+		    {% block booking %}
+		    <h3>Booking</h3>
+		    <p>To book this artiste, call the Nigerian Voice Bank on <b>08092796787</b> or 
+		    email  <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a></p>
+		    {% endblock booking %}
 		</div>
 	    </div>
 	{% endblock view_profile %}
