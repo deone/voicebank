@@ -57,7 +57,6 @@
 	<a href="{% url 'musicbox_home' %}" class="more">View More</a>
 	<div class="clear"></div>
     </div>
-
     <div class="feature home-left-pane">
 	<div class="recent">
 	    <div class="upper">
@@ -72,7 +71,6 @@
 		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
 	    </div>
 	</div>
-
 	<div class="additions">
 	    <div class="upper">
 		<h3>Top 5 voice clips</h3>
@@ -106,25 +104,59 @@
 	    </div>
 	</div>
     </div> <!--/feature-->
-    <!--<div class="home-left-pane" id="article-type-group">
+    <div class="home-left-pane" id="article-type-group">
+	{% if news %}
 	<div class="compact-content-pane">
 	    <h3>News</h3>
-	    <p>Nothing here</p>
+	    <div>
+		<ul>
+		{% for article in news %}
+		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		{% endfor %}
+		</ul>
+	    </div>
 	</div>
+	{% endif %}
+
+	{% if voice_tips %}
 	<div class="compact-content-pane">
 	    <h3>Voice Tips</h3>
-	    <p>Nothing here</p>
+	    <div>
+		<ul>
+		{% for article in voice_tips %}
+		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		{% endfor %}
+		</ul>
+	    </div>
 	</div>
+	{% endif %}
+
+	{% if radio_connect %}
 	<div class="compact-content-pane">
 	    <h3>Radio Connect</h3>
-	    <p>Nothing here</p>
+	    <div>
+		<ul>
+		{% for article in radio_connect %}
+		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		{% endfor %}
+		</ul>
+	    </div>
 	</div>
+	{% endif %}
+
+	{% if others %}
 	<div class="compact-content-pane">
 	    <h3>Others</h3>
-	    <p>Nothing here</p>
+	    <div>
+		<ul>
+		{% for article in others %}
+		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		{% endfor %}
+		</ul>
+	    </div>
 	</div>
-    </div>-->
-
+	{% endif %}
+    </div>
 </div> <!--/leftdiv-->
 {% endblock %}
 

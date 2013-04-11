@@ -25,10 +25,10 @@ margin:0 0 30px;
 border-radius:5px;
 }
 
-.feature .upper{
-padding:10px;
-min-height:50px;
-border-bottom:1px solid #EBE3E3;
+.upper	{
+    padding:10px;
+    min-height:30px;
+    border-bottom:1px solid #EBE3E3;
 }
 
 .feature .lower{

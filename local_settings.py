@@ -1,10 +1,16 @@
+# Email
 EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
+WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
+
+# Display/Pagination Limits
 RECENT_VOICE_CLIPS_DISPLAY_LIMIT = 5
 TOP_VOICE_CLIPS_DISPLAY_LIMIT = 5
 EVENTS_DISPLAY_LIMIT = 2
-WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
+ARTICLE_LIST_LIMIT = 4
 MUSICBOX_ALBUMS_PAGINATE_BY = 20
 VOICECLIP_LIST_PAGINATE_BY = 10
 EVENTS_PAGINATE_BY = 5
+
 THUMBNAIL_DEBUG = True
+
 SITE_URL = 'http://localhost:8000'

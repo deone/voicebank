@@ -39,6 +39,19 @@
     margin-bottom: 10px;
 }
 
+#article-type-group .compact-content-pane div	{
+    margin: 0 10px 10px 10px;
+}
+
+#article-type-group .compact-content-pane ul	{
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+#article-type-group .compact-content-pane ul li	{
+    padding-bottom: 2px;
+}
+
 .rating {
     background-image: url(../img/nav_logo107.png);
     background-position: 402px 520px;
@@ -67,7 +80,6 @@
 .home-left-pane	{
     width: 705px;
     float: left;
-    padding-top: 10px;
 }
 
 #categories h3 span {
@@ -230,19 +242,19 @@ ul.articles li img:hover  {
     margin-bottom: 10px;
 }
 
-.compact-content-pane li:hover span.numeric {
+.cliplist li:hover span.numeric {
     color:#e2e2e2;
 }
 
-.compact-content-pane li:nth-child(2n+1) {
+.cliplist li:nth-child(2n+1) {
     background-color:#F9F9F9;
 }
 
-.compact-content-pane li:hover   {
+.cliplist li:hover   {
     border-bottom:1px solid #e2e2e2;
 }
 
-.compact-content-pane div   {
+/*.compact-content-pane div   {
     padding:10px;
     background:#F4F4F4;
     border-radius:0 0 5px 5px;
@@ -260,7 +272,7 @@ ul.articles li img:hover  {
 .compact-content-pane div em	{
     vertical-align:1px;
     padding-left:5px;
-}
+}*/
 
 ul li.no-margin {
     margin-right: 0;
