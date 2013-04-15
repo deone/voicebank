@@ -52,3 +52,11 @@
     </div> <!--/inner-->
 </div> <!--/leftdiv-->
 {% endblock app_body %}
+
+{% block custom_js %}
+    <script>
+    $(function()    {
+	    $('a#contact').addClass('current');
+    });
+    </script>
+{% endblock %}

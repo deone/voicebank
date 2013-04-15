@@ -51,3 +51,11 @@
 	data-send="false" data-width="450"></div>
 </div> <!--/leftdiv-->
 {% endblock %}
+
+{% block custom_js %}
+    <script>
+    $(function()    {
+	    $('a#about').addClass('current');
+    });
+    </script>
+{% endblock %}
