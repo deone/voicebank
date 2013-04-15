@@ -111,7 +111,20 @@
 	    <div>
 		<ul>
 		{% for article in news %}
+		    {% ifequal forloop.counter 1 %}
+		    <li class="highlight">
+			{% thumbnail article.image "120x100" crop="center" as ar %}
+			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
+			{% endthumbnail %}
+			<div>
+			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+			    <p class="summary">{{ article.content|safe }}</p>
+			</div>
+			<div class="clear"></div>
+		    </li>
+		    {% else %}
 		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		    {% endifequal %}
 		{% endfor %}
 		</ul>
 	    </div>
@@ -124,7 +137,20 @@
 	    <div>
 		<ul>
 		{% for article in voice_tips %}
+		    {% ifequal forloop.counter 1 %}
+		    <li class="highlight">
+			{% thumbnail article.image "120x100" crop="center" as ar %}
+			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
+			{% endthumbnail %}
+			<div>
+			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+			    <p class="summary">{{ article.content|safe }}</p>
+			</div>
+			<div class="clear"></div>
+		    </li>
+		    {% else %}
 		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		    {% endifequal %}
 		{% endfor %}
 		</ul>
 	    </div>
@@ -137,7 +163,20 @@
 	    <div>
 		<ul>
 		{% for article in radio_connect %}
+		    {% ifequal forloop.counter 1 %}
+		    <li class="highlight">
+			{% thumbnail article.image "120x100" crop="center" as ar %}
+			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
+			{% endthumbnail %}
+			<div>
+			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+			    <p class="summary">{{ article.content|safe }}</p>
+			</div>
+			<div class="clear"></div>
+		    </li>
+		    {% else %}
 		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		    {% endifequal %}
 		{% endfor %}
 		</ul>
 	    </div>
@@ -150,7 +189,20 @@
 	    <div>
 		<ul>
 		{% for article in others %}
+		    {% ifequal forloop.counter 1 %}
+		    <li class="highlight">
+			{% thumbnail article.image "120x100" crop="center" as ar %}
+			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
+			{% endthumbnail %}
+			<div>
+			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+			    <p class="summary">{{ article.content|safe }}</p>
+			</div>
+			<div class="clear"></div>
+		    </li>
+		    {% else %}
 		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		    {% endifequal %}
 		{% endfor %}
 		</ul>
 	    </div>
@@ -172,6 +224,17 @@
 		    hoverPause: true
 	    });
 	    $('a#home').addClass('current');
+
+	    var summaryElements = $('p.summary');
+	    var summaryCharacterCount = 150;
+
+	    summaryElements.each(function() {
+		var t = $(this).text();
+		if (t.length < summaryCharacterCount) return;
+		$(this).html(
+		    t.slice(0, summaryCharacterCount)+'<span>...</span>'
+		);
+	    });
     });
 </script>
 {% endblock %}

@@ -45,11 +45,32 @@
 
 #article-type-group .compact-content-pane ul	{
     list-style-type: square;
-    margin-left: 20px;
 }
 
 #article-type-group .compact-content-pane ul li	{
     padding-bottom: 2px;
+}
+
+#article-type-group .compact-content-pane ul li.highlight   {
+    list-style-type: none;
+    min-height: 110px;
+    float: left;
+    margin-right: 25px;
+    width: 400px;
+}
+
+#article-type-group .compact-content-pane ul li.highlight img	{
+    float: left;
+}
+
+#article-type-group .compact-content-pane ul li.highlight div	{
+    float: left;
+    width: 260px;
+    margin-bottom: 10px;
+}
+
+#article-type-group .compact-content-pane ul li.highlight div a	{
+    font-size: 130%;
 }
 
 .rating {
@@ -237,10 +258,10 @@ ul.articles li img:hover  {
     margin-right: 10px;
 }
 
-.compact-content-pane p	{
+/*.compact-content-pane p	{
     margin-left: 10px;
     margin-bottom: 10px;
-}
+}*/
 
 .cliplist li:hover span.numeric {
     color:#e2e2e2;
