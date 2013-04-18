@@ -16,6 +16,7 @@ class Article(FlatPage):
     image = models.ImageField(upload_to="article_images")
     featured = models.BooleanField()
     article_type = models.CharField(max_length=15, choices=ARTICLE_TYPE_CHOICES)
+    summary = models.CharField(max_length=150)
     date_created = models.DateTimeField(default=datetime.now, editable=False)
     date_featured = models.DateTimeField(default=datetime.now)
 
