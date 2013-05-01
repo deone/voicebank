@@ -5,18 +5,51 @@
 {% block app_body %}
 <div class="leftdiv">
     <h3>
-	Voice clips in {{ category.name }} Category	
+	Voice clips in {{ category.name }} category
     </h3>
-    {% with voiceclip_list=category.voiceclip_set.all %}
-	{% if voiceclip_list %}
-	    <div class="fb-like" 
-		data-href="{{ SITE_URL }}{{ request.path }}" 
-		data-send="false" data-width="450">
-	    </div>
-	    {% display_voiceclip_list %}
+    {% if category.voiceclip_set.all %}
+	<div class="fb-like" 
+	    data-href="{{ SITE_URL }}{{ request.path }}" 
+	    data-send="false" data-width="450">
+	</div>
+	{% ifequal category.name 'Customer Care' %}
+	    {% if english_clips %}
+		<h4>English</h4>
+		{% with voiceclip_list=english_clips %}
+		    {% display_voiceclip_list %}
+		{% endwith %}
+	    {% endif %}
+	    {% if yoruba_clips %}
+		<h4>Yoruba</h4>
+		{% with voiceclip_list=yoruba_clips %}
+		    {% display_voiceclip_list %}
+		{% endwith %}
+	    {% endif %}
+	    {% if igbo_clips %}
+		<h4>Igbo</h4>
+		{% with voiceclip_list=igbo_clips %}
+		    {% display_voiceclip_list %}
+		{% endwith %}
+	    {% endif %}
+	    {% if hausa_clips %}
+		<h4>Hausa</h4>
+		{% with voiceclip_list=hausa_clips %}
+		    {% display_voiceclip_list %}
+		{% endwith %}
+	    {% endif %}
+	    {% if pidgin_english_clips %}
+		<h4>Pidgin English</h4>
+		{% with voiceclip_list=pidgin_english_clips %}
+		    {% display_voiceclip_list %}
+		{% endwith %}
+	    {% endif %}
 	{% else %}
-	    <p>There are no voice clips in this category.</p>
-	{% endif %}
-    {% endwith %}
+	{% with voiceclip_list=category.voiceclip_set.all %}
+	    {% display_voiceclip_list %}
+	{% endwith %}
+	{% endifequal %}
+    {% else %}
+	<p>There are no voice clips in the category.</p>
+    {% endif %} 
 </div> <!--/leftdiv-->
 {% endblock %}

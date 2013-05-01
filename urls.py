@@ -17,7 +17,8 @@ urlpatterns = patterns('',
 	    queryset=VoiceClip.objects.active(),
 		paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
 		), name='all_clips'),
-	url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
+	# url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
+	url(r'^categories/(?P<slug>[-.\w]+)$', 'vbank.views.category_detail', name='category'),
 )
 
 urlpatterns += patterns('',
