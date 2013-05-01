@@ -418,10 +418,10 @@ a.logo{
 background:url(../img/logo.png) no-repeat;
 display:block;
 float:left;
-width:300px;
-height:40px;
+width:325px;
+height:59px;
 text-indent:-9999px;
-margin:-11px 0 0;
+margin-top: -25px;
 }
 
 .content{
