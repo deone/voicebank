@@ -2,6 +2,8 @@
 
 {% load thumbnail %}
 
+{% load sounds_tags %}
+
 {% load musicbox_tags %}
 
 {% load vbank_tags %}
@@ -53,10 +55,17 @@
 
     <!--<div class="home-left-pane" id="musicbox">
 	<h3>Music Box</h3>
-	{% display_albums 5 %}
+	{#{% display_albums 5 %}#}
 	<a href="{#{% url 'musicbox_home' %}#}" class="more">View More</a>
 	<div class="clear"></div>
     </div>-->
+
+    <div class="home-left-pane">
+	<h3>Podcasts</h3>
+	{% display_podcasts 5 %}
+	<a href="{#{% url 'musicbox_home' %}#}" class="more">View More</a>
+	<div class="clear"></div>
+    </div>
 
     <div class="feature home-left-pane">
 	<div class="recent">
@@ -225,17 +234,6 @@
 		    hoverPause: true
 	    });
 	    $('a#home').addClass('current');
-
-	    /*var summaryElements = $('p.summary');
-	    var summaryCharacterCount = 150;
-
-	    summaryElements.each(function() {
-		var t = $(this).text();
-		if (t.length < summaryCharacterCount) return;
-		$(this).html(
-		    t.slice(0, summaryCharacterCount)+'<span>...</span>'
-		);
-	    });*/
     });
 </script>
 {% endblock %}

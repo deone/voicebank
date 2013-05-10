@@ -116,6 +116,8 @@ INSTALLED_APPS = (
     'booking',
     'contact',
     'articles',
+    'sounds',
+    'podcast',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

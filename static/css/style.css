@@ -178,21 +178,21 @@ ul.categories li a.allvoice	{
     background:#eee url(../img/allvoice.png) no-repeat;
 }
 
-ul.albums li  {
+ul.sounds li  {
     width:125px;
     height:170px;
     margin:0 20px 20px 0;
 }
 
-ul.albums li img    {
+ul.sounds li img    {
     border:3px solid #ddd;
 }
 
-ul.albums li img:hover  {
+ul.sounds li img:hover  {
     border:3px solid #ccc;
 }
 
-ul.albums li a   {
+ul.sounds li a   {
     font-weight:bold;
 }
 
@@ -237,7 +237,7 @@ ul.articles li img:hover  {
     width: 340px;
 }*/
 
-.compact-content-pane, ul.articles li, ul.albums li {
+.compact-content-pane, ul.articles li, ul.sounds li {
     float: left;
     margin-right: 20px;
 }

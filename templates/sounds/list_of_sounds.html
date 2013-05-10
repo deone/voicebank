@@ -1,0 +1,25 @@
+
+{% load thumbnail %}
+
+{% load agon_ratings_tags %}
+
+<ul class="sounds">
+{% for sound in podcast_list %}
+    <li id="{{ sound.slug }}" class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
+	{% thumbnail sound.art "119x90" crop="center" as aa %}
+	<a href="{{ sound.get_absolute_url }}">
+	    <img src="{{ aa.url }}" width="{{ aa.width }}" 
+	    height="{{ aa.height }}"/>
+	</a>
+	{% endthumbnail %}
+	<span class="capitalize">
+	    <a href="{{ sound.get_absolute_url }}">{{ sound.title }}</a><br/>
+	    {{ sound.artiste }}
+	</span>
+	{% overall_rating sound as the_overall_rating %}
+	<div class="rating">
+	    <div style="width: {{ the_overall_rating }}em"></div>
+	</div>
+    </li>
+{% endfor %}
+</ul>
