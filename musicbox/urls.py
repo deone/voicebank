@@ -2,14 +2,11 @@ from django.conf.urls import url, patterns
 from django.views.generic import ListView
 from django.conf import settings
 
-from musicbox.models import Album
-from musicbox.views import AlbumDetailView
+from sounds.models import SoundCollection
 
-urlpatterns = patterns('musicbox.views',
+urlpatterns = patterns('',
 	url(r'^$', ListView.as_view(
-	    model=Album,
+	    queryset=SoundCollection.objects.filter(sound_type="Album"),
 	    paginate_by=settings.MUSICBOX_ALBUMS_PAGINATE_BY,
-	    ), name='musicbox_home'),
-	url(r'^(?P<slug>[-.\w]+)$', AlbumDetailView.as_view(), name='album'),
-	url(r'^(?P<album_slug>[-.\w]+)/(?P<track_slug>[-.\w]+)$', 'download', name='track'),
+	), name='albums'),
 )
