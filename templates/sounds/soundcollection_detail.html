@@ -12,15 +12,15 @@
 <div class="leftdiv">
     <div class="musicbox">
 	<h3>
-	    {% ifequal sound.sound_type 'Podcast' %}
+	    {% ifequal soundcollection.sound_type 'Podcast' %}
 		<a href="{% url 'podcasts' %}">Podcasts</a> 
 	    {% else %}
 		<a href="{% url 'albums' %}">Music Box</a> 
 	    {% endifequal %}
-	    &raquo; {{ sound.artiste }} - {{ sound.title }}</h3>
+	    &raquo; {{ soundcollection.artiste }} - {{ soundcollection.title }}</h3>
 	<div class="item">
 	    <p>
-		{% thumbnail sound.art "200x200" crop="center" as sa %}
+		{% thumbnail soundcollection.art "200x200" crop="center" as sa %}
 		<img src="{{ sa.url }}" class="mbox-large"/>
 		{% endthumbnail %}
 	    </p>
@@ -32,12 +32,12 @@
 	</div>
 	<div class="item-info">
 	    <h3>Info</h3>
-	    <p>{{ sound.info }}</p>
+	    <p>{{ soundcollection.info }}</p>
 	    <div class="clear pad"></div>
-	    {% if sound.track_set.all %}
+	    {% if soundcollection.track_set.all %}
 	    <h3>Play</h3>
 	    <ul class="item-preview">
-		{% for track in sound.track_set.all %}
+		{% for track in soundcollection.track_set.all %}
 		<li>
 		    <div class="capitalize">{{ track.title }}</div>
 		    <span id="audioplayer_{{ track.id }}"></span>
@@ -66,7 +66,7 @@
 	    <div class="clear pad"></div>
 	    <div class="musicbox">
 		<h3>You may also be interested in:</h3>
-	        {% display_sounds_excluding sound %}
+	        {% display_sounds_excluding soundcollection %}
 		<div class="clear"></div>
 	    </div>
 	    <div class="fb-comments" 
@@ -82,6 +82,6 @@
 
 {% block rating_js %}
 {% if user.id %}
-    {% user_rating_js user sound %}
+    {% user_rating_js user soundcollection %}
 {% endif %}
 {% endblock %}

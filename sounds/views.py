@@ -1,18 +1,19 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.template import RequestContext
 
 from sounds.models import *
 from events.models import Event
 
-def sound_detail(request, slug, template='sounds/soundcollection_detail.html'):
-    sound = get_object_or_404(SoundCollection, slug=slug)
+class SoundDetailView(DetailView):
 
-    if sound.sound_type == "Podcast":
-	return render_to_response(template, {
-		'sound': sound,
-		'events': Event.objects.later_than_now(),
-	    }, context_instance=RequestContext(request))
+    model = SoundCollection 
+
+    def get_context_data(self, **kwargs):
+	obj = super(SoundDetailView, self).get_object()
+	context = super(SoundDetailView, self).get_context_data(**kwargs)
+	context['events'] = Event.objects.later_than_now()
+	return context
 
 def download(request, soundcoll_slug, track_slug):
     """ We can count downloads here """
