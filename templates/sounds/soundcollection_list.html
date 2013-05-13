@@ -1,0 +1,27 @@
+{% extends "base_inner.html" %}
+
+{% load sounds_tags %}
+
+{% block app_body %}
+<div class="leftdiv">
+    <div class="musicbox">
+	<h3>Podcasts</h3>
+	<div class="fb-like" 
+	    data-href="{{ SITE_URL }}{{ request.path }}" 
+	    data-send="false" data-width="450">
+	</div>
+	{% display_sounds_list %}
+	{% if is_paginated %}
+	<div class="pagenav">
+	    {% if page_obj.has_previous %}
+	    <a href="?page={{ page_obj.previous_page_number }}" class="more left">Previous</a>
+	    {% endif %}
+	    {% if page_obj.has_next %}
+	    <a href="?page={{ page_obj.next_page_number }}" class="more right">Next</a>
+	    {% endif %}
+	</div>
+	{% endif %}
+	<div class="clear"></div>
+    </div>
+</div>
+{% endblock app_body %}

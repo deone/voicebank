@@ -53,17 +53,17 @@
 	</ul>
     </div>
 
-    <!--<div class="home-left-pane" id="musicbox">
+    <div class="home-left-pane" id="musicbox">
 	<h3>Music Box</h3>
-	{#{% display_albums 5 %}#}
-	<a href="{#{% url 'musicbox_home' %}#}" class="more">View More</a>
+	{% display_albums 5 %}
+	<a href="{% url 'albums' %}" class="more">View More</a>
 	<div class="clear"></div>
-    </div>-->
+    </div>
 
     <div class="home-left-pane">
 	<h3>Podcasts</h3>
 	{% display_podcasts 5 %}
-	<a href="{#{% url 'musicbox_home' %}#}" class="more">View More</a>
+	<a href="{% url 'podcasts' %}" class="more">View More</a>
 	<div class="clear"></div>
     </div>
 
