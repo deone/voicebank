@@ -13,7 +13,6 @@ from accounts import calculate_age
 from accounts.models import Profile
 from accounts.forms import UserJoinForm, UserProfileForm
 from vbank.models import VoiceClip, Category
-from musicbox.models import Album
 from articles.models import Article
 
 # This should be CategoryListView

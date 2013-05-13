@@ -15,7 +15,19 @@ def display_podcasts(limit=None):
 	    }
 
 @register.inclusion_tag('sounds/list_of_sounds.html')
-def display_sounds_excluding(sound):
+def display_albums_excluding(album):
     return {
-	    "soundcollection_list": SoundCollection.objects.get_three_random_exclude(sound.id)
+	    "soundcollection_list": SoundCollection.objects.filter(sound_type='Album').get_three_random_exclude(album.id)
+	    }
+
+@register.inclusion_tag('sounds/list_of_sounds.html')
+def display_podcasts_excluding(podcast):
+    return {
+	    "soundcollection_list": SoundCollection.objects.filter(sound_type='Podcast').get_three_random_exclude(podcast.id)
+	    }
+
+@register.inclusion_tag('sounds/list_of_sounds.html')
+def display_albums(limit=None):
+    return {
+	    "soundcollection_list": SoundCollection.objects.filter(sound_type="Album")[:limit]
 	    }

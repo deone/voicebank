@@ -111,12 +111,12 @@ INSTALLED_APPS = (
     'agon_ratings',
     'accounts',
     'vbank',
-    'musicbox',
     'events',
     'booking',
     'contact',
     'articles',
     'sounds',
+    'musicbox',
     'podcast',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

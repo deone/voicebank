@@ -22,6 +22,9 @@ class SoundCollection(models.Model):
 
     objects = PassThroughManager.for_queryset_class(SoundCollectionQuerySet)()
 
+    class Meta:
+	verbose_name_plural = 'Sounds'
+
     def __unicode__(self):
 	return self.title
 
