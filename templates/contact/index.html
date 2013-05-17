@@ -1,5 +1,7 @@
 {% extends "base_inner.html" %}
 
+{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+
 {% block customer_care_banner %}{% endblock %}
 
 {% block app_body %}
@@ -13,8 +15,12 @@
 	    Festac Town.<br/></p>
 	    <p>Tel: 07044770254, 08092796787<br/>
 	    <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a><br/></p>
-	    <div class="fb-like" data-href="{{ SITE_URL }}{{ request.path }}" 
-		data-send="false" data-width="250"></div>
+	    <div class="addthis_toolbox addthis_default_style">
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		<a class="addthis_button_tweet"></a>
+	    </div>
+	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
+	    <!-- AddThis Button END -->
 	</div>
 	<div class="contactform">
 	    {% if messages %}

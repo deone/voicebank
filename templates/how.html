@@ -1,5 +1,7 @@
 {% extends "base_inner.html" %}
 
+{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+
 {% block app_body %}
 <div class="leftdiv">
     <div class="inner how">
@@ -207,8 +209,12 @@
 
 		<p>If you would like to replace your existing clips that will be done for 1000 Naira per clip.</p>
 	    </div>
-	    <div class="fb-like" data-href="{{ SITE_URL }}{{ request.path }}" 
-		data-send="false" data-width="450"></div>
+	    <div class="addthis_toolbox addthis_default_style">
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		<a class="addthis_button_tweet"></a>
+	    </div>
+	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
+	    <!-- AddThis Button END -->
 	</div>
     </div>
 </div> <!--/leftdiv-->
