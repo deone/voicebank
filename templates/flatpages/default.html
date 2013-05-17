@@ -1,5 +1,7 @@
 {% extends "base_inner.html" %}
 
+{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+
 {% load thumbnail %}
 
 {% block app_body %}
@@ -16,7 +18,7 @@
 		data-send="false" data-width="450"></div>-->
 	    <!-- AddThis Button BEGIN -->
 	    <div class="addthis_toolbox addthis_default_style">
-	    <a class="addthis_button_facebook_like" addthis:url="{{ SITE_URL }}{{ request.path }}" fb:like:layout="button_count"></a>
+	    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 	    <a class="addthis_button_tweet"></a>
 	    </div>
 	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
