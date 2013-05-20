@@ -79,9 +79,13 @@
 		<ul>
 		    {% for clip in top_clips %}
 		    <div class="clip">
-			{% thumbnail clip.user.profile.photo "68x68" crop="center" as cp %}
-			    <img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
-			{% endthumbnail %}
+			{% if clip.user.profile.photo %}
+			    {% thumbnail clip.user.profile.photo "56x56" crop="center" as cp %}
+				<img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
+			    {% endthumbnail %}
+			{% else %}
+			    <img src="{{ STATIC_URL }}img/profile.jpg" width="56" height="56"/>
+			{% endif %}
 			<li>
 			    <div class="capitalize">{{ clip.name }} by 
 				<a href="{{ clip.user.profile.get_absolute_url }}">

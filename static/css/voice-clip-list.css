@@ -84,7 +84,8 @@ color:#3151A2;
 }
 .clip img   {
     float: left;
+    margin: 7px 0 7px 7px;
 }
 .clip:hover   {
-    border-bottom:1px solid #e2e2e2
+    border-bottom:1px solid #e2e2e2;
 }

@@ -5,9 +5,15 @@
 {% for clip in voiceclip_list %}
     {% if clip.is_active %}
     <div class="clip">
-	{% thumbnail clip.user.profile.photo "68x68" crop="center" as cp %}
-	    <img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
-	{% endthumbnail %}
+	{% with clip.user.profile.photo as p %}
+	    {% if p %}
+		{% thumbnail p "56x56" crop="center" as cp %}
+		    <img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
+		{% endthumbnail %}
+	    {% else %}
+		<img src="{{ STATIC_URL }}img/profile.jpg" width="56" height="56"/>
+	    {% endif %}
+	{% endwith %}
 	<li>
 	    <div class="capitalize">{{ clip.name }} by 
 		<a href="{{ clip.user.profile.get_absolute_url }}">
