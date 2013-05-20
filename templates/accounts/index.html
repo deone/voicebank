@@ -56,14 +56,7 @@
 	{#{% display_albums 5 %}#}
 	<a href="{#{% url 'albums' %}#}" class="more">View More</a>
 	<div class="clear"></div>
-    </div>-->
-
-    <div class="home-left-pane">
-	<h3>Podcasts</h3>
-	{% display_podcasts 5 %}
-	<a href="{% url 'podcasts' %}" class="more">View More</a>
-	<div class="clear"></div>
-    </div>
+    </div>--> 
 
     <div class="feature home-left-pane">
 	<div class="recent">
@@ -85,22 +78,28 @@
 		{% if top_clips %}
 		<ul>
 		    {% for clip in top_clips %}
-		    <li>
-			<div class="capitalize">{{ clip.name }} by 
-			    <a href="{{ clip.user.profile.get_absolute_url }}">
-				{{ clip.user.get_full_name }}
-			    </a>
-			</div>
-			<span id="audioplayer_{{ forloop.counter0 }}">{{ clip.name }}</span>
-			<script>
-			    AudioPlayer.embed("audioplayer_{{ forloop.counter0 }}", {
-				soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-				titles: "{{ clip.name }}"
-			    });
-			</script>
-			<span class="numeric">{{ forloop.counter }}</span>
-			<div class="date">Added {{ clip.date_added }}</div>
-		    </li>
+		    <div class="clip">
+			{% thumbnail clip.user.profile.photo "68x68" crop="center" as cp %}
+			    <img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
+			{% endthumbnail %}
+			<li>
+			    <div class="capitalize">{{ clip.name }} by 
+				<a href="{{ clip.user.profile.get_absolute_url }}">
+				    {{ clip.user.get_full_name }}
+				</a>
+			    </div>
+			    <span id="audioplayer_{{ forloop.counter0 }}">{{ clip.name }}</span>
+			    <script>
+				AudioPlayer.embed("audioplayer_{{ forloop.counter0 }}", {
+				    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
+				    titles: "{{ clip.name }}"
+				});
+			    </script>
+			    <span class="numeric">{{ forloop.counter }}</span>
+			    <div class="date">Added {{ clip.date_added }}</div>
+			</li>
+			<div class="clear"></div>
+		    </div>
 		    {% endfor %}
 		</ul>
 		{% else %}
@@ -216,6 +215,12 @@
 	    </div>
 	</div>
 	{% endif %}
+	<div class="home-left-pane">
+	    <h3>Podcasts</h3>
+	    {% display_podcasts 5 %}
+	    <a href="{% url 'podcasts' %}" class="more">View More</a>
+	<div class="clear"></div>
+    </div>
     </div>
 </div> <!--/leftdiv-->
 {% endblock %}

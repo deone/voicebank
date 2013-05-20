@@ -31,7 +31,7 @@ class VoiceClipQuerySet(models.query.QuerySet):
     def active(self):
 	return self.filter(is_active=True)
     def top(self):
-	return self.filter(is_top=True).order_by('-is_top_timestamp')
+	return self.filter(is_active=True).filter(is_top=True).order_by('-is_top_timestamp')
 
 
 class VoiceClip(models.Model):
