@@ -18,7 +18,8 @@
 	{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com" />{% endblock %}
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css"/>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/voice-clip-list.css"/>
-	<script src="{{ STATIC_URL }}js/jquery.js"></script>
+	{% block custom_css %}{% endblock %}
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="{{ STATIC_URL }}js/slides.min.jquery.js"></script>
 	<script src="{{ STATIC_URL }}js/audio-player.js"></script>
 	<script>

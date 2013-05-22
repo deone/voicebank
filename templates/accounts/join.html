@@ -57,9 +57,20 @@
 
 {% block events %}{% endblock %}
 
+{% block custom_css %}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+{% endblock %}
+
 {% block custom_js %}
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script>
     $(function()    {
+	    $("#datepicker").datepicker({
+		dateFormat: "dd/mm/yy",
+		changeMonth: true,
+		changeYear: true,
+		maxDate: +0,
+		});
 	    $('a#join').addClass('current');
     });
     </script>
