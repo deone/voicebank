@@ -13,4 +13,4 @@ EVENTS_PAGINATE_BY = 5
 
 THUMBNAIL_DEBUG = True
 
-SITE_URL = 'http://localhost:8000'
+SITE_URL = 'http://localhost:7700'
