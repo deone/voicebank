@@ -1,0 +1,32 @@
+body {
+  padding-top: 50px;
+}
+.row {
+  margin-bottom: 30px;
+}
+.banner {
+  height: 250px;
+}
+.box {
+  height: 150px;
+}
+.small-box {
+  height: 135px;
+  /* margin-bottom: 30px; */
+}
+.content {
+  background: #ff0;
+}
+.first-col {
+  margin-left: -15px;
+}
+.last-col {
+  margin-right: -15px;
+}
+.clip-list {
+  height: 300px;
+}
+.footer {
+  margin-bottom: 0;
+  height: 200px;
+}

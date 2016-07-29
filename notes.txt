@@ -1,0 +1,1 @@
+- Make #id navigation work properly on how.html.
