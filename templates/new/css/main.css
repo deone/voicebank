@@ -1,11 +1,18 @@
 body {
   padding-top: 50px;
 }
+img {
+  width: 100%;
+}
 .row {
   margin-bottom: 30px;
 }
 .banner {
-  height: 250px;
+  margin-bottom: 50px;
+}
+.main-action {
+  width: 95%;
+  margin-bottom: 20px;
 }
 .box {
   height: 150px;
@@ -15,7 +22,7 @@ body {
   /* margin-bottom: 30px; */
 }
 .content {
-  background: #ff0;
+  background: #eee;
 }
 .first-col {
   margin-left: -15px;
