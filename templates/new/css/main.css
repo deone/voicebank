@@ -1,3 +1,10 @@
+@font-face {
+  font-family: DidactGothic;
+  src: url('../fonts/DidactGothic.ttf');
+}
+html, body {
+  font-family: 'DidactGothic', Arial, Helvetica, sans-serif;
+}
 body {
   padding-top: 50px;
 }
@@ -10,8 +17,12 @@ img {
 .banner {
   margin-bottom: 50px;
 }
+.about-banner {
+  margin-bottom: 0;
+}
 .main-action {
   width: 95%;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 .box {
@@ -36,4 +47,23 @@ img {
 .footer {
   margin-bottom: 0;
   height: 200px;
+}
+
+/* Slick */
+.slider {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
 }
