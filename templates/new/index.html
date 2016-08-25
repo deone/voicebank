@@ -89,7 +89,14 @@
               <h3 class="panel-title">Most Recent Clips</h3>
             </div>
             <div class="panel-body">
-              <p>Clips</p>
+              <ul style="margin: 0; padding: 0; list-style: none;">
+                <li>
+                  <audio src="clips/ara.mp3" preload="auto"></audio>
+                  <div class="track-details">
+                    Juicy-r <em>by</em> Wait What
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -191,6 +198,9 @@
             }
           ]
         });
+      });
+      audiojs.events.ready(function() {
+        var as = audiojs.createAll();
       });
     </script>
   </body>
