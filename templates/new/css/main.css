@@ -23,10 +23,10 @@ img {
   width: 100%;
 }
 .row {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .banner {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 .about-banner {
   margin-bottom: 0;
@@ -40,7 +40,7 @@ img {
   height: 150px;
 }
 .small-box {
-  height: 135px;
+  height: 175px;
   /* margin-bottom: 30px; */
 }
 .content {
@@ -93,6 +93,10 @@ img {
   background: #eee;
 }
 
+.clip-list li:last-child {
+  margin-bottom: 0px;
+}
+
 .clip-list img {
   float: left;
   width: 50px;
@@ -102,6 +106,29 @@ img {
 .clip-list .clip {
   float: left;
   background: #eee;
+}
+
+.blog-post {
+  margin-bottom: 34px;
+}
+
+.blog-post .category {
+  font-size: 90%;
+}
+
+.blog-post .body {
+  font-size: 90%;
+}
+
+.testimonials .panel-body {
+  /* background: url('../images/foxtail.png'); */
+  text-align: center;
+}
+
+.testimonials blockquote {
+  font-size: 110%;
+  margin: 0;
+  margin-top: 2px;
 }
 
 /* Audio */
