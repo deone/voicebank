@@ -1,1 +1,5 @@
 - Make #id navigation work properly on how.html.
+- Test site on higher resolution screens.
+- Make audio tags responsive.
+- Make testimonials a carousel with images.
+- Remove Clients from panel.

@@ -3,17 +3,17 @@ body {
   background: #fcfcfc;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 h3 {
-  font-size: 120% !important;
+  font-size: 130% !important;
 }
 h1, h2, h3 {
   font-weight: bold;
 }
-p, ul, blockquote, form, a {
-  font-family: 'Abel', sans-serif;
-  font-size: 135%;
+p, blockquote, form, a {
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 103%;
   color: #485451;
 }
 img {
@@ -72,7 +72,6 @@ img {
 
 .footer ul li a {
   color: #fff;
-  font-size: 90%;
 }
 
 .footer ul li a:hover {
@@ -141,15 +140,19 @@ img {
 }
 
 .blog-post {
-  margin-bottom: 34px;
-}
-
-.blog-post .category {
-  font-size: 90%;
+  margin-bottom: 43px;
 }
 
 .blog-post .body {
   font-size: 90%;
+}
+
+.blog-post .col-md-8 {
+  padding-left: 0;
+}
+
+.blog-post .col-md-8 h4 {
+  margin-top: 0;
 }
 
 .testimonials .panel-body {
@@ -157,7 +160,6 @@ img {
 }
 
 .testimonials blockquote {
-  font-size: 110%;
   margin: 0;
   margin-top: 2px;
 }
@@ -180,7 +182,6 @@ img {
 
 .services p {
   margin-top: 15px;
-  font-size: 120%;
 }
 
 
