@@ -1,13 +1,9 @@
-@font-face {
-  font-family: DidactGothic;
-  src: url('../fonts/DidactGothic.ttf');
-}
-html, body {
-  font-family: 'DidactGothic', Arial, Helvetica, sans-serif;
-}
 body {
   padding-top: 50px;
   background: #fcfcfc;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 h3 {
   font-size: 120% !important;
@@ -15,7 +11,8 @@ h3 {
 h1, h2, h3 {
   font-weight: bold;
 }
-p, ul {
+p, ul, blockquote, form, a {
+  font-family: 'Abel', sans-serif;
   font-size: 135%;
   color: #485451;
 }
@@ -44,23 +41,54 @@ img {
   height: 175px;
   /* margin-bottom: 30px; */
 }
-.content {
-  background: #eee;
-}
-.first-col {
-  margin-left: -15px;
-}
-.last-col {
-  margin-right: -15px;
-}
-.footer {
-  margin-bottom: 0;
-  height: 200px;
-}
 
 .panel {
   border: none;
 }
+
+.footer {
+  padding-top: 20px;
+  margin-bottom: 0;
+  color: #fff;
+  background: #4d4d4d;
+  padding-bottom: 30px;
+}
+
+.footer .content {
+  width: 91%;
+  margin: 0 auto;
+}
+
+.footer .links {
+  border-bottom: solid 1px #999;
+  padding-bottom: 30px;
+}
+
+.footer ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li a {
+  color: #fff;
+  font-size: 90%;
+}
+
+.footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.social {
+  width: 20%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.social img {
+  width: 50px;
+}
+
 /* Slick */
 /* .slider {
     width: 50%;
@@ -125,7 +153,6 @@ img {
 }
 
 .testimonials .panel-body {
-  /* background: url('../images/foxtail.png'); */
   text-align: center;
 }
 
@@ -134,6 +161,28 @@ img {
   margin: 0;
   margin-top: 2px;
 }
+
+.work .page-header,
+.services .page-header,
+.work .page-header h3,
+.services .page-header h3 {
+  margin-top: 0;
+}
+
+.work iframe {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.services .col-md-3 {
+  margin-bottom: 15px;
+}
+
+.services p {
+  margin-top: 15px;
+  font-size: 120%;
+}
+
 
 /* Audio */
 .audiojs {
