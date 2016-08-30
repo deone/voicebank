@@ -123,7 +123,7 @@ img {
 
 .clip-list li {
   margin-bottom: 15px;
-  background: #eee;
+  /* background: #eee; */
 }
 
 .clip-list li:last-child {
@@ -132,7 +132,7 @@ img {
 
 .clip-list img {
   float: left;
-  width: 50px;
+  width: 68px;
   border: solid 1px #eee;
 }
 
@@ -142,6 +142,7 @@ img {
 }
 
 .blog-post {
+  margin-bottom: 30px;
 }
 
 .blog-post .image,
@@ -170,7 +171,6 @@ img {
 
 .testimonials blockquote {
   margin: 0;
-  margin-top: 2px;
 }
 
 .work .page-header,
@@ -193,85 +193,4 @@ img {
 
 .services p {
   margin-top: 15px;
-}
-
-
-/* Audio */
-.audiojs {
-  height: 25px;
-  width: 278px;
-  background: #404040;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444));
-  background-image: -moz-linear-gradient(center top, #444 0%, #555 50%, #444 51%, #444 100%);
-        -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
-        -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.audiojs .play-pause {
-  width: 24px;
-  height: 25px;
-  padding: 2px 8px 0px 0px;
-}
-
-.audiojs p {
-  width: 25px;
-  height: 20px;
-  margin: -3px 0px 0px -1px;
-}
-
-.audiojs .scrubber {
-  background: #5a5a5a;
-  width: 135px;
-  height: 10px;
-  margin: 5px;
-}
-
-.audiojs .progress {
-  height: 10px;
-  width: 0px;
-  background: #ccc;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ccc), color-stop(0.5, #ddd), color-stop(0.51, #ccc), color-stop(1, #ccc));
-  background-image: -moz-linear-gradient(center top, #ccc 0%, #ddd 50%, #ccc 51%, #ccc 100%);
-}
-
-.audiojs .loaded {
-  height: 10px;
-  background: #000;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(0.5, #333), color-stop(0.51, #222), color-stop(1, #222));
-  background-image: -moz-linear-gradient(center top, #222 0%, #333 50%, #222 51%, #222 100%);
-}
-
-.audiojs .time {
-  float: left;
-  height: 25px;
-  line-height: 25px;
-}
-
-.audiojs .error-message {
-  height: 25px;
-  line-height: 25px;
-  width: 190px;
-  font-size: 10px;
-}
-
-.track-details {
-  clear: both;
-  height: 25px;
-  width: 278px;
-  padding: 1px 6px;
-  background: #eee;
-  color: #222;
-  font-family: monospace;
-  font-size: 11px;
-  line-height: 25px;
-  -webkit-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.15); -moz-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.15);
-}
-
-.track-details:before {
-  content: '♬ ';
-}
-
-.track-details em {
-  font-style: normal;
-  color: #999;
 }
