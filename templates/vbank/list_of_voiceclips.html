@@ -1,36 +1,35 @@
 
 {% load thumbnail %}
 
-<ul class="cliplist">
-{% for clip in voiceclip_list %}
+<ul class="clip-list">
+  {% for clip in voiceclip_list %}
     {% if clip.is_active %}
-    <div class="clip">
-	{% with clip.user.profile.photo as p %}
+      <li>
+        <div class="profile-pic">
+          {% with clip.user.profile.photo as p %}
 	    {% if p %}
-		{% thumbnail p "56x56" crop="center" as cp %}
-		    <img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
-		{% endthumbnail %}
+              {% thumbnail p "100x100" crop="center" as cp %}
+                <img src="{{ cp.url }}">
+              {% endthumbnail %}
 	    {% else %}
-		<img src="{{ STATIC_URL }}img/profile.jpg" width="56" height="56"/>
+	      <img src="{{ STATIC_URL }}images/profile_bg.jpg">
 	    {% endif %}
-	{% endwith %}
-	<li>
-	    <div class="capitalize">{{ clip.name }} by 
-		<a href="{{ clip.user.profile.get_absolute_url }}">
-		    {{ clip.user.get_full_name }}
-		</a>
-	    </div>
-	    <span id="audioplayer_{{ clip.id }}"></span>
-	    <script>
-		AudioPlayer.embed("audioplayer_{{ clip.id }}", {
-		    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-		    titles: "{{ clip.name }}"
-		});
-	    </script>
-	    <div class="date">Added {{ clip.date_added }}</div>
-	</li>
-	<div class="clear"></div>
-    </div>
+	  {% endwith %}
+        </div>
+        <div class="clip">
+          <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
+          <div class="track-details">
+            <!-- Erisco Foods Advert Demo <em>by</em> Emmanuel Nyarko -->
+            {{ clip.name }} <em>by</em> <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a>
+          </div>
+          <div class="timestamp">
+            Added {{ clip.date_added }}
+          </div>
+        </div>
+        <div style="clear: both"></div>
+      </li>
     {% endif %}
-{% endfor %}
+  {% endfor %}
 </ul>
+
+

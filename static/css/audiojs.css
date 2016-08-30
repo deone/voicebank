@@ -70,6 +70,12 @@
   border-bottom: solid 1px #ddd;
 }
 
+.track-details a {
+  color: #222;
+  font-family: monospace;
+  font-size: 11px;
+}
+
 .track-details:before {
   content: '♬ ';
 }

@@ -1,246 +1,264 @@
 {% extends "base.html" %}
 
-{% load thumbnail %}
-
-{% load sounds_tags %}
-
 {% load vbank_tags %}
 
-{% block app_body %}
-<div class="leftdiv">
-    <div class="home-left-pane" id="categories">
-	<h3>Voice Artist Categories 
-	    <span class="alt">
-		<a href="{% url 'booking' %}">Book your recordings here <em>&raquo;</em></a>
-	    </span>
-	    <span><a href="{% url 'all_clips' %}">View All Voice Clips <em>&raquo;</em></a></span>
-	</h3>
-
-	<ul class="categories">
-	    {% for category in categories %}
-		<li class="{% if forloop.counter|divisibleby:5 %}no-margin{% endif %}">
-		    <a href="{{ category.get_absolute_url }}">
-			<span>{{ category.name }}</span>
-			<img src="{{ category.image.url }}"/>
-		    </a>
-		</li>
-	    {% endfor %}
-	    <li>
-		<a href="{% url 'all_clips' %}" class="allvoice"></a>
-	    </li>
-	</ul>
-    </div> <!--/categories--> 
-
-    <div class="home-left-pane">
-	<h3>Articles</h3>
-	<ul class="articles">
-	{% if featured_articles %}
-            {% for article in featured_articles %}
-            <li class="{% if forloop.counter|divisibleby:4 %}no-margin{% endif %}">
-                <a href="{{ article.get_absolute_url }}">
-                {% thumbnail article.image "161x130" crop="center" as ar %}
-                    <img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
-                {% endthumbnail %}
-		{{ article.title }}
-                </a>
-	    </li>
-            {% endfor %}
-	{% else %}
-	   <p>There are no articles. Yet.</p> 
-	{% endif %}
-	</ul>
+{% block app %}
+<div class="container-fluid">
+  <div class="banner row">
+    <div>
+      <img src="{{ STATIC_URL }}images/banner.jpg" class="img-responsive">
     </div>
+  </div>
+</div>
 
-    <!--<div class="home-left-pane" id="musicbox">
-	<h3>Music Box</h3>
-	{#{% display_albums 5 %}#}
-	<a href="{#{% url 'albums' %}#}" class="more">View More</a>
-	<div class="clear"></div>
-    </div>--> 
-
-    <div class="feature home-left-pane">
-	<div class="recent">
-	    <div class="upper">
-		<h3>Most Recent Additions</h3>
-		{% if voiceclip_list %}
-		    {% display_voiceclip_list %}
-		{% else %}
-		    <p> There are no recent voice clips.</p>
-		{% endif %}
-	    </div>
-	    <div class="lower">
-		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
-	    </div>
-	</div>
-	<div class="additions">
-	    <div class="upper">
-		<h3>Top 5 voice clips</h3>
-		{% if top_clips %}
-		<ul>
-		    {% for clip in top_clips %}
-		    <div class="clip">
-			{% if clip.user.profile.photo %}
-			    {% thumbnail clip.user.profile.photo "56x56" crop="center" as cp %}
-				<img src="{{ cp.url }}" width="{{ cp.width }}" height="{{ cp.height }}"/>
-			    {% endthumbnail %}
-			{% else %}
-			    <img src="{{ STATIC_URL }}img/profile.jpg" width="56" height="56"/>
-			{% endif %}
-			<li>
-			    <div class="capitalize">{{ clip.name }} by 
-				<a href="{{ clip.user.profile.get_absolute_url }}">
-				    {{ clip.user.get_full_name }}
-				</a>
-			    </div>
-			    <span id="audioplayer_{{ forloop.counter0 }}">{{ clip.name }}</span>
-			    <script>
-				AudioPlayer.embed("audioplayer_{{ forloop.counter0 }}", {
-				    soundFile: "{{ MEDIA_URL }}{{ clip.voice_clip }}",
-				    titles: "{{ clip.name }}"
-				});
-			    </script>
-			    <span class="numeric">{{ forloop.counter }}</span>
-			    <div class="date">Added {{ clip.date_added }}</div>
-			</li>
-			<div class="clear"></div>
-		    </div>
-		    {% endfor %}
-		</ul>
-		{% else %}
-		<p>No voice clips yet.</p>
-		{% endif %}
-	    </div>
-	    <div class="lower">
-		<a href="{% url 'all_clips' %}">View All<em>&raquo;</em></a>
-	    </div>
-	</div>
-    </div> <!--/feature-->
-    <div class="home-left-pane" id="article-type-group">
-	{% if news %}
-	<div class="compact-content-pane">
-	    <h3>News</h3>
-	    <div>
-		<ul>
-		{% for article in news %}
-		    {% ifequal forloop.counter 1 %}
-		    <li class="highlight">
-			{% thumbnail article.image "120x100" crop="center" as ar %}
-			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
-			{% endthumbnail %}
-			<div>
-			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-			    <p>{{ article.summary|safe }}</p>
-			</div>
-			<div class="clear"></div>
-		    </li>
-		    {% else %}
-		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
-		    {% endifequal %}
-		{% endfor %}
-		</ul>
-	    </div>
-	</div>
-	{% endif %}
-
-	{% if voice_tips %}
-	<div class="compact-content-pane">
-	    <h3>Voice Tips</h3>
-	    <div>
-		<ul>
-		{% for article in voice_tips %}
-		    {% ifequal forloop.counter 1 %}
-		    <li class="highlight">
-			{% thumbnail article.image "120x100" crop="center" as ar %}
-			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
-			{% endthumbnail %}
-			<div>
-			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-			    <p>{{ article.summary|safe }}</p>
-			</div>
-			<div class="clear"></div>
-		    </li>
-		    {% else %}
-		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
-		    {% endifequal %}
-		{% endfor %}
-		</ul>
-	    </div>
-	</div>
-	{% endif %}
-
-	{% if radio_connect %}
-	<div class="compact-content-pane">
-	    <h3>Radio Connect</h3>
-	    <div>
-		<ul>
-		{% for article in radio_connect %}
-		    {% ifequal forloop.counter 1 %}
-		    <li class="highlight">
-			{% thumbnail article.image "120x100" crop="center" as ar %}
-			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
-			{% endthumbnail %}
-			<div>
-			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-			    <p>{{ article.summary|safe }}</p>
-			</div>
-			<div class="clear"></div>
-		    </li>
-		    {% else %}
-		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
-		    {% endifequal %}
-		{% endfor %}
-		</ul>
-	    </div>
-	</div>
-	{% endif %}
-
-	{% if others %}
-	<div class="compact-content-pane">
-	    <h3>Others</h3>
-	    <div>
-		<ul>
-		{% for article in others %}
-		    {% ifequal forloop.counter 1 %}
-		    <li class="highlight">
-			{% thumbnail article.image "120x100" crop="center" as ar %}
-			<img src="{{ ar.url }}" width="{{ ar.width }}" height="{{ ar.height }}"/>
-			{% endthumbnail %}
-			<div>
-			    <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-			    <p>{{ article.summary|safe }}</p>
-			</div>
-			<div class="clear"></div>
-		    </li>
-		    {% else %}
-		    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
-		    {% endifequal %}
-		{% endfor %}
-		</ul>
-	    </div>
-	</div>
-	{% endif %}
-	<div class="home-left-pane">
-	    <h3>Podcasts</h3>
-	    {% display_podcasts 5 %}
-	    <a href="{% url 'podcasts' %}" class="more">View More</a>
-	<div class="clear"></div>
+<div class="container">
+  <div class="main-actions row">
+    <div class="col-md-4">
+      <div class="img-rounded main-action">
+        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+      </div>
     </div>
+    <div class="col-md-4">
+      <div class="img-rounded main-action">
+        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+      </div>
     </div>
-</div> <!--/leftdiv-->
-{% endblock %}
+    <div class="col-md-4">
+      <div class="img-rounded main-action">
+        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+      </div>
+    </div>
+  </div>
 
-{% block custom_js %}
-<script src="{{ STATIC_URL }}agon_ratings/js/jquery.raty.js"></script>
-<script>
-    $(function()    {
-	    $('#slides').slides({
-		    preload: true,
-		    preloadImage: '{{ STATIC_URL }}img/loading.gif',
-		    play: 8000,
-		    pause: 2500,
-		    hoverPause: true
-	    });
-	    $('a#home').addClass('current');
-    });
-</script>
+  <div class="ad-clients row">
+    <div class="clients col-md-9">
+      <div class="page-header">
+        <h3>Our Clients</h3>
+      </div>
+      <section class="regular slider">
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+        <div>
+          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
+        </div>
+      </section>
+    </div>
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}images/ad.jpg" class="img-responsive">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Most Recent Clips</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="clip-list">
+            {% if voiceclip_list %}
+              {% display_voiceclip_list %}
+            {% else %}
+	      <p>There are no recent voice clips.</p>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Top Five Clips</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="clip-list">
+            <li>
+              <div class="profile-pic">
+                <img src="{{ STATIC_URL }}images/sample_profile_pic.jpg">
+              </div>
+              <div class="clip">
+                <audio src="{{ STATIC_URL }}clips/ara.mp3" preload="none"></audio>
+                <div class="track-details">
+                  Juicy-r <em>by</em> Wait What
+                </div>
+                <div class="timestamp">
+                  Added April 5, 2016, 10:33 p.m.
+                </div>
+              </div>
+              <div style="clear: both"></div>
+            </li>
+            <li>
+              <div class="profile-pic">
+                <img src="{{ STATIC_URL }}images/sample_profile_pic.jpg">
+              </div>
+              <div class="clip">
+                <audio src="{{ STATIC_URL }}clips/ara.mp3" preload="none"></audio>
+                <div class="track-details">
+                  Juicy-r <em>by</em> Wait What
+                </div>
+                <div class="timestamp">
+                  Added April 5, 2016, 10:33 p.m.
+                </div>
+              </div>
+              <div style="clear: both"></div>
+            </li>
+            <li>
+              <div class="profile-pic">
+                <img src="{{ STATIC_URL }}images/sample_profile_pic.jpg">
+              </div>
+              <div class="clip">
+                <audio src="{{ STATIC_URL }}clips/ara.mp3" preload="none"></audio>
+                <div class="track-details">
+                  Juicy-r <em>by</em> Wait What
+                </div>
+                <div class="timestamp">
+                  Added April 5, 2016, 10:33 p.m.
+                </div>
+              </div>
+              <div style="clear: both"></div>
+            </li>
+            <li>
+              <div class="profile-pic">
+                <img src="{{ STATIC_URL }}images/sample_profile_pic.jpg">
+              </div>
+              <div class="clip">
+                <audio src="{{ STATIC_URL }}clips/ara.mp3" preload="none"></audio>
+                <div class="track-details">
+                  Juicy-r <em>by</em> Wait What
+                </div>
+                <div class="timestamp">
+                  Added April 5, 2016, 10:33 p.m.
+                </div>
+              </div>
+              <div style="clear: both"></div>
+            </li>
+            <li>
+              <div class="profile-pic">
+                <img src="{{ STATIC_URL }}images/dfhdf.jpg">
+              </div>
+              <div class="clip">
+                <audio src="{{ STATIC_URL }}clips/ara.mp3" preload="none"></audio>
+                <div class="track-details">
+                  Juicy-r <em>by</em> Wait What
+                </div>
+                <div class="timestamp">
+                  Added April 5, 2016, 10:33 p.m.
+                </div>
+              </div>
+              <div style="clear: both"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="blog-post">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">From Our Blog</h3>
+          </div>
+          <div class="panel-body">
+            <div class="image">
+            </div>
+            <div class="body">
+              <h4><a href="#">Blog Post Title Blog Post Title Blog Post Title Blog Post Title</a></h4>
+              <p>
+                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore...
+              </p>
+            </div>
+            <div style="clear: both"></div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">What Our Clients Say</h3>
+          </div>
+          <div class="panel-body">
+            <blockquote>
+              &ldquo;Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;<br>
+              - Lin Tan Me
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="work row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h3>Our Work</h3>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-4">
+      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-4">
+      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-md-9">
+      <div class="content box">About Us</div>
+    </div>
+    <div class="col-md-3">
+      <div class="content box">Connect With Us</div>
+    </div>
+  </div> -->
+
+  <div class="services row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h3>Services</h3>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
+      <p>
+        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+      </p>
+      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+    </div>
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
+      <p>
+        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+      </p>
+      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+    </div>
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
+      <p>
+        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+      </p>
+      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+    </div>
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
+      <p>
+        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+      </p>
+      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
