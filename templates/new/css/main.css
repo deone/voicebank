@@ -22,6 +22,7 @@ img {
 .row {
   margin-bottom: 15px;
 }
+.ad-clients,
 .banner {
   margin-bottom: 35px;
 }
@@ -140,7 +141,7 @@ img {
 }
 
 .blog-post {
-  margin-bottom: 43px;
+  margin-bottom: 42px;
 }
 
 .blog-post .body {
@@ -166,8 +167,10 @@ img {
 
 .work .page-header,
 .services .page-header,
+.clients .page-header,
 .work .page-header h3,
-.services .page-header h3 {
+.services .page-header h3,
+.clients .page-header h3 {
   margin-top: 0;
 }
 
