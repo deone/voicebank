@@ -13,8 +13,7 @@ h1, h2, h3 {
 }
 p, blockquote, form, a {
   font-family: 'Cantarell', sans-serif;
-  font-size: 103%;
-  color: #485451;
+  font-size: 105%;
 }
 img {
   width: 100%;
@@ -33,14 +32,6 @@ img {
   width: 95%;
   margin: 0 auto;
   margin-bottom: 20px;
-}
-
-.box {
-  height: 150px;
-}
-.small-box {
-  height: 175px;
-  /* margin-bottom: 30px; */
 }
 
 .panel {
@@ -130,9 +121,11 @@ img {
   margin-bottom: 0px;
 }
 
-.clip-list img {
+.clip-list .profile-pic {
   float: left;
   width: 68px;
+  height: 68px;
+  background: url('../images/profile_bg.jpg');
   border: solid 1px #eee;
 }
 
