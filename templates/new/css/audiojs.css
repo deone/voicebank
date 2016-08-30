@@ -45,13 +45,13 @@
 
 .audiojs .time {
   float: left;
-  height: 25px;
-  line-height: 25px;
+  height: 20px;
+  line-height: 20px;
 }
 
 .audiojs .error-message {
-  height: 25px;
-  line-height: 25px;
+  height: 20px;
+  line-height: 20px;
   width: 190px;
   font-size: 10px;
 }
