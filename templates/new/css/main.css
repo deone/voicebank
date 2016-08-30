@@ -12,7 +12,7 @@ h1, h2, h3 {
   font-weight: bold;
 }
 p, blockquote, form, a {
-  font-family: 'Maven Pro', sans-serif;
+  font-family: 'Cantarell', sans-serif;
   font-size: 103%;
   color: #485451;
 }
@@ -105,13 +105,14 @@ img {
 
 .slick-prev:before,
 .slick-next:before {
-    color: black;
+  color: black;
 }
 
 .regular {
   width: 90%;
   margin: 0 auto;
-  margin-top: 21px;
+  margin-top: 30px;
+  padding-bottom: 19px;
 }
 
 .clip-list {
@@ -141,18 +142,25 @@ img {
 }
 
 .blog-post {
-  margin-bottom: 42px;
+}
+
+.blog-post .image,
+.blog-post .body {
+  float: left;
+}
+
+.blog-post .image {
+  height: 80px;
+  width: 25%;
+  background: #eee;
+  margin-right: 15px;
 }
 
 .blog-post .body {
-  font-size: 90%;
+  width: 70%;
 }
 
-.blog-post .col-md-8 {
-  padding-left: 0;
-}
-
-.blog-post .col-md-8 h4 {
+.blog-post .body h4 {
   margin-top: 0;
 }
 
