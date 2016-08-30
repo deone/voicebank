@@ -71,7 +71,7 @@
         </div>
         <div class="panel-body">
           {% if voiceclip_list %}
-            {% display_voiceclip_list %}
+            {% display_clip_list voiceclip_list %}
           {% else %}
             <p>There are no recent voice clips.</p>
           {% endif %}
@@ -85,7 +85,7 @@
         </div>
         <div class="panel-body">
           {% if top_clips %}
-            {% display_voiceclip_list %}
+            {% display_clip_list top_clips %}
           {% else %}
             <p>There are no top clips.</p>
           {% endif %}

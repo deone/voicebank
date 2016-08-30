@@ -6,8 +6,8 @@ from vbank.models import VoiceClip
 register = template.Library()
 
 @register.inclusion_tag('vbank/list_of_voiceclips.html', takes_context=True)
-def display_voiceclip_list(context):
-    return context
+def display_clip_list(context, lst):
+    return {'STATIC_URL': context['STATIC_URL'], 'MEDIA_URL': context['MEDIA_URL'], 'clip_list': lst}
 
 @register.inclusion_tag('vbank/list_of_voiceclips.html', takes_context=True)
 def show_user_voiceclips(context, user, template):
