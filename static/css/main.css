@@ -120,14 +120,14 @@ img {
 
 .clip-list .profile-pic {
   float: left;
-  width: 68px;
-  height: 68px;
+  background: #eee;
+  width: 20.9%;
   border: solid 1px #eee;
 }
 
 .clip-list .clip {
   float: left;
-  background: #eee;
+  width: 79.1%;
 }
 
 .clip-list p {
