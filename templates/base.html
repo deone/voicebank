@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}slick/slick.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}slick/slick-theme.css">
+    {% block slickcss %}{% endblock %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/audiojs.css">
+    {% block audiojscss %}{% endblock %}
     <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->

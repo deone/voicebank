@@ -4,6 +4,11 @@
 
 {% load thumbnail %}
 
+{% block slickcss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}slick/slick.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}slick/slick-theme.css">
+{% endblock %}
+
 {% block app %}
 <div class="container-fluid">
   <div class="banner row">
