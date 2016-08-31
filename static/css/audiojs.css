@@ -64,20 +64,22 @@
   padding: 1px 6px;
   /* background: #eee; */
   color: #222;
-  font-family: monospace;
   font-size: 11px;
   line-height: 20px;
   border-bottom: solid 1px #ddd;
 }
 
+.track-details span {
+  text-transform: capitalize;
+}
+
 .track-details a {
   color: #222;
-  font-family: monospace;
   font-size: 11px;
 }
 
 .track-details:before {
-  content: '♬ ';
+  /* content: '♬ '; */
 }
 
 .track-details em {

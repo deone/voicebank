@@ -1,7 +1,7 @@
 
 {% load thumbnail %}
 
-<ul class="clip-list">
+<ul>
   {% for clip in clip_list %}
     {% if clip.is_active %}
       <li>
@@ -19,8 +19,7 @@
         <div class="clip">
           <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
           <div class="track-details">
-            <!-- Erisco Foods Advert Demo <em>by</em> Emmanuel Nyarko -->
-            {{ clip.name }} <em>by</em> <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a>
+            <span>{{ clip.name }}</span> <em>by</em> <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a>
           </div>
           <div class="timestamp">
             Added {{ clip.date_added }}

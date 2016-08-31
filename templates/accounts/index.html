@@ -69,12 +69,13 @@
         <div class="panel-heading">
           <h3 class="panel-title">Most Recent Clips</h3>
         </div>
-        <div class="panel-body">
+        <div class="clip-list panel-body">
           {% if voiceclip_list %}
             {% display_clip_list voiceclip_list %}
           {% else %}
             <p>There are no recent voice clips.</p>
           {% endif %}
+          <p><a href="{% url 'all_clips' %}">View All Clips</a></p>
         </div>
       </div>
     </div>
@@ -83,12 +84,13 @@
         <div class="panel-heading">
           <h3 class="panel-title">Top Five Clips</h3>
         </div>
-        <div class="panel-body">
+        <div class="clip-list panel-body">
           {% if top_clips %}
             {% display_clip_list top_clips %}
           {% else %}
             <p>There are no top clips.</p>
           {% endif %}
+          <p><a href="{% url 'all_clips' %}">View All Clips</a></p>
         </div>
       </div>
     </div>
