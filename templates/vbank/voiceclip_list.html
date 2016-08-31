@@ -1,35 +1,42 @@
-{% extends "base_inner.html" %}
-
-{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+{% extends "voice_clips_base.html" %}
 
 {% load vbank_tags %}
 
-{% block app_body %}
-<div class="leftdiv">
-    <h3>All Voice Clips</h3>
+{% load thumbnail %}
 
-    <div class="feature">
-	{% if voiceclip_list %}
-	    <div class="addthis_toolbox addthis_default_style">
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a class="addthis_button_tweet"></a>
-	    </div>
-	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
-	    <!-- AddThis Button END -->
-	    {% display_voiceclip_list %}
-	{% else %}
-	    <p>There are no voice clips.</p>
-	{% endif %}
-	{% if is_paginated %}
-	<div class="pagenav">
-	    {% if page_obj.has_previous %}
-	    <a href="?page={{ page_obj.previous_page_number }}" class="more left">Previous</a>
-	    {% endif %}
-	    {% if page_obj.has_next %}
-	    <a href="?page={{ page_obj.next_page_number }}" class="more right">Next</a>
-	    {% endif %}
-	</div>
-	{% endif %}
+{% block app %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Voice Clips</h1>
+      </div>
     </div>
+  </div>
+
+  <div class="row" style="margin-bottom: 50px;">
+    <div class="col-md-3">
+      <div class="page-header" style="margin-top: 0;">
+        <h2 style="margin-top: 0;">Refine Search</h2>
+      </div>
+      <div style="background: #eee; height: 100px;">dfkdfdf</div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-4">
+          <div style="background: #eee; height: 50px; margin-bottom: 30px;">dfhdfd</div>
+        </div>
+        <div class="col-md-4">
+          <div style="background: #eee; height: 50px; margin-bottom: 30px;">dfhdfd</div>
+        </div>
+        <div class="col-md-4">
+          <div style="background: #eee; height: 50px; margin-bottom: 30px;">dfhdfd</div>
+        </div>
+        <div class="col-md-4">
+          <div style="background: #eee; height: 50px; margin-bottom: 30px;">dfhdfd</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
