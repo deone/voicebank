@@ -15,7 +15,7 @@
 <div class="clip">
   <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
   <div class="track-details">
-    <span>{{ clip.name }}</span> <em>by</em> <a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a>
+    <span>{{ clip.name }}</span> <em>by</em> <span><a href="{{ clip.user.profile.get_absolute_url }}">{{ clip.user.get_full_name }}</a></span>
   </div>
   <div class="timestamp">
     Added {{ clip.date_added }}
