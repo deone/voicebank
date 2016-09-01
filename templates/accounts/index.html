@@ -99,7 +99,15 @@
         </div>
         <div class="clip-list panel-body">
           {% if top_clips %}
-            {% display_clip_list top_clips %}
+            <ul>
+              {% for clip in top_clips %}
+                {% if clip.is_active %}
+                  <li>
+                    {% display_clip clip %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           {% else %}
             <p>There are no top clips.</p>
           {% endif %}
