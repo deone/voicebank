@@ -76,7 +76,15 @@
         </div>
         <div class="clip-list panel-body">
           {% if voiceclip_list %}
-            {% display_clip_list voiceclip_list %}
+            <ul>
+              {% for clip in voiceclip_list %}
+                {% if clip.is_active %}
+                  <li>
+                    {% display_clip clip %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           {% else %}
             <p>There are no recent voice clips.</p>
           {% endif %}

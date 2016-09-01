@@ -23,69 +23,17 @@
     </div>
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-6">
-          <div class="profile-pic">
-            <img src="{{ STATIC_URL }}images/profile_bg.jpg">
-          </div>
-          <div class="clip">
-            <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
-            <div class="track-details">
-              Juicy-r <em>by</em> Wait What
-            </div>
-            <div class="timestamp">
-              Added April 5, 2016, 10:33 p.m.
-            </div>
-          </div>
-          <div style="clear: both;"></div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="profile-pic">
-            <img src="{{ STATIC_URL }}images/profile_bg.jpg">
-          </div>
-          <div class="clip">
-            <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
-            <div class="track-details">
-              Juicy-r <em>by</em> Wait What
-            </div>
-            <div class="timestamp">
-              Added April 5, 2016, 10:33 p.m.
-            </div>
-          </div>
-          <div style="clear: both;"></div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="profile-pic">
-            <img src="{{ STATIC_URL }}images/profile_bg.jpg">
-          </div>
-          <div class="clip">
-            <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
-            <div class="track-details">
-              Juicy-r <em>by</em> Wait What
-            </div>
-            <div class="timestamp">
-              Added April 5, 2016, 10:33 p.m.
-            </div>
-          </div>
-          <div style="clear: both;"></div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="profile-pic">
-            <img src="{{ STATIC_URL }}images/profile_bg.jpg">
-          </div>
-          <div class="clip">
-            <audio src="{{ MEDIA_URL }}{{ clip.voice_clip }}" preload="none"></audio>
-            <div class="track-details">
-              Juicy-r <em>by</em> Wait What
-            </div>
-            <div class="timestamp">
-              Added April 5, 2016, 10:33 p.m.
-            </div>
-          </div>
-          <div style="clear: both;"></div>
-        </div>
+        {% if voiceclip_list %}
+          {% for clip in voiceclip_list %}
+            {% if clip.is_active %}
+              <div class="col-md-6">
+                {% display_clip clip %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <p>There are no voice clips.</p>
+        {% endif %}
       </div>
     </div>
   </div>
