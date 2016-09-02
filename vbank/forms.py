@@ -3,15 +3,34 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
 from vbank.models import *
+from accounts.models import GENDER_CHOICES
 
 LANGUAGES = (
-	('', 'Language'),
+	('', 'Select Language'),
 	('English', 'English'),
 	('Pidgin English', 'Pidgin English'),
 	('Yoruba', 'Yoruba'),
 	('Igbo', 'Igbo'),
 	('Hausa', 'Hausa'),
 	)
+
+AGE_GROUP_CHOICES = (
+	('', 'Select Age Group'),
+	('K', 'Kid (0 - 15)'),
+	('A', 'Adult (16+)'),
+	)
+
+class ClipSearchForm(forms.Form):
+    # from accounts import calculate_age
+    # 'age': calculate_age(request.user.profile.birthday),
+    category = forms.ModelChoiceField(queryset=Category.objects.all(),
+	    empty_label="Select Category", widget=forms.Select(attrs={'class': 'form-control'}))
+    language = forms.ChoiceField(choices=LANGUAGES,
+	    widget=forms.Select(attrs={'class': 'form-control'}))
+    gender = forms.ChoiceField(choices=GENDER_CHOICES,
+	    widget=forms.Select(attrs={'class': 'form-control'}))
+    age_group = forms.ChoiceField(choices=AGE_GROUP_CHOICES,
+	    widget=forms.Select(attrs={'class': 'form-control'}))
 
 class VoiceClipForm(forms.Form):
     user = forms.CharField(max_length=5)

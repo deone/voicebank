@@ -19,34 +19,28 @@
       <div class="page-header">
         <h2>Search</h2>
       </div>
-      <form class="clip-search">
+      <form method="post" class="clip-search">
+        {% csrf_token %}
+	{{ form.non_field_errors }}
         <div class="form-group">
-          <label for="language">Category</label>
-          <select class="form-control">
-            <option>Voice-over</option>
-            <option>Sports Commentary</option>
-          </select>
+          {{ form.category.errors }}
+          <label for="{{ form.category.id_for_label }}">{{ form.category.label }}</label>
+          {{ form.category }}
         </div>
         <div class="form-group">
-          <label for="language">Language</label>
-          <select class="form-control">
-            <option>English</option>
-            <option>Yoruba</option>
-          </select>
+          {{ form.language.errors }}
+          <label for="{{ form.language.id_for_label }}">{{ form.language.label }}</label>
+          {{ form.language }}
         </div>
         <div class="form-group">
-          <label for="language">Gender</label>
-          <select class="form-control">
-            <option>Male</option>
-            <option>Female</option>
-          </select>
+          {{ form.gender.errors }}
+          <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}</label>
+          {{ form.gender }}
         </div>
         <div class="form-group">
-          <label for="language">Age Group</label>
-          <select class="form-control">
-            <option>Kid (15-)</option>
-            <option>Adult (16+)</option>
-          </select>
+          {{ form.age_group.errors }}
+          <label for="{{ form.age_group.id_for_label }}">{{ form.age_group.label }}</label>
+          {{ form.age_group }}
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>

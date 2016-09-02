@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from vbank.forms import * 
 from vbank.models import VoiceClip, Category
 
-def clip_search(request, template='vbank/voiceclip_list.html'):
+def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchForm):
     voice_clips_list = VoiceClip.objects.active()
     paginator = Paginator(voice_clips_list, settings.VOICECLIP_LIST_PAGINATE_BY)
 
@@ -20,8 +20,14 @@ def clip_search(request, template='vbank/voiceclip_list.html'):
     except EmptyPage:
         voice_clips = paginator.page(paginator.num_pages)
 
+    if request.method == 'POST':
+        form = form(request.POST)
+    else:
+        form = form()
+
     return render_to_response(template, {
 	'voiceclip_list': voice_clips,
+        'form': form,
         }, context_instance=RequestContext(request))
 
 @login_required
