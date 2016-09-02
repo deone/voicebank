@@ -173,9 +173,10 @@ img {
 }
 
 .clip-search {
-  background: #eee;
-  height: 100px;
+  background: #09c;
+  color: #fff;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .voiceclips .col-md-6 {
