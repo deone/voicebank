@@ -67,24 +67,22 @@
       </div>
       <div class="row">
         <nav>
-          {% if is_paginated %}
             <ul class="pager">
-              {% if page_obj.has_previous %}
+              {% if voiceclip_list.has_previous %}
                 <li class="previous col-md-6">
-                  <a href="?page={{ page_obj.previous_page_number }}">
+                  <a href="?page={{ voiceclip_list.previous_page_number }}">
                     <span aria-hidden="true">&larr;</span> Previous
                   </a>
                 </li>
               {% endif %}
-              {% if page_obj.has_next %}
-                <li class="next col-md-6">
-                  <a href="?page={{ page_obj.next_page_number }}">
+              {% if voiceclip_list.has_next %}
+                <li class="next col-md-6 pull-right">
+                  <a href="?page={{ voiceclip_list.next_page_number }}">
                     Next <span aria-hidden="true">&rarr;</span>
                   </a>
                 </li>
               {% endif %}
             </ul>
-          {% endif %}
         </nav>
       </div>
     </div>

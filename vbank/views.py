@@ -3,15 +3,25 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from vbank.forms import * 
 from vbank.models import VoiceClip, Category
 
 def clip_search(request, template='vbank/voiceclip_list.html'):
-    recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
+    voice_clips_list = VoiceClip.objects.active()
+    paginator = Paginator(voice_clips_list, settings.VOICECLIP_LIST_PAGINATE_BY)
+
+    page = request.GET.get('page')
+    try:
+        voice_clips = paginator.page(page)
+    except PageNotAnInteger:
+        voice_clips = paginator.page(1)
+    except EmptyPage:
+        voice_clips = paginator.page(paginator.num_pages)
 
     return render_to_response(template, {
-	'voiceclip_list': recent_voice_clips,
+	'voiceclip_list': voice_clips,
         }, context_instance=RequestContext(request))
 
 @login_required
