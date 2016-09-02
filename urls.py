@@ -10,15 +10,18 @@ admin.autodiscover()
 
 from sounds.models import SoundCollection
 from vbank.models import VoiceClip, Category
+from vbank import views
+
+"""
+url(r'^voiceclips$', ListView.as_view(
+	    queryset=VoiceClip.objects.active(),
+	    paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
+	), name='all_clips'), """
 
 urlpatterns = patterns('',
 	url(r'^how$', TemplateView.as_view(template_name='how.html'), name='how'),
 	url(r'^about$', TemplateView.as_view(template_name='about.html'), name='about'),
-	url(r'^voiceclips$', ListView.as_view(
-	    queryset=VoiceClip.objects.active(),
-	    paginate_by=settings.VOICECLIP_LIST_PAGINATE_BY
-	), name='all_clips'),
-
+	url(r'^voiceclips$', views.clip_search, name='all_clips'),
 	# We commented this out because of the customer care category customization
 	# url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
 	url(r'^categories/(?P<slug>[-.\w]+)$', 'vbank.views.category_detail', name='category'),

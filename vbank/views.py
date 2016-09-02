@@ -7,6 +7,13 @@ from django.http import Http404
 from vbank.forms import * 
 from vbank.models import VoiceClip, Category
 
+def clip_search(request, template='vbank/voiceclip_list.html'):
+    recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
+
+    return render_to_response(template, {
+	'voiceclip_list': recent_voice_clips,
+        }, context_instance=RequestContext(request))
+
 @login_required
 def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
     if request.method == "POST":
