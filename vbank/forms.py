@@ -23,13 +23,13 @@ AGE_GROUP_CHOICES = (
 class ClipSearchForm(forms.Form):
     # from accounts import calculate_age
     # 'age': calculate_age(request.user.profile.birthday),
-    category = forms.ModelChoiceField(queryset=Category.objects.all(),
+    category = forms.ModelChoiceField(queryset=Category.objects.all(), required=False,
 	    empty_label="Select Category", widget=forms.Select(attrs={'class': 'form-control'}))
-    language = forms.ChoiceField(choices=LANGUAGES,
+    language = forms.ChoiceField(choices=LANGUAGES, required=False,
 	    widget=forms.Select(attrs={'class': 'form-control'}))
-    gender = forms.ChoiceField(choices=GENDER_CHOICES,
+    gender = forms.ChoiceField(choices=GENDER_CHOICES, required=False,
 	    widget=forms.Select(attrs={'class': 'form-control'}))
-    age_group = forms.ChoiceField(choices=AGE_GROUP_CHOICES,
+    age_group = forms.ChoiceField(choices=AGE_GROUP_CHOICES, required=False,
 	    widget=forms.Select(attrs={'class': 'form-control'}))
 
 class VoiceClipForm(forms.Form):

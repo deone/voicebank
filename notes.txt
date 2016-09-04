@@ -1,6 +1,3 @@
 - Make #id navigation work properly on how.html.
 - Test site on higher resolution screens.
 - Make testimonials a carousel with images.
-- Language options - English, Pidgin English, Yoruba, Igbo, Hausa
-- Category options - vbank_category table
-- Gender options - M, F
