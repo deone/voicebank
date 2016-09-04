@@ -143,9 +143,7 @@ img {
 .clients .page-header,
 .work .page-header h3,
 .services .page-header h3,
-.clients .page-header h3,
-.voiceclips .page-header,
-.voiceclips .page-header h2 {
+.clients .page-header h3 {
   margin-top: 0;
 }
 

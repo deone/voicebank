@@ -6,14 +6,6 @@
 
 {% block app %}
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="page-header">
-        <h1>Voice Clips</h1>
-      </div>
-    </div>
-  </div>
-
   <div class="voiceclips row">
     <div class="col-md-4">
       <div class="page-header">
@@ -47,6 +39,13 @@
     </div>
     <div class="col-md-8">
       <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h2>{{ page_header }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         {% if voiceclip_list %}
           {% for clip in voiceclip_list %}
             {% if clip.is_active %}
@@ -56,7 +55,7 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          <p>There are no voice clips.</p>
+          <div class="col-md-12"><p>There are no voice clips.</p></div>
         {% endif %}
       </div>
       <div class="row">
