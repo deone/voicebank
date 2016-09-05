@@ -23,13 +23,13 @@ GENDER_STRING = {
 def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchForm):
     voice_clips_list = VoiceClip.objects.active()
 
+    language_string = 'All'
+    category_string = 'all categories'
+    gender_string = 'both genders in'
+    age_group_string = 'all age groups'
+
     if request.method == 'POST':
         form = form(request.POST)
-
-        language_string = 'All'
-        category_string = 'all categories'
-        gender_string = 'both genders in'
-        age_group_string = 'all age groups'
 
         if request.POST['language']:
             language = request.POST['language']
@@ -62,13 +62,33 @@ def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchFo
                         clips_list.append(clip)
 
             voice_clips_list = clips_list
-
-        page_header = '%s voice clips by %s %s in %s' % (language_string, gender_string, age_group_string, category_string)
     else:
         form = form(initial=request.GET)
 
-        page_header = 'All Voice Clips'
-        # page_header = 'All voice clips by both genders in all age groups in all categories'
+        try:
+            language_string = request.GET['language']
+        except:
+            pass
+
+        try:
+            category_string = 'the ' + Category.objects.get(pk=request.GET['category']).name + ' Category'
+        except:
+            pass
+
+        try:
+            gender_string = dict(GENDER_STRING)[request.GET['gender']] + ' in'
+        except:
+            pass
+
+        try:
+            age_group_string = 'the ' + AGE_GROUPS[request.GET['age_group']] + ' age group'
+        except:
+            pass
+
+        # page_header = 'All Voice Clips'
+
+    # Page Header
+    page_header = '%s voice clips by %s %s in %s' % (language_string, gender_string, age_group_string, category_string)
 
     paginator = Paginator(voice_clips_list, settings.VOICECLIP_LIST_PAGINATE_BY)
 
