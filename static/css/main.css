@@ -177,6 +177,10 @@ img {
   padding: 20px;
 }
 
+.voiceclips .col-md-8 h3 {
+  padding-top: 13px;
+}
+
 .voiceclips .col-md-6 {
   margin-bottom: 20px;
 }

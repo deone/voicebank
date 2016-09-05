@@ -24,6 +24,8 @@ def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchFo
     voice_clips_list = VoiceClip.objects.active()
 
     if request.method == 'POST':
+        form = form(request.POST)
+
         language_string = 'All'
         category_string = 'all categories'
         gender_string = 'both genders in'
@@ -63,7 +65,8 @@ def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchFo
 
         page_header = '%s voice clips by %s %s in %s' % (language_string, gender_string, age_group_string, category_string)
     else:
-        form = form()
+        form = form(initial=request.GET)
+
         page_header = 'All Voice Clips'
         # page_header = 'All voice clips by both genders in all age groups in all categories'
 

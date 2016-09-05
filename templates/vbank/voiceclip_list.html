@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-header">
-            <h2>{{ page_header }}</h2>
+            <h3>{{ page_header }}</h3>
           </div>
         </div>
       </div>
@@ -63,14 +63,14 @@
             <ul class="pager">
               {% if voiceclip_list.has_previous %}
                 <li class="previous col-md-6">
-                  <a href="?page={{ voiceclip_list.previous_page_number }}">
+                <a href="?page={{ voiceclip_list.previous_page_number }}{% if form.category.value %}&category={{ form.category.value }}{% endif %}{% if form.language.value %}&language={{ form.language.value }}{% endif %}{% if form.gender.value %}&gender={{ form.gender.value }}{% endif %}{% if form.age_group.value %}&age_group={{ form.age_group.value }}{% endif %}">
                     <span aria-hidden="true">&larr;</span> Previous
                   </a>
                 </li>
               {% endif %}
               {% if voiceclip_list.has_next %}
                 <li class="next col-md-6 pull-right">
-                  <a href="?page={{ voiceclip_list.next_page_number }}">
+                  <a href="?page={{ voiceclip_list.next_page_number }}{% if form.category.value %}&category={{ form.category.value }}{% endif %}{% if form.language.value %}&language={{ form.language.value }}{% endif %}{% if form.gender.value %}&gender={{ form.gender.value }}{% endif %}{% if form.age_group.value %}&age_group={{ form.age_group.value }}{% endif %}">
                     Next <span aria-hidden="true">&rarr;</span>
                   </a>
                 </li>
