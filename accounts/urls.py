@@ -1,9 +1,12 @@
 from django.conf.urls.defaults import *
+from django.contrib.auth import views as auth_views
 
+from accounts.forms import LoginForm
 from accounts.views import ProfileDetailView
 
 urlpatterns = patterns('django.contrib.auth.views',
-	url(r'^login$', 'login', {'template_name': 'accounts/login.html'}, 'login'),
+    url(r'^login$', auth_views.login,
+      {'authentication_form': LoginForm, 'template_name': 'accounts/login.html'}, name='login'),
 )
 
 urlpatterns += patterns('accounts.views', 

@@ -6,11 +6,19 @@ from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
 from django.core.validators import validate_slug
+from django.contrib.auth.forms import AuthenticationForm
+from django.utils.translation import ugettext_lazy as _
 
 from accounts.models import *
 
 import random
 import string
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(label=_('Email'), max_length=254,
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(label=_('Password'),
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 class UserJoinForm(forms.Form):
     first_name = forms.CharField(max_length=30)
