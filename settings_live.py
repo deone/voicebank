@@ -18,7 +18,7 @@ STATICFILE_DIRS = (
 )
 STATIC_ROOT = os.path.join(PROJECT_DIR, "../../voicebank_static")
 
-EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_HOST = '74.55.86.74'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'deone'
 EMAIL_HOST_PASSWORD = '@dune369'
