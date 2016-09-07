@@ -1,77 +1,76 @@
-{% extends "base_inner.html" %}
+{% extends "base.html" %}
 
-{% block customer_care_banner %}{% endblock %}
+{% block page_title %}&mdash; Join{% endblock %}
 
-{% block app_body %}
-<div class="leftdiv">
-    <div class="rform">
-	<h3>Join Nigerian Voice Bank</h3>
-
-	<form method="post" action="{% url 'join' %}">{% csrf_token %}
-	    {{ form.non_field_errors }}
-	    <p>
-		{{ form.first_name.errors }}
-		<label>{{ form.first_name.label }}</label>
-		{{ form.first_name }}
-	    </p>
-	    <p>
-		{{ form.last_name.errors }}
-		<label>{{ form.last_name.label }}</label>
-		{{ form.last_name }}
-	    </p>
-	    <p>
-		{{ form.email.errors }}
-		<label>{{ form.email.label }}</label>
-		{{ form.email }}
-	    </p>
-	    <p>
-		{{ form.password.errors }}
-		<label>{{ form.password.label }}</label>
-		{{ form.password }}
-	    </p>
-	    <p>
-		{{ form.gender.errors }}
-		<label>{{ form.gender.label }}</label>
-		{{ form.gender }}
-	    </p>
-	    <p>
-		{{ form.birthday.errors }}
-		<label>{{ form.birthday.label }}</label>
-		{{ form.birthday }}
-		<span class="tip">{{ form.birthday.help_text }}</span>
-	    </p>
-	    <p>
-		<input class="btn" type="submit" value="Join">
-	    </p>
-
-	</form>
-
-	<div class="clear pad"></div>
-
-	<h3>Already have an account?</h3>
-	<p><a href="{% url 'login' %}">Login</a></p>
+{% block app %}
+<div class="row">
+  <form method="post" action="{% url 'join' %}?next={{ next }}" class="form-horizontal join">
+    <div class="page-header">
+      <h1>Sign Up</h1>
     </div>
 
-</div> <!--/leftdiv-->
-{% endblock %}
+    {% csrf_token %}
+    {{ form.non_field_errors }}
 
-{% block events %}{% endblock %}
+    <div class="form-group">
+      {{ form.first_name.errors }}
+      <label for="{{ form.first_name.id_for_label }}" class="col-sm-3 control-label">First Name</label>
+      <div class="col-sm-9">
+        {{ form.first_name }}
+        <span class="help-text">{{ form.first_name.help_text }}</span>
+      </div>
+    </div>
 
-{% block custom_css %}
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-{% endblock %}
+    <div class="form-group">
+      {{ form.last_name.errors }}
+      <label for="{{ form.last_name.id_for_label }}" class="col-sm-3 control-label">Last Name</label>
+      <div class="col-sm-9">
+        {{ form.last_name }}
+        <span class="help-text">{{ form.last_name.help_text }}</span>
+      </div>
+    </div>
 
-{% block custom_js %}
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script>
-    $(function()    {
-	    $("#datepicker").datepicker({
-		dateFormat: "dd/mm/yy",
-		changeMonth: true,
-		changeYear: true,
-		maxDate: +0,
-		});
-	    $('a#join').addClass('current');
-    });
-    </script>
+    <div class="form-group">
+      {{ form.email.errors }}
+      <label for="{{ form.email.id_for_label }}" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-9">
+        {{ form.email }}
+        <span class="help-text">{{ form.email.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.password.errors }}
+      <label for="{{ form.password.id_for_label }}" class="col-sm-3 control-label">{{ form.password.label }}</label>
+      <div class="col-sm-9">
+        {{ form.password }}
+        <span class="help-text">{{ form.password.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.gender.errors }}
+      <label for="{{ form.gender.id_for_label }}" class="col-sm-3 control-label">{{ form.gender.label }}</label>
+      <div class="col-sm-9">
+        {{ form.gender }}
+        <span class="help-text">{{ form.gender.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.birthday.errors }}
+      <label for="{{ form.birthday.id_for_label }}" class="col-sm-3 control-label">{{ form.birthday.label }}</label>
+      <div class="col-sm-9">
+        {{ form.birthday }}
+        <span class="help-text">{{ form.birthday.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-6">
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}

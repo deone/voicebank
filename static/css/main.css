@@ -202,7 +202,8 @@ form {
   margin: 0 auto;
 }
 
-.login {
+.login,
+.join {
   margin-bottom: 100px;
   width: 40%;
 }

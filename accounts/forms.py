@@ -21,13 +21,15 @@ class LoginForm(AuthenticationForm):
         widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 class UserJoinForm(forms.Form):
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    first_name = forms.CharField(max_length=30,
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=30,
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     gender = forms.ChoiceField(choices=GENDER_CHOICES,
-	    widget=forms.Select(attrs={'class': 'choose'}))
-    birthday = forms.DateField(('%d/%m/%Y',), widget=forms.DateInput(attrs={'id': 'datepicker'}))
+	    widget=forms.Select(attrs={'class': 'form-control'}))
+    birthday = forms.DateField(('%d/%m/%Y',), widget=forms.DateInput(attrs={'id': 'datepicker', 'class': 'form-control'}))
 
     def clean_email(self):
 	if self.cleaned_data['email'] in [obj.email for obj in
