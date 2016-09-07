@@ -9,7 +9,7 @@
 {% block nav_items %}
 {% with urlname=request.resolver_match.url_name %}
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="#">About Us</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
     <li {% if urlname == 'all_clips' %}class="active"{% endif %}>
       <a href="{% url 'all_clips' %}">
         Find Voices
@@ -18,7 +18,7 @@
         {% endif %}
       </a>
     </li>
-    <li><a href="{% url 'join' %}">Blog</a></li>
+    <li><a href="#">Blog</a></li>
     <li><a>+234 803 493 0227</a></li>
     <li><a href="{% url 'join' %}">Sign Up</a></li>
     {% if user.is_authenticated %}

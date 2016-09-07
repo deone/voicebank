@@ -4,3 +4,4 @@
 - Add glyphicons and fort awesome icons.
 - Fix login 'next' bug. We can use LOGIN_REDIRECT_URL instead.
 - Add / to URLs.
+- Add general margin to app body instead of just forms.
