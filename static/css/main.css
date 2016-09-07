@@ -20,6 +20,16 @@ img {
   width: 100%;
 }
 
+#datepicker {
+  width: 90.92%;
+  display: inline-block;
+}
+
+.ui-datepicker-trigger {
+  border: none;
+  background: none;
+}
+
 .row {
   margin-bottom: 15px;
 }

@@ -6,3 +6,4 @@
 - Add / to URLs.
 - Add general margin to app body instead of just forms.
 - As much as possible, get all resource files e.g. jquery from the web.
+- Ensure footer sticks to bottom of pages.
