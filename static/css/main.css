@@ -197,6 +197,17 @@ img {
   width: 81%;
 }
 
+/* Forms */
+form {
+  margin: 0 auto;
+}
+
+.login {
+  margin-bottom: 100px;
+  width: 40%;
+}
+
+
 /* Footer */
 .footer {
   padding-top: 20px;
