@@ -1,6 +1,26 @@
 {% extends "base.html" %}
 
-{% block page_title %}&mdash; Join{% endblock %}
+{% block page_title %}&mdash; Sign Up{% endblock %}
+
+{% block pagecss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-theme.css">
+{% endblock %}
+
+{% block pagejs %}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $('#datepicker').datepicker({
+      showOn: "both",
+      buttonImage: "{{ STATIC_URL }}images/calendar.png",
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'dd-mm-yy',
+      yearRange: '-80:+10'
+    });
+  });
+</script>
+{% endblock %}
 
 {% block nav_items %}
 {% with urlname=request.resolver_match.url_name %}
