@@ -2,6 +2,40 @@
 
 {% block page_title %}&mdash; Log In{% endblock %}
 
+{% block nav_items %}
+{% with urlname=request.resolver_match.url_name %}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">About Us</a></li>
+    <li><a href="{% url 'all_clips' %}">Find Voices</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a>+234 803 493 0227</a></li>
+    <li><a href="{% url 'join' %}">Sign Up</a></li>
+    {% if user.is_authenticated %}
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          {{ user.get_full_name }} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'profile_edit' %}">Edit Profile</a></li>
+          <li><a href="{% url 'voiceclips' %}">Upload Voice Clip</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="logout">Log Out</a></li>
+        </ul>
+      </li>
+    {% else %}
+      <li {% if urlname == 'login' %}class="active"{% endif %}>
+        <a href="{% url 'login' %}?next={{ request.path }}">
+          Log In
+          {% if urlname == 'login' %}
+            <span class="sr-only">(current)</span></a>
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+{% endwith %}
+{% endblock %}
+
 {% block app %}
 <div class="row">
   <form method="post" action="{% url 'login' %}?next={{ next }}" class="form-horizontal login">

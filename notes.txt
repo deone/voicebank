@@ -1,3 +1,6 @@
 - Make #id navigation work properly on how.html.
 - Test site on higher resolution screens.
 - Make testimonials a carousel with images.
+- Add glyphicons and fort awesome icons.
+- Fix login 'next' bug. We can use LOGIN_REDIRECT_URL instead.
+- Add / to URLs.
