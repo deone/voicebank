@@ -5,7 +5,7 @@ DEBUG = TEMPLATE_DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'deone_voicebank',
+        'NAME': 'nvb_voicebank',
 	'USER': 'deone_voicebank',
         'PASSWORD': 'v01ce',
         'HOST': '',
