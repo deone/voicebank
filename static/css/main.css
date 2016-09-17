@@ -22,7 +22,7 @@ img {
 }
 
 #datepicker {
-  width: 90.92%;
+  width: 89.8%;
   display: inline-block;
 }
 
@@ -219,6 +219,13 @@ form {
   width: 40%;
 }
 
+.errorlist {
+  color: #e62739;
+  font-size: 80%;
+  list-style: none;
+  padding-right: 1.3em;
+  text-align: right;
+}
 
 /* Footer */
 .footer {
