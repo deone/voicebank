@@ -66,19 +66,18 @@ class UserJoinForm(forms.Form):
 class UserProfileForm(forms.Form):
     user = forms.CharField(max_length=5)
     photo = forms.ImageField(required=False)
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    about = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+    first_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    about = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class': 'form-control'}), required=False)
     skills = forms.CharField(max_length=100, help_text="Enter multiple skills as\
 	    comma-separated values e.g. Broadcasting, Producing.",
-	    required=False)
-    experience = forms.CharField(max_length=255, widget=forms.Textarea, required=False)
+	    required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    experience = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class': 'form-control'}), required=False)
     phone_number = forms.CharField(max_length=11,
-	    help_text="e.g. 08033344455, 017745566")
-    slug = forms.CharField(label="URL ID", max_length=50, help_text="Ain't it cool to have a\
-	    customized URL like http://nigerianvoicebank.com/yournickname?",
-	    validators=[validate_slug])
-    location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja, Port-Harcourt")
+	    help_text="e.g. 08033344455, 017745566", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    slug = forms.CharField(label="URL ID", max_length=50, help_text="Customize your URL e.g. http://nigerianvoicebank.com/yournickname?",
+	    validators=[validate_slug], widget=forms.TextInput(attrs={'class': 'form-control'}))
+    location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja, Port-Harcourt", widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     def clean_slug(self):
 	data = self.cleaned_data['slug']
