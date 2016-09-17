@@ -23,6 +23,7 @@
           {{ user.get_full_name }} <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
+          <li><a href="{{ user.profile.get_absolute_url }}">View Profile</a></li>
           <li><a href="{% url 'profile_edit' %}">Edit Profile</a></li>
           <li><a href="{% url 'voiceclips' %}">Upload Voice Clip</a></li>
           <li role="separator" class="divider"></li>
