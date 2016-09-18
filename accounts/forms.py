@@ -75,7 +75,7 @@ class UserProfileForm(forms.Form):
     experience = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class': 'form-control'}), required=False)
     phone_number = forms.CharField(max_length=11,
 	    help_text="e.g. 08033344455, 017745566", widget=forms.TextInput(attrs={'class': 'form-control'}))
-    slug = forms.CharField(label="URL ID", max_length=50, help_text="Customize your URL e.g. http://nigerianvoicebank.com/yournickname?",
+    slug = forms.CharField(label="URL ID", max_length=50, help_text="Customize your URL e.g. http://nigerianvoicebank.com/yournickname",
 	    validators=[validate_slug], widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = forms.CharField(max_length=50, help_text="e.g. Lagos, Abuja, Port-Harcourt", widget=forms.TextInput(attrs={'class': 'form-control'}))
 
