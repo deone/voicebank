@@ -4,6 +4,10 @@
 
 {% load thumbnail %}
 
+{% block pagejs %}
+<script src="//cdn.rawgit.com/imsky/holder/master/holder.js"></script>
+{% endblock %}
+
 {% block app %}
 <div class="container">
   <div class="row">
@@ -18,12 +22,27 @@
 
         {{ form.user.as_hidden }}
 
-        <div class="form-group">
+        <div class="form-group photo">
           {{ form.photo.errors }}
-          <label for="{{ form.photo.id_for_label }}" class="col-sm-3 control-label">{{ form.photo.label }}</label>
-          <div class="col-sm-9">
+          <label for="{{ form.photo.id_for_label }}" class="col-sm-3 control-label">
+            {{ form.photo.label }}
+          </label>
+          <div class="col-sm-6">
             {{ form.photo }}
             <span class="help-text">{{ form.photo.help_text }}</span>
+          </div>
+          <div class="col-sm-3">
+            {% if user.profile.photo %}
+              {% thumbnail user.profile.photo "150x160" crop="center" as up %}
+                <a href="{{ up.url }}" class="thumbnail">
+                  <img src="{{ up.url }}" height="{{ up.height }}" title="{{ user.get_full_name }}">
+                </a>
+              {% endthumbnail %}
+            {% else %}
+              <a href="#" class="thumbnail">
+                <img src="holder.js/100px160?text=Your Photo Here&theme=social">
+              </a>
+            {% endif %}
           </div>
         </div>
 

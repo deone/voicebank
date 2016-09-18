@@ -5,12 +5,26 @@ body {
   font-size: 120%;
 }
 
+.dropdown-menu,
+.form-control,
+.btn {
+  font-size: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;
 }
 
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 175%;
+}
+
 h3 {
-  font-size: 130% !important;
+  font-size: 150% !important;
 }
 
 h1, h2, h3 {
@@ -219,12 +233,28 @@ form {
   width: 40%;
 }
 
+.help-text {
+  font-size: 85%;
+}
+
 .errorlist {
   color: #e62739;
   font-size: 80%;
   list-style: none;
   padding-right: 1.3em;
   text-align: right;
+}
+
+.photo label {
+  margin-top: 146px;
+}
+
+.photo .col-sm-6 {
+  margin-top: 152px;
+}
+
+.photo .col-sm-3 .thumbnail {
+  margin-bottom: 0;
 }
 
 /* Footer */
