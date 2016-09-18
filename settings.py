@@ -127,8 +127,9 @@ LOGIN_URL = '/login'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = '74.55.86.74'
+EMAIL_HOST_USER = 'deone'
+EMAIL_HOST_PASSWORD = '@dune369'
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (

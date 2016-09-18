@@ -18,11 +18,6 @@ STATICFILE_DIRS = (
 )
 STATIC_ROOT = os.path.join(PROJECT_DIR, "../../../nvb_static")
 
-EMAIL_HOST = '74.55.86.74'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'deone'
-EMAIL_HOST_PASSWORD = '@dune369'
-
 # ALLOWED_HOSTS = ['www.nigerianvoicebank.com', 'nigerianvoicebank.com']
 # SITE_URL = 'http://nigerianvoicebank.com'
 ALLOWED_HOSTS = ['deone.webfactional.com']
