@@ -137,6 +137,11 @@ div[class^="col-md-"] {
   margin-top: 0;
 }
 
+.about .page-header h3 {
+  font-size: 300% !important;
+  font-weight: 100;
+}
+
 .work iframe {
   width: 100%;
   margin-bottom: 15px;
