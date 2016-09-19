@@ -62,10 +62,9 @@
   clear: both;
   width: 100%;
   padding: 1px 6px;
-  background: #eee;
-  color: #222;
+  color: #fff;
   font-size: 11px;
-  line-height: 20px;
+  line-height: 21px;
   border-bottom: solid 1px #ddd;
 }
 

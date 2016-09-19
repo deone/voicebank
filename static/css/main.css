@@ -92,37 +92,10 @@ img {
   border: none;
 }
 
-.clip-list ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.clip-list ul li {
-  margin-bottom: 15px;
-  /* background: #eee; */
-}
-
-.clip-list ul li:last-child {
-  margin-bottom: 0px;
-}
-
 .profile-pic {
   float: left;
   width: 20.9%;
   border: solid 1px #eee;
-}
-
-.clip {
-  float: left;
-  width: 79.1%;
-}
-
-.clip-list p {
-  font-size: 90%;
-  text-align: right;
-  margin-top: 10px;
-  margin-bottom: 0;
 }
 
 .blog-post .panel-body,
@@ -162,12 +135,10 @@ img {
   margin: 0;
 }
 
-.work .page-header,
-.services .page-header,
-.clients .page-header,
-.work .page-header h3,
-.services .page-header h3,
-.clients .page-header h3 {
+/* Page Headers */
+
+.page-header,
+.about .page-header h3 {
   margin-top: 0;
 }
 
@@ -190,6 +161,55 @@ img {
 }
 
 /* Voice Clips */
+.clip {
+  float: left;
+  width: 79.1%;
+}
+
+.clip-list {
+  background: #40c4ff;
+  padding: 1em;
+  color: #fff;
+}
+
+.clip-list .page-header {
+  margin-bottom: 10px;
+}
+
+.clip-list .page-header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.clip-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clip-list ul li {
+  margin-bottom: 10px;
+  /* background: #eee; */
+}
+
+.clip-list ul li:last-child {
+  margin-bottom: 0px;
+}
+
+.clip-list + p {
+  line-height: 40px;
+  background: #fff;
+  padding-right: 1em;
+  text-align: right;
+  border-bottom: solid 1px #eee;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+}
+
+.clip-list + p a {
+  color: #000;
+}
+
 .voiceclips {
   margin-bottom: 50px;
 }
