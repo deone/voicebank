@@ -57,14 +57,20 @@
   font-size: 10px;
 }
 
+.home-clips .timestamp,
+.home-clips .track-details {
+  line-height: 21px;
+  border-bottom: solid 1px #eee;
+}
+
 .timestamp,
 .track-details {
   clear: both;
   width: 100%;
   padding: 1px 6px;
-  color: #fff;
+  color: #000;
   font-size: 11px;
-  line-height: 21px;
+  line-height: 20px;
   border-bottom: solid 1px #ddd;
 }
 

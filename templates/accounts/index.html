@@ -22,17 +22,17 @@
   <div class="main-actions row">
     <div class="col-md-4">
       <div class="main-action">
-        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+        <a href="{% url 'all_clips' %}"><img src="{{ STATIC_URL }}images/find_voices2.png" class="img-rounded"></a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="main-action">
-        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+        <a href="{% url 'join' %}"><img src="{{ STATIC_URL }}images/sign_up2.png" class="img-rounded"></a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="main-action">
-        <img src="{{ STATIC_URL }}images/main_action.jpg" class="img-responsive img-rounded">
+        <a href="#"><img src="{{ STATIC_URL }}images/produce2.png" class="img-rounded"></a>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="home-clips row">
     <div class="col-md-4">
       <div class="clip-list">
         <div class="page-header">
@@ -73,11 +73,31 @@
       </p>
     </div>
     <div class="col-md-4">
-      <div style="height: 500px; background: #40c4ff;"></div>
+      <div class="clip-list">
+        <div class="page-header">
+          <h3>Top Five Clips</h3>
+        </div>
+        {% if top_clips %}
+          <ul>
+            {% for clip in top_clips %}
+              {% if clip.is_active %}
+                <li>
+                  {% display_clip clip %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>There are no top voice clips.</p>
+        {% endif %}
+      </div>
+      <p>
+        <a href="{% url 'all_clips' %}">View All Clips</a>
+      </p>
     </div>
-    <div class="col-md-4" style="height: 500px;">
-      <div style="height: 250px; background: #c2dde6;"></div>
-      <div style="height: 250px; background: #431c5d;"></div>
+    <div class="col-md-4" style="height: 494px;">
+      <div style="background: #c2dde6; height: 247px;"></div>
+      <div style="background: #431c5d; height: 247px;"></div>
     </div>
   </div>
 
@@ -99,12 +119,12 @@
         From the search results, users can listen to the artist&apos;s voice clips or download the clips. 
         Users can also contact voice talent directly and book the artist for the recording if they pick an interest on anyone.
       </p>
-      <a class="btn btn-primary btn-xs pull-right" role="button" href="#">Continue reading</a>
+      <a class="btn btn-primary btn-xs pull-right" role="button" href="{% url 'about' %}">Continue reading</a>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6" style="background: #c9d8b5; height: 500px;">
+    <div class="col-md-6" style="background: #40c4ff; height: 500px;">
       <h3>Our Work</h3>
     </div>
     <div class="col-md-6" style="background: #a8b6bf; height: 500px;">
