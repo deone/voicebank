@@ -46,7 +46,7 @@ img {
 }
 
 .row {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
 }
 
 /* App */
@@ -86,7 +86,6 @@ img {
 .main-action {
   width: 95%;
   margin: 0 auto;
-  margin-bottom: 20px;
 }
 
 .panel {

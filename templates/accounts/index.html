@@ -13,7 +13,7 @@
 <div class="container-fluid">
   <div class="banner row">
     <div>
-      <img src="{{ STATIC_URL }}images/banner.jpg" class="img-responsive">
+      <img src="{{ STATIC_URL }}images/banner.jpg">
     </div>
   </div>
 </div>
@@ -37,178 +37,42 @@
     </div>
   </div>
 
-  <div class="ad-clients row">
-    <div class="clients col-md-9">
-      <div class="page-header">
-        <h3>Our Clients</h3>
+  <div class="row">
+    <div class="col-md-9">
+      <div style="height: 290px; background: #bccbde; padding: 1em;">
+        <h3 style="font-weight: 100; margin: 0;">Our Clients</h3>
       </div>
-      <section class="regular slider">
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-        <div>
-          <img src="{{ STATIC_URL }}images/sample_logo_2.png">
-        </div>
-      </section>
     </div>
     <div class="col-md-3">
-      <img src="{{ STATIC_URL }}images/ad.jpg" class="img-responsive">
+      <img src="{{ STATIC_URL }}/images/ad1.png">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Most Recent Clips</h3>
-        </div>
-        <div class="clip-list panel-body">
-          {% if voiceclip_list %}
-            <ul>
-              {% for clip in voiceclip_list %}
-                {% if clip.is_active %}
-                  <li>
-                    {% display_clip clip %}
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% else %}
-            <p>There are no recent voice clips.</p>
-          {% endif %}
-          <p><a href="{% url 'all_clips' %}">View All Clips</a></p>
-        </div>
-      </div>
+      <div style="height: 500px; background: #40c4ff;"></div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Top Five Clips</h3>
-        </div>
-        <div class="clip-list panel-body">
-          {% if top_clips %}
-            <ul>
-              {% for clip in top_clips %}
-                {% if clip.is_active %}
-                  <li>
-                    {% display_clip clip %}
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% else %}
-            <p>There are no top clips.</p>
-          {% endif %}
-          <p><a href="{% url 'all_clips' %}">View All Clips</a></p>
-        </div>
-      </div>
+      <div style="height: 500px; background: #40c4ff;"></div>
     </div>
-    <div class="col-md-4">
-      <div class="blog-post">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">From Our Blog</h3>
-          </div>
-          <div class="panel-body">
-            <div class="image">
-            </div>
-            <div class="body">
-              <h4><a href="#">Blog Post Title Blog Post Title Blog Post Title Blog Post Title</a></h4>
-              <p>
-                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore...
-              </p>
-            </div>
-            <div style="clear: both"></div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonials">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">What Our Clients Say</h3>
-          </div>
-          <div class="panel-body">
-            <blockquote>
-              &ldquo;Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;<br>
-              - Lin Tan Me
-            </blockquote>
-          </div>
-        </div>
-      </div>
+    <div class="col-md-4" style="height: 500px;">
+      <div style="height: 250px; background: #c2dde6;"></div>
+      <div style="height: 250px; background: #431c5d;"></div>
     </div>
   </div>
 
-  <div class="work row">
-    <div class="col-md-12">
-      <div class="page-header">
-        <h3>Our Work</h3>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="col-md-4">
-      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="col-md-4">
-      <iframe src="https://www.youtube.com/embed/beIjNus180M" frameborder="0" allowfullscreen></iframe>
+  <div class="row">
+    <div class="col-md-12" style="height: 300px">
+      <h3>About</h3>
     </div>
   </div>
 
-  <!-- <div class="row">
-    <div class="col-md-9">
-      <div class="content box">About Us</div>
+  <div class="row">
+    <div class="col-md-6" style="background: #c9d8b5; height: 500px;">
+      <h3>Our Work</h3>
     </div>
-    <div class="col-md-3">
-      <div class="content box">Connect With Us</div>
-    </div>
-  </div> -->
-
-  <div class="services row">
-    <div class="col-md-12">
-      <div class="page-header">
-        <h3>Services</h3>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
-      <p>
-        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-      </p>
-      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-    </div>
-    <div class="col-md-3">
-      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
-      <p>
-        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-      </p>
-      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-    </div>
-    <div class="col-md-3">
-      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
-      <p>
-        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-      </p>
-      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-    </div>
-    <div class="col-md-3">
-      <img src="{{ STATIC_URL }}images/service_image.jpg" class="img-responsive">
-      <p>
-        Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-      </p>
-      <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+    <div class="col-md-6" style="background: #a8b6bf; height: 500px;">
+      <h3>Our Services</h3>
     </div>
   </div>
 </div>
