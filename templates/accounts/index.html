@@ -7,6 +7,34 @@
 {% block slickcss %}
 <link rel="stylesheet" href="{{ STATIC_URL }}slick/slick.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}slick/slick-theme.css">
+<style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .slider {
+      width: 85%;
+      margin: 20px auto;
+  }
+
+  .slick-slide {
+    margin: 0px 20px;
+  }
+
+  .slick-slide img {
+    width: 100%;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+      color: black;
+  }
+</style>
 {% endblock %}
 
 {% block app %}
@@ -37,26 +65,53 @@
 
   <div class="row">
     <div class="col-md-9">
-      <div style="height: 290px; background: #bccbde; padding: 1em;">
-        <h3 style="font-weight: 100; margin: 0;">Our Clients</h3>
-        <section class="regular slider">
+      <div style="height: 290px; padding: 1em;">
+        <h3 style="margin: 0;">Our Clients</h3>
+        <section class="center slider">
           <div>
-            <img src="http://placehold.it/350x300?text=1">
+            <img src="{{ STATIC_URL }}images/tagpay.png">
           </div>
           <div>
-            <img src="http://placehold.it/350x300?text=2">
+            <img src="{{ STATIC_URL }}images/xoom.png">
           </div>
           <div>
-            <img src="http://placehold.it/350x300?text=3">
+            <img src="{{ STATIC_URL }}images/voice123.png">
           </div>
           <div>
-            <img src="http://placehold.it/350x300?text=4">
+            <img src="{{ STATIC_URL }}images/montage.png">
           </div>
           <div>
-            <img src="http://placehold.it/350x300?text=5">
+            <img src="{{ STATIC_URL }}images/songzu.png">
           </div>
           <div>
-            <img src="http://placehold.it/350x300?text=6">
+            <img src="{{ STATIC_URL }}images/sixthsense.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/vwv.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/highscore.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/foreststudios.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/four.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/hp.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/ogilvy.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/flame.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/ge.png">
+          </div>
+          <div>
+            <img src="{{ STATIC_URL }}images/mindloop.png">
           </div>
         </section>
       </div>
@@ -198,7 +253,7 @@
 <script src="{{ STATIC_URL }}slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
   $(document).on('ready', function() {
-    $(".regular").slick({
+    $(".center").slick({
       dots: true,
       infinite: true,
       slidesToShow: 3,
