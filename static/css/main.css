@@ -142,10 +142,15 @@ div[class^="col-md-"] {
 .about {
   background: #add8e6;
   padding-bottom: 15px;
+  margin-bottom: 0;
+}
+
+.about h3 {
+  font-size: 200% !important;
 }
 
 .about .col-md-12 {
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 /* Voice Clips */
@@ -264,9 +269,6 @@ form {
 }
 
 /* About & Co. */
-.about-and-co h3 {
-  margin-top: 10px;
-}
 
 /* Services */
 /* .services {
