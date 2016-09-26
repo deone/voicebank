@@ -92,8 +92,7 @@ div[class^="col-md-"] {
   width: 20.9%;
 }
 
-.blog-post .panel-body,
-.testimonials .panel-body {
+.blog-post .panel-body {
   padding-bottom: 29px;
 }
 
@@ -121,12 +120,19 @@ div[class^="col-md-"] {
   margin-top: 0;
 }
 
-.testimonials .panel-body {
-  text-align: center;
+.testimonials {
+  background: #f2f2f2;
+  height: 247px;
 }
 
-.testimonials blockquote {
-  margin: 0;
+.testimonials .slider {
+  height: 180px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.testimonials .slider p {
+  font-size: 110%;
 }
 
 /* Page Headers */

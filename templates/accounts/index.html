@@ -168,9 +168,37 @@
         <a href="{% url 'all_clips' %}">View All Clips</a>
       </p>
     </div>
-    <div class="col-md-4" style="height: 494px;">
+    <div class="col-md-4">
       <div style="background: #c2dde6; height: 247px;"></div>
-      <div style="background: #431c5d; height: 247px;"></div>
+      <div class="testimonials">
+        <div class="col-md-12">
+          <section class="slider">
+            <div>
+              <p>
+                &ldquo;It was wonderful working with Nigerian Voice Bank, your services were efficient, 
+                professional and a pleasure to work with.  I will definitely work with you in the future. Thank you.&rdquo;
+                <br><br>
+                Cathy Day
+                <br>
+                TV &amp; Radio Producer
+                <br>
+                Ogilvy &amp; Mather Cape Town
+              </p>
+            </div>
+            <div>
+              <p>
+                &ldquo;We worked with NVB on a large project for a multinational client. We found 
+                the staff to be very attentive and would drop everything at a moments notice to fix 
+                issues and get the right results. They are a lovely company to work with!&rdquo;
+                <br><br>
+                Hugh Edwards
+                <br>
+                High Score Productions LTD UK
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -253,6 +281,10 @@
 <script src="{{ STATIC_URL }}slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
   $(document).on('ready', function() {
+    $(".testimonials .slider").slick({
+      dots: true
+    });
+
     $(".center").slick({
       dots: true,
       infinite: true,
