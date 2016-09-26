@@ -268,39 +268,27 @@ form {
   margin-bottom: 0;
 }
 
-/* About & Co. */
-
 /* Services */
-/* .services {
+
+.services {
   background: #faf0e6;
-  min-height: 571px;
+  margin-bottom: 35px;
 }
 
-.services .top {
-  margin-top: 0;
-}
-
-.services .col-md-6 {
-  margin-bottom: 15px;
-} */
-
-.service {
-  background: #faf0e6;
-  min-height: 409px;
+.services .col-md-2 {
+  margin-bottom: 0;
 }
 
 .service p {
   background: #fafafa;
   padding: 5px 1em 5px 1em;
   margin-top: 15px;
-  margin-bottom: 0;
   border-radius: 5px;
 }
 
 .service h4 {
   font-size: 130% !important;
   font-weight: bold;
-  margin-top: 50px;
 }
 
 .service p,
