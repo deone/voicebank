@@ -75,7 +75,7 @@ img {
 
 .banner,
 div[class^="col-md-"] {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .main-action {
@@ -240,13 +240,21 @@ div[class^="col-md-"] {
 }
 
 /* Forms */
+.form div[class^="col-md-"] {
+  margin-top: 30px;
+}
+
+.form .col-md-9 {
+  border-right: solid 1px #eee;
+}
+
 form {
   margin: 0 auto;
 }
 
 .login,
 .join {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   width: 40%;
 }
 

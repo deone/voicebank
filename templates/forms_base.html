@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block app %}
+<div class="container">
+  <div class="form row">
+    <div class="col-md-9">
+      {% block form %}
+      {% endblock %}
+    </div>
+
+    <div class="col-md-3">
+      <img src="{{ STATIC_URL }}/images/ad1.png">
+    </div>
+  </div>
+</div>
+{% endblock %}
