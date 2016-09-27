@@ -1,7 +1,6 @@
 body {
   padding-top: 50px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 120%;
 }
 
 .dropdown-menu,
@@ -131,8 +130,10 @@ div[class^="col-md-"] {
   margin-top: 20px;
 }
 
-.testimonials .slider p {
-  font-size: 110%;
+.testimonials .slider p,
+.about p,
+.service p {
+  font-size: 95%;
 }
 
 /* Page Headers */
@@ -308,11 +309,6 @@ form .page-header {
   padding: 5px 1em 5px 1em;
   margin-top: 15px;
   border-radius: 5px;
-}
-
-.service h4 {
-  font-size: 130% !important;
-  font-weight: bold;
 }
 
 .service p,
