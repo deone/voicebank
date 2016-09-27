@@ -3,11 +3,11 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.dropdown-menu,
+/* .dropdown-menu,
 .form-control,
 .btn {
   font-size: 100%;
-}
+} */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;

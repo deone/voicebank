@@ -58,26 +58,26 @@
           </form> -->
           {% block nav_items %}
           <ul class="nav navbar-nav navbar-right" style="font-size: 110%;">
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'all_clips' %}">Find Voices</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a>+234 803 493 0227</a></li>
-            <li><a href="{% url 'join' %}">Sign Up</a></li>
+            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> About Us</a></li>
+            <li><a href="{% url 'all_clips' %}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find Voices</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Blog</a></li>
+            <li><a><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +234 803 493 0227</a></li>
+            <li><a href="{% url 'join' %}"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Sign Up</a></li>
             {% if user.is_authenticated %}
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  {{ user.get_full_name }} <span class="caret"></span>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.get_full_name }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{ user.profile.get_absolute_url }}">View Profile</a></li>
-                  <li><a href="{% url 'profile_edit' %}">Edit Profile</a></li>
-                  <li><a href="{% url 'voiceclips' %}">Upload Voice Clip</a></li>
+                  <li><a href="{{ user.profile.get_absolute_url }}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> View Profile</a></li>
+                  <li><a href="{% url 'profile_edit' %}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Profile</a></li>
+                  <li><a href="{% url 'voiceclips' %}"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload Voice Clip</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="logout">Log Out</a></li>
+                  <li><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
                 </ul>
               </li>
             {% else %}
-              <li><a href="{% url 'login' %}?next={{ request.path }}">Log In</a></li>
+              <li><a href="{% url 'login' %}?next={{ request.path }}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log In</a></li>
             {% endif %}
           </ul>
           {% endblock %}
