@@ -22,38 +22,16 @@
 </script>
 {% endblock %}
 
-{% block nav_items %}
+{% block sign_up %}
 {% with urlname=request.resolver_match.url_name %}
-  <ul class="nav navbar-nav navbar-right">
-    <li><a href="{% url 'about' %}">About Us</a></li>
-    <li><a href="{% url 'all_clips' %}">Find Voices</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a>+234 803 493 0227</a></li>
-    <li {% if urlname == 'join' %}class="active"{% endif %}>
-      <a href="{% url 'join' %}">
-        Sign Up 
-        {% if urlname == 'join' %}
-          <span class="sr-only">(current)</span></a>
-        {% endif %}
-      </a>
-    </li>
-    {% if user.is_authenticated %}
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          {{ user.get_full_name }} <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="{{ user.profile.get_absolute_url }}">View Profile</a></li>
-          <li><a href="{% url 'profile_edit' %}">Edit Profile</a></li>
-          <li><a href="{% url 'voiceclips' %}">Upload Voice Clip</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="logout">Log Out</a></li>
-        </ul>
-      </li>
-    {% else %}
-      <li><a href="{% url 'login' %}?next={{ request.path }}">Log In</a></li>
-    {% endif %}
-  </ul>
+  <li {% if urlname == 'join' %}class="active"{% endif %}>
+    <a href="{% url 'join' %}">
+      <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Sign Up 
+      {% if urlname == 'join' %}
+        <span class="sr-only">(current)</span></a>
+      {% endif %}
+    </a>
+  </li>
 {% endwith %}
 {% endblock %}
 

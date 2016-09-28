@@ -6,6 +6,19 @@
 
 {% load thumbnail %}
 
+{% block find_voices %}
+{% with urlname=request.resolver_match.url_name %}
+  <li {% if urlname == 'all_clips' %}class="active"{% endif %}>
+    <a href="{% url 'all_clips' %}">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find Voices
+      {% if urlname == 'all_clips' %}
+        <span class="sr-only">(current)</span></a>
+      {% endif %}
+    </a>
+  </li>
+{% endwith %}
+{% endblock %}
+
 {% block nav_items %}
 {% with urlname=request.resolver_match.url_name %}
   <ul class="nav navbar-nav navbar-right">

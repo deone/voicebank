@@ -43,6 +43,10 @@ img {
   background: none;
 }
 
+.navbar-right {
+  font-size: 110%;
+}
+
 /* App */
 
 /* Home */
@@ -119,13 +123,12 @@ div[class^="col-md-"] {
   margin-top: 0;
 }
 
-.testimonials {
+.testimonials .col-md-12 {
   background: #f2f2f2;
-  height: 247px;
+  /* height: 255px; */
 }
 
 .testimonials .slider {
-  height: 180px;
   text-align: center;
   margin-top: 20px;
 }
@@ -162,6 +165,10 @@ form h1 {
 }
 
 /* Voice Clips */
+.home-clips .col-md-4 {
+  margin-bottom: 0;
+}
+
 .clip {
   float: left;
   width: 79.1%;
