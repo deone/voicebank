@@ -123,6 +123,10 @@ div[class^="col-md-"] {
   margin-top: 0;
 }
 
+.testimonials-blog .col-md-12 {
+  margin-bottom: 0;
+}
+
 .testimonials .col-md-12 {
   background: #f2f2f2;
   /* height: 255px; */
@@ -165,10 +169,6 @@ form h1 {
 }
 
 /* Voice Clips */
-.home-clips .col-md-4 {
-  margin-bottom: 0;
-}
-
 .clip {
   float: left;
   width: 79.1%;
