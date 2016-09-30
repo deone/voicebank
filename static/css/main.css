@@ -3,12 +3,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* .dropdown-menu,
-.form-control,
-.btn {
-  font-size: 100%;
-} */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;
 }
@@ -226,7 +220,23 @@ form h1 {
 }
 
 .voiceclips {
-  margin-bottom: 50px;
+  padding-top: 28px;
+}
+
+.voiceclips .col-md-8 {
+  background: #eee;
+}
+
+.voiceclips .col-md-8 .col-md-12 {
+  margin-bottom: 0;
+}
+
+.voiceclips .col-md-8 .col-md-12 .page-header {
+  border-bottom: solid 1px #ddd;
+}
+
+.voiceclips .col-md-8 .col-md-12 .page-header h3 {
+  margin-top: 10px;
 }
 
 .clip-search {
