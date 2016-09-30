@@ -24,7 +24,6 @@ h1, h2, h3 {
 }
 
 img {
-  width: 100%;
 }
 
 #datepicker {
@@ -39,6 +38,14 @@ img {
 
 .navbar-right {
   font-size: 110%;
+}
+
+.clients {
+  padding: 1em;
+}
+
+.ad {
+  width: 100%;
 }
 
 /* App */

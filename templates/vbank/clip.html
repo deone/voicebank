@@ -5,10 +5,10 @@
   {% with clip.user.profile.photo as p %}
     {% if p %}
       {% thumbnail p "100x100" crop="center" as cp %}
-        <img src="{{ cp.url }}">
+        <img src="{{ cp.url }}" class="img-responsive">
       {% endthumbnail %}
     {% else %}
-      <img src="{{ STATIC_URL }}images/profile_bg.jpg">
+      <img src="{{ STATIC_URL }}images/profile_bg.jpg" class="img-responsive">
     {% endif %}
   {% endwith %}
 </div>

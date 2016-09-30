@@ -40,7 +40,7 @@
 {% block app %}
 <div class="container-fluid">
   <div class="banner row">
-    <img src="{{ STATIC_URL }}images/banner2.jpg">
+    <img src="{{ STATIC_URL }}images/banner2.jpg" class="img-responsive">
   </div>
 </div>
 
@@ -48,24 +48,24 @@
   <div class="main-actions row">
     <div class="col-md-4">
       <div class="main-action">
-        <a href="{% url 'all_clips' %}"><img src="{{ STATIC_URL }}images/find_voices2.png" class="img-rounded"></a>
+        <a href="{% url 'all_clips' %}"><img src="{{ STATIC_URL }}images/find_voices2.png" class="img-responsive img-rounded"></a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="main-action">
-        <a href="{% url 'join' %}"><img src="{{ STATIC_URL }}images/sign_up2.png" class="img-rounded"></a>
+        <a href="{% url 'join' %}"><img src="{{ STATIC_URL }}images/sign_up2.png" class="img-responsive img-rounded"></a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="main-action">
-        <a href="#"><img src="{{ STATIC_URL }}images/produce2.png" class="img-rounded"></a>
+        <a href="#"><img src="{{ STATIC_URL }}images/produce2.png" class="img-responsive img-rounded"></a>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-9">
-      <div style="height: 290px; padding: 1em;">
+      <div class="clients">
         <h3 style="margin: 0;">Our Clients</h3>
         <section class="center slider">
           <div>
@@ -117,7 +117,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <img src="{{ STATIC_URL }}/images/ad1.png">
+      <img class="ad" src="{{ STATIC_URL }}/images/ad1.png">
     </div>
   </div>
 
