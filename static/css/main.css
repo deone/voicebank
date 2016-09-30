@@ -23,9 +23,6 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-img {
-}
-
 #datepicker {
   width: 90.6%;
   display: inline-block;
@@ -34,6 +31,10 @@ img {
 .ui-datepicker-trigger {
   border: none;
   background: none;
+}
+
+.navbar-brand {
+  padding: 3px 0 0 0;
 }
 
 .navbar-right {
