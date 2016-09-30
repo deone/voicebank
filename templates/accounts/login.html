@@ -1,4 +1,4 @@
-{% extends "forms_base.html" %}
+{% extends "sidebar_base.html" %}
 
 {% block page_title %}&mdash; Log In{% endblock %}
 
@@ -15,7 +15,7 @@
 {% endwith %}
 {% endblock %}
 
-{% block form %}
+{% block main %}
 <div class="form-wrap">
   <form method="post" action="{% url 'login' %}?next={{ next }}" class="form-horizontal login">
     <div class="page-header">

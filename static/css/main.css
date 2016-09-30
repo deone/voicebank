@@ -168,6 +168,14 @@ form h1 {
   margin-bottom: 0;
 }
 
+.main div[class^="col-md-"] {
+  margin-top: 30px;
+}
+
+.main .col-md-9 {
+  border-right: solid 1px #eee;
+}
+
 /* Voice Clips */
 .clip {
   float: left;
@@ -249,14 +257,6 @@ form h1 {
 }
 
 /* Forms */
-.form div[class^="col-md-"] {
-  margin-top: 30px;
-}
-
-.form .col-md-9 {
-  border-right: solid 1px #eee;
-}
-
 form {
   margin: 0 auto;
 }

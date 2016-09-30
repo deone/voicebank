@@ -1,4 +1,4 @@
-{% extends "forms_base.html" %}
+{% extends "sidebar_base.html" %}
 
 {% block page_title %}&mdash; Sign Up{% endblock %}
 
@@ -35,7 +35,7 @@
 {% endwith %}
 {% endblock %}
 
-{% block form %}
+{% block main %}
 <div class="form-wrap">
   <form method="post" action="{% url 'join' %}?next={{ next }}" class="form-horizontal join">
     <div class="page-header">
