@@ -1,85 +1,61 @@
-{% extends "base_inner.html" %}
+{% extends "sidebar_base.html" %}
+
+{% block page_title %}&mdash; My Profile{% endblock %}
 
 {% load thumbnail %}
 
-{% load vbank_tags %}
+{% block main %}
+<div class="main-wrap">
+  <div class="my-profile">
+    <div class="page-header">
+      <h1>{{ profile.user.get_full_name }}</h1>
+    </div>
 
-{% block app_body %}
-<div class="leftdiv">
-    {% block profile_nav %}{% endblock %}
-    <div class="tabbed">
-	{% block tabnav %}{% endblock %}
-	<div class="tab_container">
-	{% block view_profile %}
-	    <div class="tab_content" id="tab-1">
-		<div class="pro-info">
-		    {% block profile_name_photo %}
-		    <h3>{{ profile.user.get_full_name }}</h3>
-		    {% if profile.photo %}
-			{% thumbnail profile.photo "97x94" crop="center" as pp %}
-			    <img src="{{ pp.url }}" width="{{ pp.width }}"
-			    height="{{ pp.height }}" class="profile"/>
-			{% endthumbnail %}
-		    {% else %}
-			<img src="{{ STATIC_URL }}img/profile.jpg" class="profile"/>
-		    {% endif %}
-		    <div class="fb-like" 
-			data-href="{{ SITE_URL }}{{ request.path }}" 
-			data-send="false" data-width="200">
-		    </div>
-		    {% endblock profile_name_photo %}
-		    <h3>Gender</h3>
-		    <p>
-			{% if profile.gender == "M" %}
-			Male
-			{% else %}
-			Female
-			{% endif %}
-		    </p>
-		    <h3>Age</h3>
-		    <p>{{ age }}</p>
-		    <h3>Location</h3>
-		    <p>{{ profile.location }}</p>
-		</div>
-		<div class="pro-details">
-		    <h3>Voice Bank URL</h3>
-		    {% block profile_url %}
-		    <p>
-			<a href="{{ profile.get_absolute_url }}">
-			    http://{{ site }}/{{ profile.slug }}
-			</a>
-		    </p>
-		    {% endblock profile_url %}
+    <div class="photo row">
+      <div class="col-md-9">
+        <p>
+          {% if profile.gender == "M" %}Male{% elif profile.gender == "F" %}Female{% endif %}<br>
+          {{ age }} years old<br>
+          Lives in {{ profile.location }}<br>
+          <a href="{{ profile.get_absolute_url }}">http://{{ site }}/{{ profile.slug }}</a><br>
+        </p>
+      </div>
+      <div class="col-md-3">
+        {% if profile.photo %}
+          {% thumbnail profile.photo "150x160" crop="center" as up %}
+            <a href="{{ up.url }}" class="thumbnail">
+              <img src="{{ up.url }}" height="{{ up.height }}" title="{{ user.get_full_name }}" class="img-responsive">
+            </a>
+          {% endthumbnail %}
+        {% else %}
+          <a href="#" class="thumbnail">
+            <img src="holder.js/100px160?text=Your Photo Here&theme=social">
+          </a>
+        {% endif %}
+      </div>
+    </div>
 
-		    <h3>About</h3>
-		    <p>{{ profile.about }}</p>
-		    
-		    <h3>Experience</h3>
-		    <p>{{ profile.experience }}</p>
-
-		    <h3>Skills</h3>
-		    <p>{{ profile.skills }}</p>
-
-		    {% block voiceclips %}
-		    <h3>Voice Clips</h3>
-		    <div class="feature">
-		    {% with template='profile_detail' %}
-			{% show_user_voiceclips profile.user template %}
-		    {% endwith %}
-		    </div>
-		    {% endblock voiceclips %}
-		    <br/>
-
-		    {% block booking %}
-		    <h3>Booking</h3>
-		    <p>To book this artiste, call the Nigerian Voice Bank on <b>08092796787</b> or 
-		    email  <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a></p>
-		    {% endblock booking %}
-		</div>
-	    </div>
-	{% endblock view_profile %}
-	{% block edit_profile %}{% endblock %}
-	</div>
-    </div> <!--/tabbed-->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="page-header">
+          <h2>About</h2>
+        </div>
+        <div class="page-header">
+          <h2>Skills</h2>
+        </div>
+        <div class="page-header">
+          <h2>Experience</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="page-header">
+          <h2>Voice Clips</h2>
+        </div>
+        <div class="page-header">
+          <h2>Booking</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

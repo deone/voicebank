@@ -113,15 +113,10 @@ div[class^="col-md-"] {
   font-size: 95%;
 }
 
-/* Profile */
-.photo .col-md-3 {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
 /* Page Headers */
 .page-header,
-form h1 {
+.page-header h1,
+.page-header h2 {
   margin-top: 0;
 }
 
@@ -151,6 +146,24 @@ form h1 {
 .main .col-md-9 {
   border-right: solid 1px #eee;
 }
+
+/* Profile */
+.my-profile div[class^="col-md-"] {
+  margin: 0;
+}
+
+.my-profile .photo .col-md-9 p {
+  text-align: right;
+  font-size: 90%;
+  margin-top: 85px;
+}
+
+/* .photo .col-md-3 {
+}
+
+.main .photo .col-md-9 {
+  border: none;
+} */
 
 /* Voice Clips */
 .clip {
@@ -248,19 +261,21 @@ form h1 {
   width: 81%;
 }
 
-/* Forms */
-form {
-  margin: 0 auto;
-}
-
-form .page-header {
-  border-bottom: solid 1px #777;
-}
-
+/* Main */
 .main-wrap {
   padding-bottom: 50px;
   padding-top: 50px;
   background: #f6f1ed;
+}
+
+.main-wrap .page-header {
+  border-bottom: solid 1px #777;
+}
+
+/* Forms */
+form,
+.my-profile {
+  margin: 0 auto;
 }
 
 .login,
@@ -268,7 +283,9 @@ form .page-header {
   width: 60%;
 }
 
-.profile-edit {
+.profile-edit,
+.voiceclip-upload,
+.my-profile {
   width: 80%;
 }
 
