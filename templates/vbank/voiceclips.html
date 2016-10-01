@@ -1,84 +1,68 @@
-{% extends "base_inner.html" %}
+{% extends "sidebar_base.html" %}
 
-{% load vbank_tags %}
+{% block page_title %}&mdash; Upload Voice Clip{% endblock %}
 
-{% block customer_care_banner %}{% endblock %}
-
-{% block custom_js %}
-<script>
-$(function()	{
-	$('a#profile').addClass('current');
-});
-</script>
-<script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
-{% endblock %}
-
-{% block app_body %}
-<div class="leftdiv">
-    <div class="t-link">
-	<ul>
-	    <li><a href="{% url 'profile_edit' %}">Profile</a></li>
-	    <li><a href="{% url 'voiceclips' %}">Voice Clips</a></li>
-	</ul>
+{% block main %}
+<div class="form-wrap">
+  <form action="" class="form-horizontal" enctype="multipart/form-data" method="post" style="width: 80%">
+    <div class="page-header">
+      <h1>Upload Voice Clip</h1>
     </div>
-    <div class="tabbed">
-	{% if messages %}
-	    {% for message in messages %}
-	    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-	    {% endfor %}
-	{% endif %}
-	<ul class="tabs">
-	    <li><a href="#tab-1">My Voice Clips</a></li>
-	    <li><a href="#tab-2">Upload Voice Clip</a></li>
-	</ul>
 
-	<div class="tab_container">
-	    <div class="tab_content" id="tab-1">
-		{% with template='voiceclips' %}
-		    {% if voiceclip_list %}
-			{% show_user_voiceclips user template %}
-		    {% else %}
-			{% ifequal template 'voiceclips' %}
-			    <p>You've either not uploaded any voice clips, or they have not been approved by the Administrator.</p>
-			{% endifequal %}
-			{% ifequal template 'profile_detail' %}
-			    <p>{{ user.first_name }} has either not uploaded any voice clips, or they have not been<br/> 
-			    approved by the Administrator.</p>
-			{% endifequal %}
-		    {% endif %}
-		{% endwith %}
-	    </div>
-	    <div class="tab_content" id="tab-2">
-		<form action="{% url 'voiceclips' %}" enctype="multipart/form-data" method="post" class="profile-edit">{% csrf_token %}
-		    <fieldset>
-			{{ form.user.as_hidden }}
-			<p>
-			    {{ form.voice_clip.errors }}
-			    <label>{{ form.voice_clip.label }}</label>
-			    {{ form.voice_clip }}
-			</p>
-			<p>
-			    {{ form.name.errors }}
-			    <label>{{ form.name.label }}</label>
-			    {{ form.name }}
-			</p>
-			<p>
-			    {{ form.language.errors }}
-			    <label>{{ form.language.label }}</label>
-			    {{ form.language }}
-			</p>
-			<p>
-			    {{ form.category.errors }}
-			    <label>Category</label>
-			    {{ form.category }}
-			</p>
-			<p>
-			    <input type="submit" value="Upload" class="btn">
-			</p>
-		    </fieldset>
-		</form>
-	    </div>
-	</div>
-    </div> <!--/tabbed-->
-</div> <!--/leftdiv--> 
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {{ form.user.as_hidden }}
+
+    <div class="form-group">
+      {{ form.voice_clip.errors }}
+      <label for="{{ form.voice_clip.id_for_label }}" class="col-sm-3 control-label">
+        {{ form.voice_clip.label }}
+      </label>
+      <div class="col-sm-9">
+        {{ form.voice_clip }}
+        <span class="help-text">{{ form.voice_clip.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.name.errors }}
+      <label for="{{ form.name.id_for_label }}" class="col-sm-3 control-label">
+        {{ form.name.label }}
+      </label>
+      <div class="col-sm-9">
+        {{ form.name }}
+        <span class="help-text">{{ form.name.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.language.errors }}
+      <label for="{{ form.language.id_for_label }}" class="col-sm-3 control-label">
+        {{ form.language.label }}
+      </label>
+      <div class="col-sm-9">
+        {{ form.language }}
+        <span class="help-text">{{ form.language.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.category.errors }}
+      <label for="{{ form.category.id_for_label }}" class="col-sm-3 control-label">
+        {{ form.category.label }}
+      </label>
+      <div class="col-sm-9">
+        {{ form.category }}
+        <span class="help-text">{{ form.category.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}

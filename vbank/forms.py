@@ -35,11 +35,11 @@ class ClipSearchForm(forms.Form):
 class VoiceClipForm(forms.Form):
     user = forms.CharField(max_length=5)
     voice_clip = forms.FileField()
-    name = forms.CharField(max_length=30)
+    name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
     language = forms.ChoiceField(choices=LANGUAGES,
-	    widget=forms.Select(attrs={'class': 'choose'}))
+	    widget=forms.Select(attrs={'class': 'form-control'}))
     category = forms.ModelChoiceField(queryset=Category.objects.all(),
-	    empty_label="Category", widget=forms.Select(attrs={'class': 'choose'}))
+	    empty_label="Category", widget=forms.Select(attrs={'class': 'form-control'}))
 
     def clean_voice_clip(self):
 	clip = self.cleaned_data.get('voice_clip', False)
