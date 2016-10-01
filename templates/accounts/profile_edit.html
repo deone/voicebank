@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "sidebar_base.html" %}
 
 {% block page_title %}&mdash; Edit Profile{% endblock %}
 
@@ -8,124 +8,122 @@
 <script src="//cdn.rawgit.com/imsky/holder/master/holder.js"></script>
 {% endblock %}
 
-{% block app %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <form method="post" class="form-horizontal" enctype="multipart/form-data">
-        <div class="page-header">
-          <h1>Edit Profile</h1>
-        </div>
-
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-
-        {{ form.user.as_hidden }}
-
-        <div class="form-group photo">
-          {{ form.photo.errors }}
-          <label for="{{ form.photo.id_for_label }}" class="col-sm-3 control-label">
-            {{ form.photo.label }}
-          </label>
-          <div class="col-sm-6">
-            {{ form.photo }}
-            <span class="help-text">{{ form.photo.help_text }}</span>
-          </div>
-          <div class="col-sm-3">
-            {% if user.profile.photo %}
-              {% thumbnail user.profile.photo "150x160" crop="center" as up %}
-                <a href="{{ up.url }}" class="thumbnail">
-                  <img src="{{ up.url }}" height="{{ up.height }}" title="{{ user.get_full_name }}" class="img-responsive">
-                </a>
-              {% endthumbnail %}
-            {% else %}
-              <a href="#" class="thumbnail">
-                <img src="holder.js/100px160?text=Your Photo Here&theme=social">
-              </a>
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.first_name.errors }}
-          <label for="{{ form.first_name.id_for_label }}" class="col-sm-3 control-label">{{ form.first_name.label }}</label>
-          <div class="col-sm-9">
-            {{ form.first_name }}
-            <span class="help-text">{{ form.first_name.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.last_name.errors }}
-          <label for="{{ form.last_name.id_for_label }}" class="col-sm-3 control-label">{{ form.last_name.label }}</label>
-          <div class="col-sm-9">
-            {{ form.last_name }}
-            <span class="help-text">{{ form.last_name.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.about.errors }}
-          <label for="{{ form.about.id_for_label }}" class="col-sm-3 control-label">{{ form.about.label }}</label>
-          <div class="col-sm-9">
-            {{ form.about }}
-            <span class="help-text">{{ form.about.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.skills.errors }}
-          <label for="{{ form.skills.id_for_label }}" class="col-sm-3 control-label">{{ form.skills.label }}</label>
-          <div class="col-sm-9">
-            {{ form.skills }}
-            <span class="help-text">{{ form.skills.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.experience.errors }}
-          <label for="{{ form.experience.id_for_label }}" class="col-sm-3 control-label">{{ form.experience.label }}</label>
-          <div class="col-sm-9">
-            {{ form.experience }}
-            <span class="help-text">{{ form.experience.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.phone_number.errors }}
-          <label for="{{ form.phone_number.id_for_label }}" class="col-sm-3 control-label">{{ form.phone_number.label }}</label>
-          <div class="col-sm-9">
-            {{ form.phone_number }}
-            <span class="help-text">{{ form.phone_number.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.slug.errors }}
-          <label for="{{ form.slug.id_for_label }}" class="col-sm-3 control-label">{{ form.slug.label }}</label>
-          <div class="col-sm-9">
-            {{ form.slug }}
-            <span class="help-text">{{ form.slug.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ form.location.errors }}
-          <label for="{{ form.location.id_for_label }}" class="col-sm-3 control-label">{{ form.location.label }}</label>
-          <div class="col-sm-9">
-            {{ form.location }}
-            <span class="help-text">{{ form.location.help_text }}</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </div>
-      </form>
+{% block main %}
+<div class="form-wrap">
+  <form method="post" class="form-horizontal profile-edit" enctype="multipart/form-data">
+    <div class="page-header">
+      <h1>Edit Profile</h1>
     </div>
-    <div class="col-md-4"></div>
-  </div>
+
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {{ form.user.as_hidden }}
+
+    <div class="photo row">
+      <div class="col-md-3 col-md-offset-9">
+        {% if user.profile.photo %}
+          {% thumbnail user.profile.photo "150x160" crop="center" as up %}
+            <a href="{{ up.url }}" class="thumbnail">
+              <img src="{{ up.url }}" height="{{ up.height }}" title="{{ user.get_full_name }}" class="img-responsive">
+            </a>
+          {% endthumbnail %}
+        {% else %}
+          <a href="#" class="thumbnail">
+            <img src="holder.js/100px160?text=Your Photo Here&theme=social">
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.photo.errors }}
+      <label for="{{ form.photo.id_for_label }}" class="col-sm-3 control-label">
+        {{ form.photo.label }}
+      </label>
+      <div class="col-sm-9">
+        {{ form.photo }}
+        <span class="help-text">{{ form.photo.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.first_name.errors }}
+      <label for="{{ form.first_name.id_for_label }}" class="col-sm-3 control-label">{{ form.first_name.label }}</label>
+      <div class="col-sm-9">
+        {{ form.first_name }}
+        <span class="help-text">{{ form.first_name.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.last_name.errors }}
+      <label for="{{ form.last_name.id_for_label }}" class="col-sm-3 control-label">{{ form.last_name.label }}</label>
+      <div class="col-sm-9">
+        {{ form.last_name }}
+        <span class="help-text">{{ form.last_name.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.about.errors }}
+      <label for="{{ form.about.id_for_label }}" class="col-sm-3 control-label">{{ form.about.label }}</label>
+      <div class="col-sm-9">
+        {{ form.about }}
+        <span class="help-text">{{ form.about.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.skills.errors }}
+      <label for="{{ form.skills.id_for_label }}" class="col-sm-3 control-label">{{ form.skills.label }}</label>
+      <div class="col-sm-9">
+        {{ form.skills }}
+        <span class="help-text">{{ form.skills.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.experience.errors }}
+      <label for="{{ form.experience.id_for_label }}" class="col-sm-3 control-label">{{ form.experience.label }}</label>
+      <div class="col-sm-9">
+        {{ form.experience }}
+        <span class="help-text">{{ form.experience.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.phone_number.errors }}
+      <label for="{{ form.phone_number.id_for_label }}" class="col-sm-3 control-label">{{ form.phone_number.label }}</label>
+      <div class="col-sm-9">
+        {{ form.phone_number }}
+        <span class="help-text">{{ form.phone_number.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.slug.errors }}
+      <label for="{{ form.slug.id_for_label }}" class="col-sm-3 control-label">{{ form.slug.label }}</label>
+      <div class="col-sm-9">
+        {{ form.slug }}
+        <span class="help-text">{{ form.slug.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form.location.errors }}
+      <label for="{{ form.location.id_for_label }}" class="col-sm-3 control-label">{{ form.location.label }}</label>
+      <div class="col-sm-9">
+        {{ form.location }}
+        <span class="help-text">{{ form.location.help_text }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
 </div>
 {% endblock %}
