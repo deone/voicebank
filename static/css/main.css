@@ -149,7 +149,7 @@ div[class^="col-md-"] {
 
 /* Profile */
 .my-profile div[class^="col-md-"] {
-  margin: 0;
+  margin-top: 0;
 }
 
 .my-profile .photo .col-md-9 p {
@@ -158,12 +158,10 @@ div[class^="col-md-"] {
   margin-top: 85px;
 }
 
-/* .photo .col-md-3 {
+.my-profile .col-md-6 .text {
+  margin-bottom: 20px;
+  min-height: 70px;
 }
-
-.main .photo .col-md-9 {
-  border: none;
-} */
 
 /* Voice Clips */
 .clip {
@@ -172,13 +170,13 @@ div[class^="col-md-"] {
 }
 
 .clip-list {
-  background: #c9d8b5;
+  background: #faf0e6;
   padding: 1em;
-  color: #fff;
 }
 
 .clip-list .page-header {
   margin-bottom: 10px;
+  border-bottom: solid 1px #777;
 }
 
 .clip-list .page-header h3 {
@@ -203,10 +201,10 @@ div[class^="col-md-"] {
 
 .clip-list + p {
   line-height: 40px;
-  background: #f2f2f2;
   padding-right: 1em;
   text-align: right;
-  border-top: solid 1px #eee;
+  border-top: solid 1px #777;
+  background: #faf0e6;
   margin-bottom: 0;
 }
 
@@ -265,7 +263,7 @@ div[class^="col-md-"] {
 .main-wrap {
   padding-bottom: 50px;
   padding-top: 50px;
-  background: #f6f1ed;
+  background: #faf0e6;
 }
 
 .main-wrap .page-header {
@@ -312,7 +310,8 @@ form,
   margin-bottom: 0;
 }
 
-.service p {
+.service p,
+.my-profile .col-md-6 .text {
   background: #fafafa;
   padding: 5px 1em 5px 1em;
   margin-top: 15px;

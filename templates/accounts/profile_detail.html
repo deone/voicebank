@@ -2,7 +2,27 @@
 
 {% block page_title %}&mdash; My Profile{% endblock %}
 
+{% load vbank_tags %}
+
 {% load thumbnail %}
+
+{% block audiojscss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/audiojs.css">
+<style>
+  .audiojs .scrubber {
+    width: 44%;
+  }
+</style>
+{% endblock %}
+
+{% block audiojs %}
+<script src="{{ STATIC_URL }}audiojs/audio.min.js"></script>
+<script type="text/javascript">
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+{% endblock %}
 
 {% block main %}
 <div class="main-wrap">
@@ -40,20 +60,41 @@
         <div class="page-header">
           <h2>About</h2>
         </div>
+        <p class="text">{{ profile.about }}</h2>
+
         <div class="page-header">
           <h2>Skills</h2>
         </div>
+	<p class="text">{{ profile.skills }}</p>
+
         <div class="page-header">
           <h2>Experience</h2>
         </div>
+	<p class="text">{{ profile.experience }}</p>
+
       </div>
       <div class="col-md-6">
         <div class="page-header">
           <h2>Voice Clips</h2>
         </div>
+        
+        {% if user_clips %}
+          <ul style="margin: 0; padding: 0; list-style: none; margin-bottom: 20px;">
+            {% for clip in user_clips %}
+              <li style="margin-bottom: 10px">{% display_clip clip %}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>{{ user.get_full_name }} does not have any voice clips.</p>
+        {% endif %}
+
         <div class="page-header">
           <h2>Booking</h2>
         </div>
+        <p class="text">
+          To book this artiste, call the Nigerian Voice Bank on <b>0809 279 6787</b> or 
+          email <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a>.
+        </p>
       </div>
     </div>
   </div>
