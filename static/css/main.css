@@ -380,4 +380,21 @@ form .page-header {
   width: 50px;
 }
 
+/* Messages */
+.messages,
+.messages li {
+  margin: 15px;
+  padding: 0;
+}
+.messages li.success {
+  color: green;
+}
+.messages {
+  list-style: none;
+  background: #fff;
+}
+.messages li {
+  padding: .5em 0 .5em .5em;
+}
+
 /* No Bottom Margin */

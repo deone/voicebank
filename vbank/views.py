@@ -112,7 +112,7 @@ def voiceclips(request, template='vbank/voiceclips.html', form=VoiceClipForm):
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	    messages.success(request, "Audio clip uploaded successfully.")
+	    messages.success(request, "Voice clip uploaded successfully.")
     else:
 	form = form(initial={'user': request.user.id})
 
