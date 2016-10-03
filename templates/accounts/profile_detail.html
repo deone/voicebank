@@ -79,13 +79,13 @@
         </div>
         
         {% if user_clips %}
-          <ul style="margin: 0; padding: 0; list-style: none; margin-bottom: 20px;">
+          <ul class="clip-list">
             {% for clip in user_clips %}
-              <li style="margin-bottom: 10px">{% display_clip clip %}</li>
+              <li>{% display_clip clip %}</li>
             {% endfor %}
           </ul>
         {% else %}
-          <p>{{ user.get_full_name }} does not have any voice clips.</p>
+          <p class="text">{{ user.get_full_name }} does not have any voice clips.</p>
         {% endif %}
 
         <div class="page-header">
