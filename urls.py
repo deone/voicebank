@@ -21,6 +21,7 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
 	(r'^voiceclips/', include('vbank.urls')),
+	(r'^admin/', include(admin.site.urls)),
 	(r'^', include('accounts.urls')),
 
 	(r'^ratings/', include('agon_ratings.urls')),
@@ -32,7 +33,6 @@ urlpatterns += patterns('',
 	(r'^booking/', include('booking.urls')),
 	(r'^contact/', include('contact.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),
-	(r'^admin/', include(admin.site.urls)),
 
 	(r'^articles/', include('django.contrib.flatpages.urls')),
 )

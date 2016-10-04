@@ -1,5 +1,4 @@
 # Email
-EMAIL_SENDER = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
 WELCOME_MSG_SUBJECT = "Your Nigerian Voice Bank Account"
 
 # Display/Pagination Limits

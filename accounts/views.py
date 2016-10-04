@@ -111,7 +111,7 @@ def join(request, template='accounts/join.html', form=UserJoinForm):
 	    text_content = strip_tags(html_content)
 
 	    msg = EmailMultiAlternatives(settings.WELCOME_MSG_SUBJECT,
-		    text_content, settings.EMAIL_SENDER, recipients)
+		    text_content, settings.DEFAULT_FROM_EMAIL, recipients)
 
 	    msg.attach_alternative(html_content, "text/html")
 

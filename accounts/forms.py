@@ -6,14 +6,17 @@ from django.utils.encoding import force_unicode
 from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
 from django.core.validators import validate_slug
-from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm, AuthenticationForm
 
 from accounts.models import *
 
 import random
 import string
+
+class ResetPasswordForm(SetPasswordForm):
+    new_password1 = forms.CharField(label='New Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label='Confirm New Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 class PasswordResetEmailForm(PasswordResetForm):
     email = forms.EmailField(label='Email Address', max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))

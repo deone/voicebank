@@ -130,6 +130,7 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 EMAIL_HOST = '74.55.86.74'
 EMAIL_HOST_USER = 'deone'
 EMAIL_HOST_PASSWORD = '@dune369'
+DEFAULT_FROM_EMAIL = "Nigerian Voice Bank<noreply@nigerianvoicebank.com>"
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (
