@@ -232,7 +232,7 @@ div[class^="col-md-"] {
 }
 
 .voiceclips .col-md-6 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .voiceclips .profile-pic {
@@ -245,8 +245,7 @@ div[class^="col-md-"] {
 
 /* Main */
 .main-wrap {
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding: 50px;
   background: #faf0e6;
 }
 
@@ -262,12 +261,6 @@ form,
 
 .login,
 .join {
-  width: 60%;
-}
-
-.profile-edit,
-.voiceclip-upload,
-.my-profile {
   width: 80%;
 }
 
