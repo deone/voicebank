@@ -122,8 +122,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-LOGIN_REDIRECT_URL = '/profile'
-LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_URL = '/login/'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 
