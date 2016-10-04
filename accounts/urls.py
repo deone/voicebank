@@ -4,11 +4,14 @@ from django.contrib.auth import views as auth_views
 from accounts.forms import LoginForm
 from accounts.views import ProfileDetailView
 
+from .forms import PasswordResetEmailForm
+
 urlpatterns = patterns('django.contrib.auth.views',
     url(r'^login/$', auth_views.login,
       {'authentication_form': LoginForm, 'template_name': 'accounts/login.html'}, name='login'),
     url(r'^password_reset/$', auth_views.password_reset, {
       'template_name': 'accounts/password_reset.html',
+      'password_reset_form': PasswordResetEmailForm,
     }, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done, {}, name='password_reset_done'),
 )

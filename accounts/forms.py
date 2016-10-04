@@ -8,11 +8,25 @@ from django.db import IntegrityError
 from django.core.validators import validate_slug
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.forms import PasswordResetForm
 
 from accounts.models import *
 
 import random
 import string
+
+class PasswordResetEmailForm(PasswordResetForm):
+    email = forms.EmailField(label='Email Address', max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    def clean(self):
+        cleaned_data = super(PasswordResetForm, self).clean()
+        email = cleaned_data.get('email')
+
+        try:
+            if email is not None:
+                user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise forms.ValidationError("Email does not exist.")
 
 class LoginForm(AuthenticationForm):
     username = forms.EmailField(label=_('Email'), max_length=254,
