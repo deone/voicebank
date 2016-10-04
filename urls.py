@@ -19,9 +19,9 @@ url(r'^voiceclips$', ListView.as_view(
 	), name='all_clips'), """
 
 urlpatterns = patterns('',
-	url(r'^how$', TemplateView.as_view(template_name='how.html'), name='how'),
-	url(r'^about$', TemplateView.as_view(template_name='about.html'), name='about'),
-	url(r'^voiceclips$', views.clip_search, name='all_clips'),
+	url(r'^how/$', TemplateView.as_view(template_name='how.html'), name='how'),
+	url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
+	url(r'^voiceclips/$', views.clip_search, name='all_clips'),
 	# We commented this out because of the customer care category customization
 	# url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
 	url(r'^categories/(?P<slug>[-.\w]+)$', 'vbank.views.category_detail', name='category'),
@@ -29,16 +29,20 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
 	(r'^', include('accounts.urls')),
+
 	(r'^ratings/', include('agon_ratings.urls')),
 	(r'^sounds/', include('sounds.urls')),
 	(r'^albums/', include('musicbox.urls')),
 	(r'^podcasts/', include('podcast.urls')),
 	(r'^events/', include('events.urls')),
+
 	(r'^voicebank/', include('vbank.urls')),
+
 	(r'^booking/', include('booking.urls')),
 	(r'^contact/', include('contact.urls')),
 	(r'^comments/', include('django.contrib.comments.urls')),
 	(r'^admin/', include(admin.site.urls)),
+
 	(r'^articles/', include('django.contrib.flatpages.urls')),
 )
 
