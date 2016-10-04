@@ -65,7 +65,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="{{ user.profile.get_absolute_url }}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> My Profile</a></li>
                   <li><a href="{% url 'profile_edit' %}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Profile</a></li>
-                  <li><a href="{% url 'voiceclips' %}"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload Voice Clip</a></li>
+                  <li><a href="{% url 'clip_upload' %}"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload Voice Clip</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
                 </ul>
