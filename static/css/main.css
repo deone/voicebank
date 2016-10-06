@@ -125,6 +125,13 @@ div[class^="col-md-"] {
   margin-top: 0;
 }
 
+/* Blog */
+.post {
+  background: #fafafa;
+  margin-bottom: 30px;
+  padding: 1px 1em;
+}
+
 /* About */
 .about-banner {
   margin-bottom: 0;

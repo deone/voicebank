@@ -42,4 +42,4 @@ class Article(FlatPage):
 	super(Article, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-	return '/articles' + self.url
+	return '/blog' + self.url

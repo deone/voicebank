@@ -14,3 +14,27 @@
   </li>
 {% endwith %}
 {% endblock %}
+
+{% block banner %}
+<div class="container-fluid">
+  <div class="about-banner row">
+    <div class="content">
+      <img src="{{ STATIC_URL }}images/about_banner.jpg" class="img-responsive">
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="page-header">
+  <h1>Blog</h1>
+</div>
+{% for post in object_list %}
+  <div class="post">
+    <a href="{{ post.get_absolute_url }}">
+      <h2>{{ post.title }}</h2>
+    </a>
+    <p>{{ post.summary }}</p>
+  </div>
+{% endfor %}
+{% endblock %}
