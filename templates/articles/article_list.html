@@ -1,0 +1,16 @@
+{% extends "sidebar_base.html" %}
+
+{% block page_title %}&mdash; Blog{% endblock %}
+
+{% block blog %}
+{% with urlname=request.resolver_match.url_name %}
+  <li {% if urlname == 'blog' %}class="active"{% endif %}>
+    <a href="{% url 'blog' %}">
+      <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Blog
+      {% if urlname == 'blog' %}
+        <span class="sr-only">(current)</span></a>
+      {% endif %}
+    </a>
+  </li>
+{% endwith %}
+{% endblock %}

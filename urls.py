@@ -21,7 +21,7 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('',
 	(r'^voiceclips/', include('vbank.urls')),
-	(r'^articles/', include('articles.urls')),
+	(r'^blog/', include('articles.urls')),
 	(r'^admin/', include(admin.site.urls)),
 	(r'^', include('accounts.urls')),
 
