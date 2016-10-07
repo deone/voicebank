@@ -159,6 +159,12 @@ div[class^="col-md-"] {
   border-right: solid 1px #eee;
 }
 
+/* Article */
+.article img {
+  display: block;
+  margin-bottom: 20px;
+}
+
 /* Profile */
 .my-profile div[class^="col-md-"],
 .photo div[class^="col-md-"] {
