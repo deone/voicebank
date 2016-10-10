@@ -107,7 +107,7 @@ def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchFo
         }, context_instance=RequestContext(request))
 
 @login_required
-def clip_upload(request, template='vbank/voiceclips.html', form=VoiceClipForm):
+def clip_upload(request, template='vbank/upload_voiceclip.html', form=VoiceClipForm):
     if request.method == "POST":
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
