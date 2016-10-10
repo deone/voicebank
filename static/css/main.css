@@ -169,13 +169,13 @@ div[class^="col-md-"] {
 .my-profile div[class^="col-md-"],
 .photo div[class^="col-md-"] {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;;
 }
 
 .my-profile .photo .col-md-9 p {
   text-align: right;
   font-size: 90%;
-  margin-top: 85px;
+  margin-top: 100px;
 }
 
 .my-profile .col-md-6 .text {

@@ -6,6 +6,10 @@
 
 {% load thumbnail %}
 
+{% block pagejs %}
+<script src="//cdn.rawgit.com/imsky/holder/master/holder.js"></script>
+{% endblock %}
+
 {% block audiojscss %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/audiojs.css">
 <style>
@@ -36,15 +40,15 @@
         <p>
           {% if profile.gender == "M" %}Male{% elif profile.gender == "F" %}Female{% endif %}<br>
           {{ age }} years old<br>
-          Lives in {{ profile.location }}<br>
-          <a href="{{ profile.get_absolute_url }}">http://{{ site }}/{{ profile.slug }}</a><br>
+          {% if profile.location %}Lives in {{ profile.location }}<br>{% endif %}
+          <a href="{{ profile.get_absolute_url }}">http://{{ site }}/{{ profile.slug }}/</a><br>
         </p>
       </div>
       <div class="col-md-3">
         {% if profile.photo %}
           {% thumbnail profile.photo "150x160" crop="center" as up %}
             <a href="{{ up.url }}" class="thumbnail">
-              <img src="{{ up.url }}" height="{{ up.height }}" title="{{ user.get_full_name }}" class="img-responsive">
+              <img src="{{ up.url }}" height="{{ up.height }}" title="{{ profile.user.get_full_name }}" class="img-responsive">
             </a>
           {% endthumbnail %}
         {% else %}
@@ -85,7 +89,7 @@
             {% endfor %}
           </ul>
         {% else %}
-          <p class="text">{{ user.get_full_name }} does not have any voice clips.</p>
+          <p class="text">{{ profile.user.get_full_name }} does not have any voice clips.</p>
         {% endif %}
 
         <div class="page-header">

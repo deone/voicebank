@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -76,7 +77,7 @@ class ProfileDetailView(DetailView):
 	context = super(ProfileDetailView, self).get_context_data(**kwargs)
 	context['age'] = calculate_age(obj.birthday)
 	context['site'] = Site.objects.get_current().domain
-        context['user_clips'] = self.request.user.voiceclip_set.filter(is_active=True)
+        context['user_clips'] = obj.user.voiceclip_set.filter(is_active=True)
 	return context
 
 def join(request, template='accounts/join.html', form=UserJoinForm):
