@@ -2,6 +2,8 @@
 
 {% block page_title %}&mdash; Blog{% endblock %}
 
+{% load thumbnail %}
+
 {% block blog %}
 {% with urlname=request.resolver_match.url_name %}
   <li {% if urlname == 'blog' %}class="active"{% endif %}>
@@ -31,10 +33,20 @@
 </div>
 {% for post in object_list %}
   <div class="post">
-    <a href="{{ post.get_absolute_url }}">
-      <h2>{{ post.title }}</h2>
-    </a>
-    <p>{{ post.summary }}</p>
+    <div class="image">
+      {% thumbnail post.image "100x100" crop="center" as pi %}
+        <a href="{{ post.get_absolute_url }}">
+          <img src="{{ pi.url }}" height="{{ pi.height }}" class="img-responsive">
+        </a>
+      {% endthumbnail %}
+    </div>
+    <div class="text">
+      <a href="{{ post.get_absolute_url }}">
+        <h2>{{ post.title }}</h2>
+      </a>
+      <p>{{ post.summary }}</p>
+    </div>
+    <div style="clear: both"></div>
   </div>
 {% endfor %}
 {% endblock %}

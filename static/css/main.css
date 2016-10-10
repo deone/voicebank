@@ -129,7 +129,24 @@ div[class^="col-md-"] {
 .post {
   background: #fafafa;
   margin-bottom: 30px;
-  padding: 1px 1em;
+  padding: 15px;
+}
+
+.post .image,
+.post .text {
+  float: left;
+}
+
+.post .image {
+  width: 14%;
+}
+
+.post .text {
+  width: 86%;
+}
+
+.post .text h2 {
+  margin-top: 0;
 }
 
 /* About */
