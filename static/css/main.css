@@ -143,6 +143,7 @@ div[class^="col-md-"] {
 
 .post .text {
   width: 86%;
+  padding-left: 10px;
 }
 
 .post .text h2 {
