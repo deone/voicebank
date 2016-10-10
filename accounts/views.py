@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
@@ -46,7 +47,7 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	form = form(request.POST, request.FILES)
 	if form.is_valid():
 	    form.save()
-	    return redirect('accounts.views.profile_edit')
+	    messages.success(request, "Profile updated successfully.")
     else:
 	form = form(initial={
 	    'user': request.user.id, 

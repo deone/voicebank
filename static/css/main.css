@@ -272,6 +272,15 @@ form,
   margin: 0 auto;
 }
 
+form .row .col-md-12,
+form .row .col-md-12 .messages {
+  margin: 0;
+}
+
+form .row .col-md-12 {
+  margin-bottom: 10px;
+}
+
 .login,
 .join {
   width: 80%;
