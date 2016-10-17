@@ -86,11 +86,22 @@ h1, h2, h3 {
   background: url('../images/banner2.jpg') 75% 25%;
 }
 
+.banner p,
+.banner p a {
+  font-weight: bold;
+}
+
 .banner p {
   color: #fff;
   font-size: 500%;
   margin: 150px 0 200px 8%;
-  font-weight: bold;
+}
+
+.banner p a {
+  border: solid 1px #cd2206;
+  background: #cd2206;
+  font-size: 40%;
+  width: 25%;
 }
 
 .banner,
