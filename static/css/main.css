@@ -82,6 +82,17 @@ h1, h2, h3 {
   padding-bottom: 19px;
 }
 
+.banner {
+  background: url('../images/banner2.jpg') 50% 25%;
+}
+
+.banner p {
+  color: #fff;
+  font-size: 500%;
+  margin: 120px 0 120px 8%;
+  font-weight: bold;
+}
+
 .banner,
 div[class^="col-md-"] {
   margin-bottom: 30px;
