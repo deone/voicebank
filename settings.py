@@ -143,4 +143,6 @@ STATICFILES_FINDERS = (
 
 ADMIN_MEDIA_PREFIX = "/static/admin/"
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 from local_settings import *

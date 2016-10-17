@@ -10,6 +10,7 @@ def index(request, template='contact/index.html', form=ContactForm):
 		if form.is_valid():
 			form.save()
 			messages.success(request, "Your enquiry was submitted. We would reply as soon as possible.")
+			return redirect('contact')
 	else:
 		form = form()
 	

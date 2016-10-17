@@ -20,6 +20,11 @@
 	<div class="col-md-7">
 		<div class="main-wrap">
 			<form method="post" action="" class="form-horizontal">
+				
+				<div class="page-header">
+	      	<h2>Leave Us A Message</h2>
+	    	</div>
+				
 				{% if messages %}
 		      <div class="row">
 	          <ul class="messages">
@@ -78,35 +83,4 @@
 		</div>
 	</div>
 </div>
-{% endblock %}
-
-{% block app_body %}
-<div class="leftdiv">
-    <div class="inner">
-	<h3>Contact Us</h3>
-	<div class="address">
-            <p>Flame Media Works<br/>
-            711 Road, B Close, House 24<br/>
-            Festac Town, Lagos.</p>
-
-            <p>Tel: +234 809 279 6787</p>
-
-	    <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a><br/></p>
-	    <div class="addthis_toolbox addthis_default_style">
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a class="addthis_button_tweet"></a>
-	    </div>
-	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
-	    <!-- AddThis Button END -->
-	</div>
-	
-</div> <!--/leftdiv-->
-{% endblock app_body %}
-
-{% block custom_js %}
-    <script>
-    $(function()    {
-	    $('a#contact').addClass('current');
-    });
-    </script>
 {% endblock %}
