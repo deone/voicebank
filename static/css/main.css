@@ -211,11 +211,14 @@ div[class^="col-md-"] {
   margin-bottom: 20px;
 }
 
+/* Contact */
+
 /* Profile */
+.contact div[class^="col-md-"],
 .my-profile div[class^="col-md-"],
 .photo div[class^="col-md-"] {
   margin-top: 0;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
 }
 
 .my-profile .photo .col-md-9 p {
@@ -446,6 +449,7 @@ form .row .col-md-12 {
 .messages li {
   margin: 15px;
   padding: 0;
+  margin-top: 0;
 }
 .messages li.success {
   color: green;

@@ -3,10 +3,10 @@ from django import forms
 from contact.models import Contact
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=30)
-    email = forms.EmailField()
-    phone_number = forms.CharField(max_length=15)
-    comment = forms.CharField(max_length=255, widget=forms.Textarea)
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    phone_number = forms.CharField(label='Phone Number', max_length=15, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    comment = forms.CharField(label='Message', max_length=255, widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}))
 
     def save(self):
 	contact = Contact.objects.create(name=self.cleaned_data['name'],

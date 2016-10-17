@@ -1,8 +1,84 @@
-{% extends "base_inner.html" %}
+{% extends "sidebar_base.html" %}
 
-{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+{% block page_title %}&mdash; Produce{% endblock %}
 
-{% block customer_care_banner %}{% endblock %}
+{% block main %}
+<div class="page-header">
+	<h1>Contact Us</h1>
+</div>
+<div class="contact row">
+	<div class="col-md-5">
+    <p>Flame Media Works<br/>
+    711 Road, B Close, House 24<br/>
+    Festac Town, Lagos.</p>
+
+    <p>Tel: +234 809 279 6787</p>
+
+    <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a><br/></p>
+	</div>
+	
+	<div class="col-md-7">
+		<div class="main-wrap">
+			<form method="post" action="" class="form-horizontal">
+				{% if messages %}
+		      <div class="row">
+	          <ul class="messages">
+	            {% for message in messages %}
+	              <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+	            {% endfor %}
+	          </ul>
+		      </div>
+		    {% endif %}
+		    
+		    {% csrf_token %}
+				{{ form.non_field_errors }}
+				
+				<div class="form-group">
+		      {{ form.name.errors }}
+		      <label for="{{ form.name.id_for_label }}" class="col-sm-4 control-label">{{ form.name.label }}</label>
+		      <div class="col-sm-8">
+		        {{ form.name }}
+		        <span class="help-text">{{ form.name.help_text }}</span>
+		      </div>
+		    </div>
+		    
+		   	<div class="form-group">
+		      {{ form.email.errors }}
+		      <label for="{{ form.email.id_for_label }}" class="col-sm-4 control-label">{{ form.email.label }}</label>
+		      <div class="col-sm-8">
+		        {{ form.email }}
+		        <span class="help-text">{{ form.email.help_text }}</span>
+		      </div>
+		    </div>
+		    
+		   	<div class="form-group">
+		      {{ form.phone_number.errors }}
+		      <label for="{{ form.phone_number.id_for_label }}" class="col-sm-4 control-label">{{ form.phone_number.label }}</label>
+		      <div class="col-sm-8">
+		        {{ form.phone_number }}
+		        <span class="help-text">{{ form.phone_number.help_text }}</span>
+		      </div>
+		    </div>
+		    
+		   	<div class="form-group">
+		      {{ form.comment.errors }}
+		      <label for="{{ form.comment.id_for_label }}" class="col-sm-4 control-label">{{ form.comment.label }}</label>
+		      <div class="col-sm-8">
+		        {{ form.comment }}
+		        <span class="help-text">{{ form.comment.help_text }}</span>
+		      </div>
+		    </div>
+				
+				<div class="form-group">
+		      <div class="col-sm-offset-4 col-sm-8">
+		        <button type="submit" class="btn btn-primary">Submit</button>
+		      </div>
+		    </div>
+		  </form>
+		</div>
+	</div>
+</div>
+{% endblock %}
 
 {% block app_body %}
 <div class="leftdiv">
@@ -23,40 +99,7 @@
 	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
 	    <!-- AddThis Button END -->
 	</div>
-	<div class="contactform">
-	    {% if messages %}
-		{% for message in messages %}
-		<p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-		{% endfor %}
-	    {% endif %}
-	    <form method="post" action={% url 'contact' %}>{% csrf_token %}
-		{{ form.non_field_errors }}
-		<p>
-		    {{ form.name.errors }}
-		    <label>{{ form.name.label }}</label>
-		    {{ form.name }}
-		</p>
-		<p>
-		    {{ form.email.errors }}
-		    <label>{{ form.email.label }}</label>
-		    {{ form.email }}
-		</p>
-		<p>
-		    {{ form.phone_number.errors }}
-		    <label>{{ form.phone_number.label }}</label>
-		    {{ form.phone_number }}
-		</p>
-		<br/>
-		<p>
-		    {{ form.comment.errors }}
-		    <label>{{ form.comment.label }}</label>
-		    {{ form.comment }}
-		</p>
-		<p><input type="submit" value="Submit" class="btn"></p>
-	    </form>
-	</div>
-
-    </div> <!--/inner-->
+	
 </div> <!--/leftdiv-->
 {% endblock app_body %}
 

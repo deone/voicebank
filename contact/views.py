@@ -4,18 +4,15 @@ from django.contrib import messages
 
 from contact.forms import ContactForm
 
-
 def index(request, template='contact/index.html', form=ContactForm):
-    if request.method == "POST":
-	form = form(request.POST)
-	if form.is_valid():
-	    form.save()
-	    messages.success(request, """Your enquiry was submitted successfully.
-	    We would reply as soon as possible.""")
-	    return redirect('contact.views.index')
-    else:
-	form = form()
-	    
+	if request.method == 'POST':
+		form = form(request.POST)
+		if form.is_valid():
+			form.save()
+			messages.success(request, "Your enquiry was submitted. We would reply as soon as possible.")
+	else:
+		form = form()
+	
 	return render_to_response(template, {
-	    'form': form,
+		'form': form
 	}, context_instance=RequestContext(request))
