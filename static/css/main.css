@@ -109,9 +109,15 @@ div[class^="col-md-"] {
   margin-bottom: 30px;
 }
 
-.main-action {
+/* .main-action {
   width: 95%;
   margin: 0 auto;
+} */
+.main-actions .col-md-4 .btn {
+  width: 100%;
+  font-weight: bold;
+  padding: 25px 0;
+  font-size: 200%;
 }
 
 .profile-pic {
