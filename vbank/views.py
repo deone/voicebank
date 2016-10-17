@@ -19,6 +19,10 @@ GENDER_STRING = {
     'M': 'Men',
     'F': 'Women'
     }
+    
+def produce(request, template='vbank/produce.html', form=None):
+    return render_to_response(template, {
+        }, context_instance=RequestContext(request))
 
 def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchForm):
     voice_clips_list = VoiceClip.objects.active()
