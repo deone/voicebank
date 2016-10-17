@@ -6,7 +6,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nvb_voicebank',
-	'USER': 'deone_voicebank',
+	    'USER': 'deone_voicebank',
         'PASSWORD': 'v01ce',
         'HOST': '',
         'PORT': '',
