@@ -83,25 +83,7 @@ h1, h2, h3 {
 }
 
 .banner {
-  background: url('../images/banner2.jpg') 75% 25%;
-}
-
-.banner p,
-.banner p a {
-  font-weight: bold;
-}
-
-.banner p {
-  color: #fff;
-  font-size: 500%;
-  margin: 150px 0 200px 8%;
-}
-
-.banner p a {
-  border: solid 1px #cd2206;
-  background: #cd2206;
-  font-size: 40%;
-  width: 25%;
+  height: 750px;
 }
 
 .banner,
@@ -109,10 +91,6 @@ div[class^="col-md-"] {
   margin-bottom: 30px;
 }
 
-/* .main-action {
-  width: 95%;
-  margin: 0 auto;
-} */
 .main-actions .col-md-4 .btn {
   width: 100%;
   font-weight: bold;

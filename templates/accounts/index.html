@@ -39,36 +39,20 @@
 
 {% block app %}
 <div class="container-fluid">
-  <div class="banner row" style="height: 750px;">
+  <div class="banner row">
     <a href="{% url 'produce' %}"><img src="{{ STATIC_URL }}images/banner.jpg" class="img-responsive"></a>
-    <!-- <div style="background: #ff0; position: absolute; top: 552px; left: 87px;">dfhdfldf</div>
-    <p>
-      Find Voices.<br>
-      Book a session.<br>
-      Produce.<br>
-      <a class="btn btn-primary btn-lg" role="button" href="{% url 'produce' %}">Post a Job</a>
-    </p> -->
   </div>
 </div>
 
 <div class="container">
   <div class="main-actions row">
     <div class="col-md-4">
-      <!-- <div class="main-action">
-        <a href="{% url 'all_clips' %}"><img src="{{ STATIC_URL }}images/find_voices2.png" class="img-responsive img-rounded"></a>
-      </div> -->
       <a href="{% url 'all_clips' %}" class="btn btn-lg btn-primary" role="button">Find Voices</a>
     </div>
     <div class="col-md-4">
-      <!-- <div class="main-action">
-        <a href="{% url 'join' %}"><img src="{{ STATIC_URL }}images/sign_up2.png" class="img-responsive img-rounded"></a>
-      </div> -->
       <a href="{% url 'join' %}" class="btn btn-lg btn-primary" role="button">Sign Up <sup>It's Free!</sup></a>
     </div>
     <div class="col-md-4">
-      <!-- <div class="main-action">
-        <a href="#"><img src="{{ STATIC_URL }}images/produce2.png" class="img-responsive img-rounded"></a>
-      </div> -->
       <a href="{% url 'produce' %}" class="btn btn-lg btn-primary" role="button">Produce</a>
     </div>
   </div>
