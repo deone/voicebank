@@ -99,10 +99,6 @@ div[class^="col-md-"] {
   width: 20.9%;
 }
 
-.testimonials .col-md-12 {
-  margin-bottom: 0;
-}
-
 .testimonials .holder {
   padding: 10px;
   background: #f2f2f2;
@@ -128,6 +124,22 @@ div[class^="col-md-"] {
 }
 
 /* Blog */
+.article .post {
+  background: #add8e6;
+}
+
+.article .post .image {
+  width: 30%;
+}
+
+.article .post .text {
+  width: 70%;
+}
+
+.article .post .text p {
+  font-size: 95%;
+}
+
 .post {
   background: #fafafa;
   margin-bottom: 30px;
@@ -148,7 +160,8 @@ div[class^="col-md-"] {
   padding-left: 10px;
 }
 
-.post .text h2 {
+.post .text h2,
+.post .text h3 {
   margin-top: 0;
 }
 
@@ -180,10 +193,10 @@ div[class^="col-md-"] {
 }
 
 /* Article */
-.article img {
+/* .article img {
   display: block;
   margin-bottom: 20px;
-}
+} */
 
 /* Contact */
 
