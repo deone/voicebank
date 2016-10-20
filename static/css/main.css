@@ -99,13 +99,13 @@ div[class^="col-md-"] {
   width: 20.9%;
 }
 
-.testimonials-blog .col-md-12 {
+.testimonials .col-md-12 {
   margin-bottom: 0;
 }
 
-.testimonials .col-md-12 {
+.testimonials .holder {
+  padding: 10px;
   background: #f2f2f2;
-  /* height: 255px; */
 }
 
 .testimonials .slider {
@@ -324,7 +324,7 @@ form .row .col-md-12 {
 /* Services */
 
 .services {
-  background: #faf0e6;
+  background: #f5deb3;
   margin-bottom: 35px;
 }
 

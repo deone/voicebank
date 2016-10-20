@@ -162,14 +162,34 @@
         {% endif %}
       </div>
     </div>
-    <div class="testimonials-blog col-md-4">
-      <div>
-        <div class="col-md-12" style="background: #add8e6; height: 225px;"></div>
+    
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom: 0;">
+          <div style="background: #add8e6; padding: 10px; padding-top: 20px;">
+            <div class="row" style="padding-bottom: 10px">
+              <div class="col-md-4" style="margin-bottom: 10px;">
+                {% thumbnail article.image "100x100" crop="center" as ai %}
+                  <a href="{{ article.get_absolute_url }}">
+                    <img src="{{ ai.url }}" class="img-responsive">
+                  </a>
+                {% endthumbnail %}
+              </div>
+              <div class="col-md-8" style="margin-bottom: 0;">
+                <a href="{{ article.get_absolute_url }}">
+                  <h3 style="margin-top: 0">{{ article.title }}</h3>
+                </a>
+                <p style="font-size: 95%">{{ article.summary }}</p>
+                <a class="btn btn-primary btn-xs" role="button" href="{{ article.get_absolute_url }}">Continue reading</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="testimonials">
+      <div class="testimonials row">
         <div class="col-md-12">
-          <section class="slider">
-            <div>
+          <div class="holder">
+            <section class="slider">
               <p>
                 &ldquo;It was wonderful working with Nigerian Voice Bank, your services were efficient, 
                 professional and a pleasure to work with.  I will definitely work with you in the future. Thank you.&rdquo;
@@ -180,8 +200,6 @@
                 <br>
                 Ogilvy &amp; Mather Cape Town
               </p>
-            </div>
-            <div>
               <p>
                 &ldquo;We worked with NVB on a large project for a multinational client. We found 
                 the staff to be very attentive and would drop everything at a moments notice to fix 
@@ -191,8 +209,8 @@
                 <br>
                 High Score Productions LTD UK
               </p>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </div>
     </div>

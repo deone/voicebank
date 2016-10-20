@@ -21,24 +21,12 @@ from articles.models import Article
 def index(request, template='accounts/index.html'):
     recent_voice_clips = VoiceClip.objects.active()[:settings.RECENT_VOICE_CLIPS_DISPLAY_LIMIT]
     top_voice_clips = VoiceClip.objects.top()[:settings.TOP_VOICE_CLIPS_DISPLAY_LIMIT]
-    categories = Category.objects.all()
-
-    featured_articles = Article.objects.filter(featured=True)
-
-    news = Article.objects.filter(article_type='News').order_by('?')[:settings.ARTICLE_LIST_LIMIT]
-    voice_tips = Article.objects.filter(article_type='Voice Tips').order_by('?')[:settings.ARTICLE_LIST_LIMIT]
-    radio_connect = Article.objects.filter(article_type='Radio Connect').order_by('?')[:settings.ARTICLE_LIST_LIMIT]
-    others = Article.objects.filter(article_type='Others').order_by('?')[:settings.ARTICLE_LIST_LIMIT]
+    article = Article.objects.latest('date_created')
 
     return render_to_response(template, {
 	'voiceclip_list': recent_voice_clips,
 	'top_clips': top_voice_clips,
-	'categories': categories,
-        'featured_articles': featured_articles,
-	'news': news,
-	'voice_tips': voice_tips,
-	'radio_connect': radio_connect,
-	'others': others,
+	'article': article,
 	}, context_instance=RequestContext(request))
 
 @login_required
