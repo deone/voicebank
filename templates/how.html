@@ -1,85 +1,72 @@
-{% extends "base_inner.html" %}
+{% extends "sidebar_base.html" %}
 
-{% block page_url %}<meta property="og:url" content="http://nigerianvoicebank.com{{ request.path }}" />{% endblock %}
+{% block page_title %}&mdash; How It Works{% endblock %}
 
-{% block app_body %}
-<div class="leftdiv">
-    <div class="inner how">
-	<img src="{{ STATIC_URL }}img/steps.png" width="700px"/>
-	<div class="clear pad2"></div>
-	<ul class="tabs">
-	    <li><a href="#registering">Registering on the Voice Bank</a></li>
-	    <li><a href="#recording">Recording your voice demo</a></li>
-	    <li><a href="#recording_at_studio">Recording at our studio</a></li>
-	    <li><a href="#terms">Terms &amp; Conditions</a></li>
-	</ul>
-	<div class="tab_container">
-	    <div class="tab_content" id="registering">
-		<h3>Registering On the Voice Bank</h3>
-		<h4>STEP 1</h4>
-		<p>The first step of registering your voice on the voice bank is to 
-		join by clicking the join link on the top right corner of the site.</p>
-
-		<p>This allows you to generate a username and password, using your already existing email account and a new password.</p>
-
-		<p>Go to <a href="http://www.nigerianvoicebank.com">http://www.nigerianvoicebank.com</a><br/>
-		Click on Join.<br/>
-		Complete the registration form and send.
-		</p>
-
-		<h4>STEP 2</h4>
-		<p>Proceed to update your profile and and upload your profile picture. 
-		Remember to provide your correct contact information.</p>
-
-		<h4>STEP 3</h4>
-                <p>The next step will be to upload your voice clip if you already have them. 
-                You may choose to record your voice demo at our studio. To get more information, <a href="#recording_at_studio">click here</a></p>
-	    </div>
-	    <div class="tab_content" id="recording">
-		<h3>Recording Your Voice Demo</h3>
-                <p>You can record your voice demo at any studio of your choice and upload on our websites. 
-                Your voice demo must be in MP3 format and not more than 60 seconds.</p>
-	    </div>
-	    <div class="tab_content" id="recording_at_studio">
-	        <h3>Recording At Our Studio</h3>
-                <p>To book your recording, send a mail to <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a> 
-                with your name, 
-                phone number, location and the word VOICE RECORDING. You can also send us an SMS or just call 
-                our customer care lines on 08092796787 to book a session.</p>
-
-                <p>Joining the Nigerian Voice Bank is free. This includes the hosting of your voice demos.</p>
-
-                <p>You can upload as many as 5 voice demos on the voice bank.</p>
-
-                <p>Please contact 08092796787 or customercare@nigerianvoicebank.com for assistance.</p>
-
-                <p>Recording your voice demo at our studio will cost you 5000 Naira although <a href="#terms">terms and conditions</a> apply.</p>
-	    </div>
-	    <div class="tab_content" id="terms">
-		<h3>Terms &amp; Conditions</h3>
-                <ul>
-                  <li>This offer is only open to local voice talents who want to upload their voice demo on 
-                    <a href="http://nigerianvoicebank.com">www.nigerianvoicebank.com</a></li>
-                  <li>Each voice demo must not be more than 60 seconds long.</li>
-                  <li>Each session will only last one hour.</li>
-                </ul>
-	    </div>
-	    <div class="addthis_toolbox addthis_default_style">
-		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-		<a class="addthis_button_tweet"></a>
-	    </div>
-	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5190cafc142b9d5a"></script>
-	    <!-- AddThis Button END -->
-	</div>
+{% block banner %}
+<div class="container-fluid">
+  <div class="about-banner row">
+    <div class="content">
+      <img src="{{ STATIC_URL }}images/about_banner.jpg" class="img-responsive">
     </div>
-</div> <!--/leftdiv-->
+  </div>
+</div>
 {% endblock %}
 
-{% block custom_js %}
-    <script>
-    $(function()    {
-	    $('a#how').addClass('current');
-    });
-    </script>
-    <script src="{{ STATIC_URL }}js/jquery-tabs.js"></script>
+{% block main %}
+<div class="page-header">
+  <h1>How It Works</h1>
+</div>
+
+<h2>Registering On The Voice Bank</h2>
+
+<h3>STEP 1</h3>
+<p>
+	The first step of registering your voice on the voice bank is to join by clicking the <a href="{% url 'join' %}">Sign Up</a> 
+	link on the top right corner of the site. This allows you to generate a username and password, using your already existing 
+	email account and a new password.
+<p>
+<ul>
+	<li>Go to <a href="http://www.nigerianvoicebank.com">http://www.nigerianvoicebank.com</a></li>
+	<li>Click on <a href="{% url 'join' %}">Sign Up</a>.</li>
+	<li>Complete the Sign Up form and Submit.</li>
+</ul>
+
+<h3>STEP 2</h3>
+<p>
+	Proceed to update your profile and and upload your profile picture. Remember to provide your correct contact information.
+</p>
+
+<h3>STEP 3</h3>
+<p>
+	The next step will be to upload your voice clips if you already have them. You may choose to record your voice demo at our 
+	studio.
+</p>
+
+<h2>Recording Your Voice Demo</h2>
+
+<p>
+	You can record your voice demo at any studio of your choice and upload on our website. Your voice demo must be in MP3 format and not more than 60 seconds.
+</p>
+	        
+<h2>Recording At Our Studio</h2>
+
+<p>
+	To book your recording, send a mail to <a href="mailto:customercare@nigerianvoicebank.com">customercare@nigerianvoicebank.com</a> 
+	with your name, phone number, location and the word VOICE RECORDING. You can also send us an SMS or just call our customer care 
+	lines on 08092796787 to book a session.
+</p>
+<ul>
+	<li>Joining the Nigerian Voice Bank is free. This includes the hosting of your voice demos.</li>
+	<li>You can upload as many as 5 voice demos on the voice bank.</li>
+	<li>Please contact 08092796787 or customercare@nigerianvoicebank.com for assistance.</li>
+  <li>Recording your voice demo at our studio will cost you 5000 Naira although terms and conditions apply.</li>
+</ul>
+
+<h3>Terms &amp; Conditions</h3>
+
+<ul>
+	<li>This offer is only open to local voice talents who want to upload their voice demo on <a href="http://nigerianvoicebank.com">www.nigerianvoicebank.com</a></li>
+	<li>Each voice demo must not be more than 60 seconds long.</li>
+	<li>Each session will only last one hour.</li>
+</ul>
 {% endblock %}
