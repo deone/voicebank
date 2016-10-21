@@ -1,0 +1,113 @@
+{% extends "sidebar_base.html" %}
+
+{% block page_title %}&mdash; Our Services{% endblock %}
+
+{% block banner %}
+<div class="container-fluid">
+  <div class="about-banner row">
+    <div class="content">
+      <img src="{{ STATIC_URL }}images/about_banner.jpg" class="img-responsive">
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="page-header" id="production">
+  <h1>Our Services</h1>
+</div>
+
+<div class="post">
+  <div class="image">
+    <img src="{{ STATIC_URL }}images/production.png" class="img-responsive">
+  </div>
+  <div class="text">
+    <h2>Production</h2>
+    <p>
+      NVBPRO (Nigerian Voice Bank Production) is the production arm of the Nigerian Voice Bank but 
+      Production for us is not just about making sound (even though we have perfected the act), but 
+      it is a blend of Imagination, creativity, innovation, modern tools and Passion. 
+      <br><br>
+      We pay great attention to detail and how we make your audience perceive you. That&apos;s why 
+      we focus on every client like they are all we have.
+      <br><br>
+      Our desire for excellence in audio production has attracted a team of enthusiastic, creative 
+      and yet professional sound engineers.
+      <br><br>
+      NVBPRO is a complete audio solution studio with a client base that spans four continents.
+    </p>
+  </div>
+  <div style="clear: both" id="localization"></div>
+</div>
+
+<div class="post">
+  <div class="image">
+    <img src="{{ STATIC_URL }}images/localization.png" class="img-responsive">
+  </div>
+  <div class="text">
+    <h2>Localization</h2>
+    <p>
+      The Nigerian market continues to be the toast of multinational companies but its 
+      great diversity (both cultural and regional) makes market penetration a challenge.
+      <br><br>
+      Our localization teams are skilled at telling your story, your way, in the Nigerian 
+      language. We strive to seamlessly connect international brands to the Nigerian market 
+      using innovative and creative processes.
+      <br><br>
+      Let us help you position your brand in this vast market.
+    </p>
+  </div>
+  <div style="clear: both" id="translation"></div>
+</div>
+
+<div class="post">
+  <div class="image">
+    <img src="{{ STATIC_URL }}images/translation.png" class="img-responsive">
+  </div>
+  <div class="text">
+    <h2>Translation</h2>
+    <p>
+      We may struggle with foreign languages but nobody knows Nigeria better than our team of home grown translators.
+      <br><br>
+      We translate from English to any Nigerian dialect, not just Hausa, Igbo and Yoruba.
+      <br><br>
+      We also translate from English to Swahili and French.
+    </p>
+  </div>
+  <div style="clear: both" id="lip_syncing"></div>
+</div>
+
+<div class="post">
+  <div class="image">
+    <img src="{{ STATIC_URL }}images/lip_syncing.png" class="img-responsive">
+  </div>
+  <div class="text">
+    <h2>Lip Syncing</h2>
+    <p>
+      When a translation service is for a voice over it can be really tricky because some languages are naturally longer than others.
+      <br><br>
+      At NVB, with the help of our mother company Flame Media Works we have been able to turn out some great lip syncing projects like Joy in the Shoprite Kitchen.
+      <br><br>
+      It takes more than just modern software to perfect a lip syncing project but great attention to detail in all its process.
+    </p>
+  </div>
+  <div style="clear: both" id="voice_casting"></div>
+</div>
+
+<div class="post">
+  <div class="image">
+    <img src="{{ STATIC_URL }}images/voice_casting.png" class="img-responsive">
+  </div>
+  <div class="text">
+    <h2>Voice Casting</h2>
+    <p>
+      Looking for the perfect Nigerian voice for your project, <a href="{% url 'all_clips' %}">search our collection</a> or send us a mail.
+      <br><br>
+      We have built a home for some of the finest Nigerian Voices online and offline.
+      <br><br>
+      We also understand the Nigerian Market well enough for you to trust us to match that perfect voice to your script.
+    </p>
+  </div>
+  <div style="clear: both"></div>
+</div>
+{% endblock %}

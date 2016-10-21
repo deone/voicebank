@@ -14,6 +14,7 @@ from vbank.models import VoiceClip, Category
 urlpatterns = patterns('',
 	url(r'^how/$', TemplateView.as_view(template_name='how.html'), name='how'),
 	url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
+	url(r'^services/$', TemplateView.as_view(template_name='services.html'), name='services'),
 	# We commented this out because of the customer care category customization
 	# url(r'^categories/(?P<slug>[-.\w]+)$', DetailView.as_view(model=Category), name='category'),
 	url(r'^categories/(?P<slug>[-.\w]+)$', 'vbank.views.category_detail', name='category'),
