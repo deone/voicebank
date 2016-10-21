@@ -339,6 +339,7 @@ form .row .col-md-12 {
 .services {
   background: #f5deb3;
   margin-bottom: 35px;
+  padding-bottom: 20px;
 }
 
 .services .col-md-2 {
@@ -353,6 +354,20 @@ form .row .col-md-12 {
   border-radius: 5px;
 }
 
+.service p {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.service img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: solid 1px #777;
+}
+
 .service p,
 .about p {
   line-height: 1.8em;
@@ -365,6 +380,14 @@ form .row .col-md-12 {
 
 .service .btn {
   margin-bottom: 10px;
+}
+
+.col-sm-7.five-three {
+  width: 60% !important;
+}
+
+.col-sm-5.five-two {
+  width: 40% !important;
 }
 
 /* Work */

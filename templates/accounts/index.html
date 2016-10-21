@@ -230,57 +230,65 @@
       <a class="btn btn-primary btn-xs" role="button" href="{% url 'about' %}">Continue reading</a>
     </div>
   </div>
-
+  
   <div class="services row">
     <h3 class="col-md-12">Our Services</h3>
-
-    <div class="col-md-2 service">
-      <h4>Production</h4>
-      <p>
-        NVBPRO (Nigerian Voice Bank Production) is the production arm of the Nigerian 
-        Voice Bank but Production for us is not just about making sound (even though 
-        we have perfected the act), but it is a blend of Imagination, creativity, innovation, modern tools and Passion.
-        <br><br>
-        <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-      </p>
-    </div>
-
-    <div class="col-md-2 service">
-      <h4>Localization</h4>
-      <p>
-        Our localization teams are skilled at telling your story, your way, in the Nigerian 
-        language. We strive to seamlessly connect international brands to the Nigerian market using innovative and creative processes.
-        <br><br>
-        <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-      </p>
-    </div>
-
-    <div class="col-md-2 service">
-      <h4>Translation</h4>
-      <p>
-        We translate from English to any Nigerian dialect, not just Hausa, Igbo and Yoruba.
-        <br><br>
-        <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-      </p> 
-    </div>
-
-    <div class="col-md-2 service">
-      <h4>Lip Syncing</h4>
-      <p>
-        At NVB, with the help of our mother company Flame Media Works we have been able to turn 
-        out some great lip syncing projects like Joy in the Shoprite Kitchen.
-        <br><br>
-        <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-      </p>
-    </div>
-
-    <div class="col-md-2 service">
-      <h4>Voice Casting</h4>
-      <p>
-        Looking for the perfect Nigerian voice for your project, <a href="{% url 'all_clips' %}">search</a> our website or send us a mail.
-        <br><br>
-        <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
-      </p>
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-7 five-three">
+          <div class="row">
+            <div class="col-sm-4 service">
+              <h4>Production</h4>
+              <img src="{{ STATIC_URL }}images/production_grey.png" class="img-responsive">
+              <p>
+                NVBPRO (Nigerian Voice Bank Production) is the production arm of ...
+                <br><br>
+                <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+              </p>
+            </div>
+            <div class="col-sm-4 service">
+              <h4>Localization</h4>
+              <img src="{{ STATIC_URL }}images/localization_grey.png" class="img-responsive">
+              <p>
+                Our localization teams are skilled at telling your story, your way, ...
+                <br><br>
+                <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+              </p>
+            </div>
+            <div class="col-sm-4 service">
+              <h4>Translation</h4>
+              <img src="{{ STATIC_URL }}images/translation_grey.png" class="img-responsive">
+              <p>
+                We translate from English to any Nigerian dialect, not just Hausa, Igbo and Yoruba.
+                <br><br>
+                <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+              </p>
+            </div><!-- end inner row -->
+          </div>
+        </div>
+        <div class="col-sm-5 five-two">
+          <div class="row">
+            <div class="col-sm-6 service">
+              <h4>Lip Syncing</h4>
+              <img src="{{ STATIC_URL }}images/lip_syncing_grey.png" class="img-responsive">
+              <p>
+                At NVB, with the help of our mother company Flame Media Works we have ...
+                <br><br>
+                <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+              </p>
+            </div>
+            <div class="col-sm-6 service">
+              <h4>Voice Casting</h4>
+              <img src="{{ STATIC_URL }}images/voice_casting_grey.png" class="img-responsive">
+              <p>
+                Looking for the perfect Nigerian voice for your project, <a href="{% url 'all_clips' %}">search</a> our ...
+                <br><br>
+                <a class="btn btn-primary btn-xs" role="button" href="#">Read more</a>
+              </p>
+            </div>
+          </div><!-- end inner row -->
+        </div>
+      </div><!-- end outer row -->
     </div>
   </div>
 </div>
