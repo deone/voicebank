@@ -6,6 +6,26 @@ from model_utils.managers import PassThroughManager
 
 from datetime import datetime
 
+class Produce(models.Model):
+    BOOL_CHOICES = (
+        (True, 'Yes'),
+        (False, 'No'),
+    )
+    
+    client_name = models.CharField(max_length=50)
+    company_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    country = models.CharField(max_length=50)
+    script = models.TextField()
+    found_preferred_voice = models.BooleanField(choices=BOOL_CHOICES, default=None)
+    want_voice_samples = models.BooleanField(choices=BOOL_CHOICES, default=None)
+    
+    class Meta:
+        verbose_name_plural = "Produce"
+    
+    def __unicode__(self):
+        return '%s - %s' % (self.client_name, self.company_name)
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to="category_pics")

@@ -20,6 +20,24 @@ AGE_GROUP_CHOICES = (
 	('A', 'Adult (16+)'),
 	)
 
+class ProduceForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super(ProduceForm, self).__init__(*args, **kwargs)
+		self.fields['client_name'].label = 'Client Name'
+		self.fields['company_name'].label = 'Company Name'
+		self.fields['found_preferred_voice'].label = 'Have you found a preferred voice on our website?'
+		self.fields['want_voice_samples'].label = 'Do you want us to send you voice samples?'
+		self.fields['client_name'].widget = forms.TextInput(attrs={'class': 'form-control'})
+		self.fields['company_name'].widget = forms.TextInput(attrs={'class': 'form-control'})
+		self.fields['email'].widget = forms.TextInput(attrs={'class': 'form-control'})
+		self.fields['country'].widget = forms.TextInput(attrs={'class': 'form-control'})
+		self.fields['script'].widget = forms.Textarea(attrs={'class': 'form-control', 'rows': 5})
+		self.fields['found_preferred_voice'].widget = forms.RadioSelect(choices=Produce.BOOL_CHOICES)
+		self.fields['want_voice_samples'].widget = forms.RadioSelect(choices=Produce.BOOL_CHOICES)
+	
+	class Meta:
+		model = Produce
+
 class ClipSearchForm(forms.Form):
     # from accounts import calculate_age
     # 'age': calculate_age(request.user.profile.birthday),

@@ -1,8 +1,8 @@
-{% extends "sidebar_base.html" %}
+{% extends "base.html" %}
 
 {% block page_title %}&mdash; Produce{% endblock %}
 
-{% block banner %}
+{% block app %}
 <div class="container-fluid">
   <div class="about-banner row">
     <div class="content">
@@ -10,10 +10,104 @@
     </div>
   </div>
 </div>
-{% endblock %}
 
-{% block main %}
-<div class="page-header">
-  <h1>Please Post Your Job</h1>
+<div class="container">
+  <div class="main row">
+    <div class="col-md-6">
+      <div class="page-header">
+        <h1>Nigerian Voice Bank Production</h1>
+      </div>
+      <p>
+        Nigerian Voice Bank Production (NVB PRODUCTION) is a world class audio production 
+        company operating in Lagos Nigeria with clients from over 10 countries including USA, 
+        UK, South Africa, UAE, Singapore, Lebanon, India etc.
+        <br><br>
+        Working with us is simple, just post your job which is essentially your brief, select 
+        your preferred voice or request for samples, select a talent then book a session which 
+        is the preferred date and time you will like to record.
+        <br><br>
+        You can listen in and direct the session via Skype and have the dry voice sent to you 
+        immediately. Our projects are concluded within 24 to 48 hours.
+        <br><br>
+        Our Production capability includes voice overs, Jingle Production, IVR, Audio books, 
+        Animation, explainer videos etc. we also do Lip Syncing, translation and copywriting.
+        <br><br>
+        Feel free to request a quote today.
+      </p>
+    </div>
+
+    <div class="col-md-6 production">
+      <div class="main-wrap">
+        <form method="post">
+          <div class="page-header">
+            <h2>Please Post Your Job</h2>
+          </div>
+          
+          {% if messages %}
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="messages">
+                  {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+          
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          
+          <div class="form-group">
+            <label for="{{ form.client_name.id_for_label }}">{{ form.client_name.label }}</label>
+            {{ form.client_name.errors }}
+            {{ form.client_name }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.company_name.id_for_label }}">{{ form.company_name.label }}</label>
+            {{ form.company_name.errors }}
+            {{ form.company_name }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            {{ form.email.errors }}
+            {{ form.email }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+            {{ form.country.errors }}
+            {{ form.country }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.script.id_for_label }}">{{ form.script.label }}</label>
+            {{ form.script.errors }}
+            {{ form.script }}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.found_preferred_voice.id_for_label }}">{{ form.found_preferred_voice.label }}</label>
+            {{ form.found_preferred_voice.errors }}
+            {% for radio in form.found_preferred_voice %}
+              <div class="radio">{{ radio }}</div>
+            {% endfor %}
+          </div>
+          
+          <div class="form-group">
+            <label for="{{ form.want_voice_samples.id_for_label }}">{{ form.want_voice_samples.label }}</label>
+            {{ form.want_voice_samples.errors }}
+            {% for radio in form.want_voice_samples %}
+              <div class="radio">{{ radio }}</div>
+            {% endfor %}
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -192,6 +192,10 @@ div[class^="col-md-"] {
   border-right: solid 1px #eee;
 }
 
+.production {
+  border-left: solid 1px #eee;
+}
+
 /* Article */
 /* .article img {
   display: block;

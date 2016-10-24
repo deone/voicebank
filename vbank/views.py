@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404
+from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -20,8 +20,18 @@ GENDER_STRING = {
     'F': 'Women'
     }
     
-def produce(request, template='vbank/produce.html', form=None):
+def produce(request, template='vbank/produce.html', form=ProduceForm):
+    if request.method == 'POST':
+        form = form(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your job post has been submitted successfully.')
+            return redirect('produce')
+    else:
+        form = form()
+    
     return render_to_response(template, {
+        'form': form
         }, context_instance=RequestContext(request))
 
 def clip_search(request, template='vbank/voiceclip_list.html', form=ClipSearchForm):
