@@ -184,6 +184,10 @@ div[class^="col-md-"] {
   margin-bottom: 0;
 }
 
+.about-us .page-header h2 {
+  margin-top: 20px;
+}
+
 .main div[class^="col-md-"] {
   margin-top: 30px;
 }

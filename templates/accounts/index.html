@@ -123,7 +123,7 @@
           <small><a href="{% url 'all_clips' %}">View All Clips</a></small>
         </h3>
       </div>
-      <div style="padding: 1em 1em 0 1em; background: #eee;">
+      <div class="clip-list-wrap">
         {% if voiceclip_list %}
           <ul class="clip-list">
             {% for clip in voiceclip_list %}
@@ -214,18 +214,20 @@
   <div class="about row">
     <div class="col-md-12">
       <h3>About Us</h3>
-      <p>Nigerian Voice Bank is Nigeria's first online voice casting tool.</p>
       <p>
-        The Nigerian Voice Bank is an initiative of Flame Media Works and have been designed to cater 
-        for advertising agencies, theatrical producers, casting agents, and radio and television producers 
-        who require access to an audio database of Nigeria's best voices.
-      </p>
-      <p>The Nigerian Voice Bank desires to create an opportunity for every creative voice talent in Nigeria.</p>
-      <p>
-        The Nigerian Voice Bank is a total voice casting tool where users can easily search for artists using 
-        our simplified and direct search options. Every voice on the voice bank is uploaded under a specific category. 
-        From the search results, users can listen to the artist&apos;s voice clips or download the clips. 
-        Users can also contact voice talent directly and book the artist for the recording if they pick an interest on anyone.
+        We don’t just pride in the fact that we are Nigeria’s first online voice casting site, we are more. 
+        <br>
+        We are a team of creatives, giving life to every script and adding value to every company that collides with us. Our talents are professionals in the act, delivering excellent voice over with the right accents.
+        <br>
+        We go beyond owning the largest online voice over community in Nigeria to being a world class audio Production Company based in Lagos.
+        <br>
+        Our approach to work is global and that is evident in our client base that spans almost every continent in the world with countries such as USA, UK, UAE, Singapore, Lebanon, France and South Africa. 
+        <br>
+        From our creative Den in Lagos we have left our voice prints on brands like Milo, Zoom, HP, Dettol, GE, Panadol, Glo Caf Awards to mention a few.
+        <br>
+        We produce, translate, copy write, localize and even lip sync.
+        <br>
+        That’s who we are. So, how can we be of help to you.
       </p>
       <a class="btn btn-primary btn-xs" role="button" href="{% url 'about' %}">Continue reading</a>
     </div>
