@@ -347,7 +347,18 @@ form .row .col-md-12 {
 }
 
 .services .col-md-2 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .services .col-md-2 {
+    float: left;
+    width: 20.000000004%;
+  }
 }
 
 .service p,
