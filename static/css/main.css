@@ -82,9 +82,14 @@ h1, h2, h3 {
   padding-bottom: 19px;
 }
 
-.banner,
+.main-actions,
 div[class^="col-md-"] {
   margin-bottom: 30px;
+}
+
+.main-actions {
+  background: #eee;
+  padding-top: 30px;
 }
 
 .main-actions .col-md-4 .btn {

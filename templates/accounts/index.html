@@ -44,19 +44,23 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="main-actions row">
-    <div class="col-md-4">
-      <a href="{% url 'all_clips' %}" class="btn btn-lg btn-primary" role="button">Find Voices</a>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'join' %}" class="btn btn-lg btn-primary" role="button">Sign Up <sup>It's Free!</sup></a>
-    </div>
-    <div class="col-md-4">
-      <a href="{% url 'produce' %}" class="btn btn-lg btn-primary" role="button">Produce</a>
+    <div class="container">
+      <div class="col-md-4">
+        <a href="{% url 'all_clips' %}" class="btn btn-lg btn-primary" role="button">Find Voices</a>
+      </div>
+      <div class="col-md-4">
+        <a href="{% url 'join' %}" class="btn btn-lg btn-primary" role="button">Sign Up <sup>It's Free!</sup></a>
+      </div>
+      <div class="col-md-4">
+        <a href="{% url 'produce' %}" class="btn btn-lg btn-primary" role="button">Produce</a>
+      </div>
     </div>
   </div>
+</div>
 
+<div class="container">
   <div class="row">
     <div class="col-md-9">
       <div class="clients">
@@ -216,17 +220,23 @@
       <h3>About Us</h3>
       <p>
         We don’t just pride in the fact that we are Nigeria’s first online voice casting site, we are more. 
-        <br>
+      </p>
+      <p>
         We are a team of creatives, giving life to every script and adding value to every company that collides with us. Our talents are professionals in the act, delivering excellent voice over with the right accents.
-        <br>
+      </p>
+      <p>
         We go beyond owning the largest online voice over community in Nigeria to being a world class audio Production Company based in Lagos.
-        <br>
+      </p>
+      <p>
         Our approach to work is global and that is evident in our client base that spans almost every continent in the world with countries such as USA, UK, UAE, Singapore, Lebanon, France and South Africa. 
-        <br>
+      </p>
+      <p>
         From our creative Den in Lagos we have left our voice prints on brands like Milo, Zoom, HP, Dettol, GE, Panadol, Glo Caf Awards to mention a few.
-        <br>
+      </p>
+      <p>
         We produce, translate, copy write, localize and even lip sync.
-        <br>
+      </p>
+      <p>
         That’s who we are. So, how can we be of help to you.
       </p>
       <a class="btn btn-primary btn-xs" role="button" href="{% url 'about' %}">Continue reading</a>
