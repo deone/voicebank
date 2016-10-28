@@ -262,6 +262,10 @@ div[class^="col-md-"] {
   padding-top: 28px;
 }
 
+.voiceclips .col-md-4 {
+  padding-top: 20px;
+}
+
 .voiceclips .col-md-8 {
   background: #eee;
 }
