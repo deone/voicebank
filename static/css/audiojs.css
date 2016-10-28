@@ -26,7 +26,8 @@
 
 .audiojs .scrubber {
   background: #5a5a5a;
-  width: 44.3%;
+  /* width: 44.3%; */
+  width: 37%;
   margin: 5px;
 }
 
@@ -50,6 +51,7 @@
 
 .audiojs .time {
   float: left;
+  font-size: 85%;
 }
 
 .audiojs .error-message {
