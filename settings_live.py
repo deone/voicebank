@@ -18,7 +18,5 @@ STATICFILE_DIRS = (
 )
 STATIC_ROOT = os.path.join(PROJECT_DIR, "../../../nvb_static")
 
-# ALLOWED_HOSTS = ['www.nigerianvoicebank.com', 'nigerianvoicebank.com']
-# SITE_URL = 'http://nigerianvoicebank.com'
-ALLOWED_HOSTS = ['deone.webfactional.com']
-SITE_URL = 'http://deone.webfactional.com'
+ALLOWED_HOSTS = ['www.nigerianvoicebank.com', 'nigerianvoicebank.com']
+SITE_URL = 'http://nigerianvoicebank.com'
