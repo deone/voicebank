@@ -41,6 +41,8 @@ def profile_edit(request, template='accounts/profile_edit.html', form=UserProfil
 	    'user': request.user.id, 
 	    'first_name': request.user.first_name,
 	    'last_name': request.user.last_name,
+	    'gender': request.user.profile.gender,
+	    'birthday': request.user.profile.birthday,
 	    'about': request.user.profile.about,
 	    'skills': request.user.profile.skills,
 	    'experience': request.user.profile.experience,

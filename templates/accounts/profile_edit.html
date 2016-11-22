@@ -4,8 +4,25 @@
 
 {% load thumbnail %}
 
+{% block pagecss %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-theme.css">
+{% endblock %}
+
 {% block pagejs %}
 <script src="//cdn.rawgit.com/imsky/holder/master/holder.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $('#datepicker').datepicker({
+      showOn: "both",
+      buttonImage: "{{ STATIC_URL }}images/calendar.png",
+      changeMonth: true,
+      changeYear: true,
+      // dateFormat: 'dd/mm/yyyy',
+      yearRange: '-50:-10'
+    });
+  });
+</script>
 {% endblock %}
 
 {% block main %}
@@ -76,7 +93,25 @@
         <span class="help-text">{{ form.last_name.help_text }}</span>
       </div>
     </div>
+    
+    <div class="form-group">
+      {{ form.gender.errors }}
+      <label for="{{ form.gender.id_for_label }}" class="col-sm-3 control-label">{{ form.gender.label }}</label>
+      <div class="col-sm-9">
+        {{ form.gender }}
+        <span class="help-text">{{ form.gender.help_text }}</span>
+      </div>
+    </div>
 
+    <div class="form-group">
+      {{ form.birthday.errors }}
+      <label for="{{ form.birthday.id_for_label }}" class="col-sm-3 control-label">{{ form.birthday.label }}</label>
+      <div class="col-sm-9">
+        {{ form.birthday }}
+        <span class="help-text">{{ form.birthday.help_text }}</span>
+      </div>
+    </div>
+    
     <div class="form-group">
       {{ form.about.errors }}
       <label for="{{ form.about.id_for_label }}" class="col-sm-3 control-label">{{ form.about.label }}</label>
