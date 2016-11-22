@@ -76,8 +76,7 @@ class UserProfileForm(forms.Form):
     first_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'class': 'form-control'}))
     gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
-    # birthday = forms.DateField(('%d/%m/%Y',), widget=forms.DateInput(attrs={'id': 'datepicker', 'class': 'form-control'}))
-    birthday = forms.DateField(widget=forms.DateInput(attrs={'id': 'datepicker', 'class': 'form-control'}))
+    birthday = forms.DateField(('%d/%m/%Y',), widget=forms.DateInput(attrs={'id': 'datepicker', 'class': 'form-control'}))
     about = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class': 'form-control'}), required=False)
     skills = forms.CharField(max_length=100, help_text="Enter multiple skills as\
 	    comma-separated values e.g. Broadcasting, Producing.",
