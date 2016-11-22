@@ -500,4 +500,8 @@ form .row .col-md-12 {
   padding: .5em 0 .5em .5em;
 }
 
-/* No Bottom Margin */
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+  font-size: large;
+}
