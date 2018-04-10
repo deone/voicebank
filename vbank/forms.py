@@ -36,6 +36,7 @@ class ProduceForm(forms.ModelForm):
 	
 	class Meta:
 		model = Produce
+		exclude = ('date_created',)
 
 class ClipSearchForm(forms.Form):
     # from accounts import calculate_age

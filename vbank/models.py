@@ -20,6 +20,7 @@ class Produce(models.Model):
     found_preferred_voice = models.BooleanField(choices=BOOL_CHOICES, default=None)
     want_voice_samples = models.BooleanField(choices=BOOL_CHOICES, default=None)
     phone_number = models.CharField(max_length=20)
+    date_created = models.DateTimeField(default=datetime.now)
     
     class Meta:
         verbose_name_plural = "Produce"
