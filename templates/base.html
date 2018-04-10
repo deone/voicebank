@@ -37,6 +37,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="nvb-navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
+            {% block post_a_job %}
+              <li>
+                <a style="color: red" href="{% url 'produce' %}">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Post A Job
+                </a>
+              </li>
+            {% endblock %}
+
             {% block about %}
               <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> About Us</a></li>
             {% endblock %}
@@ -46,7 +54,7 @@
             {% endblock %}
 
             {% block blog %}
-            <li><a href="{% url 'blog' %}"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Blog</a></li>
+            <!-- <li><a href="{% url 'blog' %}"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Blog</a></li> -->
             {% endblock %}
 
             {% block phone_number %}
