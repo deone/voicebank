@@ -23,11 +23,10 @@ AGE_GROUP_CHOICES = (
 class ProduceForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 		super(ProduceForm, self).__init__(*args, **kwargs)
-		self.fields['client_name'].label = 'Client Name'
-		self.fields['company_name'].label = 'Company Name'
 		self.fields['found_preferred_voice'].label = 'Have you found a preferred voice on our website?'
 		self.fields['want_voice_samples'].label = 'Do you want us to send you voice samples?'
 		self.fields['client_name'].widget = forms.TextInput(attrs={'class': 'form-control'})
+		self.fields['phone_number'].widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. +2348020000011'})
 		self.fields['company_name'].widget = forms.TextInput(attrs={'class': 'form-control'})
 		self.fields['email'].widget = forms.TextInput(attrs={'class': 'form-control'})
 		self.fields['country'].widget = forms.TextInput(attrs={'class': 'form-control'})
