@@ -169,20 +169,11 @@
     
     <div class="article col-md-4">
       <div class="post">
-        <div class="image">
-          {% thumbnail article.image "100x100" crop="center" as ai %}
-            <a href="{{ article.get_absolute_url }}">
-              <img src="{{ ai.url }}" height="{{ ai.height }}" class="img-responsive">
-            </a>
-          {% endthumbnail %}
-        </div>
-        <div class="text">
-          <a href="{{ article.get_absolute_url }}">
-            <h3>{{ article.title }}</h3>
-          </a>
-          <p>{{ article.summary }}</p>
-        </div>
-        <div style="clear: both"></div>
+        <h3>Join Our Community</h3>
+        <p>
+          Join Nigeria&apos;s largest online community. Click here to create your profile and upload your demo. Let&apos;s make your voice heard.<br/><br/>
+          <a href="{% url 'join' %}" class="btn btn-primary">Sign Up</a>
+        </p>
       </div>
       
       <div class="testimonials row">
