@@ -88,15 +88,16 @@ div[class^="col-md-"] {
 }
 
 .main-actions {
-  background: #eee;
   padding-top: 30px;
 }
 
-.main-actions .col-md-4 .btn {
-  width: 100%;
+.main-actions .col-md-3 h4 {
   font-weight: bold;
-  padding: 25px 0;
-  font-size: 200%;
+}
+
+.main-actions .col-md-3 img {
+  width: 120px;
+  height: 120px;
 }
 
 .profile-pic {

@@ -44,18 +44,38 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
+  <div class="row text-center">
+    <h3>How It Works</h3>
+  </div>
   <div class="main-actions row">
-    <div class="container">
-      <div class="col-md-4">
-        <a href="{% url 'all_clips' %}" class="btn btn-lg btn-primary" role="button">Find Voices</a>
-      </div>
-      <div class="col-md-4">
-        <a href="{% url 'join' %}" class="btn btn-lg btn-primary" role="button">Sign Up <sup>It's Free!</sup></a>
-      </div>
-      <div class="col-md-4">
-        <a href="{% url 'produce' %}" class="btn btn-lg btn-primary" role="button">Produce</a>
-      </div>
+    <div class="col-md-3 text-center">
+      <img src="{{ STATIC_URL }}images/sign_up.png">
+      <h4>Sign Up</h4>
+      <p>
+        Sign up in less than 2 minutes to access our world-class productions or join Nigeria&apos;s largest online voiceover community.
+      </p>
+    </div>
+    <div class="col-md-3 text-center">
+      <img src="{{ STATIC_URL }}images/find_voices.png">
+      <h4>Find Voices</h4>
+      <p>
+        Search our databank to find the perfect voice for your project or ask our team to recommend.
+      </p>
+    </div>
+    <div class="col-md-3 text-center">
+      <img src="{{ STATIC_URL }}images/post_a_job.png">
+      <h4>Post A Job</h4>
+      <p>
+        Use our quick template to provide a description of your project.
+      </p>
+    </div>
+    <div class="col-md-3 text-center">
+      <img src="{{ STATIC_URL }}images/download.png">
+      <h4>Download</h4>
+      <p>
+        Download finished work. It takes 24 to 48 hours to start and finish a project. After which you can send us hugs.
+      </p>
     </div>
   </div>
 </div>
