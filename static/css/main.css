@@ -105,6 +105,11 @@ div[class^="col-md-"] {
   width: 20.9%;
 }
 
+.testimonials h3 {
+  margin: 0;
+  margin: 10px;
+}
+
 .testimonials .holder {
   padding: 10px;
   background: #f2f2f2;
