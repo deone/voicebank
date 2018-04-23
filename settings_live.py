@@ -20,3 +20,8 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, "../../../nvb_static")
 
 ALLOWED_HOSTS = ['www.nigerianvoicebank.com', 'nigerianvoicebank.com']
 SITE_URL = 'http://nigerianvoicebank.com'
+
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_HOST_USER = 'deone'
+EMAIL_HOST_PASSWORD = '@dune369'
+SERVER_EMAIL = 'noreply@nigerianvoicebank.com'
