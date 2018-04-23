@@ -39,34 +39,30 @@ class UserJoinForm(forms.Form):
     birthday = forms.DateField(('%d/%m/%Y',), widget=forms.DateInput(attrs={'id': 'datepicker', 'class': 'form-control'}))
 
     def clean_email(self):
-	if self.cleaned_data['email'] in [obj.email for obj in
-		User.objects.all()]:
-	    raise forms.ValidationError("Email belongs to another user.")
+        if self.cleaned_data['email'] in [obj.email for obj in User.objects.all()]:
+            raise forms.ValidationError("Email belongs to another user.")
 	
-	return self.cleaned_data['email']
+        return self.cleaned_data['email']
 
     def save(self):
-	username = self.cleaned_data['email']
-	email = self.cleaned_data['email']
-	password = self.cleaned_data['password']
-	first_name = self.cleaned_data['first_name']
-	last_name = self.cleaned_data['last_name']
-	gender = self.cleaned_data['gender']
-	birthday = self.cleaned_data['birthday']
+        username = self.cleaned_data['email']
+        email = self.cleaned_data['email']
+        password = self.cleaned_data['password']
+        first_name = self.cleaned_data['first_name']
+        last_name = self.cleaned_data['last_name']
+        gender = self.cleaned_data['gender']
+        birthday = self.cleaned_data['birthday']
 
-	user = User.objects.create_user(username, email, password)
-	user.first_name = first_name
-	user.last_name = last_name
-	user.save()
+        email_id = email.split('@')[0]
+        rand_alphanum = "".join(random.sample('%s%s' % (string.lowercase, string.digits), 4))
+        slug = '%s%s' % (email_id, rand_alphanum)
 
-	email_id = user.email.split('@')[0]
-	rand_alphanum = "".join(random.sample('%s%s' % (string.lowercase,
-	    string.digits), 4))
+        user = User.objects.create_user(username, email, password)
+        profile = Profile.objects.create(user=user, slug=slug, gender=gender, birthday=birthday)
 
-	slug = '%s%s' % (email_id, rand_alphanum)
-
-	profile = Profile.objects.create(user=user, slug=slug, gender=gender,
-		birthday=birthday)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
 
         return user
 
