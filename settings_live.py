@@ -23,5 +23,5 @@ SITE_URL = 'http://nigerianvoicebank.com'
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = 'deone'
-EMAIL_HOST_PASSWORD = '@dune369'
+EMAIL_HOST_PASSWORD = os.environ['VOICEBANK_DB_PASSWORD']
 SERVER_EMAIL = 'noreply@nigerianvoicebank.com'
