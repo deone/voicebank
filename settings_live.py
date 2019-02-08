@@ -20,7 +20,7 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, "../../../nvb_static")
 
 ALLOWED_HOSTS = [
     'www.nigerianvoicebank.com',
-    'nigerianvoicebank.com'
+    'nigerianvoicebank.com',
     'www.nvb.ng',
     'nvb.ng'
 ]
