@@ -22,7 +22,9 @@ ALLOWED_HOSTS = [
     'www.nigerianvoicebank.com',
     'nigerianvoicebank.com',
     'www.nvb.ng',
-    'nvb.ng'
+    'nvb.ng',
+    'www.africanvo.com',
+    'africanvo.com',
 ]
 SITE_URL = 'http://nigerianvoicebank.com'
 
