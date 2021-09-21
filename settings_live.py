@@ -7,7 +7,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nvb_voicebank',
 	    'USER': 'deone_voicebank',
-        'PASSWORD': 'v01ce',
+        'PASSWORD': 'yR5LIuqdKp6sY5J',
         'HOST': '',
         'PORT': '',
     }
@@ -27,8 +27,3 @@ ALLOWED_HOSTS = [
     'africanvo.com',
 ]
 SITE_URL = 'http://nigerianvoicebank.com'
-
-EMAIL_HOST = 'smtp.webfaction.com'
-EMAIL_HOST_USER = 'deone'
-EMAIL_HOST_PASSWORD = os.environ['DEONE_MAILBOX_PASSWORD']
-SERVER_EMAIL = 'noreply@nigerianvoicebank.com'
